@@ -1,0 +1,1 @@
+- `slice/probe-report-lint` · ideas/fleet + scripts/ · expected files: `ideas/fleet/probe-report-lint-2026-07-10.md`, `ideas/fleet/README.md`, `scripts/check_ideas.py`, `.sessions/2026-07-10-probe-report-lint.md`, `control/status.md` · 2026-07-10
