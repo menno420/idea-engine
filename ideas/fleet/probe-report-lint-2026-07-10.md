@@ -106,3 +106,12 @@ the script's correctness is settled by running it, which this PR does), so per t
 shortcut the state advances to `historical(<this PR>)` on merge. Proposal deferred —
 outbox backpressure (moot here: built-here routes nothing to the outbox by design, and
 outbox depth is 3 with zero sim-lab pulls, so no proposal is appended either way).
+
+## Extension note (2026-07-10, PR #13 — appended, probe report and state untouched)
+
+The probe's Q2 coverage axis ("outbox↔idea link integrity later") shipped as its own
+slice: `scripts/check_ideas.py --outbox` (PR #13) validates `control/outbox.md` PROPOSAL
+blocks against the README § The outbox grammar, resolves every `idea:` link to an
+existing `sim-ready` (or `historical(…)`) idea file, and flags unproposed `sim-ready`
+ideas. State stays `historical(#11)` — this note records the extension only (the trail
+is the product); slice card: `.sessions/2026-07-10-outbox-check.md`.
