@@ -1,1 +1,0 @@
-- `seed-substrate-kit-ideas-2026-07-10` · section `ideas/substrate-kit/` · expected files: `ideas/substrate-kit/*.md` (first idea batch + README index), `.sessions/2026-07-10-substrate-kit-first-batch.md`, `control/status.md` (heartbeat, last step) · 2026-07-10
