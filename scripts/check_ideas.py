@@ -16,6 +16,20 @@ Lints every idea file against the README idea grammar (README § Idea file gramm
 - HALF-PROBE   — state claims `probed`/`sim-ready` but the file has no probe report.
 - LINK-INDEX   — a harvested link-index entry (declares a canonical idea elsewhere)
                  without a canonical `https://github.com/…` link.
+- GROUNDING    — a `> **Grounding:**` optional header line (README § Idea file
+                 grammar, blessed by PR #21) present but malformed: must be
+                 `> **Grounding:** <url>@<sha> · fetched <ISO time>` with an
+                 optional ` (manifest row: behind|matches|ahead)` suffix.
+- SEQUENCE     — a `> **Sequence:**` optional header line present but malformed:
+                 must be `> **Sequence:** <before|after|behind> <event/order/claim>`.
+
+The two optional-line checks fire only where the line is present (the lines are
+forward-only — retrofit never required). Severity is date-gated on the filename's
+YYYY-MM-DD: files dated strictly AFTER the grammar bless date (PR #21 merged
+2026-07-10) get a hard violation; files dated on-or-before it — the bless day
+itself is ambiguous, PR #21 merged mid-day — and files without a parseable date
+get an advisory WARN that never affects the exit code (legacy files are not
+churned; the debt is reported, not enforced).
 
 `--outbox` switches to outbox↔ideas link-integrity mode (README § The outbox) and
 validates `control/outbox.md` against the tree instead:
@@ -76,6 +90,28 @@ CANONICAL_LINK_RE = re.compile(
     r"https://(?:github\.com|raw\.githubusercontent\.com)/\S+"
 )
 
+# Optional header lines (README § Idea file grammar — the PR #21 bless; same loud
+# co-edit rule as above). Checked only where present: a line that *carries* the bold
+# label is held to the blessed byte-form; a file without the line passes untouched
+# (forward-only — retrofit never required). `## Grounding` heading sections are a
+# different, older construct and are deliberately NOT matched here.
+OPTIONAL_LABEL_RE = re.compile(r"^\s*(?:>\s*)?\*\*(Grounding|Sequence):\*\*\s?(.*)$")
+GROUNDING_PREFIX = "> **Grounding:** "
+SEQUENCE_PREFIX = "> **Sequence:** "
+GROUNDING_BODY_RE = re.compile(
+    r"^https?://\S+@[0-9a-fA-F]{7,40}"                       # <url>@<sha>
+    r" · fetched \d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2})?Z?)?"  # · fetched <ISO time>
+    r"(?: \(manifest row: (?:behind|matches|ahead)\))?$"     # optional staleness flag
+)
+SEQUENCE_BODY_RE = re.compile(r"^(?:before|after|behind) \S.*$")
+# Severity date-gate: the optional-line grammar was blessed by PR #21 (merged
+# 2026-07-10). Files whose filename date is strictly AFTER that date must conform
+# (hard violation); the bless day itself is ambiguous (PR #21 merged mid-day), so
+# on-or-before — and filenames without a parseable date — WARN only (advisory,
+# never exit-affecting; legacy files are reported as debt, never churned).
+OPTIONAL_LINE_GRAMMAR_DATE = "2026-07-10"
+FILENAME_DATE_RE = re.compile(r"-(\d{4}-\d{2}-\d{2})\.md$")
+
 # Outbox grammar constants (README § The outbox — same co-edit rule as above).
 PROPOSAL_HEADING_RE = re.compile(r"^## PROPOSAL .*$", re.MULTILINE)
 LEGAL_PROPOSAL_HEADING_RE = re.compile(
@@ -94,6 +130,41 @@ SIM_READY_STATE = "sim-ready"
 LINKED_STATE_OK_RE = re.compile(r"^(?:sim-ready$|historical\()")
 
 
+def optional_lines_hard(name: str) -> bool:
+    """True when a malformed optional line is a hard violation for this file:
+    the filename date is strictly after the PR #21 grammar bless date. Undated
+    or on-or-before dated filenames stay advisory (WARN)."""
+    m = FILENAME_DATE_RE.search(name)
+    return bool(m) and m.group(1) > OPTIONAL_LINE_GRAMMAR_DATE
+
+
+def check_optional_lines(text: str, rel: str) -> list[str]:
+    """Shape-check `> **Grounding:**` / `> **Sequence:**` lines where present.
+    Returns bare messages; the caller assigns severity via optional_lines_hard()."""
+    msgs: list[str] = []
+    for lineno, line in enumerate(text.splitlines(), 1):
+        m = OPTIONAL_LABEL_RE.match(line)
+        if not m:
+            continue
+        label, prefix = m.group(1), (
+            GROUNDING_PREFIX if m.group(1) == "Grounding" else SEQUENCE_PREFIX
+        )
+        tag = f"{label.upper():<10} {rel}:{lineno}"
+        if not line.startswith(prefix):
+            msgs.append(f"{tag}: not a `{prefix}…` blockquote line")
+            continue
+        body = line[len(prefix):].rstrip()
+        if label == "Grounding":
+            if not GROUNDING_BODY_RE.match(body):
+                msgs.append(
+                    f"{tag}: not `<url>@<sha> · fetched <ISO time>"
+                    f"[ (manifest row: behind|matches|ahead)]`"
+                )
+        elif not SEQUENCE_BODY_RE.match(body):
+            msgs.append(f"{tag}: not `<before|after|behind> <event/order/claim>`")
+    return msgs
+
+
 def first_state(text: str) -> str | None:
     for line in text.splitlines():
         m = STATE_LINE_RE.match(line)
@@ -102,8 +173,10 @@ def first_state(text: str) -> str | None:
     return None
 
 
-def lint_file(path: Path, rel: str) -> list[str]:
+def lint_file(path: Path, rel: str) -> tuple[list[str], list[str]]:
+    """Returns (problems, warnings) — problems red the run, warnings are advisory."""
     problems: list[str] = []
+    warnings: list[str] = []
     if not FILENAME_RE.match(path.name):
         problems.append(f"FILENAME   {rel}: not <slug>-YYYY-MM-DD.md")
 
@@ -140,7 +213,10 @@ def lint_file(path: Path, rel: str) -> list[str]:
     if CANONICAL_MARKER in text and not CANONICAL_LINK_RE.search(text):
         problems.append(f"LINK-INDEX {rel}: declares a canonical idea but carries no canonical GitHub link")
 
-    return problems
+    opt = check_optional_lines(text, rel)
+    (problems if optional_lines_hard(path.name) else warnings).extend(opt)
+
+    return problems, warnings
 
 
 def check_outbox(outbox_path: Path, ideas_dir: Path) -> list[str] | int:
@@ -248,15 +324,22 @@ def main() -> int:
         return 2
 
     problems: list[str] = []
+    warnings: list[str] = []
     for path in files:
-        problems.extend(lint_file(path, str(path.relative_to(ideas_dir.parent))))
+        p, w = lint_file(path, str(path.relative_to(ideas_dir.parent)))
+        problems.extend(p)
+        warnings.extend(w)
 
+    for w in warnings:  # advisory only — legacy optional-line debt, never exit-affecting
+        print(f"warn: {w}")
     for p in problems:
         print(p)
     if problems:
-        print(f"check_ideas: FAIL — {len(problems)} violation(s) across {len(files)} idea files")
+        print(f"check_ideas: FAIL — {len(problems)} violation(s) across {len(files)} idea files"
+              + (f" (+{len(warnings)} warning(s), advisory)" if warnings else ""))
         return 1
-    print(f"check_ideas: OK — {len(files)} idea files conform to the README grammar")
+    print(f"check_ideas: OK — {len(files)} idea files conform to the README grammar"
+          + (f" ({len(warnings)} warning(s), advisory)" if warnings else ""))
     return 0
 
 
