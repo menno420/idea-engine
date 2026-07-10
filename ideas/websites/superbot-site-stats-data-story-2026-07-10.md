@@ -184,3 +184,31 @@ data explorer) carry no auth surface, are already pattern-proven in the live
 websites↔superbot committed-feed stack, and should be routed to the websites lane by the
 manager WITHOUT waiting on the sim verdict — that split is sequencing inside this one
 idea (§3's risk ladder), not separate states.
+
+## Sim verdict (2026-07-10)
+
+sim-lab **VERDICT 003 · finalized 22:15Z · needs-more-evidence, ruling
+buildable-with-named-changes** (= this repo's PROPOSAL 002 — numbering cross recorded on
+`.sessions/2026-07-10-sim-verdicts-fanin.md`). SETTLED: the six §5 controls, implemented
+as the spike's reference set, defeat 13 concrete attacks reproducibly across 5 seeds
+(scope server-authoritative + fail-closed on over-scoped grant + exact-match redirect
+allow-list; Discord token discarded — session holds only user_id+guild_ids+issued_at, no
+refresh/offline; server-side single-use state bound to the browser session; code
+single-use + PKCE S256; IDOR blocked by session identity + cross-server guild block;
+token-bucket rate limit bounded across the full 3×3 sweep). NAMED CHANGES before phase 3
+builds: (1) promote §5 from a checklist to that concrete control set, adding
+Secure+HttpOnly+SameSite cookies + HSTS + TLS-only; (2) fix HOLE-1 stale guild
+membership — a cached session reads a server the user LEFT → per-request membership
+re-check or short session TTL; (3) fix HOLE-2 `guilds` over-read — the full guild list is
+returned when only the viewed server is needed → check only that server, don't retain the
+list; (4) route the §4 superbot read-only API as a superbot-lane ORDER FIRST — it is
+UNBUILT AND UNROUTED (the hard blocker: phase 3 deadlocks regardless of this verdict, and
+the API needs its own trust verification). LAUNCH LIVE TESTS close the JUDGMENT-ONLY
+items (live Discord IdP behavior, TLS/MITM, Railway secrets, pre-auth IP-keying, live
+IDOR probes). Phases 1–2 (story page, data explorer) carry NO auth surface and do NOT
+wait on this. Source:
+[sim-lab `control/outbox.md` VERDICT 003 @ `8713f26`](https://github.com/menno420/sim-lab/blob/8713f261c99634156dd6facda03e396b888a9e8a/control/outbox.md)
+(gate PASS on the executed spike claims; evidence: prototype + JUDGMENT-ONLY, rung 2 —
+13 attacks, 5 seeds, 268 self-checks; the JUDGMENT-ONLY items are labelled hypotheses,
+not evidence). State stays `sim-ready` — the grammar has no post-verdict state;
+`historical(<merged PR>)` is a build-time move (post-verdict routing is the manager's).
