@@ -2,7 +2,7 @@
 
 > **State:** parked(build-direct — a deterministic lane-harness slice the lane's own CI proves end-to-end on merge; no parameter/design question left for sim-lab to settle; manager routes it to the lane directly)
 > **Class:** process · **Target:** `menno420/gba-homebrew`
-> **Grounding:** https://github.com/menno420/gba-homebrew @ bc73da70b5e46995dc63319cfd4b3bf997a886c9 (capture pin), re-checked live @ `bc73da7` — HEAD UNCHANGED since capture (`git ls-remote refs/heads/main`, 2026-07-10T21:45Z) · fetched 2026-07-10T21:46Z (manifest row: behind — superbot@`655e0fe` row records lane HEAD `b607365` + kit v1.6.0 vs real HEAD `bc73da7` + v1.7.0 tree)
+> **Grounding:** https://github.com/menno420/gba-homebrew@bc73da70b5e46995dc63319cfd4b3bf997a886c9 · fetched 2026-07-10T21:46Z (manifest row: behind)
 > **Sequence:** before the ORDER 001 concept pick converts to a game-2 harness transfer — window OPEN at probe time (the pick is still the lane's ⚑ needs-owner @ `bc73da7`; fixing the offset class pre-transfer fixes it once, not per-game)
 
 ## Problem
