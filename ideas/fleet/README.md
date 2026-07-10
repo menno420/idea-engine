@@ -8,3 +8,6 @@
 - [`section-sync-checker-2026-07-10.md`](section-sync-checker-2026-07-10.md) — manifest-derived
   section sync checker · historical(#2): probed + built in the same PR
   (`scripts/check_sections.py`); origin: seed card 💡
+- [`probe-report-lint-2026-07-10.md`](probe-report-lint-2026-07-10.md) — idea-grammar lint
+  for the ideas tree · probed + built in the same PR (`scripts/check_ideas.py`); origin:
+  first-probe card 💡
