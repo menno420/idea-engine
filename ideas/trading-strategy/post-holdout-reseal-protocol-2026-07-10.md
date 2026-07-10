@@ -2,7 +2,8 @@
 
 > **State:** parked(overtaken-by-events — P5 ran 2026-07-10T16:47Z before any pre-registration could land; successor protocol is owner-gated per p5-holdout-protocol §6 and carried by the lane's own paper-lane standing mission)
 > **Class:** process · **Target:** `menno420/trading-strategy`
-> **Grounding:** https://github.com/menno420/trading-strategy @ e713abb125766db2b1562980369a11290b8772b9 (capture pin), re-checked live @ d0fc23b23969256df4bc9c4104b7d523ef6b3495 · fetched 2026-07-10T21:32Z (manifest row: behind — superbot@655e0fe row still reads "ORDER 007 … in flight; holdout SEALED"; lane reality is 008 done, holdout SPENT)
+> **Grounding:** https://github.com/menno420/trading-strategy@e713abb125766db2b1562980369a11290b8772b9 · fetched 2026-07-10T21:32Z (manifest row: behind)
+> *(pin annotation: capture pin; re-checked live @ d0fc23b23969256df4bc9c4104b7d523ef6b3495 same fetch; manifest-row detail: superbot@655e0fe row still reads "ORDER 007 … in flight; holdout SEALED" — lane reality is 008 done, holdout SPENT)*
 > **Sequence:** before trading-strategy ORDER 008 (P5 one-shot evaluation) — **EXPIRED**: P5 executed 2026-07-10T16:47Z (run stamps `20260710T1647*`, lane PR #37, merge `ffdd6f6`) before this probe ran; the constraint can no longer be met.
 
 ## Problem
