@@ -1,0 +1,1 @@
+- `build/open-work-preflight-sweep` · ideas/fleet (capture+probe+build: open-work-preflight-sweep) + scripts/preflight.py sixth CHECKS entry · expected files: ideas/fleet/open-work-preflight-sweep-2026-07-10.md, ideas/fleet/README.md, scripts/preflight.py, .sessions/2026-07-10-open-work-preflight-sweep.md, control/status.md · 2026-07-10
