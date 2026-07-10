@@ -1,6 +1,6 @@
 # Wake-preflight wrapper — one command for the whole preflight ritual
 
-> **State:** park(built-here — `scripts/preflight.py`, this PR)
+> **State:** historical(#16 — probed + built in the same PR, `scripts/preflight.py`)
 > **Class:** process · **Target:** `menno420/idea-engine` (this repo's own wake ritual — built here, see report Q7)
 
 **Origin:** the PR #2 session card's 💡 (`.sessions/2026-07-10-section-sync-checker.md`
