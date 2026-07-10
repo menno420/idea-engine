@@ -1,9 +1,9 @@
-# Session — host-seam conformance stub probe (superbot-games): battery v0
+# Session — host-seam conformance stub probe (superbot-games): battery v0 → park(build-direct, sequenced)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-10 (dispatched by the continuous-mode coordinator per Q-0265)
 
-## What this session is doing
+## What this session did
 
 Probing `ideas/superbot-games/host-seam-conformance-stub-2026-07-10.md` through battery
 v0 (single-pass — README panel default per sim-lab VERDICT 002: no repeat-disagreement
@@ -25,7 +25,14 @@ before merge. Close-out fills outcomes below.
 
 ## 💡 Session idea
 
-*(filled at close-out)*
+A **foreign-order dependency token in the Sequence grammar**: this probe's blocking
+dependency is another repo's inbox order (superbot-next ORDER 002 item 4), expressible
+today only as prose inside the `> **Sequence:**` body. Bless a machine-readable token
+form — e.g. `after superbot-next#ORDER-002` — that `check_ideas.py` recognizes, and the
+manager's nudge list falls out of lint: one grep surfaces every idea in the tree blocked
+on a given foreign order, exactly the fan-in the :30 sweep currently reassembles from
+heartbeat prose. Grooming-round-3 seed; pairs with the PR #41 card's post-verdict
+state-grammar gap.
 
 ## ⟲ Previous-session review
 
@@ -44,4 +51,33 @@ host seam's shape — this probe has to settle that ownership question explicitl
 
 ## Outcomes
 
-*(filled at close-out)*
+Verdict: **park(build-direct — sequenced)** — no reproducible-evidence question for
+sim-lab (the uncertainty is contract OWNERSHIP and timing, settled by routing): the
+seam's shape is superbot-next's ORDER 002 item 4 to define, so a games-invented stub
+today would be a second source of truth guessing the host's shape — the buildable slice
+is a schema-MIRROR host stub + package conformance test in superbot-games AFTER the
+host's contract doc lands, bundled BEHIND the PR #39-routed encounter-contract slice on
+the same claim-first `games/shared/**` path and gen-2 boot, its fake reward seam
+deferring to (never redefining) that contract's payload-INTENTS rule. State advanced
+forward-only captured → parked; blessed Grounding ×2 (superbot-games @ `b134961`,
+manifest row: behind — the datapoint-ELEVEN staleness persists; superbot-next @
+`c3f7a02`) + a Sequence line pinning the ordering; capture's "seams exist only as
+prose" honestly flagged as partially stale (the encounter seam is executable @
+`b134961`). NO proposal appended (outbox stays at 5, all pulled). Claim
+`claims/superbot-games-host-seam-probe.md` taken first commit, cleared in the close-out
+commit. Preflight (6 checks) + `python3 bootstrap.py check --strict` green before push;
+landed per README § Landing conventions (PR READY, merge-on-green).
+
+## Handoff → next wake
+
+Inbox first (verified empty at origin/main `528f045` at branch time). The
+superbot-games section is now FULLY probed-or-parked on its captured heads except
+`ci-collection-parity-guard` and `gen2-boot-pack-kit-upgrade-lane-adopt` — both
+gen-2-boot-adjacent, and this probe's Sequence finding (one `games/shared/**` claim,
+ordered slices, all riding the same externally-fired boot) is direct input to either.
+Manager fan-in for this verdict is on the heartbeat: nudge superbot-next ORDER 002
+item 4 (or extract a minimal manifest-types pre-slice), then bundle the host-seam stub
+behind the encounter-contract slice. Other ripe heads unchanged from the PR #43
+handoff: websites probe heads, check_harvest output-refinement bundle, grooming
+round 3 (now three seeds: freshest-wins, post-verdict state grammar, this card's
+foreign-order dependency token).
