@@ -1,6 +1,6 @@
 # Probe-report lint — idea-grammar checker for the ideas tree
 
-> **State:** park(built-here — `scripts/check_ideas.py`, this PR)
+> **State:** historical(#11 — probed + built in the same PR, `scripts/check_ideas.py`)
 > **Class:** process · **Target:** `menno420/idea-engine` (this repo's own tree — built here, see report Q7)
 
 **Origin:** the first probe session's 💡 (`.sessions/2026-07-10-first-probe.md`) — that
