@@ -55,8 +55,9 @@ non-proposal-generating by design.
   `.sessions/README.md`, not a contract doc; the convention self-applies (this card
   names its consumed flags, as #6's did); follow-up one-liner if it recurs again.
 - **Gate↔ritual convergence** (PR #16 card 💡) — a build slice touching
-  `.github/workflows/substrate-gate.yml`, which a sibling session is editing this
-  window; standing candidate, untouched here.
+  `.github/workflows/substrate-gate.yml`, which a sibling session was editing this
+  window; skip vindicated mid-flight: the sibling SHIPPED it as PR #18 while this
+  branch was open (consumed-elsewhere).
 - **Harvest freshness checker** (PR #7 card 💡) — a script build slice, not contract
   prose; remains a standing non-proposal candidate.
 - **Earn-rate budget doc** (PR #9 card 💡) — a superbot-targeted capture candidate
@@ -106,7 +107,10 @@ harvest re-derives it.
 ## Handoff → next wake
 
 Nothing to babysit: no outbox proposal (backpressure), no claim to clear, amendments
-land with this PR. Substrate-kit remains the last stub-empty section (first-batch
-seed). Ripest non-proposal slices: substrate-kit first batch, harvest freshness
-checker, optional-line lint coverage (💡 above), second-lane harvest. Gate↔ritual
-convergence stays parked until the sibling's substrate-gate.yml window closes.
+land with this PR. Mid-flight the fleet moved: sibling PRs #18 (gate↔ritual
+convergence shipped — its 💡 consumed elsewhere) and #19 (substrate-kit seeded — ALL
+10 sections now live) landed; this branch merged origin/main forward-only per the
+recipe it encodes. One 💡 arrived too late for this harvest era: the PR #19 card's
+freshest-wins citation rule (kit-lab's generated adopters.md over manifest rows) —
+seed of grooming round 3. Ripest non-proposal slices: harvest freshness checker,
+optional-line lint coverage (💡 above), second-lane harvest, freshest-wins one-liner.
