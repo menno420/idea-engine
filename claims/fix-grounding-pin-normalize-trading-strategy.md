@@ -1,1 +1,0 @@
-- `fix/grounding-pin-normalize` · section/scope: `ideas/trading-strategy/` (post-holdout-reseal-protocol Grounding pin line only) · expected files: `ideas/trading-strategy/post-holdout-reseal-protocol-2026-07-10.md`, `.sessions/2026-07-10-grounding-pin-normalize.md`, `control/status.md` · 2026-07-10
