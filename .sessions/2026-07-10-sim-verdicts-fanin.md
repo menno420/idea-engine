@@ -34,7 +34,10 @@ mis-cite: **sim-lab VERDICT 001 = our PROPOSAL 003** (wild-encounters),
   reference set; HOLE-1 stale guild membership + HOLE-2 guilds over-read to fix; §4
   read-only API UNBUILT+UNROUTED = hard blocker; phases 1–2 wait on nothing) is
   recorded in the heartbeat notes for the manager, and the idea-file note is the
-  first item for whichever session next holds the websites claim.
+  first item for whichever session next holds the websites claim. (Mid-flight
+  update: the sibling landed as PR #40 while this branch was in flight — its claim
+  is cleared, so the deferred append is unblocked for the NEXT slice; this branch
+  held its scope and still touched no websites file.)
 
 State badges untouched everywhere: the idea grammar has no post-verdict state
 (`sim-ready → historical(<PR>)` is a BUILD-time move and post-verdict routing is the
@@ -67,17 +70,21 @@ forward" was followed here (fresh ls-remote pin rather than reusing its `bc6e0fe
 Its handoff correctly scoped VERDICT 003/004 fan-out as MANAGER work while flagging the
 §4 read-only-API blocker for the fan-in note — this session is the repo-local half of
 that fan-out (own README + own idea files), not the manager's routing half. One
-inherited claim honored: the websites sibling it named in flight still holds
-`ideas/websites/`, so the VERDICT 003 note was deferred rather than raced. Friction
-recipes inherited and confirmed again: ls-remote + raw reads for sim-lab (tenth
-consumer of the recipe), GitHub MCP for this repo's PR ops only.
+inherited claim honored: the websites sibling it named in flight held
+`ideas/websites/` at this branch's cut, so the VERDICT 003 note was deferred rather
+than raced (that sibling landed as PR #40 mid-flight — forward-merged here per the
+README recipe, one status.md conflict reconciled keeping both sides' facts). Friction
+recipes inherited and confirmed again: ls-remote + raw reads for sim-lab (eleventh
+consumer of the recipe), GitHub MCP for this repo's PR ops only; the known
+dirty-PR-zero-checks failure mode was hit live and answered by the standing recipe
+(mergeable_state read FIRST, forward merge, re-push).
 
 ## Handoff → next wake
 
 Inbox first. The deferred item is the ripest small slice: append the VERDICT 003
 `## Sim verdict` note to `ideas/websites/superbot-site-stats-data-story-2026-07-10.md`
-once the websites claim clears (ruling summarized above and in the heartbeat — cite
-sim-lab `control/outbox.md` @ `8713f26`). Outbox: 5 proposals, four verdict-ed and now
+— the websites claim is now CLEAR (PR #40 landed); claim it and cite sim-lab
+`control/outbox.md` @ `8713f26` (ruling summarized above and in the heartbeat). Outbox: 5 proposals, four verdict-ed and now
 fanned into the tree; only PROPOSAL 005's verdict pending. Then the standing ripest
 list (websites-backlog probe heads, check_harvest output-refinement bundle) — and the
 💡 above is a natural rider on grooming round 3.
