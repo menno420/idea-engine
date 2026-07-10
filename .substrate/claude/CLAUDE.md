@@ -1,9 +1,3 @@
-> ⚠️ **UNRENDERED SLOTS BELOW — run `python3 bootstrap.py ask`.**
-> Every `${...}` token in this file is an unfilled interview slot, not
-> project truth. Fill: `bootstrap answer <slot> <value...>`, then
-> `bootstrap render --live` (fills in place and removes this banner).
-> Prose without `${...}` tokens is live guidance already.
-
 # idea-engine — agent working agreement
 
 > **Status:** `binding`
@@ -14,7 +8,7 @@
 
 ## What this project is
 
-idea-engine is built in ${primary_language}.
+idea-engine is built in Python 3 (stdlib-only tooling; the repo itself is markdown-first).
 
 ## Orientation — read first, in order
 
@@ -28,19 +22,19 @@ idea-engine is built in ${primary_language}.
 
 ## Architecture — layers & import rules
 
-${architecture_layers}
+Content layer: ideas/<section>/ (one section per active fleet lane, derived from superbot docs/eap/fleet-manifest.md, plus ideas/fleet/ for cross-cutting). Coordination layer: control/ (status=coordinator-only heartbeat, inbox=manager-written ORDERs, outbox=append-only proposals to sim-lab/manager). Contract layer: README.md + docs/. No product code lives here.
 
 ## Verifying a change
 
 Run before every push:
 
 ```
-${verify_command}
+python3 bootstrap.py check --strict
 ```
 
 ## How the maintainer works
 
-${owner_profile}
+The owner builds ideas iteratively and in fragments by design; agents reason a partial idea to its fuller form and state it back before substantive work (superbot Q-0254). Decide-and-flag over route-up; structured-choice questions with a recommendation first; asks must be paste-ready, never require the owner to derive anything (Q-0263.2). Full profile: superbot docs/owner/maintainer-working-profile.md.
 
 ## Workflow adoption
 
