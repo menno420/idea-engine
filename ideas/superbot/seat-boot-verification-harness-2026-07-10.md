@@ -13,10 +13,14 @@ The dispatch copilot's per-seat boot-verification ritual is a four-times-repeate
 
 ## Probe report (v0, 2026-07-10)
 
-> **Grounding:** https://raw.githubusercontent.com/menno420/superbot/afbaea73cda998d0f31994efdd4cf959b2f38505/docs/planning/round3-dispatch-runbook-2026-07-10.md@afbaea7 · fetched 2026-07-10T21:5xZ (superbot HEAD `afbaea73cda998d0f31994efdd4cf959b2f38505` transport-verified via `git ls-remote refs/heads/main` at probe time — AHEAD of the harvest pin `655e0fe`; the canonical idea doc is byte-identical at both SHAs, sha256 `eab12561…`)
-> **Sequence:** after superbot `655e0fe` (harvest pin, PR #26) · **before** the ≥3 games-Project seat boots (Q-0259 r.5) — at `afbaea7` the manifest's three games lanes (games-plugins, pokemon-mod-lab, gba-homebrew) all show "Routine cadence: none" with pending self-arm ORDERs, i.e. their seat boots (and §5 rows) are still ahead.
+> **Grounding:** https://raw.githubusercontent.com/menno420/superbot/afbaea73cda998d0f31994efdd4cf959b2f38505/docs/planning/round3-dispatch-runbook-2026-07-10.md@afbaea7 · fetched 2026-07-10T21:53Z
+> **Sequence:** before the ≥3 games-Project seat boots (Q-0259 r.5) — at `afbaea7` the manifest's three games lanes (games-plugins, pokemon-mod-lab, gba-homebrew) all show "Routine cadence: none" with pending self-arm ORDERs, i.e. their seat boots (and §5 rows) are still ahead.
 
-*Timeliness verified live FIRST (the PR #25 lesson). At superbot HEAD `afbaea7`: (a) the
+*Timeliness verified live FIRST (the PR #25 lesson). Superbot HEAD
+`afbaea73cda998d0f31994efdd4cf959b2f38505` transport-verified via `git ls-remote
+refs/heads/main` at probe time — AHEAD of the harvest pin `655e0fe`; the canonical idea
+doc is byte-identical at both SHAs (equal sha256, `eab12561…`), so the header pin above
+stays faithful. At superbot HEAD `afbaea7`: (a) the
 runbook §5 "Boot verification log" now carries **seven** hand-composed data rows
 (fleet-manager, substrate-kit, Idea Engine, Product Forge, Simulator, Trading, Builder) —
 the repetition the idea observed at four has grown by three since harvest, live and
