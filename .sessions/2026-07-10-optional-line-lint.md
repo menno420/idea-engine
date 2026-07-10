@@ -61,6 +61,18 @@ file, warn-level by the date gate; a one-line touch-up next time that file is ed
 anyway clears it). Zero live `> **Sequence:**` lines exist yet — the SEQUENCE check is
 proven by smoke only.
 
+**Post-merge addendum (same session):** siblings PR #23 and PR #25 landed mid-flight;
+after the second forward-only merge the tree gained its first live `> **Sequence:**`
+line AND a second `> **Grounding:**` line (PR #25's post-holdout-reseal capture,
+`ideas/trading-strategy/post-holdout-reseal-protocol-2026-07-10.md:5-6`). The rerun on
+the merged tree: still 0 violations, now **2 advisory GROUNDING warns** (both
+` @ `-spaced hand-rolled pins; PR #25's is a rich dual-pin + annotated manifest-row
+variant) — and PR #25's `Sequence: before trading-strategy ORDER 008 … **EXPIRED**: …`
+line **passes** (legal keyword + referent; the EXPIRED annotation rides in the
+referent). The date gate proved itself live: a sibling authoring bless-day optional
+lines in a richer-than-blessed shape landed green, warn-only — exactly the
+no-legacy-churn behavior the gate was built for.
+
 ### Synthetic-violation smoke (every check fires; scratch tree, not committed)
 
 ```
@@ -129,8 +141,9 @@ this slice's live run confirms it as the tree's single warn.
 
 Nothing to babysit: no outbox proposal, claim cleared in-branch, lint on main once
 #24 merges (preflight and CI pick it up automatically — check_ideas is already wired
-into both). Standing debt: 1 advisory warn (see 💡 above — bless-day debt sweep is a
-5-minute micro-slice). Ripest non-proposal slices otherwise unchanged: second-lane
+into both). Standing debt: 2 advisory warns after the sibling merges (see the
+post-merge addendum and 💡 above — bless-day debt sweep is a 5-minute micro-slice
+covering both). Ripest non-proposal slices otherwise unchanged: second-lane
 harvest (pre-instrumented via check_harvest.py), superbot re-harvest (2 NEW docs per
 the PR #22 drift finding), freshest-wins one-liner (grooming round 3); proposal-
 generating probes are unblocked (backpressure lifted) — priority order per heartbeat:
