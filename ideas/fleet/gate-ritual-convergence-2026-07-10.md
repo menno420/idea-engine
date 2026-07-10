@@ -1,6 +1,6 @@
 # Gate↔ritual convergence — substrate-gate runs the same preflight the wakes run
 
-> **State:** probed
+> **State:** historical(#18 — probed + built in the same PR, `substrate-gate.yml` non-control lane → `scripts/preflight.py`)
 > **Class:** process · **Target:** `menno420/idea-engine` (this repo's own CI gate — built here, see report Q7)
 
 **Origin:** the PR #16 session card's 💡 (`.sessions/2026-07-10-preflight-wrapper.md`
