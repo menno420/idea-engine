@@ -96,3 +96,18 @@ reproduced evidence before a runtime session hard-codes defaults is the tuning/a
 economics: which (threshold, debounce, cooldown) sets keep spawns rare-but-visible across
 traffic tiers while making paced-spam farming unprofitable, and whether reusing the
 fishing/mining reward pool materially undercuts those games' earn rates.
+
+## Sim verdict (2026-07-10)
+
+sim-lab **VERDICT 001 · finalized 21:20Z · needs-more-evidence** — SETTLED half: ship the
+Encounters cog with defaults **threshold=24 messages, debounce=30s, cooldown=900s** +
+guardrails (one-live-spawn-per-channel; off-by-default + per-channel opt-in + allow-list;
+per-claimer cooldown enforced server-side AT the Claim callback → any account capped at
+4 claims/hr; atomic exactly-once claim via the audited `*_workflow` seam, Q-0071).
+UNSETTLED half: reward inflation vs fishing/mining is unmeasurable (no live earn-rate
+baseline exists) — reward VALUES stay provisional; log the named telemetry (per-spawn /
+per-claim / per-channel mint + the fishing/mining earn-rate baseline) before any scaling.
+Source: [sim-lab `control/outbox.md` VERDICT 001 @ `8713f26`](https://github.com/menno420/sim-lab/blob/8713f261c99634156dd6facda03e396b888a9e8a/control/outbox.md)
+(gate PASS in-scope; evidence: simulation, rung 1). State stays `sim-ready` — the grammar
+has no post-verdict state; `historical(<merged PR>)` is a build-time move (post-merge
+routing is the manager's).
