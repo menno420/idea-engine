@@ -1,0 +1,11 @@
+# Cog improvement audit (2026-06-08) — link index
+
+> **State:** captured
+> **Class:** product · **Target:** `menno420/superbot`
+
+**Canonical idea (stays in superbot — indexed by link, never copied):**
+[`menno420/superbot → docs/ideas/cog-improvement-audit-2026-06-08.md`](https://github.com/menno420/superbot/blob/fd638e3c0693687a62093aa6bd75954e238fa58d/docs/ideas/cog-improvement-audit-2026-06-08.md)
+— harvested 2026-07-10 by the backlog-harvest slice, pinned @ superbot `fd638e3`
+([raw](https://raw.githubusercontent.com/menno420/superbot/fd638e3c0693687a62093aa6bd75954e238fa58d/docs/ideas/cog-improvement-audit-2026-06-08.md)).
+
+Captured output of a 36-question cog-by-cog review session with the maintainer (2026-06-08); a per-cog improvement backlog whose items each need routing through the idea lifecycle.
