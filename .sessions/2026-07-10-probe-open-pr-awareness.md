@@ -1,6 +1,6 @@
 # Session — fleet slice: open-PR-awareness probe (websites)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-10 ~23:15Z (worker slice, dispatched by the
 > continuous-mode coordinator per Q-0265)
 

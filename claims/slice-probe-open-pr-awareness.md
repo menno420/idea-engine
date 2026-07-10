@@ -1,1 +1,0 @@
-- `slice/probe-open-pr-awareness` · ideas/websites (probe: open-pr-awareness-at-wake) + ideas/substrate-kit/README.md Cross-links append · expected files: ideas/websites/open-pr-awareness-at-wake-2026-07-10.md, ideas/substrate-kit/README.md, .sessions/2026-07-10-probe-open-pr-awareness.md, control/status.md · 2026-07-10
