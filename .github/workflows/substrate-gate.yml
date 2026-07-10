@@ -54,6 +54,19 @@ jobs:
         if: steps.lane.outputs.control_only != 'true'
         with:
           python-version: "3.x"
+      - name: wake preflight (gate↔ritual convergence — scripts/preflight.py is the ONE check list)
+        if: steps.lane.outputs.control_only != 'true'
+        # HOST CUSTOMIZATION (idea-engine, gate↔ritual convergence PR — origin:
+        # PR #16 card 💡): the non-control lane runs the SAME wrapper the wakes
+        # run, so `scripts/preflight.py::CHECKS` is the single source of truth
+        # for the check list — a checker added there is CI-enforced with zero
+        # workflow edits. The wrapper's `--status-only` leg overlaps the full
+        # `check --strict` below (harmless, seconds); the session-card gate
+        # step below is NOT subsumed (the wrapper deliberately omits
+        # `--require-session-log`). NOTE: this file is KIT-OWNED — re-apply
+        # this step after any `bootstrap upgrade` regenerates the gate (see
+        # ideas/fleet/gate-ritual-convergence-2026-07-10.md, probe Q4).
+        run: python3 scripts/preflight.py
       - name: substrate gate (docs + session-log required)
         if: steps.lane.outputs.control_only != 'true'
         # Gate on the session card THIS PR/push touches (CI flattens
