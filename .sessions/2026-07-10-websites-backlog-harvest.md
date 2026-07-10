@@ -89,7 +89,11 @@ heartbeat names first in ripest-next. Ship as one merged-on-green PR.
 - Landing per README § Landing conventions: PR READY never draft, merge-on-green;
   `python3 scripts/preflight.py` + `python3 bootstrap.py check --strict` green
   before push; heartbeat overwrite as the deliberate LAST content step; claim
-  cleared in the final commit.
+  cleared in the final commit. Sibling PR #35 (kit self-upgrade v1.7.0→v1.7.1)
+  landed mid-flight — merged origin/main forward-only, heartbeat reconciled
+  keeping all sides' facts (its kit/health/BACKPRESSURE/standing-guard updates
+  taken as base, this slice's fields re-applied on top), gates re-run green on
+  the merged v1.7.1 tree before push.
 
 **📊 Model:** fable-5 · docs-plus-one-line (5 link-index files + section README +
 card + heartbeat; one-line SECTIONS addition in `scripts/check_harvest.py`)
