@@ -1,0 +1,1 @@
+- `seed-pokemon-mod-lab-ideas-2026-07-10` · section `ideas/pokemon-mod-lab/` · expected files: `ideas/pokemon-mod-lab/*.md` (first idea batch + README index), `.sessions/2026-07-10-pokemon-mod-lab-first-batch.md`, `control/status.md` (heartbeat, last step) · 2026-07-10
