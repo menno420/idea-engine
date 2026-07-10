@@ -7,4 +7,4 @@ link below. Claim this section (`claims/`) before working it.
 
 ## Index
 
-*(empty at seed)*
+- [`superbot-site-stats-data-story-2026-07-10.md`](superbot-site-stats-data-story-2026-07-10.md) — captured · owner-dropped: per-server personal stats (OAuth trust-gated) + game-data explorer + the scrollytelling story page; risk-staged story→explorer→stats
