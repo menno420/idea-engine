@@ -1,0 +1,1 @@
+- slice/preflight-wrapper · fleet section (scripts/ + ideas/fleet/) · expected files: scripts/preflight.py, ideas/fleet/wake-preflight-wrapper-2026-07-10.md, ideas/fleet/README.md, README.md (one line), .sessions/2026-07-10-preflight-wrapper.md, control/status.md · 2026-07-10
