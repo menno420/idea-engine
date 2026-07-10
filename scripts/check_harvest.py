@@ -51,6 +51,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # canonical branch).
 SECTIONS: list[tuple[str, str, str, str]] = [
     ("ideas/superbot/README.md", "menno420/superbot", "docs/ideas", "main"),
+    ("ideas/websites/README.md", "menno420/websites", "docs/ideas", "main"),
 ]
 
 # Index grammar constants (must match the harvested README's format — a reformat
