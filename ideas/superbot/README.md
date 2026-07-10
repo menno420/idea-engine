@@ -15,4 +15,4 @@ links both.
 
 ## Index
 
-*(empty at seed)*
+- [`idea-probe-brainstorm-simulator-2026-07-10.md`](idea-probe-brainstorm-simulator-2026-07-10.md) — sim-ready · probe battery / brainstorming simulator (canonical doc in superbot; probe report v0 appended — the battery's reference example)

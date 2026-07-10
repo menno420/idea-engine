@@ -1,11 +1,12 @@
 # idea-engine · status
-updated: 2026-07-10T17:50:00Z
-phase: SEEDED — repo born-right (kit v1.7.0 adopted + engaged, check --strict green; gate workflow installed; pipeline contract + 10 manifest-derived sections + outbox + claims/ + review-queue planted). Seeded by the superbot dispatch part-3 session (owner-directed; design = owner ruling Q-0264, founding package v2). Coordinator seat NOT booted yet.
-health: green — `python3 bootstrap.py check --strict` exit 0 at seed commit; no CI run yet (the first PR proves the merge path).
+updated: 2026-07-10T18:08:00Z
+phase: BOOTED — coordinator first boot done: first probe shipped through battery v0 (ideas/superbot/idea-probe-brainstorm-simulator-2026-07-10.md → sim-ready), PROPOSAL 001 appended to control/outbox.md for sim-lab, routine armed. This heartbeat rides the walking-skeleton PR.
+health: green — `python3 bootstrap.py check --strict` exit 0 on this tree before push.
 kit: v1.7.0 · check: green · engaged: yes
-routine: NOT armed — the coordinator arms "idea-engine 2-hourly standing wake" (cron `0 */2 * * *`) at its first boot per the founding package §2 step 4.
-last-shipped: the seed commit (this heartbeat's commit) — see `.sessions/2026-07-10-seed.md`.
-blockers: none. Owner items pending (non-gating for the seed): Project creation + package §1/§2 pastes; auto-merge + required-check clicks after the first PR names the gate's check.
-orders: acked= done= (inbox holds only the kit seed header — no manager ORDERs yet)
-⚑ needs-owner: none beyond the Project-creation clicks already in the dispatch runbook §3.4.
-next: coordinator first boot per superbot docs/planning/round3-founding-package-idea-engine-2026-07-10.md §2 — start at step 3 (first probe: the probe-battery idea), then routine arm + heartbeat; prove the walking-skeleton merge path on the first PR.
+walking-skeleton: PROVING on this PR (#1, first PR of the repo): branch → PR READY → substrate-gate → merge-on-green per README § Landing conventions; state at this overwrite = branch pushed next, PR + gate + merge verified by the session before close (result recorded in the session card + PR itself; if you read this ON main, the skeleton PROVED — this file only lands via that merge).
+routine: ARMED-BY-COORDINATOR — tool mcp__claude-code-remote__create_trigger, name "idea-engine 2-hourly standing wake", cron "0 */2 * * *", result SUCCESS, trigger id trig_01KBoHPaquSCDHysip67PQBh, enabled=true, next_run_at 2026-07-10T18:04:26Z, bound persistent_session_id session_01TwoaFmWeB8pYbHMyFYgjqJ, verified via list_triggers; binding-to-coordinator-session to be confirmed on first fire.
+last-shipped: seed commit df64aab (no PR yet at overwrite time — this PR #1 is the first; the session card `.sessions/2026-07-10-first-probe.md` records its landing).
+blockers: none.
+orders: acked= done= (inbox read first this session — empty, no manager ORDERs yet)
+⚑ needs-owner: none new this session; still open from seed (dispatch runbook §3.4): repo settings clicks — mark the gate's check required + enable auto-merge (the check-run name is on PR #1).
+notes: PROPOSAL 001 (sim-ready) awaits sim-lab's pull — question: panel mode vs single-pass battery. Probe report doubles as the battery's reference example. Claim cleared at close per claims/README.md.
