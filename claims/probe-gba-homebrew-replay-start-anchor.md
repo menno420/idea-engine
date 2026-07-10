@@ -1,1 +1,0 @@
-- `probe/gba-homebrew-replay-start-anchor` · `ideas/gba-homebrew/` · expected files: `ideas/gba-homebrew/replay-start-anchor-2026-07-10.md`, `ideas/gba-homebrew/README.md`, `.sessions/2026-07-10-replay-start-anchor-probe.md`, `control/status.md` · 2026-07-10
