@@ -1,0 +1,1 @@
+- `harvest/superbot-backlog-2026-07-10` · section `ideas/superbot/` (backlog harvest by link) · expected files: `ideas/superbot/*.md` (new link-index entries + README.md index), `.sessions/2026-07-10-superbot-backlog-harvest.md`, `control/status.md` · 2026-07-10
