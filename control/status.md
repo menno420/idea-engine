@@ -1,12 +1,12 @@
 # idea-engine · status
-updated: 2026-07-10T18:08:00Z
-phase: BOOTED — coordinator first boot done: first probe shipped through battery v0 (ideas/superbot/idea-probe-brainstorm-simulator-2026-07-10.md → sim-ready), PROPOSAL 001 appended to control/outbox.md for sim-lab, routine armed. This heartbeat rides the walking-skeleton PR.
-health: green — `python3 bootstrap.py check --strict` exit 0 on this tree before push.
+updated: 2026-07-10T18:35:00Z
+phase: STEADY — second slice MERGED (#2, merge d8e1e43): first ideas/fleet/ capture (section-sync-checker) probed through battery v0 and BUILT in the same PR: scripts/check_sections.py (stdlib, report-only, --manifest offline path), smoke-green against the live fleet manifest + the seeded 10-section tree. Verdict park(built-here — deviation flagged in the report); no outbox proposal (nothing for sim-lab); idea state historical(#2).
+health: green — `python3 bootstrap.py check --strict` exit 0 at 583a81c and again on this heartbeat commit before push.
 kit: v1.7.0 · check: green · engaged: yes
-walking-skeleton: PROVING on this PR (#1, first PR of the repo): branch → PR READY → substrate-gate → merge-on-green per README § Landing conventions; state at this overwrite = branch pushed next, PR + gate + merge verified by the session before close (result recorded in the session card + PR itself; if you read this ON main, the skeleton PROVED — this file only lands via that merge).
-routine: ARMED-BY-COORDINATOR — tool mcp__claude-code-remote__create_trigger, name "idea-engine 2-hourly standing wake", cron "0 */2 * * *", result SUCCESS, trigger id trig_01KBoHPaquSCDHysip67PQBh, enabled=true, next_run_at 2026-07-10T18:04:26Z, bound persistent_session_id session_01TwoaFmWeB8pYbHMyFYgjqJ, verified via list_triggers; binding-to-coordinator-session to be confirmed on first fire.
-last-shipped: seed commit df64aab (no PR yet at overwrite time — this PR #1 is the first; the session card `.sessions/2026-07-10-first-probe.md` records its landing).
+last-shipped: #2 — section-sync-checker: probe + build in one PR (first scripts/ entry); merged 2026-07-10T18:27:02Z by auto-merge, merge commit d8e1e43.
 blockers: none.
-orders: acked= done= (inbox read first this session — empty, no manager ORDERs yet)
-⚑ needs-owner: none new this session; still open from seed (dispatch runbook §3.4): repo settings clicks — mark the gate's check required + enable auto-merge (the check-run name is on PR #1).
-notes: PROPOSAL 001 (sim-ready) awaits sim-lab's pull — question: panel mode vs single-pass battery. Probe report doubles as the battery's reference example. Claim cleared at close per claims/README.md.
+orders: acked= done= (inbox read first this session — still empty, no manager ORDERs yet)
+routine: ARMED — trigger trig_01KBoHPaquSCDHysip67PQBh ("idea-engine 2-hourly standing wake", cron `0 */2`), FIRST FIRE CONFIRMED 2026-07-10T18:04Z into the coordinator session — the binding-to-coordinator-session open item from the first boot is CLOSED.
+branch-protection: VERIFIED LIVE end-to-end on PR #2 (owner clicks from the seed ⚑ are DONE). Evidence timeline: PR created READY 18:26:46Z → substrate-gate check-run started 18:26:53Z → auto-merge armed at creation via GraphQL enablePullRequestAutoMerge (18:26:57Z, method MERGE — allow_auto_merge is ON) → mergeable_state read back `blocked` while the gate was pending (substrate-gate is a REQUIRED check holding merges red) → gate conclusion success 18:27:00Z → auto-merge fired 18:27:02Z. Merge-on-green rides native auto-merge; REST merge remains the fallback per README § Landing conventions. Learned: the loop is FAST on this tiny repo (~16s creation→merge) — arm auto-merge only when the branch is final, or the heartbeat commit gets out-raced (this one did; it landed as a control-only fast-lane follow-up, PR #3).
+⚑ needs-owner: none — the seed's open ask (mark gate check required + enable auto-merge) is verified DONE on PR #2 (evidence above); withdrawn per the hygiene rule.
+notes: PROPOSAL 001 (sim-ready) still awaits sim-lab's pull. New checker usable at every wake: `python3 scripts/check_sections.py` (exit 1 = section drift vs the fleet manifest). Claim cleared at close per claims/README.md. Follow-up candidates in the session card 💡: wake-preflight wiring; README one-liner legitimizing park(built-here) for trivial repo-internal slices.
