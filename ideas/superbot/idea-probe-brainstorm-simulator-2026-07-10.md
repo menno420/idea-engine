@@ -86,3 +86,17 @@ recommendation, landed through the full merge path. That slice is this PR — sh
 question worth reproduced evidence is whether panel mode (mode 2) changes verdicts or
 materially improves report quality enough to justify its multi-agent cost, and sim-lab can
 settle that by running battery-only vs panel over a sample of superbot's existing backlog.
+
+## Sim verdict (2026-07-10)
+
+sim-lab **VERDICT 002 · finalized 21:52Z · approve — selectively** (adopt panel-mode ONLY
+for big-or-contested ideas; reject always-on): keep single-pass as the default probe;
+escalate to panel (N=3 personas + synthesizer) when a quick 2–3× single-pass repeat
+disagrees with itself OR the idea has irreversible/high-blast-radius surface. Measured:
+panel flipped the modal verdict on 2/3 contested ideas at 4.00× agents / 3.05× tokens /
+1.61× wall; verdict CORRECTNESS unmeasured (named limit). CONSUMED by this repo: README
+§ The probe battery now carries the ruling as the panel-escalation default, with this
+repo's live datapoint (PR #23's panel run ≈127k lens tokens). Source:
+[sim-lab `control/outbox.md` VERDICT 002 @ `8713f26`](https://github.com/menno420/sim-lab/blob/8713f261c99634156dd6facda03e396b888a9e8a/control/outbox.md)
+(gate PASS, evidence strength moderate). State stays `sim-ready` — no post-verdict state
+in the grammar.
