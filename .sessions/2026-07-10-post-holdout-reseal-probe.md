@@ -1,6 +1,6 @@
 # Session — post-holdout-reseal probe (trading-strategy): battery v0 → park(overtaken-by-events)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-10 (worker slice, dispatched by the coordinator under
 > continuous-chaining mode per Q-0265)
 
