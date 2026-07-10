@@ -61,17 +61,20 @@ file, warn-level by the date gate; a one-line touch-up next time that file is ed
 anyway clears it). Zero live `> **Sequence:**` lines exist yet — the SEQUENCE check is
 proven by smoke only.
 
-**Post-merge addendum (same session):** siblings PR #23 and PR #25 landed mid-flight;
-after the second forward-only merge the tree gained its first live `> **Sequence:**`
-line AND a second `> **Grounding:**` line (PR #25's post-holdout-reseal capture,
+**Post-merge addendum (same session):** siblings PR #23, PR #25 and PR #26 landed
+mid-flight (three forward-only merges); the tree gained its first live
+`> **Sequence:**` line AND a second `> **Grounding:**` line (PR #25's post-holdout-reseal capture,
 `ideas/trading-strategy/post-holdout-reseal-protocol-2026-07-10.md:5-6`). The rerun on
 the merged tree: still 0 violations, now **2 advisory GROUNDING warns** (both
 ` @ `-spaced hand-rolled pins; PR #25's is a rich dual-pin + annotated manifest-row
 variant) — and PR #25's `Sequence: before trading-strategy ORDER 008 … **EXPIRED**: …`
 line **passes** (legal keyword + referent; the EXPIRED annotation rides in the
-referent). The date gate proved itself live: a sibling authoring bless-day optional
-lines in a richer-than-blessed shape landed green, warn-only — exactly the
-no-legacy-churn behavior the gate was built for.
+referent). PR #26's re-harvest then added two MORE Grounding lines — both **pass** the
+blessed form (final merged-tree run: 270 files, 0 violations, 2 advisory warns). The
+date gate proved itself live in both directions: a sibling authoring bless-day lines
+in a richer-than-blessed hand-rolled shape landed green warn-only (no churn), while a
+sibling writing the blessed form passes silently — exactly the behavior the gate was
+built for.
 
 ### Synthetic-violation smoke (every check fires; scratch tree, not committed)
 
