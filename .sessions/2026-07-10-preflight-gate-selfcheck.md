@@ -1,6 +1,6 @@
 # Session — fleet slice: gate-wiring self-check in preflight.py (the PR #35 card's 💡)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-10 ~22:45Z (worker slice, dispatched by the
 > continuous-mode coordinator per Q-0265)
 
@@ -12,3 +12,122 @@ invariant"): `scripts/preflight.py` grows a self-check that goes RED the moment
 `bootstrap upgrade`) loses the PR #18 wake-preflight step — the clobber that
 happened live in PR #35. Extension note appended to
 `ideas/fleet/gate-ritual-convergence-2026-07-10.md` (state stays historical(#18)).
+
+## What this session did
+
+- Claimed the surface (`claims/slice-preflight-gate-selfcheck.md`, flat filename per
+  `claims/README.md`; cleared in this close-out commit).
+- **Built the tripwire:** `scripts/preflight.py` grew a fifth `CHECKS` entry —
+  `gate-wiring self-check`, self-invoked as `preflight.py --gate-wiring` so the
+  worst-exit aggregation loop is untouched (ONE edit at the constant, per its own
+  co-edit comment). The check (stdlib, report-only) reads the gate file and asserts
+  ONE step block (step granularity: the kit-planted gate's `\n      - ` boundaries)
+  contains BOTH `run: python3 scripts/preflight.py` AND the non-control-lane guard
+  `steps.lane.outputs.control_only != 'true'` — the exact anchors of the PR #18
+  insertion. Missing → red message pointing at the PR #18 re-apply recipe
+  (`.sessions/2026-07-10-gate-ritual-convergence.md § 💡`) and the banked pre-regen
+  copies under `.substrate/backup/`, exit 1 into the existing worst-exit convention;
+  unreadable gate file → exit 2 (a check that cannot run is not a pass). No
+  recursion: `--gate-wiring` returns before `main()`'s loop.
+- **Why now (the evidence chain):** the PR #18 card's 💡 predicted the clobber; PR
+  #35's upgrade REALIZED it (v1.7.1's carve-out protection detected the drop and
+  banked `.substrate/backup/substrate-gate.pre-regen-457b2c6d.yml`, but the re-apply
+  was manual — the PR #35 card executed it from memory of the recipe). This slice
+  converts that human-memory guard into a red check: the wrapper checks its own CI
+  wiring. Honest scope (recorded on the idea file too): a PR whose regenerated gate
+  LACKS the step no longer runs the wrapper in its own CI, so the tripwire fires at
+  the very next wake/pre-push `python3 scripts/preflight.py` — loud within one
+  session instead of silent until someone remembers.
+- **Extended the historical idea** per the PR #13/#24 extension-note precedent:
+  `## Extension note (2026-07-10, PR #36 — appended, probe report and state
+  untouched)` on `ideas/fleet/gate-ritual-convergence-2026-07-10.md`; state stays
+  `historical(#18)` — the trail is the product.
+- **No outbox entry, no proposal** — backpressure holds (PROPOSALS 004/005 unpulled,
+  next sim-lab pull ~23:00Z); repo-internal PROCESS tooling, built-here shaped,
+  extending an already-historical idea (no new idea file, no state change).
+
+### Live green run (real output, pre-push tree)
+
+```
+$ python3 scripts/preflight.py
+check_sections: OK — 10 sections in sync with the manifest
+preflight: PASS — check_sections (exit 0)
+check_ideas: OK — 274 idea files conform to the README grammar
+preflight: PASS — check_ideas (exit 0)
+check_ideas: OK — outbox proposals and sim-ready ideas are consistent
+preflight: PASS — check_ideas --outbox (exit 0)
+check: control-status check passed (--status-only).
+preflight: PASS — bootstrap check --strict --status-only (exit 0)
+gate-wiring: OK — .github/workflows/substrate-gate.yml non-control lane runs scripts/preflight.py
+preflight: PASS — gate-wiring self-check (exit 0)
+preflight: OK — all 5 checks green
+(exit 0)
+```
+
+### Smoke test (real output — wake-preflight step temporarily stripped, then restored)
+
+```
+$ python3 scripts/preflight.py       # gate file with the wake-preflight step removed
+[... first four checks PASS as above ...]
+gate-wiring: RED — .github/workflows/substrate-gate.yml lost the wake-preflight step (`run: python3 scripts/preflight.py` guarded by `if: steps.lane.outputs.control_only != 'true'`). The gate file is KIT-OWNED: a `bootstrap upgrade` regenerated it and dropped the PR #18 step (as happened live in PR #35). RE-APPLY per the PR #18 recipe — insert the step between `setup-python` and the session-card gate step (recipe: .sessions/2026-07-10-gate-ritual-convergence.md § 💡; banked pre-regen copies live under .substrate/backup/).
+preflight: FAIL — gate-wiring self-check (exit 1)
+preflight: FAIL — worst exit 1
+(exit 1)
+```
+
+Gate file restored via `git checkout .github/workflows/substrate-gate.yml`; re-run
+green (`preflight: OK — all 5 checks green`, exit 0). The gate file itself is
+byte-untouched by this PR.
+
+- **📊 Model:** fable-5 · high · one script check + idea extension note + docs
+  ceremony (no idea-tree state changes, no proposal — backpressure)
+
+## 💡 Session idea
+
+**Step-anchor drift lint** — the self-check matches the PR #18 anchors as byte
+strings (`run: python3 scripts/preflight.py` + the lane guard). If a future kit gate
+renames the lane-step id (`steps.lane`) or the re-apply rewords the run line
+(e.g. `python scripts/preflight.py`), the tripwire fires FALSE-red (annoying, safe)
+— but if a rewrite keeps the run line while dropping the guard semantics (e.g. the
+step migrates into the control fast lane only), it could false-green. When the kit
+grows the native lane-local preflight seam (the standing graduation idea,
+`ideas/substrate-kit/host-checkers-one-gate-2026-07-10.md`), this whole check
+retires — until then, any deliberate gate-step rewording must co-edit the
+`PREFLIGHT_RUN`/`NON_CONTROL_GUARD` constants in `scripts/preflight.py` (anchors:
+those two constants + `check_gate_wiring()`; test = the smoke recipe above).
+
+## ⟲ Previous-session review
+
+PR #35 (kit self-upgrade v1.7.0→v1.7.1; merge `4bd6d59`) promised: exactly one
+banked dist, kit_version 1.7.1 in config+state, the PR #18 step RE-APPLIED with the
+only residual gate delta being the additive inbox append-only step, and its 💡
+scoping THIS slice ("one line in scripts/preflight.py … assert the live gate
+contains `run: python3 scripts/preflight.py` in the non-control lane") — ALL
+verified on this tree: the gate at HEAD `4bd6d59` carries the wake-preflight step at
+the PR #18 position with anchors intact (this slice's green run proves it
+mechanically), `substrate.config.json` reads 1.7.1, and the heartbeat's kit line
+matches. Its 💡 was consumed nearly as written — one scoping delta, resolved
+forward: "one line" became a small function + CHECKS entry, because a bare assert
+could not honor the wrapper's worst-exit/PASS-line conventions or distinguish
+missing-step (1) from unreadable-file (2); and the honest-scope finding above
+(the clobbering PR's own CI cannot catch itself — the next wake's ritual does) was
+not in the 💡 and is now recorded on the idea file. The PR #35 card's handoff named
+the websites lane-backlog harvest as ripest capture slice — a sibling session has it
+in flight this window (coordinator dispatch), so this slice took the 💡 instead:
+disjoint surfaces, no claim collision (`claims/` carried only README.md at branch
+time).
+
+## Handoff → next wake
+
+Nothing to babysit: no proposal (backpressure holds until the ~23:00Z sim-lab pull),
+claim cleared, tripwire armed on merge — from now on every wake's preflight and
+every non-control gate run (while the step survives) asserts the gate↔ritual wire.
+Next `bootstrap upgrade` session: the regen will still drop the step; now the FIRST
+post-upgrade `python3 scripts/preflight.py` goes red with the recipe pointer instead
+of relying on card memory — re-apply, re-run, ship. Ripest next slices (carried from
+the PR #35 card, minus this one): websites lane-backlog harvest (sibling in flight —
+check its landing first), superbot re-harvest (check_harvest DRIFT: pin 655e0fe →
+HEAD 41899e1, 1 new doc), `upgrade --apply-docs` follow-up (2 template-improved
+docs), public-leaderboards probe, freshest-wins one-liner (grooming round 3),
+check_harvest --emit-entries, cross-link state-echo lint, recommendation-vocabulary
+lint.

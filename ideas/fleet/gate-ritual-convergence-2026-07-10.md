@@ -105,3 +105,21 @@ insertion, self-proving on its own PR's gate run; nothing routes to sim-lab (its
 correctness is settled by the required check going green on this very PR — and
 backpressure holds regardless: outbox depth 3, zero pulls, no proposal appended), so
 per the README shortcut the state advances to `historical(<this PR>)` on merge.
+
+## Extension note (2026-07-10, PR #36 — appended, probe report and state untouched)
+
+The probe's Q4 break ("KIT-OWNED overwrite — a `bootstrap upgrade` will clobber the
+preflight step") RECURRED LIVE in PR #35: the v1.7.0→v1.7.1 gate regeneration dropped
+the step exactly as predicted; v1.7.1's carve-out protection detected it and banked
+the pre-regen gate under `.substrate/backup/`, but the re-apply stayed manual —
+guarded only by the PR #18 card's recipe living in session memory. PR #36 adds the
+permanent tripwire (the PR #35 card's 💡): `scripts/preflight.py` grew a fifth check
+(`gate-wiring self-check`, `--gate-wiring`) that goes red the moment
+`substrate-gate.yml`'s non-control lane loses the wrapper invocation, printing the
+pointer to the PR #18 re-apply recipe — the wrapper now checks its own CI wiring.
+Honest scope: a PR whose regenerated gate LACKS the step no longer runs the wrapper
+in its own CI, so the tripwire fires at the very next wake/pre-push
+`python3 scripts/preflight.py` (the ritual every session runs before push) rather
+than in that PR's own gate run — loud within one session instead of silent until
+someone remembers the recipe. State stays
+`historical(#18)`; slice card: `.sessions/2026-07-10-preflight-gate-selfcheck.md`.
