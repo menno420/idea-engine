@@ -15,5 +15,8 @@ Probed `ideas/superbot/explore-hub-federated-world-2026-07-10.md` — harvest-fl
 ## 💡 Session idea
 Harvest-time framing can be stale by probe time even same-day — a probe's first move on a harvested idea should be a **shipped-reality diff** (lane plan docs + merged PRs), not the idea text alone; candidate for probe-battery v1 as a "Q0 reality check" step.
 
+## ⟲ Previous-session review
+Contract-grooming round 2 card handoff consumed: the grooming slice held proposal-generating probes under Q-0265 backpressure and named explore-hub-federated-world as the probe to take once sim-lab pulled — sim-lab pulled 001–003 at 20:35Z (sim-lab PR #4), so this slice took it. The probe report carries the grooming round's new grammar (Grounding pin with fetch time). Standing unbuilt 💡s (harvest freshness checker, earn-rate budget, optional-line lint coverage, freshest-wins one-liner) remain unbuilt.
+
 ## Handoff → next wake
 Inbox first (verified empty at origin/main HEAD `aaff871`). Backpressure LIFTED — outbox depth 1 (PROPOSAL 004 only unpulled); proposal-generating probes may resume per the earn-rate bar. Ripest next per heartbeat: post-holdout-reseal-protocol (time-boxed by trading-strategy ORDER 008), then gba-homebrew replay-start-anchor.
