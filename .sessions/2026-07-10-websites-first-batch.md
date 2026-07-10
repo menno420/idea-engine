@@ -74,7 +74,8 @@ merged-on-green PR.
   "never fake data" honest-degradation banners. The probe report itself re-read at
   this repo's HEAD `698fd93` (`ideas/websites/` byte-unchanged vs the `6016002`
   tree).
-- **Manifest-lag datapoint #8 (for the manager):** the manifest websites row @
+- **Manifest-lag datapoint #9 (for the manager; written as #8 mid-flight, renumbered
+  after sibling PR #30 landed datapoint #8 first):** the manifest websites row @
   superbot `9624c53` records lane close-out #58/`d493792` 13:57Z + kit v1.6.0 while
   the lane heartbeat @ real HEAD `0cd08d2` reads #75 @ 21:58Z + kit v1.7.1 — ~8 h
   and one kit version behind, the freshest-wins pattern again.
