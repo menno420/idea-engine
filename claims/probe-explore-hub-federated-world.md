@@ -1,0 +1,1 @@
+- probe/explore-hub-federated-world · ideas/superbot (explore-hub probe) + control/outbox.md append + control/status.md + .sessions/ · expected files: ideas/superbot/explore-hub-federated-world-2026-07-10.md, ideas/superbot/README.md, control/outbox.md, control/status.md, .sessions/2026-07-10-explore-hub-probe.md · 2026-07-10
