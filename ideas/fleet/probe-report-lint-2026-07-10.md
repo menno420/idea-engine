@@ -115,3 +115,13 @@ blocks against the README § The outbox grammar, resolves every `idea:` link to 
 existing `sim-ready` (or `historical(…)`) idea file, and flags unproposed `sim-ready`
 ideas. State stays `historical(#11)` — this note records the extension only (the trail
 is the product); slice card: `.sessions/2026-07-10-outbox-check.md`.
+
+## Extension note (2026-07-10, PR #24 — appended, probe report and state untouched)
+
+The probe's Q2 coverage axis grew again with the grammar it guards: PR #21 blessed the
+optional `> **Grounding:**` / `> **Sequence:**` header lines, and PR #24 teaches the
+linter their byte-form — checked only where present (forward-only, retrofit never
+required), severity date-gated on the filename date (strictly after 2026-07-10 = hard
+violation; the bless day itself and undated filenames = advisory WARN, never
+exit-affecting — legacy files are debt, not churn). State stays `historical(#11)`;
+slice card: `.sessions/2026-07-10-optional-line-lint.md`.

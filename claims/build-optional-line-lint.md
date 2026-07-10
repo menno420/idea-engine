@@ -1,1 +1,0 @@
-- `build/optional-line-lint` · scope: `scripts/check_ideas.py` + `ideas/fleet/probe-report-lint-2026-07-10.md` (extension note) · expected files: `scripts/check_ideas.py`, `ideas/fleet/probe-report-lint-2026-07-10.md`, `.sessions/2026-07-10-optional-line-lint.md`, `control/status.md` · 2026-07-10
