@@ -51,7 +51,17 @@ re-harvest, sized this session"). Ship as one merged-on-green PR.
 - Landing per README § Landing conventions: PR READY never draft, merge-on-green;
   `python3 scripts/preflight.py` (all 4 PASS) + full
   `python3 bootstrap.py check --strict` green before push; heartbeat overwrite as
-  the deliberate LAST content step; claim cleared in the final commit.
+  the deliberate LAST content step; claim cleared in the final commit. Sibling
+  PR #36 (gate-wiring self-check — preflight's fifth CHECKS entry) landed
+  mid-flight: PR #38 went `mergeable_state: dirty` with zero check runs (the
+  documented jam signature — read mergeable_state first), resolved forward-only
+  (`git merge origin/main`, heartbeat reconciled keeping both sides' facts), gates
+  re-run green on the merged 5-check tree before re-push.
+- **Sim-lab pull check (came due mid-landing):** the first heartbeat write (22:58Z)
+  honestly marked the 004/005 pull check skipped-not-due; the post-merge re-stamp
+  crossed 23:00Z, so the check ran — sim-lab `control/inbox.md` (raw, 23:03Z) shows
+  INTAKE 004 (PROPOSAL 004, in-progress) and INTAKE 005 (PROPOSAL 005, queued),
+  both pulled at 22:35Z. BACKPRESSURE CLEARED on the heartbeat (0 unpulled).
 
 **📊 Model:** fable-5 · docs-only (1 link-index file + section README + card +
 heartbeat)
