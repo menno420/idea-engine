@@ -1,1 +1,0 @@
-- slice/outbox-check · fleet section (scripts/ + ideas/fleet/ note) · expected files: scripts/check_ideas.py, ideas/fleet/probe-report-lint-2026-07-10.md (appended note), .sessions/2026-07-10-outbox-check.md, control/status.md · 2026-07-10
