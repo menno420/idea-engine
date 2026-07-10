@@ -1,6 +1,6 @@
 # Open-work preflight sweep — sibling branches + local dirt as wake/pre-push advisories
 
-> **State:** probed
+> **State:** historical(#42)
 > **Class:** process · **Target:** `menno420/idea-engine` (this repo's own preflight — built here, see report Q7)
 
 **Origin:** the PR #40 session card 💡 (`.sessions/2026-07-10-probe-open-pr-awareness.md`
