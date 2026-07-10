@@ -1,6 +1,6 @@
 # Harvest freshness checker
 
-> **State:** probed
+> **State:** historical(#22)
 > **Class:** process · **Target:** `menno420/idea-engine` (this repo's own tree — built here, see report Q7)
 > **Grounding:** https://github.com/menno420/superbot @ fd638e3c0693687a62093aa6bd75954e238fa58d · fetched 2026-07-10 (harvest pin; live HEAD checked this session)
 
@@ -100,4 +100,4 @@ HEAD (output in `.sessions/2026-07-10-harvest-freshness-checker.md`).
 rationale: trivial repo-internal PROCESS tooling per the blessed same-PR shortcut (first
 used by PR #2; deviation-from-routing flagged exactly as there) — nothing routes to
 sim-lab (no reproducible question worth a cycle; the checker's own live run IS the
-evidence), and the state advances to `historical(<merged PR>)` on merge.
+evidence), and the state advances to `historical(#22)` on merge (shipped by PR #22).
