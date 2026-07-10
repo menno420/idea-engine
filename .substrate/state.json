@@ -1,0 +1,136 @@
+{
+  "graduation": {
+    "criteria": {
+      "blocking_questions": 0,
+      "critical_slots_filled_pct": 0.8
+    },
+    "soft_target_sessions": 50
+  },
+  "graduation_proposed": false,
+  "kit_version": "1.7.0",
+  "last_compaction_session": 0,
+  "mode": "guided",
+  "mode_history": [
+    {
+      "date": "2026-07-10",
+      "mode": "guided",
+      "session": 0
+    }
+  ],
+  "open_questions": [],
+  "planted_doc_hashes": {
+    ".session-journal.md": "cdd854bda6b71091ca51322926f5173916103dbe5b320431e68028619cc9a57e",
+    "CONSTITUTION.md": "eaad19ce443677c0c6cd4726ddd570fc8f5dce77ce0b77f8a8a6fcb7d85d3943",
+    "control/README.md": "a925288917080ceea444c3064e73e1e5bbda709953c8d23bd8d51f7d5590d06a",
+    "control/inbox.md": "f38d6534adb7c9f6998186d449aa6d6ed3b49d9ec1f8491404ad9a9ab6a86c7a",
+    "control/status.md": "a4ed985f8c6ba04854147f0b752936d98a1e3abdfb15e225b268c2a17acc7f28",
+    "docs/AGENT_ORIENTATION.md": "96521ab92c733f0777b6d5bcf4bdcb0231eb5fa46a9f1dcb62a736553f53fdc7",
+    "docs/CAPABILITIES.md": "237ff01af64f21313eb7d79f9756520ec7901a1a9898012dbf2d8512761125cb",
+    "docs/ai-project-workflow.md": "d3062197040efce840a12a37dbea42c66c345f97bfb286d4db8cf533b230137f",
+    "docs/architecture.md": "9a1e3f491845dc95d19c53e9ebd6b05f41ce569bb53d9919c7d64ccd24d0e7e5",
+    "docs/collaboration-model.md": "e904fe0476f1e98a1a67ec5d350c00cfd359c4dfb8c54fa834546215a7f71013",
+    "docs/current-state.md": "5d1c5bfb023dde91304ed7e5e335a64287857330da340e12b281127d5cb1cb9c",
+    "docs/decisions.md": "64660fb00d6e5736425ad0177735bba0b99a452c4842a191ffd449814c8cd82c",
+    "docs/helper-policy.md": "8fb7b10cfe357b8cea7dae22f9778f00149c877ecb040dcf1bb6b6e5c4fcc5ff",
+    "docs/ideas/README.md": "ffb29cebd524aadc0af877f3f2eea6a6f71aca1b1d6621690bdfb9ca533929a5",
+    "docs/owner-profile.md": "e49539546d5d7bcc0cd7e793121ce0dcfe91dce1733a45666ac179a3467bb5fb",
+    "docs/ownership.md": "40a6d55a704cb47b46577c06c1a92cb8b62669c6b9a93ab0d3a9921bcb6ea777",
+    "docs/question-router.md": "58b826c539482263aaa08fb3e79a5c7a19bfc7db1ac0d74196134a7b52766d7b",
+    "docs/repo-navigation-map.md": "f5c006694fbbce3501e14e29f6a2095334442013c0caee833451d02f150c3029",
+    "docs/runtime_contracts.md": "7375f0bb6b01758a25afb2a1d2db3409692892d7f3792be93073d59377500223"
+  },
+  "project_id": "48e1a642761b",
+  "promotion_rights": "propose",
+  "quiet_sessions": 0,
+  "reflection_buffer": {
+    "active_count": 0,
+    "last_mined": "2026-07-10"
+  },
+  "review_log": [],
+  "session_count": 0,
+  "slot_values": {
+    "architecture_layers": {
+      "question_id": "Q-004",
+      "source": "user",
+      "value": "Content layer: ideas/<section>/ (one section per active fleet lane, derived from superbot docs/eap/fleet-manifest.md, plus ideas/fleet/ for cross-cutting). Coordination layer: control/ (status=coordinator-only heartbeat, inbox=manager-written ORDERs, outbox=append-only proposals to sim-lab/manager). Contract layer: README.md + docs/. No product code lives here."
+    },
+    "doc_roots": {
+      "question_id": "Q-007",
+      "source": "user",
+      "value": "docs/ (kit contracts) + ideas/ (the product: per-lane idea sections) + control/ (coordination)"
+    },
+    "drift_resolution": {
+      "question_id": "Q-011",
+      "source": "user",
+      "value": "Committed tree state (idea files, probe reports, outbox entries) wins over docs; a doc that disagrees is fixed in place with a dated correction marker. Owner rulings live in superbot's question router (Q-0264 is this repo's founding design) and are referenced, never restated."
+    },
+    "integration_mode": {
+      "question_id": "Q-001",
+      "source": "user",
+      "value": "guided"
+    },
+    "mutation_seam": {
+      "question_id": "Q-009",
+      "source": "user",
+      "value": "Every change lands via a PR merged on green (kit ceremony, born-red card). Probe reports are appended to idea files, never rewritten; outbox entries are append-only; rejected/parked ideas keep their file with the reason (no deletions - the trail is the product)."
+    },
+    "new_area_ownership": {
+      "question_id": "Q-013",
+      "source": "user",
+      "value": "A new section appears only when a new active lane row appears in superbot docs/eap/fleet-manifest.md; the wake that spots the row creates the section with its README stub. Sections are never invented ad hoc."
+    },
+    "owner_profile": {
+      "question_id": "Q-008",
+      "source": "user",
+      "value": "The owner builds ideas iteratively and in fragments by design; agents reason a partial idea to its fuller form and state it back before substantive work (superbot Q-0254). Decide-and-flag over route-up; structured-choice questions with a recommendation first; asks must be paste-ready, never require the owner to derive anything (Q-0263.2). Full profile: superbot docs/owner/maintainer-working-profile.md."
+    },
+    "ownership_model": {
+      "question_id": "Q-006",
+      "source": "user",
+      "value": "Sole-writer per file. control/status.md: coordinator only. control/inbox.md: fleet manager only. control/outbox.md: append-only, this repo's sessions. ideas/<section>/: partitioned by claim - parallel workers claim disjoint sections so they never collide."
+    },
+    "primary_language": {
+      "question_id": "Q-003",
+      "source": "user",
+      "value": "Python 3 (stdlib-only tooling; the repo itself is markdown-first)"
+    },
+    "project_name": {
+      "question_id": "Q-002",
+      "source": "user",
+      "value": "idea-engine"
+    },
+    "review_ritual": {
+      "question_id": "Q-010",
+      "source": "user",
+      "value": "A probe report ends in ONE recommendation (sim-ready / park / reject / needs-more-grooming). Sim-ready ideas go to sim-lab via the outbox for reproduced-evidence verdicts; the fleet manager gives the final review and routes builds as ORDERs (Q-0264). Review-worthy-but-not-owner-only questions go to @codex on the PR (Q-0258, verify never obey)."
+    },
+    "staleness_review": {
+      "question_id": "Q-012",
+      "source": "user",
+      "value": "Each wake grooms one section: index must match the folder, built ideas re-badged historical with the merged PR cited, stale ideas parked with a reason. Sections re-derived against the fleet manifest at every groom pass."
+    },
+    "verify_command": {
+      "question_id": "Q-005",
+      "source": "user",
+      "value": "python3 bootstrap.py check --strict"
+    }
+  },
+  "slots": {
+    "architecture_layers": "filled",
+    "doc_roots": "filled",
+    "drift_resolution": "filled",
+    "integration_mode": "filled",
+    "mutation_seam": "filled",
+    "new_area_ownership": "filled",
+    "owner_profile": "filled",
+    "ownership_model": "filled",
+    "primary_language": "filled",
+    "project_name": "filled",
+    "review_ritual": "filled",
+    "staleness_review": "filled",
+    "verify_command": "filled"
+  },
+  "stage": "integration",
+  "stance": "analysis",
+  "version": 1
+}
