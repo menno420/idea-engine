@@ -68,3 +68,22 @@ Plan PR 2 narrowed to its mechanical half: a per-game XP adapter over the existi
 **Recommendation: sim-ready** — the four owner-reserved questions stay with the owner — no sim should settle them — but plan PR 2's progression-balance gate is exactly the kind of input evidence can serve: sweep global-trickle ratios and global-skill effect sizes against the shipped mining/fishing earn shapes (plus PROPOSAL 003's `GAME_ENCOUNTERS` source) so the owner planning session ratifies an evidence-backed default instead of guessing one. (The risk lens returned needs-more-grooming on doc staleness; that ask is consumed by this report's reality-check section — state advances forward-only.)
 
 Panel record: design lens → coordination value confirmed; simplicity lens → sim-ready (PR-2 slice identified); risk lens → needs-more-grooming (staleness; consumed in-report); deps lens → superbot confirmed as building lane, harvest framing corrected.
+
+## Sim verdict (2026-07-10)
+
+sim-lab **VERDICT 004 · finalized 23:00Z · needs-more-evidence** — SETTLED (structural,
+gate-PASS): the safety of "loops accelerate, never gate" is a MECHANISM property — model
+global skills as **rate/efficiency multipliers only (phi=0** — stamina/xp-gain/movement,
+never flat in-game power**)** and substitution + the global-only content band are 0 at
+every swept effect size; ship phi=0 as the INVARIANT (content thresholds ≤ pure-per-game
+max; any unlock requiring global level = contract violation). PROVISIONAL magnitude (UX
+dial, pending telemetry): trickle t≈0.10, effect budget e≈0.20–0.35, hard BOOST_CAP≈0.25.
+UNSETTLED: exact effect magnitude (family-level earn-shape stand-ins + assumed session
+model; the rate→faster-leveling→power secondary channel unmodeled) — plan PR 2's plumbing
+slice MUST log the named telemetry (per-session earn+source, session length, global_frac
+at new-game start, time-to-baseline, per-game vs global level at every unlock event,
+trickle inflow). The four owner-reserved questions (hub shape, overlay, docking,
+identity) stay out of scope, as this probe recommended. Source:
+[sim-lab `control/outbox.md` VERDICT 004 @ `8713f26`](https://github.com/menno420/sim-lab/blob/8713f261c99634156dd6facda03e396b888a9e8a/control/outbox.md)
+(evidence: simulation, rung 1, 4469 self-checks). State stays `sim-ready` — no
+post-verdict state in the grammar; build-time moves are the manager's routing.

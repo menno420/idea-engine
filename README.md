@@ -75,8 +75,17 @@ rationale. One legitimized shortcut: repo-internal PROCESS tooling whose smalles
 `park(built-here — <what shipped>)`, route nothing to sim-lab, and advance the state to
 `historical(<merged PR>)` on merge (first used by PR #2's section-sync-checker; deviation
 flagged in its probe report, `ideas/fleet/section-sync-checker-2026-07-10.md`, and
-`.sessions/2026-07-10-section-sync-checker.md`). Panel mode (parallel subagent lenses + one synthesizer) only for big or
-contested ideas. Reference example: the first probe (see `ideas/superbot/`).
+`.sessions/2026-07-10-section-sync-checker.md`). **Panel mode default (sim-lab
+VERDICT 002, approve-selectively):** single-pass is the default probe; escalate to panel
+(parallel subagent lenses + one synthesizer) ONLY when (a) a quick 2–3× repeat of the
+single pass disagrees with itself (ambiguity signal), or (b) the idea has
+irreversible/high-blast-radius surface (security/data/spend/public); always-on panel is
+rejected. Measured basis: panel flipped the modal verdict on 2/3 contested ideas at
+4.00× agents / 3.05× tokens / 1.61× wall (sim-lab `control/outbox.md` VERDICT 002 @
+`8713f26`, report `sims/intake-001-probe-panel-vs-single-pass/`); live datapoint: this
+repo's one panel run (PR #23, explore-hub) cost ≈127k lens tokens. Honesty norm
+("not measured" beats invention) holds in both modes. Reference example: the first
+probe (see `ideas/superbot/`).
 
 ## The outbox — `control/outbox.md`
 
