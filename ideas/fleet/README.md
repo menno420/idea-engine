@@ -21,3 +21,8 @@
   harvest drift checker (pin moved · new upstream docs · deleted upstream docs) ·
   historical(#22): probed + built in the same PR (`scripts/check_harvest.py`, wake-time,
   NOT preflight); origin: PR #7 card 💡, dispatched via PR #21 card
+- [`open-work-preflight-sweep-2026-07-10.md`](open-work-preflight-sweep-2026-07-10.md) — report-only
+  open-work advisory sweep (sibling remote branches + local dirt at wake/pre-push, always
+  exit 0 — never gates) · historical(#42): probed + built in the same PR
+  (`scripts/preflight.py --open-work`, sixth CHECKS entry); origin: PR #40 card 💡 via the
+  websites open-pr-awareness probe
