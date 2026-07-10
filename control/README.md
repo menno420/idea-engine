@@ -168,3 +168,8 @@ done-when: <acceptance test>
   writer, so no PR is needed). When this Project ships control changes by PR, push the branch
   over git (a real `git push` triggers `pull_request`/`push` events) before or after creating
   the PR, and verify the PR shows check runs before relying on auto-merge.
+- **A PR in `mergeable_state: dirty` gets ZERO check runs.** GitHub does not start checks on
+  a conflicted PR, so an armed auto-merge jams silently with nothing red to look at — when a
+  watched PR shows no check runs, read `mergeable_state` first, and if `dirty`, resolve the
+  conflict forward-only (the sibling-landed-mid-flight recipe in README § Landing
+  conventions) and push; checks appear once the PR leaves `dirty`.
