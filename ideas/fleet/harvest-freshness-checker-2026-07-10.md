@@ -2,7 +2,8 @@
 
 > **State:** historical(#22)
 > **Class:** process · **Target:** `menno420/idea-engine` (this repo's own tree — built here, see report Q7)
-> **Grounding:** https://github.com/menno420/superbot @ fd638e3c0693687a62093aa6bd75954e238fa58d · fetched 2026-07-10 (harvest pin; live HEAD checked this session)
+> **Grounding:** https://github.com/menno420/superbot@fd638e3c0693687a62093aa6bd75954e238fa58d · fetched 2026-07-10
+> *(pin annotation: harvest pin; live HEAD checked this session)*
 
 **Origin:** the PR #7 session card 💡 first flagged it (a link-index harvest is a snapshot,
 and snapshots rot); dispatched via the PR #21 card
