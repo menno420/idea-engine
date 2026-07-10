@@ -17,14 +17,30 @@ Lints every idea file against the README idea grammar (README § Idea file gramm
 - LINK-INDEX   — a harvested link-index entry (declares a canonical idea elsewhere)
                  without a canonical `https://github.com/…` link.
 
+`--outbox` switches to outbox↔ideas link-integrity mode (README § The outbox) and
+validates `control/outbox.md` against the tree instead:
+
+- PROPOSAL     — a `## PROPOSAL` block whose heading is not
+                 `## PROPOSAL <nnn> · <ISO8601> · status: sim-ready`, or missing a
+                 required field (`target:` / `idea:` / `question:` / `done-when:`;
+                 `depends:` is OPTIONAL).
+- LINK         — a proposal's `idea:` line carries no this-repo `ideas/…` link, the
+                 linked idea file does not exist, or its state is not `sim-ready`
+                 (`historical(…)` is also legal — a proposal outlives its idea's
+                 advance to built, states move forward only).
+- UNPROPOSED   — an ideas/ file in state `sim-ready` that no outbox PROPOSAL names
+                 (a sim-ready verdict that never reached the sim-lab pull surface).
+
 Shape only — it cannot judge honesty ("confident padding" passes); it exists to kill
 silent half-probes and grammar drift. Report-only: it never edits files.
 
 Usage:
     python3 scripts/check_ideas.py                # lint ./ideas
     python3 scripts/check_ideas.py --ideas-dir D  # lint another tree
+    python3 scripts/check_ideas.py --outbox       # outbox↔ideas integrity mode
+    python3 scripts/check_ideas.py --outbox F --ideas-dir D  # …against another tree
 
-Exit codes: 0 = clean · 1 = violations found · 2 = no ideas tree to lint.
+Exit codes: 0 = clean · 1 = violations found · 2 = no tree/outbox to lint.
 """
 
 from __future__ import annotations
@@ -60,6 +76,31 @@ CANONICAL_LINK_RE = re.compile(
     r"https://(?:github\.com|raw\.githubusercontent\.com)/\S+"
 )
 
+# Outbox grammar constants (README § The outbox — same co-edit rule as above).
+PROPOSAL_HEADING_RE = re.compile(r"^## PROPOSAL .*$", re.MULTILINE)
+LEGAL_PROPOSAL_HEADING_RE = re.compile(
+    r"^## PROPOSAL \d{3} · \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z · status: sim-ready\s*$"
+)
+PROPOSAL_REQUIRED_FIELDS = ("target", "idea", "question", "done-when")  # depends: OPTIONAL
+THIS_REPO = "menno420/idea-engine"
+# An `idea:` link must point into THIS repo's ideas/ tree (blob or raw path form).
+IDEA_LINK_RE = re.compile(
+    rf"https://(?:github\.com/{THIS_REPO}/blob|raw\.githubusercontent\.com/{THIS_REPO})"
+    rf"/[^/\s]+/(ideas/\S+?\.md)"
+)
+SIM_READY_STATE = "sim-ready"
+# A proposal outlives its idea's advance to built (states move forward only, the
+# outbox is append-only) — `historical(…)` therefore also satisfies the link check.
+LINKED_STATE_OK_RE = re.compile(r"^(?:sim-ready$|historical\()")
+
+
+def first_state(text: str) -> str | None:
+    for line in text.splitlines():
+        m = STATE_LINE_RE.match(line)
+        if m:
+            return m.group(1)
+    return None
+
 
 def lint_file(path: Path, rel: str) -> list[str]:
     problems: list[str] = []
@@ -68,12 +109,7 @@ def lint_file(path: Path, rel: str) -> list[str]:
 
     text = path.read_text(encoding="utf-8")
 
-    state = None
-    for line in text.splitlines():
-        m = STATE_LINE_RE.match(line)
-        if m:
-            state = m.group(1)
-            break
+    state = first_state(text)
     if state is None:
         problems.append(f"STATE      {rel}: no `> **State:** …` line")
     elif not LEGAL_STATE_RE.match(state):
@@ -107,10 +143,83 @@ def lint_file(path: Path, rel: str) -> list[str]:
     return problems
 
 
+def check_outbox(outbox_path: Path, ideas_dir: Path) -> list[str] | int:
+    """Outbox↔ideas link integrity. Returns violations, or an exit code on
+    usage/internal error (missing outbox — an empty scan must never report clean)."""
+    if not outbox_path.is_file():
+        print(f"check_ideas: no outbox file at {outbox_path}", file=sys.stderr)
+        return 2
+
+    text = outbox_path.read_text(encoding="utf-8")
+    root = ideas_dir.parent  # `ideas/…` link paths resolve against the tree root
+    problems: list[str] = []
+    linked_paths: set[str] = set()
+
+    headings = list(PROPOSAL_HEADING_RE.finditer(text))
+    bounds = [m.start() for m in headings] + [len(text)]
+    for i, m in enumerate(headings):
+        block = text[bounds[i] : bounds[i + 1]]
+        num_m = re.search(r"PROPOSAL (\d+)", m.group(0))
+        where = f"PROPOSAL {num_m.group(1)}" if num_m else f"proposal block #{i + 1}"
+
+        if not LEGAL_PROPOSAL_HEADING_RE.match(m.group(0)):
+            problems.append(
+                f"PROPOSAL   {where}: heading not `## PROPOSAL <nnn> · <ISO8601> · status: sim-ready`"
+            )
+        fields = {
+            fm.group(1): fm.group(2).strip()
+            for fm in re.finditer(r"^([a-z-]+):\s*(.*)$", block, re.MULTILINE)
+        }
+        for field in PROPOSAL_REQUIRED_FIELDS:
+            if not fields.get(field):
+                problems.append(f"PROPOSAL   {where}: missing required field `{field}:`")
+
+        idea_line = fields.get("idea", "")
+        if not idea_line:
+            continue  # already flagged above; nothing to resolve
+        link_m = IDEA_LINK_RE.search(idea_line)
+        if not link_m:
+            problems.append(
+                f"LINK       {where}: `idea:` carries no {THIS_REPO} ideas/ link"
+            )
+            continue
+        rel = link_m.group(1)
+        linked_paths.add(rel)
+        idea_path = root / rel
+        if not idea_path.is_file():
+            problems.append(f"LINK       {where}: linked idea file {rel} does not exist")
+            continue
+        state = first_state(idea_path.read_text(encoding="utf-8"))
+        if state is None or not LINKED_STATE_OK_RE.match(state):
+            problems.append(
+                f"LINK       {where}: linked idea {rel} state {state!r} is not "
+                f"sim-ready (or historical(…))"
+            )
+
+    # Reverse pass: every sim-ready idea must be named by an outbox proposal.
+    for path in sorted(p for p in ideas_dir.rglob("*.md") if p.name != "README.md"):
+        rel = str(path.relative_to(root))
+        if first_state(path.read_text(encoding="utf-8")) == SIM_READY_STATE:
+            if rel not in linked_paths:
+                problems.append(
+                    f"UNPROPOSED {rel}: state 'sim-ready' but no outbox PROPOSAL names it"
+                )
+
+    return problems
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument(
         "--ideas-dir", default=str(REPO_ROOT / "ideas"), help="ideas tree to lint"
+    )
+    ap.add_argument(
+        "--outbox",
+        nargs="?",
+        const=str(REPO_ROOT / "control" / "outbox.md"),
+        default=None,
+        metavar="FILE",
+        help="outbox↔ideas link-integrity mode (default FILE: control/outbox.md)",
     )
     args = ap.parse_args()
 
@@ -118,6 +227,18 @@ def main() -> int:
     if not ideas_dir.is_dir():
         print(f"check_ideas: no ideas dir at {ideas_dir}", file=sys.stderr)
         return 2
+
+    if args.outbox is not None:
+        result = check_outbox(Path(args.outbox), ideas_dir)
+        if isinstance(result, int):
+            return result
+        for p in result:
+            print(p)
+        if result:
+            print(f"check_ideas: FAIL — {len(result)} outbox↔ideas violation(s)")
+            return 1
+        print("check_ideas: OK — outbox proposals and sim-ready ideas are consistent")
+        return 0
 
     files = sorted(
         p for p in ideas_dir.rglob("*.md") if p.name != "README.md"
