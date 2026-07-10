@@ -57,7 +57,12 @@ One idea per pass, through the fixed interrogation:
 
 Append the output as `## Probe report (v0, <date>)` in the idea file, ending in **ONE**
 recommendation — `sim-ready` / `park` / `reject` / `needs-more-grooming` — with a one-line
-rationale. Panel mode (parallel subagent lenses + one synthesizer) only for big or
+rationale. One legitimized shortcut: repo-internal PROCESS tooling whose smallest slice
+(Q8) is trivial may be probed and built **in the same PR** — recommend
+`park(built-here — <what shipped>)`, route nothing to sim-lab, and advance the state to
+`historical(<merged PR>)` on merge (first used by PR #2's section-sync-checker; deviation
+flagged in its probe report, `ideas/fleet/section-sync-checker-2026-07-10.md`, and
+`.sessions/2026-07-10-section-sync-checker.md`). Panel mode (parallel subagent lenses + one synthesizer) only for big or
 contested ideas. Reference example: the first probe (see `ideas/superbot/`).
 
 ## The outbox — `control/outbox.md`
@@ -70,7 +75,14 @@ target: sim-lab
 idea: <link to the idea file @ HEAD>
 question: <the ONE thing the simulator should settle>
 done-when: <what a verdict must contain>
+depends: <OPTIONAL — cross-lane/cross-repo dependency: providing lane + known co-consumers>
 ```
+
+`depends:` is OPTIONAL and forward-only (the outbox is append-only — never retrofit old
+entries): when a probe names a cross-lane dependency, naming the providing lane and any
+known co-consumers makes fan-in visible to the manager's :30 sweep without a code search
+(source: PR #5 — PROPOSAL 002's stats phase and product-forge's games-web ORDER 001 both
+wait on the same superbot read-only API).
 
 `sim-lab` pulls sim-ready entries directly (public raw) on its wakes; the **manager**
 handles everything after the simulator's verdict. This repo never writes another repo's
@@ -93,3 +105,9 @@ files.
 `control/` is the bus (see `control/README.md`): `inbox.md` manager-written ORDERs ·
 `status.md` coordinator-only heartbeat (overwrite as the deliberate LAST step of every
 session) · `outbox.md` this repo's append-only proposals.
+
+**Operating cadence (owner ruling, 2026-07-10):** the coordinator chains bounded slices
+**continuously** via child sessions — the next slice dispatches as each one reports. The
+2-hourly trigger is a **failsafe deadman wake**, not the work cadence. Every slice still
+lands as one merged-on-green PR (§ Landing conventions). (Ruling first recorded live in
+`control/status.md` @ 139932e.)
