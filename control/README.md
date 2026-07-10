@@ -104,6 +104,11 @@ orders: acked=<ids> done=<ids> [claimed-by: <ids> <lane-or-session> <ISO8601>]
 notes: <anything the manager should know>
 ```
 
+Stamp `updated:` with real wall-clock time (a future stamp breaks the manager's staleness
+math — PR #15 card), and never pre-write a PR number that does not exist yet: write
+"this slice" in `last-shipped:` until the PR is created (the PR #12 heartbeat predicted
+#11 and needed a fixup commit, `7ce1607`).
+
 The `kit:` line is the **substrate-coordinator visibility** channel (kit-lab reads it via the
 manager relay — zero write access to this repo): `v<X.Y.Z>` = the vendored kit version this
 repo actually runs (update it in the same session as every `bootstrap upgrade`); `check:` =

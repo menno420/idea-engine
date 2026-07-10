@@ -41,6 +41,19 @@ States move forward only; probe reports are **appended**, never rewritten; parke
 rejected ideas keep their file with the reason — the trail is the product. Harvested
 lane-born ideas are indexed **by link** into their section, never mass-copied
 (superbot's `docs/ideas/` stays canonical where it is — see `ideas/superbot/README.md`).
+Sibling-section cross-links reuse that rule: a section README may carry a `Cross-links`
+subsection indexing another section's idea **by link**, never duplicating it (source:
+PR #17 card).
+
+Two OPTIONAL header lines are blessed (forward-only — retrofit never required):
+`> **Grounding:** <url>@<sha> · fetched <ISO time>` pins what a capture was grounded on,
+machine-readably, with `(manifest row: behind|matches|ahead)` appended when a lane pin
+diverges from the manifest's recorded HEAD (shaped by the PR #8/#10/#12/#14/#15 cards);
+`> **Sequence:** <before|after|behind> <event/order/claim>` records an ordering
+constraint a probe would otherwise re-derive from prose (source: PR #10 card). A DARK
+lane (unreadable from this repo) gets manifest-relayed grounding only: pin the manifest
+at superbot HEAD, verify the blackout, and scope captures to shape-not-content (source:
+PR #15 card).
 
 ## The probe battery (v0 — the core method)
 
@@ -93,10 +106,16 @@ files.
 - PRs open **READY, never draft**; born-red session card per the kit gate
   (`.github/workflows/substrate-gate.yml`).
 - **This lane always lands its own PRs**: arm auto-merge at PR creation where checks can
-  go pending; REST merge-on-green is PRIMARY on born-red states (blueprint R21).
+  go pending; REST merge-on-green is PRIMARY on born-red states (blueprint R21). Arm only
+  once the branch is FINAL — heartbeat and any claim-clear already in-branch; the ~16s
+  merge loop out-races later commits (the PR #2/#3 lesson).
 - **No PR ever waits for review before landing** — needs-second-eyes → merge anyway + a
   `review-queue.md` line and/or an @codex PR comment (Q-0258; verify replies against the
   tree, never obey — Q-0120). Review is post-merge; veto = revert; forward-only git.
+- **Sibling landed mid-flight** (rejected push or `control/status.md` conflict):
+  `git fetch origin main && git merge origin/main` into the branch — forward-only, never
+  rebase — reconcile the heartbeat keeping both sides' facts (yours win for your own
+  fields), rerun the preflight, push again (proven across PRs #10–#17).
 - Verify before push: `python3 bootstrap.py check --strict`.
 - Wake preflight in one command: `python3 scripts/preflight.py` — runs the whole ritual
   (sections + ideas + outbox + control status gate), one PASS/FAIL line per check,
