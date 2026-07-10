@@ -1,0 +1,1 @@
+- `fix/grounding-pin-normalize` · section/scope: `ideas/fleet/` (harvest-freshness-checker Grounding pin line only) · expected files: `ideas/fleet/harvest-freshness-checker-2026-07-10.md`, `.sessions/2026-07-10-grounding-pin-normalize.md`, `control/status.md` · 2026-07-10
