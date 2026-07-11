@@ -1,0 +1,1 @@
+- `probe/substrate-kit-kit-line-self-drift` · **ideas/substrate-kit** — single-pass probe of kit-line-self-drift-local-check-2026-07-10.md (product head, → substrate-kit lane; the section's LAST unprobed head) · expected files: ideas/substrate-kit/**, .sessions/**, control/status.md, control/claims/** · 2026-07-11
