@@ -1,6 +1,6 @@
 # Session — substrate-kit host-checkers-one-gate probe (the section's LAST captured head — section complete)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~08:37Z (worker slice, dispatched by the continuous-mode coordinator per Q-0265)
 
 ## Scope
