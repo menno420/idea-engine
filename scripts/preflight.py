@@ -17,6 +17,14 @@ check, exiting with the WORST (max) exit code so a single red check reds the run
   collision (PRs #38/#39/#40 all leaned on a remembered ad-hoc `ls-remote`). Findings
   are information, never failure — a network blip must not red a PR that changed
   nothing, so this check contributes exit 0 unconditionally and CI stays hermetic.
+- `preflight.py --branch-prefix-drift` — ADVISORY ONLY, always exit 0: derives the
+  repo's real merged-branch prefixes from local `git log --merges` subjects and warns
+  when a RECURRING prefix (>=2 merged branches) matches no
+  `substrate.config.json::automerge.branch_patterns` entry — the silent-no-op class
+  PR #55 fixed by survey (the kit's default `claude/*` matched zero real branches, so
+  the staged auto-merge enabler was disarmed for a whole slice with nothing red
+  anywhere). Local git only (hermetic); a shallow clone or squash-only history
+  degrades to an informational line, still exit 0.
 
 Convention source: control/README.md § Per-session ritual + README § Landing
 conventions — this collects the (previously discipline-only) multi-command ritual
@@ -32,6 +40,9 @@ not run (missing input / unparseable manifest / crashed child, reported as 2).
 
 from __future__ import annotations
 
+import fnmatch
+import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -52,6 +63,8 @@ CHECKS: list[tuple[str, list[str]]] = [
      [PY, "scripts/preflight.py", "--gate-wiring"]),
     ("open-work advisory (report-only, never gates)",
      [PY, "scripts/preflight.py", "--open-work"]),
+    ("branch-prefix-drift advisory (report-only, never gates)",
+     [PY, "scripts/preflight.py", "--branch-prefix-drift"]),
 ]
 
 GATE_FILE = ".github/workflows/substrate-gate.yml"
@@ -162,6 +175,106 @@ def check_open_work() -> int:
     return 0
 
 
+# --branch-prefix-drift anchors: the PR-merge subject GitHub writes on merge-commit
+# landings ("Merge pull request #N from <owner-or-fork>/<branch>"), the config key the
+# auto-merge enabler is generated from, and the recurrence bar that separates a
+# convention (>=2 merged branches) from a one-off branch name.
+MERGE_SUBJECT_RE = re.compile(r"^Merge pull request #\d+ from [^/\s]+/(\S+)$")
+CONFIG_FILE = "substrate.config.json"
+DRIFT_RECURRENCE = 2
+MERGE_LOG_LIMIT = 200
+
+
+def _prefix_pattern(branch: str) -> str:
+    """Group key for a merged-branch name, in branch_patterns' own vocabulary.
+
+    First path segment + "/*" (`probe/x` → `probe/*`); a slashless name falls back
+    to its first hyphen token + "-*" (`seed-games-…` → `seed-*` — the one real
+    slashless convention in this repo's history, which a naive `<seg>/*` key would
+    have hidden).
+    """
+    if "/" in branch:
+        return branch.split("/", 1)[0] + "/*"
+    return branch.split("-", 1)[0] + "-*"
+
+
+def check_branch_prefix_drift(config_path: Path | None = None) -> int:
+    """Branch-prefix drift tripwire — ADVISORY ONLY, unconditionally exit 0.
+
+    Compares the branch prefixes this repo ACTUALLY merges (parsed from local
+    `git log --merges` PR-merge subjects — hermetic, no network) against
+    `substrate.config.json::automerge.branch_patterns`, and reports any RECURRING
+    prefix (>= DRIFT_RECURRENCE merged branches) that matches no configured pattern.
+    That mismatch is the exact silent-disarm class PR #55 fixed by hand survey: the
+    enabler never arms on an unmatched prefix, nothing goes red, and auto-merge
+    quietly stops being structural. Report-only by construction (the open-work
+    advisory's hermeticity rule): findings, empty findings, a shallow clone, a
+    squash-only history window, and an unreadable config all PASS — the value is
+    the listing, the exit code carries nothing. Known blind spot, documented not
+    fixed: squash-merged PRs write `<title> (#N)` subjects that carry no branch
+    name, so only merge-commit landings feed the survey (see the idea file's Q4).
+
+    `config_path` overrides the config location — the planted-violation smoke-test
+    seam (point it at a doctored copy; production callers pass nothing).
+    """
+    cfg = config_path if config_path is not None else REPO_ROOT / CONFIG_FILE
+    try:
+        patterns = json.loads(cfg.read_text(encoding="utf-8")).get(
+            "automerge", {}).get("branch_patterns")
+    except Exception as exc:
+        print(f"branch-prefix-drift: could not read {cfg.name} "
+              f"({_first_line(str(exc))}) — advisory only, still PASS")
+        return 0
+    if not isinstance(patterns, list) or not all(isinstance(p, str) for p in patterns):
+        print("branch-prefix-drift: no automerge.branch_patterns list configured — "
+              "nothing to compare (enabler not adopted?); advisory only, still PASS")
+        return 0
+
+    try:
+        proc = subprocess.run(
+            ["git", "log", "--merges", "-n", str(MERGE_LOG_LIMIT), "--pretty=%s"],
+            cwd=REPO_ROOT, capture_output=True, text=True, timeout=30,
+        )
+        if proc.returncode != 0:
+            raise RuntimeError(_first_line(proc.stderr) or f"exit {proc.returncode}")
+        subjects = proc.stdout.splitlines()
+    except Exception as exc:  # advisory only — a failed survey is never a failed gate
+        print(f"branch-prefix-drift: could not read git merge history "
+              f"({_first_line(str(exc))}) — advisory only, still PASS")
+        return 0
+
+    branches = [m.group(1) for s in subjects if (m := MERGE_SUBJECT_RE.match(s))]
+    if not branches:
+        print("branch-prefix-drift: no PR merge subjects in local history "
+              "(shallow clone or squash-only window) — nothing to compare, still PASS")
+        return 0
+
+    uncovered: dict[str, list[str]] = {}
+    for branch in branches:
+        if any(fnmatch.fnmatchcase(branch, pat) for pat in patterns):
+            continue
+        uncovered.setdefault(_prefix_pattern(branch), []).append(branch)
+    drifted = {k: v for k, v in uncovered.items() if len(v) >= DRIFT_RECURRENCE}
+
+    if drifted:
+        print(f"branch-prefix-drift: DRIFT (advisory) — {len(drifted)} recurring "
+              "merged-branch prefix(es) match NO automerge.branch_patterns entry "
+              "(the enabler never arms on these — the PR #55 silent-no-op class; "
+              "add the pattern or retire the convention):")
+        for prefix, names in sorted(drifted.items(), key=lambda kv: -len(kv[1])):
+            sample = ", ".join(names[:3]) + (" …" if len(names) > 3 else "")
+            print(f"branch-prefix-drift:   {prefix}  ×{len(names)}  (e.g. {sample})")
+    else:
+        singles = sum(len(v) for v in uncovered.values())
+        print(f"branch-prefix-drift: OK — every recurring merged-branch prefix "
+              f"matches a configured pattern ({len(branches)} merged branches "
+              f"surveyed, {len(patterns)} patterns, {singles} one-off unmatched "
+              "branch(es) below the recurrence bar)")
+    print("branch-prefix-drift: OK — advisory sweep complete "
+          "(report-only, never affects the exit)")
+    return 0
+
+
 def main() -> int:
     worst = 0
     for name, cmd in CHECKS:
@@ -185,4 +298,10 @@ if __name__ == "__main__":
         sys.exit(check_gate_wiring())
     if "--open-work" in sys.argv[1:]:
         sys.exit(check_open_work())
+    if "--branch-prefix-drift" in sys.argv[1:]:
+        args = sys.argv[1:]
+        cfg = None
+        if "--config" in args and args.index("--config") + 1 < len(args):
+            cfg = Path(args[args.index("--config") + 1])
+        sys.exit(check_branch_prefix_drift(cfg))
     sys.exit(main())
