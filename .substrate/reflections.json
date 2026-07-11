@@ -1,25 +1,5 @@
 [
   {
-    "id": "R-0010",
-    "lesson": "Recurring attention on control/claims/README.md",
-    "evidence": "2026-07-11-review-queue-auto-check-probe.md:L51, 2026-07-11-wire-automerge-enabler.md:L121",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
-    "id": "R-0011",
-    "lesson": "Recurring attention on control/status.md",
-    "evidence": "2026-07-11-own-heartbeat-selfcheck-probe.md:L22, 2026-07-11-wire-automerge-enabler.md:L67",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
     "id": "R-0012",
     "lesson": "Recurring attention on github/workflows/auto-merge-enabler.yml",
     "evidence": "2026-07-11-squash-headref-provenance.md:L28, 2026-07-11-wire-automerge-enabler.md:L28",
@@ -43,6 +23,26 @@
     "id": "R-0014",
     "lesson": "Recurring attention on scripts/preflight.py",
     "evidence": "2026-07-11-venture-lab-forecast-verify-park.md:L35, 2026-07-11-wire-automerge-enabler.md:L79",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0015",
+    "lesson": "taken as METHOD \u2014 \"when a capture touches a lane younger than ~a day, the lane-HEAD",
+    "evidence": "2026-07-11-superbot-mineverse-first-batch.md:L132",
+    "tags": [
+      "idea"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0016",
+    "lesson": "Recurring attention on docs/roster.md",
+    "evidence": "2026-07-11-superbot-mineverse-first-batch.md:L35, 2026-07-11-venture-lab-forecast-verify-park.md:L37",
     "tags": [
       "recurring-path"
     ],
