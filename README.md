@@ -95,7 +95,10 @@ Reachability check (battery Q4/Q6 discipline): an idea pricing an export/feed sl
 must verify where the data actually lives vs what the named producer can actually
 read, and an idea pricing an owner action must verify a zero-toolchain surface
 actually carries the action's object — pattern-exists is not pattern-can-produce
-(source: PR #45/#34 cards).
+(source: PR #45/#34 cards). Verify-first greps must stem-match, never exact-match:
+grep the symbol's STEM (`extra_check`, `host_check`) and treat any near-named hit as
+read-the-body-required — an exact-match grep returns a false absent on a false-friend
+symbol (source: PR #141 card, the `_extra_check_findings` false friend).
 
 Append the output as `## Probe report (v0, <date>)` in the idea file, ending in **ONE**
 recommendation — `sim-ready` / `park` / `reject` / `needs-more-grooming` — with a one-line

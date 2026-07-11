@@ -66,3 +66,5 @@ Format: `- YYYY-MM-DD · capability|wall · finding · evidence · workaround`.
 
 (Hand-filled by sessions, per the discovery rule. Seed walls/capabilities
 above came from the fleet's lived 2026-07 findings; local ones go here.)
+
+- 2026-07-11 · wall · pushes authored with a workflow's own `GITHUB_TOKEN` never retrigger workflow runs (GitHub's anti-recursion rule), so any automation that pushes and then waits on CI stalls silently — checks never report · evidence: the behind-stall probe's sharpest finding, PR #138 session card 💡 (`.sessions/2026-07-11-substrate-kit-heartbeat-behind-pair-probe.md`) · workaround: re-dispatch explicitly (`workflow_dispatch` or a run re-run) or push with a non-`GITHUB_TOKEN` credential (owner PAT / App token).
