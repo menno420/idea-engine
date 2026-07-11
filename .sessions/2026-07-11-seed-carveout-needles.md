@@ -1,6 +1,6 @@
 # Session — substrate-kit capture: carveout-needles config (kit carve-out scan, de-step-blinded)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 (worker slice, dispatched by the coordinator
 > under continuous-chaining mode per Q-0265)
 
