@@ -15,17 +15,24 @@ link below. Claim this section (`control/claims/`) before working it.
   PROPOSAL 006 relays SIM-001's own committed spec (T1–T10 per A1–A10, real engine
   functions at the pinned commit) across the one seam the lane cannot write
 - [`theme-catalog-gallery-read-contract-2026-07-11.md`](theme-catalog-gallery-read-contract-2026-07-11.md) —
-  captured · product: setup-code v1 contract-closed the WRITE path to the websites
-  lane, but §3's theme gallery has no READ surface — a committed regenerate-or-red
-  catalog index (the lane's own proven vector-file discipline) before the first gallery
-  render hardens a scraper's guesses into a de-facto contract (websites verified
-  not-started @ `d4ed380`)
+  parked(build-direct) · product: the committed regenerate-or-red catalog index
+  (`themes/catalog.v1.json`, generated from the lane's own loader) that gives §3's
+  gallery its READ contract before the first scraper hardens guesses into a de-facto
+  one — probed 2026-07-11 at live lane HEAD `1b3a211` (the `f11c71a` → `1b3a211`
+  delta is ORDER-001-only, premise HOLDS; websites re-verified not-started @
+  `7da9fbf`, superseding the capture's `d4ed380` — Sequence window OPEN); a one-PR
+  lane export slice settled by the lane's own CI, the sole open point (gallery
+  ordering) is a product decision — no outbox proposal, build-direct lane pickup
 - [`theme-schema-plugin-contract-promotion-2026-07-11.md`](theme-schema-plugin-contract-promotion-2026-07-11.md) —
-  captured · product: the §4/§7 decided-and-flagged promotion of schema v1 into the
-  plugin-contract family has no tracker anywhere (the lane's PLUG-001 holds the
-  ADAPTER, not the promotion) — this capture is the tracker, armed by the greppable
-  `after superbot-next#ORDER-002` Sequence token; promotion = adopt-with-evidence
-  (12 zero-pinch packs, parity tests), never re-design
+  parked(awaiting-arming-event) · product: the §4/§7 decided-and-flagged promotion of
+  schema v1 into the plugin-contract family — this capture is the tracker (the lane's
+  PLUG-001 holds the ADAPTER, not the promotion; verified still untracked @
+  `1b3a211`), armed by the greppable `after superbot-next#ORDER-002` Sequence token;
+  probed 2026-07-11: the arming event verified NOT fired @ superbot-next `4c8c5b0`
+  (002 acked-not-done, contract-doc paths 404) yet owner-click-distance — UN-PARK the
+  moment a published plugin/manifest contract doc is fetchable anywhere in
+  superbot-next OR ORDER 002 reaches done, then relay the adopt-with-evidence
+  promotion (12 zero-pinch packs, parity tests — never re-design) via the manager
 
 *(Section stub was seeded 2026-07-11 when the fleet-manager generated roster became
 the canonical lane registry (supersedes the superbot fleet manifest, fleet-manager
