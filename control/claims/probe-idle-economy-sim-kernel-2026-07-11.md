@@ -1,0 +1,1 @@
+- `probe/idle-economy-sim-kernel-2026-07-11` · **ideas/superbot-idle/** — probe idle-economy-sim-kernel through battery v0 (+ outbox PROPOSAL if it holds) · ideas/superbot-idle/** + control/outbox.md · 2026-07-11
