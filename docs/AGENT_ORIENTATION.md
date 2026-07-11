@@ -21,7 +21,7 @@
 
 ## Where things live
 
-Documentation root(s): docs
+Documentation root(s): docs/ (kit contracts) + ideas/ (the product: per-lane idea sections) + control/ (coordination)
 
 The planted doc set (this router reaches every live doc — keep it that way):
 `docs/architecture.md` · `docs/ownership.md` · `docs/runtime_contracts.md` ·

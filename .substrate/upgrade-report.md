@@ -2,7 +2,7 @@
 
 > Generated 2026-07-11 by `bootstrap.py upgrade`. Rollback: `python3 bootstrap.py upgrade --rollback`.
 
-**Docs:** consumer-edited: 1 · diverged: 1 · missing: 2 · template-improved: 2 · unchanged: 15
+**Docs:** consumer-edited: 1 · diverged: 2 · template-improved: 2 · unchanged: 17
 
 | planted doc | class | note |
 |---|---|---|
@@ -25,17 +25,14 @@
 | control/README.md | diverged | both the template and the doc moved — manual merge |
 | control/inbox.md | unchanged | template identical across versions |
 | control/status.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
-| control/claims/README.md | missing | absent — upgrade's adopt pass replants it |
-| scripts/env-setup.sh | missing | absent — upgrade's adopt pass replants it |
+| control/claims/README.md | diverged | no recorded hash or old templates unavailable (pre-1.0 install) — manual review |
+| scripts/env-setup.sh | unchanged | template identical across versions |
+| .claude/CLAUDE.md | unchanged | template identical across versions |
 
-## ⚠️ Gate carve-outs (host additions the kit-owned regen could not keep)
+## Applied (--apply-docs)
 
-- carve-out: .github/workflows/substrate-gate.yml — host-added step 'wake preflight (gate↔ritual convergence — scripts/preflight.py is the ONE check list)' in job 'substrate-gate'
-- carve-out: full pre-regen gate banked at .substrate/backup/substrate-gate.pre-regen-048ca4a2.yml — host additions were NOT carried into the regenerated kit-owned gate; move them into a separate workflow file (e.g. .github/workflows/host-ci.yml) and commit that before shipping this upgrade/adopt PR.
-
-## Carve-out scan
-
-- carve-out scan: 2 carve-out line(s) reported above (see the ⚠️ section).
+- applied: docs/repo-navigation-map.md (template@new, hash re-recorded)
+- applied: docs/AGENT_ORIENTATION.md (template@new, hash re-recorded)
 
 ## Template deltas for diverged docs
 
