@@ -43,6 +43,36 @@ but no heartbeat write ever enumerates the full set. The four it once enumerated
 backlog bullet at the pin (grep for issue/alert: zero hits). This entry indexes the
 count claim verbatim and does not assert a specific six (or seven).
 
+## Re-pin (2026-07-11 content re-harvest)
+
+> **Grounding:** https://raw.githubusercontent.com/menno420/websites/8c19e930f6dedd8b230538789a579cf1ce337f3c/docs/ideas/backlog.md@8c19e93 · fetched 2026-07-11T01:02Z (manifest row: behind)
+
+The backlog's CONTENT moved 47/31 lines under an UNCHANGED filename set between the
+first-harvest pin `144dfce` and HEAD `8c19e93` (`git diff --stat 144dfce..8c19e93 --
+docs/ideas/`, blobless clone; `check_harvest` correctly reports the shape as
+`HEAD MOVED (docs unchanged)` — the filename-set-only label the PR #49 honesty
+correction documented). At the re-pin the list holds **10 captured, 9 built,
+1 retired**. Bullet-lifecycle flips vs the numbered list above (original numbering
+kept — the trail is the product):
+
+- **#1 (`/fleet` manifest-parse freshness badge) → Retired** — the lane's slice-7
+  fact-check found it already shipped as the PR #36 `lane_source` notice; the
+  backlog's FIRST Retired entry.
+- **#4 (kit-version rollup), #6 (`/queue.json` round-trip), #9 (stalled-claim
+  aging) → Built** — one "fleet polish batch" slice (lane PR #81, slice 8).
+- **#11 (own-heartbeat parse self-check) → Built** — lane PR #79 (slice 7); probed
+  as [`own-heartbeat-parse-self-check-2026-07-11.md`](own-heartbeat-parse-self-check-2026-07-11.md),
+  parked(overtaken-by-events).
+- **Two NEW captured bullets born:** same-shape contract tests for
+  `/orders.json` / `/queue.json` / `/projects.json` / `/reviews.json` (residue of
+  the slice-9 `/fleet.json` shape-contract build, lane PR #83 — the pattern file
+  now exists to copy), and a backlog fact-check pass before promoting a bullet
+  (the lane's own harvest-side twin of this repo's lane-self-served lesson).
+- **#8 (review-queue row auto-check)** stayed `captured` — probed 2026-07-11 as
+  [`review-queue-row-auto-check-2026-07-11.md`](review-queue-row-auto-check-2026-07-11.md),
+  parked(build-direct).
+- Unchanged captured: #2, #3, #5, #7, #10, #12, #13.
+
 **Cross-links (by link, never duplicated):** backlog #1 and #4 touch the same
 `/fleet` surface named as a future sparkline consumer in
 [`fleet-program-pulse-feed-2026-07-10.md`](fleet-program-pulse-feed-2026-07-10.md);
