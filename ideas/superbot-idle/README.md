@@ -46,7 +46,7 @@ Sibling-section ideas indexed **by link** (README § Idea file grammar — never
 duplicated; rule source: PR #17 card):
 
 - [`../superbot/games-theme-engine-website-first-2026-07-10.md`](../superbot/games-theme-engine-website-first-2026-07-10.md)
-  — captured · the owner-shaped games-program directive (harvested @ PR #38; canonical
+  — parked(routed) · the owner-shaped games-program directive (harvested @ PR #38; canonical
   doc stays in superbot @ `41899e1`) that DEFINED this seat before it existed: the
   gen-2/gen-3 split names a new Idle Engine seat (suggested `superbot-idle` — now this
   live lane) built template-first, with the core/skin seam (game cores are code, themes
