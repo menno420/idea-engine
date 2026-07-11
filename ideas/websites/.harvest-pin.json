@@ -1,0 +1,15 @@
+{
+  "format": "harvest-pin/v1",
+  "repo": "menno420/websites",
+  "canonical_dir": "docs/ideas",
+  "branch": "main",
+  "pin": "d8623642cabf068125dccb69ac775f2de0311104",
+  "recorded": "2026-07-11T06:56:49Z",
+  "docs": {
+    "activity-atom-feed-2026-07-09.md": "bbc4625e0810ba0667dcb711bf66d1da72e35d17",
+    "activity-per-repo-filter-2026-07-09.md": "42292d8cac25d5817fff4a597dcdeeb0d0b1687c",
+    "backlog.md": "f1d93e30e4d8eb9550e5212cab2bea5b5845d592",
+    "open-pr-awareness-at-wake-2026-07-10.md": "11627fd38e2d8b304990648323ee23b74bce45cf",
+    "scheduled-healthcheck-workflow-2026-07-10.md": "9d87feb9f151bafa40fbe56eb0ce82398cd7dd1f"
+  }
+}
