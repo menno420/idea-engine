@@ -7,11 +7,31 @@ link below. Claim this section (`control/claims/`) before working it.
 
 ## Index
 
-*(no entries yet — section stub seeded 2026-07-11 when the fleet-manager generated
-roster became the canonical lane registry (it supersedes the superbot fleet manifest,
-fleet-manager PR #59 `b0639a9`) and surfaced this live lane (games program Seat B —
-idle-game catalog, volume phase per the roster row), per README § Sections: the wake
-that spots a new active lane creates the section, README stub first.)*
+- [`idle-economy-sim-kernel-2026-07-11.md`](idle-economy-sim-kernel-2026-07-11.md) —
+  captured · product: the §6 kernel, armed — the lane pre-registered pacing targets
+  T1–T10 + the executable SIM-001 request (lane PRs #9+#12+#13), so the harvest note's
+  arming condition is MET; SIM-001 sits "awaiting manager relay" while sim-lab idles on
+  an EMPTY queue — probe → likely sim-ready → an outbox proposal relaying SIM-001's own
+  committed spec across the one seam the lane cannot write (verify sim-lab's intake
+  first at probe time)
+- [`theme-catalog-gallery-read-contract-2026-07-11.md`](theme-catalog-gallery-read-contract-2026-07-11.md) —
+  captured · product: setup-code v1 contract-closed the WRITE path to the websites
+  lane, but §3's theme gallery has no READ surface — a committed regenerate-or-red
+  catalog index (the lane's own proven vector-file discipline) before the first gallery
+  render hardens a scraper's guesses into a de-facto contract (websites verified
+  not-started @ `d4ed380`)
+- [`theme-schema-plugin-contract-promotion-2026-07-11.md`](theme-schema-plugin-contract-promotion-2026-07-11.md) —
+  captured · product: the §4/§7 decided-and-flagged promotion of schema v1 into the
+  plugin-contract family has no tracker anywhere (the lane's PLUG-001 holds the
+  ADAPTER, not the promotion) — this capture is the tracker, armed by the greppable
+  `after superbot-next#ORDER-002` Sequence token; promotion = adopt-with-evidence
+  (12 zero-pinch packs, parity tests), never re-design
+
+*(Section stub was seeded 2026-07-11 when the fleet-manager generated roster became
+the canonical lane registry (supersedes the superbot fleet manifest, fleet-manager
+PR #59 `b0639a9`) and surfaced this live lane, per README § Sections; first batch
+seeded the same day — 3 captures, all grounded at lane HEAD `f11c71a` + roster
+`93d3a4d`, drops recorded on the batch's session card.)*
 
 ## Cross-links
 
