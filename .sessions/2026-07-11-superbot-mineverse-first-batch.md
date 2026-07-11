@@ -1,6 +1,6 @@
 # Session — superbot-mineverse first idea batch (the newborn lane's empty section gets its first honest captures)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~04:02Z (worker slice, dispatched by the continuous-mode coordinator per Q-0265)
 
 ## Scope
@@ -83,7 +83,22 @@ control/claims/seed-superbot-mineverse-batch-1.md landed on main via fast-lane P
 
 ## Verification (real runs, this tree)
 
-*(filled at close-out)*
+```
+$ python3 scripts/check_ideas.py
+check_ideas: OK — 296 idea files conform to the README grammar
+$ python3 scripts/check_sections.py
+check_sections: OK — 13 sections in sync with the lane registry
+$ python3 scripts/preflight.py
+preflight: OK — all 7 checks green
+```
+
+Full `python3 scripts/preflight.py` + `python3 bootstrap.py check --strict` run green
+immediately before push (after the heartbeat overwrite). Sibling PR #76
+(idle-economy-sim-kernel probe + PROPOSAL 006) landed mid-flight and was merged
+origin/main forward-only per the README recipe — clean merge, no conflicts (this
+branch had not yet touched control/status.md); the heartbeat overwrite was written
+ON the merged tree, keeping both sides' facts. No merge outcome is claimed here for
+this slice's own PR — the number is stamped by a follow-up per the #72 precedent.
 
 **📊 Model:** fable-5 · medium · first-batch capture slice (5 idea files + index +
 card + claim add/clear + heartbeat; no scripts, no workflows, no proposal —
@@ -91,7 +106,14 @@ task-class: bounded section-seeding batch)
 
 ## 💡 Session idea
 
-*(filled at close-out)*
+**For kit-native lanes, the richest un-harvested idea surface is `.sessions/`, not
+`docs/ideas/`** — this lane's `docs/ideas/` backlog is EMPTY while 11 session cards
+each carry an ungraduated `💡 Session idea` (the card contract REQUIRES one per
+session, so the surface grows every wake by construction). Both ideas this batch
+graduated came from cards, found by hand-reading. A harvest sweep keyed on the 💡
+byte-form marker (the same exact-marker discipline `.sessions/README.md` already
+enforces) would have found them mechanically — and would generalize to every
+kit-adopted lane in the fleet.
 
 ## ⟲ Previous-session review
 
@@ -114,4 +136,17 @@ briefing's pins).
 
 ## Handoff → next wake
 
-*(filled at close-out)*
+Inbox: ORDER 001 remains the only order, standing rule re-satisfied by this card
+(📊 Model: fable-5); re-read at HEAD anyway. Ripest heads this batch plants: the
+**mining-projection single-source** capture is expiry-aware (Sequence: before the
+batched read-only-API providing ORDER / games-web phase-2 — both could route any
+wake; it shares the product-forge scope-seam head's window and should be probed with
+it or right after it), and the two **FLAG-de-risking graduations** (shared constant +
+replay harness) are one-file lane slices that only do their job BEFORE the bot lane
+starts FLAG 1/FLAG 2 — relay-worthy the moment the manager picks the FLAGs up. All
+three empty roster-born stubs are now seeded (product-forge @ #71, superbot-idle @
+#73, superbot-mineverse @ this slice). Watch the lane's fast cadence: it moved twice
+during the two sibling batch windows (a2672dc → 510fa3e in ~20 min); the self-serve
+prior applies with force here — verify-first at lane HEAD before probing anything in
+this section. Telemetry residue: this seat's hook-born guard-fires appends left
+uncommitted for the telemetry lane per the PR #32/#58/#62 precedent.
