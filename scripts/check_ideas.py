@@ -19,6 +19,18 @@ Lints every idea file against the README idea grammar (README § Idea file gramm
 - UNFILLED     — an unfilled `[[fill:…]]` auto-draft stub slot committed in an
                  idea file (a pasted --emit-entries stub must be fully filled;
                  backtick-quoted mentions of the slot grammar are exempt).
+- SIM-VERDICT  — a `## Sim verdict (<date>)` note (README § Idea file grammar, the
+                 canonical post-verdict marker) missing part of the PINNED field set:
+                 heading date · a `**VERDICT <nnn> · finalized <time> · <token>**`
+                 marker · a sim-lab `control/outbox.md` @ <sha> source pin · a
+                 "State stays" closer. The numbering cross (`= this repo's
+                 PROPOSAL <nnn>`) and a gate mention are date-gated (hard for notes
+                 dated on/after 2026-07-11 — the day PR #121 recorded sim-lab's
+                 verdict-field drift; advisory WARN for earlier notes, never
+                 retrofit). A cross that names a PROPOSAL absent from
+                 control/outbox.md is always hard — the PROPOSAL↔VERDICT cross is
+                 machine-checked hermetically against the local outbox. Two notes
+                 claiming the same VERDICT number WARN (fan-out is legal but rare).
 - GROUNDING    — a `> **Grounding:**` optional header line (README § Idea file
                  grammar, blessed by PR #21) present but malformed: must be
                  `> **Grounding:** <url>@<sha> · fetched <ISO time>` with an
@@ -121,6 +133,32 @@ SEQUENCE_BODY_RE = re.compile(r"^(?:before|after|behind) \S.*$")
 OPTIONAL_LINE_GRAMMAR_DATE = "2026-07-10"
 FILENAME_DATE_RE = re.compile(r"-(\d{4}-\d{2}-\d{2})\.md$")
 
+# Sim-verdict note grammar (README § Idea file grammar, the PR #41/#43 blessing —
+# same loud co-edit rule as above). The PINNED field set is the invariant core all
+# six live notes already carry (surveyed at the verdict-registry probe,
+# ideas/fleet/verdict-registry-2026-07-11.md): heading date · VERDICT/finalized/token
+# marker · sim-lab outbox source pin · "State stays" closer. The numbering cross and
+# the gate mention are date-gated hard from SIM_VERDICT_PIN_DATE on (the day PR #121
+# recorded that sim-lab's own verdict field set drifts — V006 shipped no `ruling:`
+# field); earlier notes WARN only (forward-only — retrofit never required). The
+# cross is validated hermetically: the named PROPOSAL must exist in the LOCAL
+# control/outbox.md — no network at lint time.
+SIM_VERDICT_HEADING_RE = re.compile(r"^## Sim verdict\b.*$", re.MULTILINE)
+LEGAL_SIM_VERDICT_HEADING_RE = re.compile(r"^## Sim verdict \((\d{4}-\d{2}-\d{2})\)\s*$")
+ANY_H2_RE = re.compile(r"^## ", re.MULTILINE)
+VERDICT_MARKER_RE = re.compile(
+    r"\*\*VERDICT (\d{3}) · finalized \S+ · [^*]+?\*\*"  # token may wrap a line
+)
+SIMLAB_OUTBOX_PIN_RE = re.compile(
+    r"https://(?:github\.com/menno420/sim-lab/blob|raw\.githubusercontent\.com/menno420/sim-lab)"
+    r"/[0-9a-fA-F]{7,40}/control/outbox\.md"
+)
+PROPOSAL_CROSS_RE = re.compile(r"= this repo['’]s PROPOSAL (\d{3})")
+STATE_CLOSER_MARKER = "State stays"
+GATE_MENTION_RE = re.compile(r"\bgate\b", re.IGNORECASE)
+SIM_VERDICT_PIN_DATE = "2026-07-11"
+OUTBOX_PROPOSAL_ID_RE = re.compile(r"^## PROPOSAL (\d{3})\b", re.MULTILINE)
+
 # Outbox grammar constants (README § The outbox — same co-edit rule as above).
 PROPOSAL_HEADING_RE = re.compile(r"^## PROPOSAL .*$", re.MULTILINE)
 LEGAL_PROPOSAL_HEADING_RE = re.compile(
@@ -174,6 +212,71 @@ def check_optional_lines(text: str, rel: str) -> list[str]:
     return msgs
 
 
+def check_sim_verdict_notes(
+    text: str,
+    rel: str,
+    proposal_ids: set[str] | None,
+    seen_verdicts: dict[str, str] | None,
+) -> tuple[list[str], list[str]]:
+    """Shape-check every `## Sim verdict` note against the pinned field set.
+    Returns (problems, warnings). `proposal_ids` = PROPOSAL numbers present in the
+    local control/outbox.md (None = no outbox readable, cross-existence fail-open).
+    `seen_verdicts` maps VERDICT number → first location, for the duplicate WARN."""
+    problems: list[str] = []
+    warnings: list[str] = []
+    headings = list(SIM_VERDICT_HEADING_RE.finditer(text))
+    for i, hm in enumerate(headings):
+        lineno = text.count("\n", 0, hm.start()) + 1
+        tag = f"SIM-VERDICT {rel}:{lineno}"
+        legal = LEGAL_SIM_VERDICT_HEADING_RE.match(hm.group(0))
+        note_date = legal.group(1) if legal else None
+        if not legal:
+            problems.append(f"{tag}: heading not `## Sim verdict (YYYY-MM-DD)`")
+        # The note runs to the next `## ` heading (of any kind) or EOF.
+        nxt = ANY_H2_RE.search(text, hm.end())
+        block = text[hm.end() : nxt.start() if nxt else len(text)]
+        # Date-gate: notes dated on/after the pin date get the full hard set;
+        # earlier (or undatable) notes WARN on the gated fields, never retrofit.
+        gated_hard = bool(note_date) and note_date >= SIM_VERDICT_PIN_DATE
+
+        vm = VERDICT_MARKER_RE.search(block)
+        if not vm:
+            problems.append(
+                f"{tag}: no `**VERDICT <nnn> · finalized <time> · <token>**` marker"
+            )
+        elif seen_verdicts is not None:
+            vid = vm.group(1)
+            if vid in seen_verdicts:
+                warnings.append(
+                    f"{tag}: VERDICT {vid} also noted at {seen_verdicts[vid]} "
+                    f"(fan-out is legal but rare — verify it is deliberate)"
+                )
+            else:
+                seen_verdicts[vid] = f"{rel}:{lineno}"
+
+        if not SIMLAB_OUTBOX_PIN_RE.search(block):
+            problems.append(
+                f"{tag}: no sim-lab `control/outbox.md` @ <sha> source pin"
+            )
+        if STATE_CLOSER_MARKER not in block:
+            problems.append(f'{tag}: no "State stays" closer')
+
+        cross = PROPOSAL_CROSS_RE.search(block)
+        if cross:
+            if proposal_ids is not None and cross.group(1) not in proposal_ids:
+                problems.append(
+                    f"{tag}: numbering cross names PROPOSAL {cross.group(1)} "
+                    f"but control/outbox.md carries no such proposal"
+                )
+        else:
+            msg = f"{tag}: no `= this repo's PROPOSAL <nnn>` numbering cross"
+            (problems if gated_hard else warnings).append(msg)
+        if not GATE_MENTION_RE.search(block):
+            msg = f"{tag}: no gate mention (the sim-lab gate line)"
+            (problems if gated_hard else warnings).append(msg)
+    return problems, warnings
+
+
 def first_state(text: str) -> str | None:
     for line in text.splitlines():
         m = STATE_LINE_RE.match(line)
@@ -182,7 +285,12 @@ def first_state(text: str) -> str | None:
     return None
 
 
-def lint_file(path: Path, rel: str) -> tuple[list[str], list[str]]:
+def lint_file(
+    path: Path,
+    rel: str,
+    proposal_ids: set[str] | None = None,
+    seen_verdicts: dict[str, str] | None = None,
+) -> tuple[list[str], list[str]]:
     """Returns (problems, warnings) — problems red the run, warnings are advisory."""
     problems: list[str] = []
     warnings: list[str] = []
@@ -231,6 +339,12 @@ def lint_file(path: Path, rel: str) -> tuple[list[str], list[str]]:
 
     opt = check_optional_lines(text, rel)
     (problems if optional_lines_hard(path.name) else warnings).extend(opt)
+
+    sv_problems, sv_warnings = check_sim_verdict_notes(
+        text, rel, proposal_ids, seen_verdicts
+    )
+    problems.extend(sv_problems)
+    warnings.extend(sv_warnings)
 
     return problems, warnings
 
@@ -339,10 +453,28 @@ def main() -> int:
         print(f"check_ideas: no idea files under {ideas_dir}", file=sys.stderr)
         return 2
 
+    # Sim-verdict numbering crosses are checked against the LOCAL outbox
+    # (hermetic — no network). No outbox file = cross-existence fail-open
+    # (the shape checks still run); a WARN says so rather than a silent skip.
+    outbox_path = ideas_dir.parent / "control" / "outbox.md"
+    proposal_ids: set[str] | None = None
+    if outbox_path.is_file():
+        proposal_ids = set(
+            OUTBOX_PROPOSAL_ID_RE.findall(outbox_path.read_text(encoding="utf-8"))
+        )
+
     problems: list[str] = []
     warnings: list[str] = []
+    seen_verdicts: dict[str, str] = {}
+    if proposal_ids is None:
+        warnings.append(
+            f"SIM-VERDICT (tree): no outbox at {outbox_path} — "
+            f"numbering-cross existence not checked (fail-open)"
+        )
     for path in files:
-        p, w = lint_file(path, str(path.relative_to(ideas_dir.parent)))
+        p, w = lint_file(
+            path, str(path.relative_to(ideas_dir.parent)), proposal_ids, seen_verdicts
+        )
         problems.extend(p)
         warnings.extend(w)
 

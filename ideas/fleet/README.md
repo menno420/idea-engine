@@ -38,3 +38,9 @@
   content-free session stubs from the HARNESS stop hook's git-cleanliness nag — nag-only,
   telemetry stays committable · park(built-here — `scripts/patch-stop-hook-git-check.sh`,
   SessionStart-wired, this PR); origin: the merged-PR ledger itself
+- [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
+  `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
+  vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
+  the registry; sim-lab grammar half routed via the manager) · park(built-here —
+  SIM-VERDICT category in `scripts/check_ideas.py`, probed + built in the same PR);
+  origin: V005 fan-in card 💡, armed by V006's ruling-field drift (PR #121)
