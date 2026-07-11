@@ -128,7 +128,12 @@ Grammar source of truth: the tokens, field lists, and regexes of this format are
 Stamp `updated:` with real wall-clock time (a future stamp breaks the manager's staleness
 math — PR #15 card), and never pre-write a PR number that does not exist yet: write
 "this slice" in `last-shipped:` until the PR is created (the PR #12 heartbeat predicted
-#11 and needed a fixup commit, `7ce1607`).
+#11 and needed a fixup commit, `7ce1607`). The heartbeat carries ONLY kit-documented
+fields: session-local signals like operating mode or backpressure state fold into
+`notes:` (or the phase line), never as undeclared top-level extension keys — the format
+block is kit-owned grammar (EAP §6.8), and an undeclared key folds into `phase` as a
+continuation in a consumer's parser (PR #49's measured leak; decided round 4, fold-in
+over declare).
 
 The `kit:` line is the **substrate-coordinator visibility** channel (kit-lab reads it via the
 manager relay — zero write access to this repo): `v<X.Y.Z>` = the vendored kit version this
