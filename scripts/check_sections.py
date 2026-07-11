@@ -103,18 +103,34 @@ def roster_sections(roster: str) -> set[str]:
     marked wound down), and the NON_LANE_REPOS pipeline infrastructure. Lane display
     decorations (`**bold**`, `(hub)`, `(NEW)`, `· Seat A`) are stripped; a lane cell
     that still doesn't reduce to a repo-name token fails LOUD — never a silent skip,
-    a false clean is worse than a crash."""
+    a false clean is worse than a crash.
+
+    Scope: ONLY the first `| Lane |`-headed table. Roster generation #5
+    (machine-generated, 2026-07-11T04:28Z) added a SECOND table to the doc (the
+    tool-verification sample, headed `| Lane (sample class) |`) — parsing every
+    `|` line in the file swallowed that table too and invented phantom lanes
+    (`lane` from its header, `codetool-lab-fable5` from a sample row whose cells
+    carry no wind-down marker), redding every non-control CI run. Rows are
+    collected strictly between the exact `Lane` header and the first non-table
+    line after it; later tables are never lane rows."""
     sections: set[str] = set()
     rows_seen = 0
+    in_table = False
     for line in roster.splitlines():
         if not line.lstrip().startswith("|"):
+            if in_table:
+                break  # the roster table ended — later tables are not lane rows
             continue
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
         if len(cells) < 2:
             continue
         lane = re.sub(r"\*+", "", cells[0]).strip()
-        if lane.lower() in ("lane", "") or set(cells[0]) <= {"-", " ", ":"}:
-            continue  # header / separator row
+        if not in_table:
+            if lane.lower() == "lane":
+                in_table = True  # the roster table's exact header row
+            continue  # any pre-header table line is not a lane row
+        if lane == "" or set(cells[0]) <= {"-", " ", ":"}:
+            continue  # separator row
         rows_seen += 1
         row_l = line.lower()
         if "no repo" in lane.lower():

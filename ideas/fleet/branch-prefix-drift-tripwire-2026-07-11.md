@@ -173,3 +173,32 @@ informational line) plus the live run on real history — evidence on the slice 
 `.sessions/2026-07-11-squash-headref-provenance.md`.
 
 State stays `historical(#62)`.
+
+## Extension note 2 (2026-07-11, arm-at-open race guard — appended, probe report and state untouched)
+
+Second host customization on the same KIT-OWNED enabler this file's config key
+feeds (this file doubles as the enabler customization ledger — the workflow's
+in-file comments point here): the **arm-at-open race guard**, per the V005
+session's recommendation. The enabler armed at `opened` and a green PR
+squash-merged in ~25s — faster than any multi-commit session plan, so every
+close-out (heartbeat + card flip + claim clear) lost the race and had to ride a
+follow-up PR (observed live: PR #64 open→merge 24s; PR #80 open→merge 25s with its
+close-out exiled to PR #81; same class at #62). Fix, in the enabler
+(`.github/workflows/auto-merge-enabler.yml`, new `id: card` step before the arm):
+if the PR's diff adds/modifies a `.sessions/*.md` card whose `**Status:**` badge
+still says `in-progress` (the born-red card convention's machine-readable "more
+commits coming" signal), SKIP arming — exit green, no arm; the existing
+`synchronize` trigger re-runs the workflow on the close-out push that flips the
+card `complete`, arming exactly when the branch is FINAL (README § Landing
+conventions, now structural). Refuse-to-arm required-contexts guard, sleep-15
+label re-read, and card-less-PR behavior (claims/telemetry/heartbeats still arm at
+open) untouched. Injection-safe per the PR #64 precedent: PR-controlled paths and
+card contents are fetched and parsed in Python only (argv-only subprocess,
+URL-quoted path, values via `env:`), never interpolated into the script body;
+unreadable diff/blob fails the step LOUD (no arm) rather than guessing. Re-apply
+duty now covers BOTH customizations after any adopt/upgrade regeneration.
+Live-fired on its own PR, both halves (skip while in-progress at open; arm on the
+card-flip synchronize) — evidence on the slice card,
+`.sessions/2026-07-11-automerge-arm-race-guard.md`.
+
+State stays `historical(#62)`.
