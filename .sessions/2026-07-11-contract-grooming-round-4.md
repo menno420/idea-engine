@@ -20,6 +20,13 @@ entry: non-proposal-generating by design (earn-rate bar). No open PR at branch t
 branch heads (`telemetry/guard-fires-2026-07-11`, `upgrade/apply-docs-v180`) besides
 the two already-merged ones — the forward-merge recipe stands ready if either lands
 mid-flight; the apply-docs head could touch a contract doc, so heads-up recorded here.
+Both DID land mid-flight (PR #57 apply-docs + telemetry PRs #58/#60): merged
+origin/main forward-only per the README recipe, one status.md conflict reconciled
+keeping both sides' facts (PR #57's apply-docs facts preserved; this slice's fields
+win for its own work), gates re-run green on the merged tree before re-push — the
+apply-docs diff touched only kit-planted docs/, zero contract-doc overlap; and it
+consumed this round's `upgrade --apply-docs` skip in flight, which the reconciled
+tracker now records.
 
 **Encoded — each seed → its amendment (all one-paragraph-or-bullet, in place):**
 
