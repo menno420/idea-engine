@@ -31,6 +31,21 @@ Lints every idea file against the README idea grammar (README § Idea file gramm
                  control/outbox.md is always hard — the PROPOSAL↔VERDICT cross is
                  machine-checked hermetically against the local outbox. Two notes
                  claiming the same VERDICT number WARN (fan-out is legal but rare).
+- RECOMMENDATION — a `**Recommendation:` line OUTSIDE any `## Probe report` block
+                 that is not in the legal vocabulary (sim-ready / park / reject /
+                 needs-more-grooming). ADVISORY (warn-first, never exit-affecting):
+                 an outside-block recommendation is a legitimate pattern (the
+                 PR #33 pointer disposition leaned on it), so only a MALFORMED one
+                 warns — inside probe blocks the vocabulary stays a hard PROBE
+                 violation exactly as before (source: PR #33 card 💡).
+- STATE-ECHO   — an index/cross-link entry in a section `README.md` whose echoed
+                 state annotation (`— <state> ·` on the standard index row, or
+                 `· <state>` in the fleet-README entry form) no longer matches the
+                 linked idea file's actual current state FAMILY (the token before
+                 any `(…)` reason). State echoes in OTHER files are exactly the
+                 annotation class that rots when a state advances later. ADVISORY
+                 (warn-first, never exit-affecting — READMEs carry no filename
+                 date to gate on; source: PR #29 card 💡).
 - GROUNDING    — a `> **Grounding:**` optional header line (README § Idea file
                  grammar, blessed by PR #21) present but malformed: must be
                  `> **Grounding:** <url>@<sha> · fetched <ISO time>` with an
@@ -104,6 +119,26 @@ CANONICAL_MARKER = "Canonical idea"
 CANONICAL_LINK_RE = re.compile(
     r"https://(?:github\.com|raw\.githubusercontent\.com)/\S+"
 )
+# Cross-link state-echo constants (PR #29 card 💡 — same loud co-edit rule as
+# above). An index/cross-link entry is a `- [` bullet in a section README (plus
+# its indented continuation lines); the echo is the FIRST legal state token after
+# the entry's first local `.md` link, in either blessed position — `— <state> ·`
+# (standard index row) or `· <state>` (the fleet-README entry form). Families are
+# compared (the token before any `(…)` reason): an echo `parked(routed)` matches
+# an actual `parked(routed — kit lane build …)` — the rot class is a FAMILY
+# advance (captured → parked/historical), not reason-detail drift. `park` and
+# `parked` are DISTINCT families (park(built-here…) advances to historical(<PR>)
+# on merge — exactly an echo-rot case to flag).
+INDEX_BULLET_RE = re.compile(r"^- \[")
+INDEX_CONTINUATION_RE = re.compile(r"^\s+\S")
+INDEX_LINK_RE = re.compile(r"\]\(([^)#\s]+\.md)\)")
+STATE_ECHO_RE = re.compile(
+    r"[—·]\s+(captured|probed|sim-ready|parked|park|rejected|historical)\b"
+)
+STATE_FAMILY_RE = re.compile(
+    r"^(captured|probed|sim-ready|parked|park|rejected|historical)\b"
+)
+
 # Unfilled auto-draft stub slots (PR #47 card 💡): `--emit-entries` stubs use the
 # kit's `[[fill:…]]` slot grammar; a stub pasted into a committed idea file
 # UNFILLED must red the run. Backtick-quoted mentions (prose ABOUT the grammar —
@@ -327,6 +362,25 @@ def lint_file(
     if state in ("probed", "sim-ready") and not starts:
         problems.append(f"HALF-PROBE {rel}: state {state!r} but no `## Probe report` section")
 
+    # RECOMMENDATION — file-wide vocabulary hold (PR #33 card 💡): a
+    # `**Recommendation:` line OUTSIDE any probe block was never shape-checked
+    # (blocks split on PROBE_HEADING_RE, so "outside" = text before the FIRST
+    # probe heading, or the whole file when none exists). Outside-block
+    # recommendations are legal (the pointer-disposition pattern), so only a
+    # MALFORMED one warns — advisory, never exit-affecting (warn-first per the
+    # source card; inside-block vocabulary stays the hard PROBE check above).
+    outside = text[: starts[0]] if starts else text
+    for rm in RECOMMENDATION_RE.finditer(outside):
+        line_end = outside.find("\n", rm.start())
+        line = outside[rm.start() : line_end if line_end != -1 else len(outside)]
+        if not LEGAL_RECOMMENDATION_RE.match(line):
+            lineno = outside.count("\n", 0, rm.start()) + 1
+            warnings.append(
+                f"RECOMMENDATION {rel}:{lineno}: outside-block recommendation is "
+                f"not in the legal vocabulary "
+                f"(sim-ready/park/reject/needs-more-grooming): {line[:80]!r}"
+            )
+
     if CANONICAL_MARKER in text and not CANONICAL_LINK_RE.search(text):
         problems.append(f"LINK-INDEX {rel}: declares a canonical idea but carries no canonical GitHub link")
 
@@ -347,6 +401,62 @@ def lint_file(
     warnings.extend(sv_warnings)
 
     return problems, warnings
+
+
+def check_state_echoes(ideas_dir: Path) -> list[str]:
+    """STATE-ECHO pass (PR #29 card 💡) — advisory warnings, never exit-affecting.
+
+    Scans every section `README.md` under the ideas tree for index/cross-link
+    bullet entries that echo a linked idea file's state, and warns when the
+    echoed state FAMILY no longer matches the linked file's actual current
+    state family (the annotation class that rots when a state advances later).
+    Entries without a recognizable echo are skipped (nothing to rot); links
+    that do not resolve to a local idea file are skipped (the link-index
+    NEW/DELETED classes belong to check_harvest, not here)."""
+    warnings: list[str] = []
+    for readme in sorted(ideas_dir.rglob("README.md")):
+        rel = str(readme.relative_to(ideas_dir.parent))
+        lines = readme.read_text(encoding="utf-8").splitlines()
+        # Gather bullet entries with their line numbers; an entry is a `- [`
+        # bullet plus its indented continuation lines (the fleet-README form).
+        entries: list[tuple[int, str]] = []
+        lineno_and_text: list[str] | None = None
+        start = 0
+        for i, line in enumerate(lines, 1):
+            if INDEX_BULLET_RE.match(line):
+                if lineno_and_text is not None:
+                    entries.append((start, " ".join(lineno_and_text)))
+                lineno_and_text, start = [line], i
+            elif lineno_and_text is not None and INDEX_CONTINUATION_RE.match(line):
+                lineno_and_text.append(line.strip())
+            elif lineno_and_text is not None:
+                entries.append((start, " ".join(lineno_and_text)))
+                lineno_and_text = None
+        if lineno_and_text is not None:
+            entries.append((start, " ".join(lineno_and_text)))
+
+        for lineno, entry in entries:
+            lm = INDEX_LINK_RE.search(entry)
+            if not lm:
+                continue
+            target = (readme.parent / lm.group(1)).resolve()
+            if target.name == "README.md" or not target.is_file():
+                continue
+            em = STATE_ECHO_RE.search(entry, lm.end())
+            if not em:
+                continue  # no echo annotation — nothing to rot
+            actual = first_state(target.read_text(encoding="utf-8"))
+            if actual is None:
+                continue  # the state-less file is the linted file's own problem
+            am = STATE_FAMILY_RE.match(actual)
+            actual_family = am.group(1) if am else actual
+            if em.group(1) != actual_family:
+                warnings.append(
+                    f"STATE-ECHO {rel}:{lineno}: entry echoes state "
+                    f"'{em.group(1)}' but the linked {lm.group(1)} is "
+                    f"'{actual[:60]}' — re-badge the index line"
+                )
+    return warnings
 
 
 def check_outbox(outbox_path: Path, ideas_dir: Path) -> list[str] | int:
@@ -477,6 +587,10 @@ def main() -> int:
         )
         problems.extend(p)
         warnings.extend(w)
+
+    # STATE-ECHO pass — section READMEs only (advisory; the per-file loop above
+    # deliberately skips README.md, which is where index/cross-link echoes live).
+    warnings.extend(check_state_echoes(ideas_dir))
 
     for w in warnings:  # advisory only — legacy optional-line debt, never exit-affecting
         print(f"warn: {w}")

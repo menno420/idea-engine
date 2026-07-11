@@ -29,6 +29,25 @@ check, exiting with the WORST (max) exit code so a single red check reds the run
   subject leg stays the fallback for pre-provenance history). Local git only
   (hermetic); a shallow clone or provenance-less squash history degrades to an
   informational line, still exit 0.
+- `preflight.py --step-anchor-drift` — ADVISORY ONLY, always exit 0: the PR #36
+  card's 💡 — the gate-wiring self-check matches its anchors as BYTE strings, so
+  a deliberate gate-step rewording that forgets to co-edit the
+  `PREFLIGHT_RUN`/`NON_CONTROL_GUARD` constants drifts silently in two ways: a
+  reworded run line makes the byte check FALSE-red on the next regen (annoying,
+  safe), and a rewrite that keeps both byte-needles while moving the guard OFF
+  the step's actual `if:` line could FALSE-green (the guard-semantics-dropped
+  class). This advisory stem-scans the gate for preflight-run-like lines and
+  warns when one exists that does not byte-match the anchor, or when the anchored
+  run line's own step carries the guard bytes anywhere but its `if:` condition.
+- `preflight.py --heartbeat-keys` — ADVISORY ONLY, always exit 0: the PR #59
+  card's 💡 — undeclared heartbeat extension keys should surface at WRITE time,
+  not at a consumer's parser (the leak class is only ever measured one key
+  behind: `mode:`/`BACKPRESSURE:` measured by websites' parser, `routine:`
+  caught only at round-4's first live enforcement). Parses each declared
+  heartbeat file's top-level `<key>:` tokens and warns on any key outside the
+  control/README format block's documented set (fold session-local signals into
+  `notes:` or `phase:`, per the round-4 fold-in-over-declare decision). Hermetic:
+  one local file, one local grammar set.
 - `preflight.py --enabler-anchors` — ADVISORY ONLY, always exit 0: asserts BOTH
   host customizations survive in the KIT-OWNED auto-merge enabler (the PR #86
   card-status guard in the arm step's `if`, and the PR #62-lineage `Head-ref:`
@@ -79,6 +98,10 @@ CHECKS: list[tuple[str, list[str]]] = [
      [PY, "scripts/preflight.py", "--branch-prefix-drift"]),
     ("enabler-anchors advisory (report-only, never gates)",
      [PY, "scripts/preflight.py", "--enabler-anchors"]),
+    ("step-anchor-drift advisory (report-only, never gates)",
+     [PY, "scripts/preflight.py", "--step-anchor-drift"]),
+    ("heartbeat-keys advisory (report-only, never gates)",
+     [PY, "scripts/preflight.py", "--heartbeat-keys"]),
 ]
 
 GATE_FILE = ".github/workflows/substrate-gate.yml"
@@ -379,6 +402,181 @@ def check_enabler_anchors() -> int:
     return 0
 
 
+# --step-anchor-drift anchors (PR #36 card 💡): the stem that identifies a
+# preflight-run-like line regardless of byte drift (`python scripts/preflight.py`,
+# `python3 ./scripts/preflight.py`, …) and the step `if:` line the guard must
+# actually live on. Any deliberate gate-step rewording must co-edit the
+# PREFLIGHT_RUN/NON_CONTROL_GUARD constants — this advisory is that duty's
+# tripwire (stem-match, never exact-match: README § The probe battery).
+PREFLIGHT_STEM = "scripts/preflight.py"
+STEP_IF_RE = re.compile(r"^\s*if:\s*(.*)$", re.MULTILINE)
+RUN_LINE_RE = re.compile(r"^\s*run:.*$", re.MULTILINE)
+
+
+def check_step_anchor_drift(gate_path: Path | None = None) -> int:
+    """Step-anchor drift tripwire — ADVISORY ONLY, unconditionally exit 0.
+
+    The gate-wiring self-check (above) matches the PR #18 anchors as byte
+    strings, which leaves two silent drift modes when a gate-step rewording
+    forgets the co-edit duty (the PR #36 card 💡):
+
+    - FALSE-red-in-waiting: a preflight-run-like line exists whose bytes no
+      longer match PREFLIGHT_RUN (e.g. a re-apply rewords `python3` → `python`).
+      The binary check would red the next run with a re-apply pointer, but the
+      real fix is the constants co-edit — this advisory names it at the
+      rewording PR itself, not one wake later.
+    - FALSE-green: the anchored run line survives while the guard bytes move
+      OFF the step's actual `if:` condition (e.g. into a comment, or the step
+      migrates into the control fast lane) — both byte-needles still present in
+      one step block, `check_gate_wiring` stays green, semantics gone.
+
+    Findings, empty findings, and an unreadable gate all PASS — the value is
+    the listing, the exit code carries nothing (the open-work advisory's
+    hermeticity rule; the gating leg stays `--gate-wiring`, unchanged).
+    `gate_path` overrides the gate location — the planted-violation smoke-test
+    seam (point it at a doctored copy; production callers pass nothing).
+    """
+    gate = gate_path if gate_path is not None else REPO_ROOT / GATE_FILE
+    try:
+        text = gate.read_text(encoding="utf-8")
+    except OSError as exc:  # advisory only — the gating leg reports the miss
+        print(f"step-anchor-drift: could not read {GATE_FILE} "
+              f"({_first_line(str(exc))}) — advisory only, still PASS")
+        return 0
+
+    findings: list[str] = []
+    steps = text.split("\n      - ")
+    for step in steps:
+        run_lines = [m.group(0).strip() for m in RUN_LINE_RE.finditer(step)
+                     if PREFLIGHT_STEM in m.group(0)]
+        if not run_lines and PREFLIGHT_RUN in step:
+            run_lines = [PREFLIGHT_RUN]
+        if not run_lines:
+            continue
+        # Leg 1 — byte-anchor drift on the run line (stem hit, anchor miss).
+        for line in run_lines:
+            if PREFLIGHT_RUN not in line:
+                findings.append(
+                    f"run line `{line[:70]}` stem-matches {PREFLIGHT_STEM} but does "
+                    f"not byte-match the anchor `{PREFLIGHT_RUN}` — the gate-wiring "
+                    "self-check will FALSE-red on it; co-edit PREFLIGHT_RUN in "
+                    "scripts/preflight.py with the deliberate rewording (PR #36 duty)"
+                )
+        # Leg 2 — guard-position drift: the anchored run line's step carries the
+        # guard bytes, but not on its actual `if:` condition (the false-green
+        # class check_gate_wiring cannot see).
+        if PREFLIGHT_RUN in step and NON_CONTROL_GUARD in step:
+            if_m = STEP_IF_RE.search(step)
+            if not if_m or NON_CONTROL_GUARD not in if_m.group(0):
+                findings.append(
+                    f"the `{PREFLIGHT_RUN}` step contains the guard bytes "
+                    f"`{NON_CONTROL_GUARD}` but NOT on its `if:` condition — "
+                    "check_gate_wiring would false-green while the step runs "
+                    "unguarded; restore the guard to the step's `if:` (and co-edit "
+                    "NON_CONTROL_GUARD if the rewording is deliberate)"
+                )
+
+    if findings:
+        print(f"step-anchor-drift: DRIFT (advisory) — {len(findings)} anchor "
+              f"finding(s) in {GATE_FILE}:")
+        for f in findings:
+            print(f"step-anchor-drift:   {f}")
+    else:
+        print(f"step-anchor-drift: OK — every preflight-run-like line in "
+              f"{GATE_FILE} byte-matches the anchor and the guard sits on the "
+              "step's `if:` condition")
+    print("step-anchor-drift: OK — advisory sweep complete "
+          "(report-only, never affects the exit)")
+    return 0
+
+
+# --heartbeat-keys anchors (PR #59 card 💡): the control/README.md § status.md
+# format block's documented top-level field set — the ONLY keys a heartbeat may
+# carry (kit-owned grammar, EAP §6.8; session-local signals fold into notes: or
+# the phase line, never as undeclared extension keys — decided round 4, fold-in
+# over declare). Co-edit this set ONLY when the kit's format block itself
+# changes. Heartbeat file list comes from substrate.config.json::heartbeat_files
+# (default: control/status.md — the same default the kit's checkers use).
+HEARTBEAT_DECLARED_KEYS = (
+    "updated", "phase", "health", "kit", "last-shipped", "blockers", "orders",
+    "⚑ needs-owner", "notes",
+)
+HEARTBEAT_KEY_RE = re.compile(r"^([A-Za-z⚑][A-Za-z0-9 _⚑-]{0,30}):\s")
+DEFAULT_HEARTBEAT_FILES = ["control/status.md"]
+
+
+def check_heartbeat_keys(status_path: Path | None = None) -> int:
+    """Undeclared-heartbeat-key tripwire — ADVISORY ONLY, unconditionally exit 0.
+
+    Parses each declared heartbeat file's top-level `<key>:` tokens and warns on
+    any key outside the control/README format block's documented set. An
+    undeclared key folds into `phase` as a continuation in a consumer's parser
+    (the PR #49 measured leak) — this surfaces it at WRITE time, in the same
+    session that would commit it, instead of one out-of-repo parser run later
+    (`routine:` was caught only at round-4's first live enforcement — the leak
+    class is always measured one key behind). Advisory by construction: the ⚑
+    field-check precedent — grammar nags never red a PR. `status_path` overrides
+    the file list — the planted-violation smoke-test seam (production callers
+    pass nothing).
+    """
+    if status_path is not None:
+        files = [status_path]
+    else:
+        heartbeats = DEFAULT_HEARTBEAT_FILES
+        try:
+            declared = json.loads(
+                (REPO_ROOT / CONFIG_FILE).read_text(encoding="utf-8")
+            ).get("heartbeat_files")
+            if isinstance(declared, list) and declared and all(
+                    isinstance(f, str) for f in declared):
+                heartbeats = declared
+        except Exception as exc:  # advisory — fall back to the kit default list
+            print(f"heartbeat-keys: could not read {CONFIG_FILE} "
+                  f"({_first_line(str(exc))}) — using the default heartbeat list")
+        files = [REPO_ROOT / f for f in heartbeats]
+
+    undeclared: list[str] = []
+    for path in files:
+        try:
+            lines = path.read_text(encoding="utf-8").splitlines()
+        except OSError as exc:  # advisory — the status checker gates missing files
+            print(f"heartbeat-keys: could not read {path.name} "
+                  f"({_first_line(str(exc))}) — advisory only, still PASS")
+            continue
+        rel = path.name if status_path is not None else str(
+            path.relative_to(REPO_ROOT))
+        seen = 0
+        for lineno, line in enumerate(lines, 1):
+            if line.startswith("#") or not line.strip():
+                continue  # the `# <project> · status` title / blank separators
+            m = HEARTBEAT_KEY_RE.match(line)
+            if not m:
+                continue  # a continuation line folds into the field above it
+            seen += 1
+            key = m.group(1).strip()
+            if key not in HEARTBEAT_DECLARED_KEYS:
+                undeclared.append(
+                    f"{rel}:{lineno}: undeclared top-level key `{key}:` — not in "
+                    "the control/README format block; fold it into notes: or the "
+                    "phase line (round-4 fold-in-over-declare), or declare it in "
+                    "the kit grammar first"
+                )
+        print(f"heartbeat-keys: {rel} — {seen} top-level key line(s) parsed")
+
+    if undeclared:
+        print(f"heartbeat-keys: DRIFT (advisory) — {len(undeclared)} undeclared "
+              "heartbeat key(s) (the PR #49/#59 extension-key leak class, caught "
+              "at write time):")
+        for u in undeclared:
+            print(f"heartbeat-keys:   {u}")
+    else:
+        print("heartbeat-keys: OK — every top-level heartbeat key is in the "
+              "documented format-block set")
+    print("heartbeat-keys: OK — advisory sweep complete "
+          "(report-only, never affects the exit)")
+    return 0
+
+
 def main() -> int:
     worst = 0
     for name, cmd in CHECKS:
@@ -404,6 +602,18 @@ if __name__ == "__main__":
         sys.exit(check_open_work())
     if "--enabler-anchors" in sys.argv[1:]:
         sys.exit(check_enabler_anchors())
+    if "--step-anchor-drift" in sys.argv[1:]:
+        args = sys.argv[1:]
+        gate = None
+        if "--gate-file" in args and args.index("--gate-file") + 1 < len(args):
+            gate = Path(args[args.index("--gate-file") + 1])
+        sys.exit(check_step_anchor_drift(gate))
+    if "--heartbeat-keys" in sys.argv[1:]:
+        args = sys.argv[1:]
+        status = None
+        if "--status-file" in args and args.index("--status-file") + 1 < len(args):
+            status = Path(args[args.index("--status-file") + 1])
+        sys.exit(check_heartbeat_keys(status))
     if "--branch-prefix-drift" in sys.argv[1:]:
         args = sys.argv[1:]
         cfg = None
