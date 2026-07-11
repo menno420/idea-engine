@@ -1,1 +1,0 @@
-- `probe/mineverse-scope-seam--product-forge` · **ideas/product-forge** — batched probe primary/pointer: games-web-mineverse-scope-seam-2026-07-11.md · ideas/product-forge/** + card + heartbeat · 2026-07-11
