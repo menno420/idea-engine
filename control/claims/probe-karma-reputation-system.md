@@ -1,0 +1,1 @@
+- `probe/karma-reputation-system` · **superbot section** — probe battery pass on the karma-reputation-system idea (standing TOP-5 item 2) · ideas/superbot/karma-reputation-system-2026-07-10.md, control/status.md · 2026-07-11
