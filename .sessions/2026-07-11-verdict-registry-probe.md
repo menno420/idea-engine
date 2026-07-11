@@ -124,6 +124,20 @@ inherited fact acted on: its heartbeat's notes carry the v1.10.0 hop as ripest
 kit slice — this slice deliberately kept `scripts/check_ideas.py` OUTSIDE that
 claim's expected-files list and verified the disjointness before building.
 
+## Mid-flight reconcile (appended before push)
+
+Sibling #125 (kit self-upgrade v1.9.0 → v1.10.0, branch `upgrade/kit-v1.10.0`)
+landed between this branch's push and its PR going green — PR #126 read
+`mergeable_state: dirty` with ZERO check runs (the documented jam). Resolved per
+README § Landing conventions: `git merge origin/main` forward-only (never rebase);
+`control/status.md` reconciled keeping both sides' facts — the sibling's revision
+taken as BASE (its `kit:` line at v1.10.0 is the newer truth) with this slice's
+fields prepended; `.substrate/guard-fires.jsonl` union-merged. Preflight +
+`bootstrap.py check --strict` re-run GREEN on the merged tree on the v1.10.0 kit
+before the re-push (SIM-VERDICT live run unchanged: 299 files OK, the same 3
+advisory legacy warnings). The handoff bullet "kit-v1.10.0 hop in flight" is
+superseded: it landed as #125.
+
 ## Handoff → next wake
 
 - The SIM-VERDICT lint is live in preflight from this merge (CHECKS entry 2 —

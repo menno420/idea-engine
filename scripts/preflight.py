@@ -29,6 +29,14 @@ check, exiting with the WORST (max) exit code so a single red check reds the run
   subject leg stays the fallback for pre-provenance history). Local git only
   (hermetic); a shallow clone or provenance-less squash history degrades to an
   informational line, still exit 0.
+- `preflight.py --enabler-anchors` — ADVISORY ONLY, always exit 0: asserts BOTH
+  host customizations survive in the KIT-OWNED auto-merge enabler (the PR #86
+  card-status guard in the arm step's `if`, and the PR #62-lineage `Head-ref:`
+  `--body` squash provenance on the arm command). Every adopt/upgrade regenerates
+  the enabler and drops both; the kit's carve-out scan is STEP-granular and blind
+  to the in-step `--body` edit (proven live on the v1.9.0 upgrade — manual diff
+  was the only catch). Report-only on first landing (observe before block — the
+  v1.10.0-hop card records the promotion condition).
 
 Convention source: control/README.md § Per-session ritual + README § Landing
 conventions — this collects the (previously discipline-only) multi-command ritual
@@ -69,6 +77,8 @@ CHECKS: list[tuple[str, list[str]]] = [
      [PY, "scripts/preflight.py", "--open-work"]),
     ("branch-prefix-drift advisory (report-only, never gates)",
      [PY, "scripts/preflight.py", "--branch-prefix-drift"]),
+    ("enabler-anchors advisory (report-only, never gates)",
+     [PY, "scripts/preflight.py", "--enabler-anchors"]),
 ]
 
 GATE_FILE = ".github/workflows/substrate-gate.yml"
@@ -309,6 +319,66 @@ def check_branch_prefix_drift(config_path: Path | None = None) -> int:
     return 0
 
 
+# --enabler-anchors anchors: the two HOST customizations living in the KIT-OWNED
+# auto-merge enabler (regenerated in place by every adopt/upgrade). The kit's
+# carve-out scan is STEP-granular: it names the whole added card-guard step but is
+# blind to the `--body` provenance edit INSIDE the kit's own arm step (proven live
+# on the v1.9.0 upgrade — only the #86-prescribed manual diff caught it). These are
+# the exact byte-needles the re-apply duty must preserve.
+ENABLER_FILE = ".github/workflows/auto-merge-enabler.yml"
+ENABLER_ANCHORS: list[tuple[str, str]] = [
+    ("card-status guard (PR #86 — arm-step `if` gates on the card step's output)",
+     "steps.card.outputs.skip == '0'"),
+    ("Head-ref squash provenance (PR #62/#64 — `--body` stamps the source branch)",
+     '--body "Head-ref: $HEAD_REF"'),
+]
+
+
+def check_enabler_anchors() -> int:
+    """Enabler-anchor tripwire — ADVISORY ONLY, unconditionally exit 0 (v1.10.0 hop).
+
+    Asserts BOTH host customizations still live in the kit-owned auto-merge enabler:
+    the PR #86 card-status guard (the arm step's `if` consults
+    `steps.card.outputs.skip`) and the PR #62-lineage `Head-ref:` squash provenance
+    (`--body` on the arm command). Every adopt/upgrade regenerates the enabler and
+    drops both (v1.9.0 upgrade: the carve-out scan named the guard STEP but was
+    step-blind to the in-step `--body` edit — manual diff was the only catch, and
+    manual-diff duties are exactly what tripwires exist to replace, per the
+    gate-wiring precedent that has caught its class four upgrades running).
+    REPORT-ONLY on first landing (deliberate, this hop's card § advisory-mode
+    decision): a brand-new check observes before it blocks — if the needle bytes or
+    the scan itself are miscalibrated, an advisory misreport costs one log line, a
+    red would jam every PR; promote to gating (return 1) after it survives a real
+    upgrade cycle. Findings, empty findings, and an unreadable file all PASS — the
+    value is the listing, the exit code carries nothing (the open-work advisory's
+    hermeticity rule).
+    """
+    enabler = REPO_ROOT / ENABLER_FILE
+    try:
+        text = enabler.read_text(encoding="utf-8")
+    except OSError as exc:  # advisory only — a missing enabler is adopt's business
+        print(f"enabler-anchors: could not read {ENABLER_FILE} "
+              f"({_first_line(str(exc))}) — advisory only, still PASS")
+        return 0
+    missing = [(label, needle) for label, needle in ENABLER_ANCHORS
+               if needle not in text]
+    if missing:
+        print(f"enabler-anchors: DRIFT (advisory) — {len(missing)} of "
+              f"{len(ENABLER_ANCHORS)} host customization anchor(s) MISSING from "
+              f"{ENABLER_FILE} (the file is KIT-OWNED: an adopt/upgrade regenerated "
+              "it and dropped the host edits — the v1.9.0-upgrade class; RE-APPLY "
+              "per the re-apply duty, banked pre-regen copies live under "
+              ".substrate/backup/):")
+        for label, needle in missing:
+            print(f"enabler-anchors:   MISSING {label} — needle `{needle}`")
+    else:
+        print(f"enabler-anchors: OK — both host customization anchors present in "
+              f"{ENABLER_FILE} (card-status guard + Head-ref --body provenance)")
+    print("enabler-anchors: OK — advisory sweep complete "
+          "(report-only, never affects the exit)")
+    return 0
+
+
 def main() -> int:
     worst = 0
     for name, cmd in CHECKS:
@@ -332,6 +402,8 @@ if __name__ == "__main__":
         sys.exit(check_gate_wiring())
     if "--open-work" in sys.argv[1:]:
         sys.exit(check_open_work())
+    if "--enabler-anchors" in sys.argv[1:]:
+        sys.exit(check_enabler_anchors())
     if "--branch-prefix-drift" in sys.argv[1:]:
         args = sys.argv[1:]
         cfg = None
