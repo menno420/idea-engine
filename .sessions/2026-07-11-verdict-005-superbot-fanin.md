@@ -41,10 +41,14 @@ the branch cut; directory re-read at origin/main `764201f` — only this claim, 
 mineverse sibling's cleared), claim deleted in the final commit. Heartbeat: the
 notes' queued-V005 item cleared to a done note + one routing line (build target is
 substrate-kit's `capabilities --probe`, but needs-more-evidence fires no build ORDER
-from here); `last-shipped` stamped, prior mineverse head entry stamped `#77` per the
-#72 precedent. Preflight (`python3 scripts/preflight.py`) + `python3 bootstrap.py
-check --strict` green before push; landed per README § Landing conventions (PR
-READY, merge-on-green).
+from here); `last-shipped` stamped `#80`. Two races reconciled forward-only, never
+rebased: (1) sibling stamp PR #79 landed the `#77` stamp first — this heartbeat
+builds on its text rather than re-deriving it; (2) the auto-merge enabler
+squash-merged PR #80 at the NOTE commit (04:22:47Z) before this close-out push
+arrived on the branch, so the close-out (heartbeat + card flip + claim delete)
+rides an immediate follow-up PR from the same branch. Preflight (`python3
+scripts/preflight.py`) + `python3 bootstrap.py check --strict` green before push;
+landed per README § Landing conventions (PR READY, merge-on-green).
 
 **📊 Model:** fable-5 · docs-only (one idea-file append + heartbeat + card; no code)
 
@@ -81,8 +85,9 @@ remains queued'") kept the heartbeat honest when sim-lab moved mid-window. Its p
 `f70fbea` was re-verified here rather than copied forward: the verdict text this
 session read raw at that pin matches the ruling summary it recorded, no drift. One
 sibling landed between (PR #77, mineverse first batch — different section, its
-claim cleared at close per convention); its unstamped `last-shipped` head entry is
-stamped `#77` by this session's heartbeat overwrite, per the #72 precedent.
+claim cleared at close per convention); its unstamped `last-shipped` head entry was
+stamped `#77` by the sibling stamp PR #79 mid-flight of this slice — this session's
+heartbeat overwrite reconciled forward onto #79's text, per the #72 precedent.
 
 ## Handoff → next wake
 
