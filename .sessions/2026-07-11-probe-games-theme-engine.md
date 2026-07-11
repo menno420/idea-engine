@@ -1,6 +1,6 @@
 # Session — games-theme-engine directive probe (the harvest-deferred head comes back armed and finds itself consumed)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~10:22Z (worker slice, dispatched by the continuous-mode coordinator per Q-0265)
 
 ## Scope
