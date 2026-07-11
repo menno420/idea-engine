@@ -1,6 +1,6 @@
 # Session — probe: sector-scoped-lean-boot (TOP-5 item 5) + VERDICT 008 fan-in (superbot section)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~15:15Z (worker slice, coordinator-dispatched,
 > two-phase: recon+claim, then probe+fan-in+ship)
 
@@ -16,7 +16,9 @@ fanned into `ideas/superbot/mining-grid-encounters-2026-07-10.md` as a
 (claim file `control/claims/probe-sector-scoped-lean-boot.md`, branch
 `probe/sector-scoped-lean-boot-claim` per the workprefix+`-claim` convention,
 merged `c718d8a` by the auto-merge enabler on green; claim file DELETED at this
-close-out).
+close-out). Work shipped as PR #178 (branch `probe/sector-scoped-lean-boot`;
+number stamped in-branch after open per the never-guess rule, born-red card
+carve-out holding the arm until this close-out commit).
 
 ## What this session did
 
