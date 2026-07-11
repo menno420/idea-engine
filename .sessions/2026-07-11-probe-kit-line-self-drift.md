@@ -1,6 +1,6 @@
 # Session — single-pass probe: substrate-kit kit-line-self-drift-local-check
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 (worker slice, dispatched by the coordinator
 > under continuous-chaining mode per Q-0265)
 
