@@ -1,9 +1,9 @@
 # Session — pre-publish-conservative-forecast verify-and-park (venture-lab)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 (dispatched by the continuous-mode coordinator per Q-0265)
 
-## What this session is doing
+## What this session did
 
 Verify-and-park of `ideas/venture-lab/pre-publish-conservative-forecast-2026-07-10.md`
 (state: captured) per the round-4 verify-first rule (README § The probe battery,
