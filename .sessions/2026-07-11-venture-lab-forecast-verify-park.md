@@ -18,6 +18,25 @@ commit `3be0d9b`), claim cleared in the close-out commit. Sibling PR #62
 origin/main forward-only per the README recipe (clean merge, no status.md
 conflict; this slice's overwrite comes after).
 
+**Mid-slice gate fix (unplanned, forced by an upstream supersession):** at gate
+time, `python3 scripts/preflight.py` came back exit 2 — the superbot fleet
+manifest had been SUPERSEDED mid-day by the fleet-manager GENERATED roster
+(`docs/roster.md`, fleet-manager PR #59 `b0639a9`; superbot HEAD had moved
+`a762384` → `4c21894` and the manifest's table was REMOVED), tripping
+check_sections' own anticipated fail-loud path and redding EVERY non-control PR
+gate in this repo, siblings included. Fixed honestly per the checker's own error
+message ("update this parser, do not trust this run"), never weakened:
+roster-aware parser (format auto-detected, fail-loud preserved — planted
+violation exits 2), NON_LANE_REPOS extended with sim-lab + idea-engine (loud
+comments), and the three live lanes the stale manifest never rowed got their
+sections seeded per README § Sections (product-forge, superbot-idle,
+superbot-mineverse — the wake that spots a new active lane creates the section,
+README stub first). README § Sections re-pointed; extension note appended to
+`ideas/fleet/section-sync-checker-2026-07-10.md` (state stays historical(#2)).
+A live parser lesson caught in the first run: a full-row "no repo" substring
+match false-positived on superbot's "No repo wake trigger" prose — the
+registry-only-seat skip is scoped to the Lane cell.
+
 ## Close-out
 
 **Evidence (verified, correcting the kit auto-draft — this session renamed the
@@ -34,7 +53,8 @@ generic auto-drafted card to this per-session filename per probe-card precedent)
   (`9253d86`, 02:21:21Z) bound forecast+payback fields into the candidate intake
   template. Full citations in the idea file's `## Verify-and-park (2026-07-11)`
   note.
-- Verify: `python3 scripts/preflight.py` exit 0 (all 7 checks PASS) and
+- Verify: `python3 scripts/preflight.py` exit 0 (all 7 checks PASS — post-fix
+  check_sections reads "13 sections in sync with the lane registry") and
   `python3 bootstrap.py check --strict` exit 0 on this tree before push.
 
 **Judgment:**
@@ -48,7 +68,13 @@ generic auto-drafted card to this per-session filename per probe-card precedent)
   forecast proves itself); NO new ⚑ ask (the ⚑B/⚑D publish clicks already live
   six-field on the LANE's own owner-actions doc — fewer-clearer-asks); the
   residual payback-in-build-sessions sliver recorded as an OBSERVED GAP in the
-  verify note, not routed (lane doc task, owner-adjacent).
+  verify note, not routed (lane doc task, owner-adjacent). Mid-slice gate-fix
+  judgment calls, each with its reason in the code comments: sim-lab and
+  idea-engine joined fleet-manager in NON_LANE_REPOS (pipeline verdict stage
+  per Q-0264 / this repo itself — neither has ever had a section, both classes
+  of idea live in ideas/fleet by practice); wound-down codetool rows and the
+  repo-less retro-games coordinator seat get no section; the three genuinely
+  live unrowed lanes got stubs.
 - Next session should know: venture-lab is launch-ready @ `9f1b616` (orders
   001–004 done, ⚑B/⚑D unfrozen, awaiting owner publish clicks); the venture-lab
   fan-in note in the heartbeat carries the residual sliver and the FIFTH
@@ -56,8 +82,10 @@ generic auto-drafted card to this per-session filename per probe-card precedent)
   (self-landable-merge-path, revenue-ingestion-owner-relay,
   games-adjacent-candidate-three — the last post-EAP-gated).
 
-**📊 Model:** fable-5 · medium · docs-only (verify note + state flip on the idea
-file, 2-line section README fix, card, heartbeat, claim clear; no code)
+**📊 Model:** fable-5 · medium · docs + one bounded script fix (verify note +
+state flip on the idea file, section README fixes, card, heartbeat, claim clear;
+plus the unplanned check_sections roster migration + 3 section stubs the
+upstream supersession forced at gate time)
 
 ## 💡 Session idea
 
@@ -115,4 +143,13 @@ datapoint is now in the heartbeat's venture-lab fan-in note — the class spans
 four sections and all three idea classes (PRODUCT/PROCESS/VENTURE); if a sixth
 lands, the verify-first paragraph's "four datapoints" evidence line in README
 is worth a refresh in the next grooming round, alongside this card's 💡
-(verify-note shape blessing).
+(verify-note shape blessing). ALSO NEW: the fleet's lane registry is now the
+fleet-manager generated roster (check_sections reads it; README § Sections
+re-pointed) and THREE fresh sections exist empty — ideas/product-forge/,
+ideas/superbot-idle/, ideas/superbot-mineverse/ — each a first-batch/harvest
+candidate for a future wake (the roster rows carry their live context); the
+superbot manifest is HISTORICAL, so every standing "manifest row: behind"
+staleness-datapoint practice and the Grounding suffix vocabulary should be
+re-grounded against the roster in the next grooming round (the 16-datapoint
+series is vindicated and CLOSED by the supersession — the manager measured the
+same rot and killed the artifact).
