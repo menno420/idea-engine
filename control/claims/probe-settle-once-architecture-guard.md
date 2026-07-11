@@ -1,1 +1,0 @@
-- `probe/settle-once-architecture-guard` · **superbot section** — probe battery pass on the settle-once-architecture-guard idea (standing TOP-5 item 3) · ideas/superbot/settle-once-architecture-guard-2026-07-10.md, control/status.md · 2026-07-11
