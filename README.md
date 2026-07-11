@@ -22,7 +22,9 @@ One section per **active fleet lane**, derived from the fleet manifest
 workflow/doctrine ideas. Never invent a section ad hoc: a new active lane row in the
 manifest → the wake that spots it creates the section (README stub first). Sections
 partition the tree so **parallel agents never collide** — claim a section before working
-it (`claims/`, one file per claim).
+it (`control/claims/`, one file per claim — the kit-native v1.8.0 home; the original
+root `claims/` was migrated there wholesale by the v1.8.0 upgrade, see
+`control/claims/README.md` § idea-engine specifics).
 
 Idea classes worked here (all three, priority-weighted per Q-0259 — games completion wave
 + rebuild pace first): **PRODUCT** (features for a lane), **PROCESS** (fleet
