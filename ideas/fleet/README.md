@@ -45,6 +45,11 @@
   `scripts/preflight.py`, ninth/tenth CHECKS entries; six rotted index badges fixed by
   the live run); origin: PR #36/#29/#33/#22/#59 card 💡s, bundle-named by the PR #59
   card and the PR #144 grooming ledger
+- [`coordinator-archive-handoff-ceremony-2026-07-11.md`](coordinator-archive-handoff-ceremony-2026-07-11.md) — kit-blessed
+  archive-ready ceremony for a coordinator-chat archive (bounded wait on sibling
+  claims · sweep · session enders · durable archive note · trigger disposition
+  table · heartbeat last) · captured; origin: the 2026-07-11 archive close-out
+  card 💡
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
