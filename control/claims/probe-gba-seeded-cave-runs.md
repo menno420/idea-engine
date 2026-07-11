@@ -1,1 +1,0 @@
-- `probe/gba-seeded-cave-runs` · **ideas/gba-homebrew** — seeded-cave-runs probe (battery v0), the section's last captured head · expected files: ideas/gba-homebrew/**, .sessions/**, control/status.md, control/claims/** · 2026-07-11
