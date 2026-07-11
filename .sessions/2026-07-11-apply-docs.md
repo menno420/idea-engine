@@ -64,6 +64,14 @@ synced docs as one merged-on-green PR.
 - **Not touched:** no idea-tree changes, no proposal (outbox stays at 5, all
   pulled — bookkeeping slice, nothing earned an append), stash@{0} (pre-existing
   local mods, not this slice's) left untouched.
+- **Sibling PR #56 landed MID-FLIGHT** (trading-strategy wake-resilience-rebind
+  probe, merge `f27abda` — exactly the in-flight sibling this card's no-claim
+  decision named; its landing turned this PR's `mergeable_state` dirty at open):
+  merged origin/main forward-only per the README recipe, one `control/status.md`
+  conflict reconciled keeping both sides' facts (PR #56's probe findings, staleness
+  datapoint 16, section 4/4 milestone, and its ⚑ sweep-note preserved and demoted
+  per the heartbeat's own grammar; this slice's fields win for its own work),
+  gates re-run green on the merged tree before re-push.
 
 ### Local pre-push runs (real output)
 
