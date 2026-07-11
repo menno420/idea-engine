@@ -159,3 +159,73 @@ squash-commit subjects `(#NN)` in the blobless clone's `git log` at `d862364`,
 plus the backlog/retired prose itself. `activity-per-repo-filter`'s front-matter
 still says `shipped_pr: null` at this pin — its #86 comes from commit `580f5e0`'s
 subject, stated as such in the sibling entry.
+
+## Re-pin (2026-07-11 third content re-harvest)
+
+> **Grounding:** https://raw.githubusercontent.com/menno420/websites/c81ce767ac336c7915a73de18ca2ddbb868efcc1/docs/ideas/backlog.md@c81ce76 · fetched 2026-07-11T09:50Z
+> *(pin annotation: drift read at `02adf7c` — HEAD moved once more to `c81ce76` mid-harvest, a control-only heartbeat commit whose `docs/ideas/` tree is byte-identical by tree diff (backlog blob `0897a6f` at both), so the newer sha is pinned with the same facts, the #123 precedent)*
+
+The backlog's CONTENT moved **+101/-27 lines** (blob `f1d93e3` → `0897a6f`) under
+an UNCHANGED filename set between the second re-pin `d862364` and this one — sized
+by `check_harvest --bullet-drift` and, for the first time, ALSO caught as a
+`CHANGED` finding by the `.harvest-pin.json` blob compare the second re-pin
+recorded (the PR #115 content-identity leg working live, zero extra network). The
+PR #149 lint-bundle run sized this wake at HEAD `6663e6c`; HEAD moved to
+`02adf7c` (lane PR #114) before this harvest — the drift was re-sized there. At
+this re-pin the list holds **6 captured, 24 built, 5 retired** (was 6/19/3 at
+`d862364`). Flips vs the second re-pin's roster (the
+trail is the product — nothing deleted upstream):
+
+- **Three captured→Built** (the lane's continuous-mode slices 17–19, all merged
+  2026-07-11):
+  - **Second-re-pin new-born (conveyor-health chips) → Built** — slice 17:
+    per-repo lifecycle count chips on the readiness-board rows, deep-linked to
+    the `/ideas` `?state=` filters over the same TTL cache (commit `e32be3d`
+    cites lane PR #104).
+  - **Second-re-pin new-born (`tooling:` capability token) → Built** — slice 18:
+    optional `tooling: pr-capable | ritual-only` heartbeat line —
+    `control/README.md` + `fleet.KNOWN_KEYS` + /fleet flags ritual-only fires as
+    "cannot land work" (commit `383b773` cites lane PR #107).
+  - **Second-re-pin new-born (nav overflow guard) → Built** — slice 19:
+    secondary pages grouped under a no-JS `<details>` "more ▾" dropdown,
+    top-level links 11 → 6 (commit `ddbbf27` cites lane PR #109).
+- **One captured→Retired: the `upgrade --apply-docs` carve-out kit flag** —
+  fixed upstream in kit #176; the lane verified the fix live on its own v1.10.0
+  upgrade (PR #105: `--apply-docs` rode the upgrade invocation and the carve-out
+  section survived natively). Retired-in-place: the bullet still sits under
+  `## Captured / planned` with a `retired` state token — the state token, not
+  the section heading, is what this index mirrors.
+- **Two born straight to Built:**
+  - **Board-row fleet chip** — slice 18: per-row heartbeat age/stale badge via
+    `fleet.heartbeat_freshness`, board repos only, no guessed ages (commit
+    `383b773`, lane PR #107 — same slice as the tooling token).
+  - **Time-discipline guard for tests** — slice 21: `tests/test_time_discipline.py`
+    AST-scans the suite for age-measuring calls without a frozen `now=`; first
+    run caught 17 latent sites across 5 files (commit `02adf7c` cites lane
+    PR #114 — the pin commit itself).
+- **One born already-Retired: the model-doctrine idempotence kit flag** — born
+  on the lane's v1.10.0 upgrade card (emphasis-sensitive phrase match appended a
+  near-duplicate doctrine paragraph), fixed upstream in kit #187 / v1.10.1, and
+  verified on the lane's own v1.10.1 upgrade (PR #113: `.sessions/README.md`
+  byte-identical across the upgrade). Also retired-in-place under
+  `## Captured / planned`.
+- **Four NEW captured bullets born:** fold the kit v1.10.1 every-card
+  session-gate loop into the live `quality.yml` lane (the folded step still
+  derives the PR's card with `tail -1`, the multi-card shadowing shape v1.10.1
+  fixed in the staged gate); a backlog low-water heartbeat signal
+  (`backlog: low (N left)` below ~3 so the manager routes work before
+  upkeep-dry); a nav manifest as the single `(href, label, group)` source for
+  `base.html` + a membership test (born from the nav-overflow build — the
+  guard's membership list currently exists twice by hand); a route-level clock
+  freeze for TestClient tests (born from the time-discipline build — the static
+  guard cannot see route tests exercising the real wall clock).
+- **Survivors: the `lanes.json` manager ask + #10 (meta.md state-line
+  convention)** — the only two second-re-pin captured bullets still captured;
+  #10 is now a two-consecutive-re-pin survivor.
+
+**Honesty note (citation split, same pattern as above):** states, slice numbers,
+artifact names and retirement reasons are quoted from the backlog's own text at
+the pin; every lane PR number in this section (#104, #105, #107, #109, #113,
+#114, and upstream kit #176/#187) is inferred from the squash-commit subjects
+`(#NN)` in the blobless clone's `git log d862364..02adf7c` or from the backlog
+prose itself — no front-matter in this delta carries a `shipped_pr:`.

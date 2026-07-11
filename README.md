@@ -48,7 +48,11 @@ lane-born ideas are indexed **by link** into their section, never mass-copied
 (superbot's `docs/ideas/` stays canonical where it is — see `ideas/superbot/README.md`).
 Sibling-section cross-links reuse that rule: a section README may carry a `Cross-links`
 subsection indexing another section's idea **by link**, never duplicating it (source:
-PR #17 card).
+PR #17 card). A link-index entry whose LOCAL state deliberately diverges from the
+canonical doc's recorded outcome may carry an optional
+`(state-drift: deliberate — <reason/PR>)` annotation on its index bullet, which
+`check_harvest --states` reports as ACK'd rather than open drift (source: PR #149
+card 💡; forward-only — never retrofit).
 
 Two OPTIONAL header lines are blessed (forward-only — retrofit never required):
 `> **Grounding:** <url>@<sha> · fetched <ISO time>` pins what a capture was grounded on,

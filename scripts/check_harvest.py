@@ -33,6 +33,11 @@ reports drift these ways:
                  entry whose canonical doc walked back or retired (the reverse
                  direction `--re-badge` cannot see). Suggestion pass,
                  report-only: it names the pairs, the harvester judges the fix.
+                 An index bullet carrying the blessed
+                 `(state-drift: deliberate — <reason/PR>)` annotation (README §
+                 Idea file grammar, the PR #149 card 💡) reports as ACK'd —
+                 named, never counted as harvest work — so a ruled-on
+                 divergence stops re-sizing every future wake.
                  OFF by default — it reads canonical doc BLOBS (one batched
                  blobless-clone checkout per section), the same depth flag-gating
                  rationale as `--re-badge`; the default run's network legs stay
@@ -158,6 +163,11 @@ CANON_HEAD_LINES = 40  # markers live in front-matter / the first header lines
 CANON_RETIRED_STATES = {"retired", "rejected", "dropped", "superseded", "wontfix"}
 LOCAL_BUILT_PREFIX = "historical("
 LOCAL_RETIRED_PREFIX = "rejected("
+
+# `--states` ACK annotation (README § Idea file grammar, PR #149 card 💡): an
+# index bullet may mark a divergence as ruled-on-deliberate; the reason must
+# not contain `)` (the regex stops at the first close-paren).
+STATE_DRIFT_ACK_RE = re.compile(r"\(state-drift:\s*deliberate\s*—\s*([^)]+)\)")
 
 
 def canonical_entry_re(canonical_dir: str) -> re.Pattern[str]:
@@ -554,14 +564,31 @@ def check_section(readme_rel: str, repo: str, canonical_dir: str, branch: str,
                   "verify, then mirror as historical(…))")
 
     drifted_states: list[tuple[str, str, str]] = []
+    acked_states: list[tuple[str, str, str, str]] = []
     if states:
-        drifted_states = state_drift_pairs(section_dir, repo, canonical_dir, branch,
-                                           indexed)
+        for name, local_state, marker in state_drift_pairs(
+                section_dir, repo, canonical_dir, branch, indexed):
+            # ACK'd deliberate divergence: the index bullet naming this canonical
+            # doc carries the blessed annotation — report, never count as work.
+            ack = next(
+                (m.group(1).strip() for line in text.splitlines()
+                 if f"{canonical_dir}/{name}" in line
+                 and (m := STATE_DRIFT_ACK_RE.search(line))),
+                None,
+            )
+            if ack:
+                acked_states.append((name, local_state, marker, ack))
+            else:
+                drifted_states.append((name, local_state, marker))
         for name, local_state, marker in drifted_states:
             print(f"  STATE-DRIFT: {canonical_dir}/{name} — local entry says "
                   f"'{local_state}', canonical records `{marker}` (lifecycle stages "
                   "disagree; suggestion only — verify at the canonical doc, then "
                   "mirror forward-only)")
+        for name, local_state, marker, ack in acked_states:
+            print(f"  STATE-DRIFT (ACK'd deliberate): {canonical_dir}/{name} — local "
+                  f"'{local_state}' vs canonical `{marker}` — index annotation: {ack} "
+                  "(ruled-on divergence; sizes no harvest work)")
 
     head_state = ("unmoved" if head == pin
                   else "moved (docs unchanged)" if moved_only else "moved")
@@ -571,6 +598,7 @@ def check_section(readme_rel: str, repo: str, canonical_dir: str, branch: str,
         f"{len(changed)} changed"
         + (f" · {len(badges)} re-badge" if re_badge else "")
         + (f" · {len(drifted_states)} state-drift" if states else "")
+        + (f" ({len(acked_states)} ack'd deliberate)" if acked_states else "")
         + f" · HEAD {head_state}"
     )
 
