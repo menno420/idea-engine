@@ -1,1 +1,0 @@
-- `probe/audited-score-subsystem-scaffold` · **ideas/superbot section** — probe standing TOP-5 item 4 (audited-score-subsystem-scaffold-2026-07-10.md, premise-verify at invocation sites first per the #186 card 💡) · expected files: ideas/superbot/, control/outbox.md (append-only if earned), control/status.md (close-out) · 2026-07-11
