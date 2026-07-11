@@ -1,0 +1,1 @@
+- `seed-product-forge-batch-1` · **ideas/product-forge** — first honest idea batch for the empty roster-born section (4 captures + index) · ideas/product-forge/** + card + heartbeat · 2026-07-11
