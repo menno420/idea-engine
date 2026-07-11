@@ -1,6 +1,6 @@
 # Session — single-pass probe: gba-homebrew seeded-cave-runs (section close)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~09:40Z (worker slice, dispatched by the
 > continuous-mode coordinator per Q-0265)
 
@@ -100,8 +100,10 @@ section-complete claim (ninth) checks against the ledger this card's tenth build
 on; (3) its CAPABILITIES wall entry (`*.github.io` proxy-blocked) landed as the
 append log's newest entry — honored here by reading the gba lane via ls-remote +
 blobless clone, never Pages; (4) its handoff named the lint-bundle build as ripest
-LOCAL slice — still true, still queued (the #146 claim is live for it; this slice
-consumed a disjoint section close instead, per the coordinator's dispatch). Also
+LOCAL slice — CONSUMED mid-flight of this very slice: the #146 claim's build PR #149
+merged `d8b0425` while this probe was in flight and was forward-merged in, never
+rebased (this slice consumed a disjoint section close, per the coordinator's
+dispatch). Also
 reviewed the dispatch-named `.sessions/2026-07-11-venture-lab-revenue-relay-probe.md`
 (#104): its verify-at-live-HEAD-before-probing discipline and its "one ask, one
 owner surface" hygiene were both adopted verbatim here (no duplicate ⚑ for the
@@ -115,6 +117,8 @@ now names it as a third same-sitting item). For the :30 sweep: the manager shoul
 treat the ≤2026-07-14 EAP sitting as carrying THREE bundled decisions — Lumen Drift
 itch.io go/no-go (⚑ standing entry) + the pokemon playtest verdicts (fm owner-queue
 item 3) + the gba concept pick (lane ⚑, with seeded-cave-runs as the costed "more
-Lumen" arm). Ripest LOCAL slice: unchanged — the lint-bundle build (claim #146
-live). Sections ledger: 10 of 13 complete; open captured heads remain in superbot ·
-websites · fleet.
+Lumen" arm). Ripest LOCAL slice: the lint-bundle build shipped mid-flight as #149,
+so the local queue moves to the grooming frontier — the superbot / websites / fleet
+open heads, plus the #149 note's websites harvest re-sizing (`d862364→6663e6c`
+CHANGED). Sections ledger: 10 of 13 complete; open captured heads remain in
+superbot · websites · fleet.
