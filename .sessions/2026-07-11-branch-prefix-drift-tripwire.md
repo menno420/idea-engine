@@ -33,6 +33,18 @@ README § probe-battery shortcut.
   then applied clean. Open-work sweep at build time also showed sibling
   `groom/contract-grooming-round-4` in flight — scope disjoint (contract docs vs this
   slice's preflight/ideas surface); expect a status.md reconcile if it lands mid-flight.
+- **Siblings PR #59 + #60/#61 landed MID-FLIGHT (pre-PR window, after this branch's
+  first push):** PR #59 = the predicted contract grooming round 4 (merge `c182d2c`,
+  README + control/README + heartbeat), #60/#61 = telemetry residue. Merged
+  origin/main forward-only per the README recipe; ONE `control/status.md` conflict
+  reconciled keeping both sides' facts — and round 4's heartbeat extension-key
+  fold-in DECISION (mode:/BACKPRESSURE:/routine: folded into documented fields) is
+  ADOPTED by the reconciled overwrite, this slice's routine facts layered into the
+  folded ROUTINE note per the new grammar; PR #59's round facts preserved verbatim,
+  this slice's fields win for its own work. Gates re-run green on the merged tree
+  before re-push. Zero code overlap: round 4 never touched `scripts/preflight.py`
+  or `ideas/fleet/` (its round card SKIPPED this exact head as "kit-generic script
+  slice — not contract prose" — built here in parallel, no collision).
 - **Captured + probed** `ideas/fleet/branch-prefix-drift-tripwire-2026-07-11.md`
   (origin: PR #55 card 💡; battery v0, single-pass per the panel default — an advisory
   never-red check, no irreversible surface). **Verdict: park(built-here —
@@ -177,9 +189,10 @@ preflight now has SEVEN checks; the drift tripwire runs at every wake, pre-push,
 non-control CI lane — if it ever prints DRIFT, the fix is one
 `substrate.config.json::automerge.branch_patterns` edit (add the pattern or retire
 the convention), never a red build. Live baseline at ship time: 0 drift, 46 merged
-branches, 13 patterns. Still queued: grooming round 4 seeds (unchanged — sibling
-`groom/contract-grooming-round-4` was in flight during this slice and may have
-consumed them; re-read at HEAD), this card's 💡 (squash merge provenance → kit seam),
+branches, 13 patterns. Still queued: grooming round 4 seeds
+CONSUMED mid-flight by sibling PR #59 (its round card records the encodes + six
+skips; the heartbeat ripest list is reconciled), this card's 💡 (squash merge
+provenance → kit seam),
 and the PR #57 card's 💡 (apply-docs report regeneration lossiness → kit seam). The
 stash holds pre-slice guard-fire residue (`stash list` — telemetry lane pattern, PR
 #32/#58 precedent) if a telemetry sweep wants it.

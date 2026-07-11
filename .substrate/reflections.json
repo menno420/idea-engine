@@ -1,0 +1,52 @@
+[
+  {
+    "id": "R-0005",
+    "lesson": "Recurring attention on github/workflows/substrate-gate.yml",
+    "evidence": "2026-07-11-apply-docs.md:L61, 2026-07-11-wire-automerge-enabler.md:L46",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0006",
+    "lesson": "Recurring attention on ideas/substrate-kit/README.md",
+    "evidence": "2026-07-11-apply-docs.md:L111, 2026-07-11-own-heartbeat-selfcheck-probe.md:L72, 2026-07-11-review-queue-auto-check-probe.md:L82, 2026-07-11-wire-automerge-enabler.md:L112",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0007",
+    "lesson": "Recurring attention on ideas/websites/lane-backlog-2026-07-10.md",
+    "evidence": "2026-07-11-own-heartbeat-selfcheck-probe.md:L9, 2026-07-11-review-queue-auto-check-probe.md:L9",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0008",
+    "lesson": "Recurring attention on scripts/preflight.py",
+    "evidence": "2026-07-11-apply-docs.md:L79, 2026-07-11-wire-automerge-enabler.md:L79",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0009",
+    "lesson": "Recurring attention on substrate/state.json",
+    "evidence": "2026-07-11-apply-docs.md:L50, 2026-07-11-wire-automerge-enabler.md:L38",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  }
+]
