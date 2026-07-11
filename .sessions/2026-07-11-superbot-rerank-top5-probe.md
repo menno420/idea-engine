@@ -92,15 +92,18 @@ heartbeat + claim clear; no lane-file writes (Q-0260), no workflow edits.
 
 ## 💡 Session idea
 
-**`claim/*` is a recurring merged prefix that matches NO `automerge.branch_patterns`
-entry — the #55 card's drift-tripwire idea now has a live datapoint.** PR #166 (this
-slice's claim) merged from `claim/probe-superbot-rerank-top5`; the enabler job SKIPPED
-(job-level `if` — no `startsWith` clause for `claim/`), so every claim fast-lane rides
-REST-merge fallback instead of self-arming. Two fixes, both cheap: add `claim/*` to
-`substrate.config.json::automerge.branch_patterns` + re-run `adopt --wire-enforcement`
-(one slice), and/or build the #55 card's prefix-drift advisory (derive recurring merged
-prefixes from `git log --merges`, warn on pattern misses) so the next new prefix is
-caught at wake time instead of by survey.
+**Write the claim-branch naming convention down — one doc line closes the prefix set.**
+This slice unknowingly minted a NEW branch prefix (`claim/probe-superbot-rerank-top5`)
+for its fast-lane claim, where every prior claim rode its work branch's own prefix with
+a `-claim` suffix (`build/…-claim`, `probe/…-claim`, `seed-…-claim` — visible in the
+open-work sweep's branch list). Consequence: the enabler job correctly SKIPPED on #166
+(no `claim/` pattern) and the claim rode REST-merge fallback; the branch-prefix-drift
+advisory (the #55 card's 💡, since BUILT — it ran green in this slice's preflight, 41
+merged branches surveyed via Head-ref provenance) treats it as a one-off below the
+recurrence bar, so it only fires if the mistake repeats. Cheapest fix is documentation,
+not code: add one line to `control/claims/README.md` § idea-engine specifics — "a claim
+fast-lane branch rides its work branch's own prefix with a `-claim` suffix, never a new
+prefix" — so the pattern set stays closed and claim PRs self-arm like everything else.
 
 ## ⟲ Previous-session review
 
@@ -108,11 +111,11 @@ Assigned review target — the wire-automerge-enabler card
 (`.sessions/2026-07-11-wire-automerge-enabler.md`, ~PR #55): its live-fire promise
 verifies on today's tree AND today's traffic: `.github/workflows/auto-merge-enabler.yml`
 is live with the 13 surveyed patterns, and ~100 PRs later the mechanism still ran on this
-slice's PR #166 (job present, correctly SKIPPED on the unsurveyed `claim/*` prefix — see
-💡; `probe/*` IS patterned, so THIS PR is a fresh live-fire datapoint). Its card's 💡
-(branch-prefix drift tripwire) is now evidence-backed rather than hypothetical. Honest
-delta: its "empirically complete" 13-prefix survey aged exactly as its own tripwire idea
-predicted — new prefixes (`claim/*`) entered the convention after the survey froze.
+slice's PR #166 (job present, correctly SKIPPED on the novel `claim/*` prefix — see 💡;
+`probe/*` IS patterned, so THIS PR is a fresh live-fire datapoint). Its card's 💡
+(branch-prefix drift tripwire) was CONSUMED by a later slice and is live in
+`scripts/preflight.py` — it ran green on this tree (41 merged branches surveyed, 13
+patterns, zero recurring misses), which is the best outcome a card idea can have.
 Also verified (actual newest card, `2026-07-11-emit-exact-state-echo.md` / #165): its
 writer-side exact-echo fix is honored by this slice's own hand-advance (state line +
 index echo minted identically), and `check_ideas` stayed at the 3 deliberate SIM-VERDICT
@@ -136,4 +139,5 @@ on green; forward-merge on sibling collision). Claim file deleted in this close-
   EAP send window — probe it before the 13th.
 - PROPOSAL 008 awaits the sim-lab pull (its failsafe wakes 2-hourly; queue was empty at
   09:56Z, so 008 is next intake).
-- This card's 💡 (`claim/*` pattern gap) is a one-line config fix + optional advisory.
+- This card's 💡 (claim-branch naming convention doc line) is a one-line
+  `control/claims/README.md` edit — foldable into any next control-touching slice.
