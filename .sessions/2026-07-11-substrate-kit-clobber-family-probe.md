@@ -1,6 +1,6 @@
 # Session — substrate-kit clobber-family batched probe (both host-customizations-on-kit-owned-files heads through the battery)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~07:46Z (worker slice, dispatched by the continuous-mode coordinator per Q-0265)
 
 ## Scope
