@@ -1,0 +1,1 @@
+- `probe/product-forge-final-two` · **ideas/product-forge section probe** — probe the section's two remaining captured heads (games-web-live-preview-review-surface · games-web-concept-evidence-pass), verify-first at product-forge live HEAD; read-projection-fanin disposition rides · ideas/product-forge/** + outbox (if sim-ready) + session card + heartbeat · 2026-07-11
