@@ -1,1 +1,0 @@
-- `probe/substrate-kit-heartbeat-behind-pair` · **ideas/substrate-kit** — batched probe pair: parallel-session-heartbeat-reconcile + behind-stall-auto-updater · expected files: ideas/substrate-kit/**, .sessions/**, control/status.md, control/claims/** · 2026-07-11
