@@ -93,10 +93,13 @@ push; landed per README § Landing conventions (PR READY, merge-on-green).
 
 ## Handoff → next wake
 
-Inbox first (verified empty at origin/main `b46039f` at branch time). Ripest next:
-**kit self-upgrade v1.7.1 → v1.8.0** (this card's 💡 — includes the claims-dir
-reconcile question and the PR #18-step re-apply ritual); grooming round 3 (nine
-seeds standing, see status notes); websites probe heads thinning — remaining
+Inbox first (verified empty at origin/main `b46039f` at branch time; re-checked
+after the PR #50 forward merge — untouched). Mid-flight sibling: PR #50 (contract
+grooming round 3) landed and was forward-merged per the README recipe — round 3 is
+SHIPPED, its two skipped code-halves and the post-harvest seeds are queued as round
+4 (status notes). Ripest next: **kit self-upgrade v1.7.1 → v1.8.0** (this card's 💡
+— includes the claims-dir reconcile question and the PR #18-step re-apply ritual);
+websites probe heads thinning — remaining
 un-probed captured bullets are mostly lane-internal chores the lane self-serves
 (#2 salvage re-check, #3 `?repo=` filter already the lane's named next pick, #5
 wait-deploy, #7 meta.md convention routes to the manager, #12 rung telemetry);
