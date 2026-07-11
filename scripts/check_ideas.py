@@ -16,6 +16,9 @@ Lints every idea file against the README idea grammar (README § Idea file gramm
 - HALF-PROBE   — state claims `probed`/`sim-ready` but the file has no probe report.
 - LINK-INDEX   — a harvested link-index entry (declares a canonical idea elsewhere)
                  without a canonical `https://github.com/…` link.
+- UNFILLED     — an unfilled `[[fill:…]]` auto-draft stub slot committed in an
+                 idea file (a pasted --emit-entries stub must be fully filled;
+                 backtick-quoted mentions of the slot grammar are exempt).
 - GROUNDING    — a `> **Grounding:**` optional header line (README § Idea file
                  grammar, blessed by PR #21) present but malformed: must be
                  `> **Grounding:** <url>@<sha> · fetched <ISO time>` with an
@@ -25,11 +28,11 @@ Lints every idea file against the README idea grammar (README § Idea file gramm
 
 The two optional-line checks fire only where the line is present (the lines are
 forward-only — retrofit never required). Severity is date-gated on the filename's
-YYYY-MM-DD: files dated strictly AFTER the grammar bless date (PR #21 merged
-2026-07-10) get a hard violation; files dated on-or-before it — the bless day
-itself is ambiguous, PR #21 merged mid-day — and files without a parseable date
-get an advisory WARN that never affects the exit code (legacy files are not
-churned; the debt is reported, not enforced).
+YYYY-MM-DD: files dated on or after the grammar bless date (PR #21 merged
+2026-07-10) get a hard violation (gate tightened `>` → `>=` per the PR #24 card
+part b, once the boundary day ran clean at 0 warnings); files dated before it
+and files without a parseable date get an advisory WARN that never affects the
+exit code (legacy files are not churned; the debt is reported, not enforced).
 
 `--outbox` switches to outbox↔ideas link-integrity mode (README § The outbox) and
 validates `control/outbox.md` against the tree instead:
@@ -89,6 +92,11 @@ CANONICAL_MARKER = "Canonical idea"
 CANONICAL_LINK_RE = re.compile(
     r"https://(?:github\.com|raw\.githubusercontent\.com)/\S+"
 )
+# Unfilled auto-draft stub slots (PR #47 card 💡): `--emit-entries` stubs use the
+# kit's `[[fill:…]]` slot grammar; a stub pasted into a committed idea file
+# UNFILLED must red the run. Backtick-quoted mentions (prose ABOUT the grammar —
+# three live instances) are exempt: a real slot is never backtick-wrapped.
+UNFILLED_SLOT_RE = re.compile(r"(?<!`)\[\[fill:")
 
 # Optional header lines (README § Idea file grammar — the PR #21 bless; same loud
 # co-edit rule as above). Checked only where present: a line that *carries* the bold
@@ -105,10 +113,11 @@ GROUNDING_BODY_RE = re.compile(
 )
 SEQUENCE_BODY_RE = re.compile(r"^(?:before|after|behind) \S.*$")
 # Severity date-gate: the optional-line grammar was blessed by PR #21 (merged
-# 2026-07-10). Files whose filename date is strictly AFTER that date must conform
-# (hard violation); the bless day itself is ambiguous (PR #21 merged mid-day), so
-# on-or-before — and filenames without a parseable date — WARN only (advisory,
-# never exit-affecting; legacy files are reported as debt, never churned).
+# 2026-07-10). Files whose filename date is on or after that date must conform
+# (hard violation — tightened from strictly-after per the PR #24 card part b once
+# the boundary day ran clean); earlier-dated filenames — and filenames without a
+# parseable date — WARN only (advisory, never exit-affecting; legacy files are
+# reported as debt, never churned).
 OPTIONAL_LINE_GRAMMAR_DATE = "2026-07-10"
 FILENAME_DATE_RE = re.compile(r"-(\d{4}-\d{2}-\d{2})\.md$")
 
@@ -132,10 +141,10 @@ LINKED_STATE_OK_RE = re.compile(r"^(?:sim-ready$|historical\()")
 
 def optional_lines_hard(name: str) -> bool:
     """True when a malformed optional line is a hard violation for this file:
-    the filename date is strictly after the PR #21 grammar bless date. Undated
-    or on-or-before dated filenames stay advisory (WARN)."""
+    the filename date is on or after the PR #21 grammar bless date (>= per the
+    PR #24 card part b). Undated or earlier-dated filenames stay advisory (WARN)."""
     m = FILENAME_DATE_RE.search(name)
-    return bool(m) and m.group(1) > OPTIONAL_LINE_GRAMMAR_DATE
+    return bool(m) and m.group(1) >= OPTIONAL_LINE_GRAMMAR_DATE
 
 
 def check_optional_lines(text: str, rel: str) -> list[str]:
@@ -212,6 +221,13 @@ def lint_file(path: Path, rel: str) -> tuple[list[str], list[str]]:
 
     if CANONICAL_MARKER in text and not CANONICAL_LINK_RE.search(text):
         problems.append(f"LINK-INDEX {rel}: declares a canonical idea but carries no canonical GitHub link")
+
+    for lineno, line in enumerate(text.splitlines(), 1):
+        if UNFILLED_SLOT_RE.search(line):
+            problems.append(
+                f"UNFILLED   {rel}:{lineno}: unfilled `[[fill:…]]` stub slot — "
+                f"fill every slot before committing an --emit-entries stub"
+            )
 
     opt = check_optional_lines(text, rel)
     (problems if optional_lines_hard(path.name) else warnings).extend(opt)
