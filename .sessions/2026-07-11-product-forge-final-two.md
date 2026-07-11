@@ -1,6 +1,6 @@
 # Session — product-forge final two: live-preview + concept-evidence-pass probes (section close)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~09:15Z (worker slice, dispatched by the continuous-mode coordinator per Q-0265)
 
 ## Scope
