@@ -1,15 +1,5 @@
 [
   {
-    "id": "R-0013",
-    "lesson": "Recurring attention on scripts/check_sections.py",
-    "evidence": "2026-07-11-product-forge-first-batch.md:L90, 2026-07-11-venture-lab-forecast-verify-park.md:L26",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
     "id": "R-0014",
     "lesson": "Recurring attention on scripts/preflight.py",
     "evidence": "2026-07-11-venture-lab-forecast-verify-park.md:L35, 2026-07-11-wire-automerge-enabler.md:L79",
@@ -43,6 +33,16 @@
     "id": "R-0017",
     "lesson": "Recurring attention on control/status.md",
     "evidence": "2026-07-11-superbot-mineverse-first-batch.md:L99, 2026-07-11-venture-lab-forecast-verify-park.md:L26, 2026-07-11-wire-automerge-enabler.md:L67",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0018",
+    "lesson": "Recurring attention on ideas/substrate-kit/README.md",
+    "evidence": "2026-07-11-session.md:L17, 2026-07-11-wire-automerge-enabler.md:L112",
     "tags": [
       "recurring-path"
     ],
