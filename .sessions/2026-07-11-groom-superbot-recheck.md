@@ -68,6 +68,17 @@ is that per-section refusal, superbot's record wrote clean).
 clean; cross-section websites findings report-only, out of claim).
 `python3 bootstrap.py check --strict` + `python3 scripts/preflight.py` (all 10
 PASS) run green immediately before push, after the heartbeat overwrite.
+Mid-flight reconcile: siblings #153 (ORDER 002) and #154 (websites round 3,
+which independently pin-bumped superbot `58040c6` → `e0fd8ef`) landed while
+this PR was open — merged origin/main forward-only per the README recipe,
+never rebased. The superbot pin conflict was resolved by keeping BOTH facts in
+one pin-history paragraph at the newer verified pin `227c220`; the sibling's
+`.harvest-pin.json` @ `e0fd8ef` was superseded by this slice's record @
+`227c220` (identical 237-blob docs map, later pin); the heartbeat was
+rewritten ON the merged tree preserving the sibling's ⚑ ask and its ORDER 002
+ack. The two websites divergences reported above were consumed by #154's own
+ACK annotation before this branch shipped — they are now historical context,
+not open drift.
 Telemetry residue: hook-born `.substrate/guard-fires.jsonl` appends left
 uncommitted for the telemetry lane per the PR #32/#58/#62 precedent.
 
