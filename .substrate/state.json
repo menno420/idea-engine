@@ -50,6 +50,12 @@
     "last_mined": "2026-07-11"
   },
   "review_log": [],
+  "session_anchor": {
+    "branch": null,
+    "epoch": 1783745704.166326,
+    "head": "521aebff462250c1d8f7803f4334e89873db169c",
+    "ts": "2026-07-11T04:55:04+00:00"
+  },
   "session_count": 0,
   "slot_values": {
     "architecture_layers": {

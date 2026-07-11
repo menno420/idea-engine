@@ -1,1 +1,0 @@
-- `seed-enabler-card-guard-upstream` · **ideas/substrate-kit** — capture: upstream the enabler card-status guard into substrate-kit (enabler-card-status-guard-upstream-2026-07-11.md) · ideas/substrate-kit/** + card + heartbeat · 2026-07-11
