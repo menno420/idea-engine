@@ -52,7 +52,14 @@ PR #17 card). A link-index entry whose LOCAL state deliberately diverges from th
 canonical doc's recorded outcome may carry an optional
 `(state-drift: deliberate — <reason/PR>)` annotation on its index bullet, which
 `check_harvest --states` reports as ACK'd rather than open drift (source: PR #149
-card 💡; forward-only — never retrofit).
+card 💡; forward-only — never retrofit). Two more badge duties, both forward-only: a
+badge or annotation writing "partially implemented/built" names the built half AND
+the open half, one clause each — a badge that forces the split makes the next
+reader's premise-verify a confirmation, not an investigation (source: PR #189 card
+💡); and when the canonical text names its own trigger event ("build when X", "next
+time Y"), the harvest carries that trigger into the index badge, so ripeness
+re-ranking becomes a scan for fired triggers instead of a re-read of the canonical
+docs (source: PR #192 card 💡).
 
 Two OPTIONAL header lines are blessed (forward-only — retrofit never required):
 `> **Grounding:** <url>@<sha> · fetched <ISO time>` pins what a capture was grounded on,
@@ -70,7 +77,10 @@ constraint a probe would otherwise re-derive from prose (source: PR #10 card); a
 cross-repo order dependency uses the token form `<repo>#ORDER-<nnn>` in the Sequence
 body (e.g. `after superbot-next#ORDER-002`) so one grep surfaces every idea in the
 tree blocked on a given foreign order (source: PR #44 card; forward-only — never
-retrofit prose-form instances). A DARK
+retrofit prose-form instances). A harvest slice stamps the `Sequence:` line **at
+capture time** whenever the source names a hard date/event — an expiry that lives
+only in status-file prose is invisible to the expiry-aware probe order below
+(source: PR #174 card 💡, which had to retrofit its own). A DARK
 lane (unreadable from this repo) gets manifest-relayed grounding only: pin the manifest
 at superbot HEAD, verify the blackout, and scope captures to shape-not-content (source:
 PR #15 card).
@@ -80,7 +90,10 @@ section — the canonical post-verdict marker: cite the verdict number, ruling, 
 sim-lab `control/outbox.md` SHA read at write time, plus the numbering cross
 (`VERDICT <n> = PROPOSAL <m>` — sim-lab numbers by intake order, not proposal number).
 The state line stays forward-only and untouched; the note, not a new state, is what
-says "verdict received" (source: PR #41/#43 cards; four live instances).
+says "verdict received" (source: PR #41/#43 cards; four live instances). The note
+quotes the verdict's `ruling:` field when present, else its `recommendation:` — the
+parse rule every fan-in otherwise re-derives from card archaeology (source: PR #178
+card 💡; exercised across V005–V008).
 
 ## The probe battery (v0 — the core method)
 
@@ -128,6 +141,21 @@ Probe order is expiry-aware: a captured idea whose `Sequence:` reads `before <ev
 ahead of non-expiring heads once the event is imminent; a dead premise re-confirms
 itself from stale grounding, and only a live lane-HEAD check breaks the loop (source:
 PR #48/#25 cards — one capture missed a window by ~4 h, another was mooted overnight).
+
+Verify-first is also cross-lane- and tree-aware. For any idea whose `**Target:**`
+differs from its canonical repo, verify-first includes the target lane's decision
+ledger — grep its `docs/decisions.md` for the idea's nouns — BEFORE the head is
+ranked #1: a 2-day-stale capture cost a full probe that a 30-second ledger grep
+would have priced (source: PR #180 card 💡). Absence from a lane's
+`current-state.md` is NOT evidence of absence: grep the canonical repo's
+`docs/subsystems/` folio index AND its code tree (blobless-clone ls-tree) for the
+idea's nouns — three consecutive probes found the truth in folio/tree/ledger where
+current-state prose missed (source: PR #183 card 💡; re-confirmed at #186/#189).
+And body-exists is not body-wired: when confirming "a guard/checker exists at
+target", read the REGISTRATION/invocation site (registry entry, config key, CI
+wiring) and confirm the widened parameter actually flows — a call-site default
+override kept a shipped scope-widening silently inert (source: PR #186 card 💡, the
+Rule 6 `roots=` lesson; drift confirmed still live by sim-lab VERDICT 010).
 
 Probe order is also self-serve-aware: a maintenance-shaped capture aimed at a LIVE lane
 is often executed by that lane before the probe runs — four datapoints (~19 min on
