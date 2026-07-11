@@ -152,6 +152,12 @@ why: <one line>
 done-when: <acceptance test>
 ```
 
+`anchor:` is an OPTIONAL order field (`<file>:<step/function>`); whether present or
+not, the executor verifies any file/step an order cites still exists at HEAD before
+building — a stale pointer is a loud pre-build stop (report it in status `notes:`),
+never a silent guess-and-edit (source: PR #46 card, vindicated live by superbot-games
+ORDER 001).
+
 ## CI + auto-merge notes (learned live, 2026-07-09)
 
 - **Heartbeat commits ride a fast lane, not a `paths-ignore`.** A control-only diff (only

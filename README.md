@@ -49,11 +49,29 @@ Two OPTIONAL header lines are blessed (forward-only — retrofit never required)
 `> **Grounding:** <url>@<sha> · fetched <ISO time>` pins what a capture was grounded on,
 machine-readably, with `(manifest row: behind|matches|ahead)` appended when a lane pin
 diverges from the manifest's recorded HEAD (shaped by the PR #8/#10/#12/#14/#15 cards);
+when version-truth layers disagree, cite the freshest and note the divergence —
+manifest row < lane heartbeat < lane HEAD/tree-scan, freshest wins (source: PR #19
+card; twelve live manifest-staleness datapoints, the sharpest a manifest row
+prescribing a fix its lane had deliberately archived). Rich pin context
+(capture-vs-recheck provenance, manifest-row detail) goes on an OPTIONAL
+`> *(pin annotation: …)*` blockquote line directly below the pin, never inside it
+(source: PR #28 card; four live instances).
 `> **Sequence:** <before|after|behind> <event/order/claim>` records an ordering
-constraint a probe would otherwise re-derive from prose (source: PR #10 card). A DARK
+constraint a probe would otherwise re-derive from prose (source: PR #10 card); a
+cross-repo order dependency uses the token form `<repo>#ORDER-<nnn>` in the Sequence
+body (e.g. `after superbot-next#ORDER-002`) so one grep surfaces every idea in the
+tree blocked on a given foreign order (source: PR #44 card; forward-only — never
+retrofit prose-form instances). A DARK
 lane (unreadable from this repo) gets manifest-relayed grounding only: pin the manifest
 at superbot HEAD, verify the blackout, and scope captures to shape-not-content (source:
 PR #15 card).
+
+A finalized sim-lab verdict is recorded by appending a `## Sim verdict (<date>)`
+section — the canonical post-verdict marker: cite the verdict number, ruling, and the
+sim-lab `control/outbox.md` SHA read at write time, plus the numbering cross
+(`VERDICT <n> = PROPOSAL <m>` — sim-lab numbers by intake order, not proposal number).
+The state line stays forward-only and untouched; the note, not a new state, is what
+says "verdict received" (source: PR #41/#43 cards; four live instances).
 
 ## The probe battery (v0 — the core method)
 
@@ -67,6 +85,12 @@ One idea per pass, through the fixed interrogation:
 6. What does it depend on?
 7. Which lane should build it?
 8. What is the smallest shippable slice?
+
+Reachability check (battery Q4/Q6 discipline): an idea pricing an export/feed slice
+must verify where the data actually lives vs what the named producer can actually
+read, and an idea pricing an owner action must verify a zero-toolchain surface
+actually carries the action's object — pattern-exists is not pattern-can-produce
+(source: PR #45/#34 cards).
 
 Append the output as `## Probe report (v0, <date>)` in the idea file, ending in **ONE**
 recommendation — `sim-ready` / `park` / `reject` / `needs-more-grooming` — with a one-line
@@ -86,6 +110,12 @@ rejected. Measured basis: panel flipped the modal verdict on 2/3 contested ideas
 repo's one panel run (PR #23, explore-hub) cost ≈127k lens tokens. Honesty norm
 ("not measured" beats invention) holds in both modes. Reference example: the first
 probe (see `ideas/superbot/`).
+
+Probe order is expiry-aware: a captured idea whose `Sequence:` reads `before <event>`
+(or whose "why now" names a closing window) is probed — or explicitly re-pinned —
+ahead of non-expiring heads once the event is imminent; a dead premise re-confirms
+itself from stale grounding, and only a live lane-HEAD check breaks the loop (source:
+PR #48/#25 cards — one capture missed a window by ~4 h, another was mooted overnight).
 
 ## The outbox — `control/outbox.md`
 
