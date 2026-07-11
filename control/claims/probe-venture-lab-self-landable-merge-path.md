@@ -1,0 +1,1 @@
+- `probe/venture-lab-self-landable-merge-path` · **ideas/venture-lab** — single-pass probe of self-landable-merge-path-2026-07-10.md (process head, → venture-lab lane; the section's LAST unprobed head) · expected files: ideas/venture-lab/**, ideas/substrate-kit/README.md (cross-link only), .sessions/**, control/status.md, control/claims/** · 2026-07-11
