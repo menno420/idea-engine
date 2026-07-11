@@ -1,15 +1,5 @@
 [
   {
-    "id": "R-0034",
-    "lesson": "Recurring attention on control/status.md",
-    "evidence": "2026-07-11-verdict-registry-probe.md:L133, 2026-07-11-wire-automerge-enabler.md:L67",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
     "id": "R-0035",
     "lesson": "Recurring attention on control/verdict-registry.md",
     "evidence": "2026-07-11-verdict-005-superbot-fanin.md:L64, 2026-07-11-verdict-registry-probe.md:L32",
@@ -43,6 +33,16 @@
     "id": "R-0038",
     "lesson": "Recurring attention on sessions/2026-07-10-sim-verdicts-fanin.md",
     "evidence": "2026-07-11-verdict-005-superbot-fanin.md:L18, 2026-07-11-verdict-006-fanin.md:L17",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0039",
+    "lesson": "Recurring attention on scripts/check_ideas.py",
+    "evidence": "2026-07-11-verdict-registry-probe.md:L48, 2026-07-11-websites-round-3-reharvest.md:L68",
     "tags": [
       "recurring-path"
     ],
