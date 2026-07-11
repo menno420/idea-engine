@@ -1,1 +1,0 @@
-- `probe/trading-strategy-wake-resilience-rebind` · **ideas/trading-strategy** — probe the wake-resilience-fresh-session-rebind head (battery v0, verify-first per the lane-self-served prior) · ideas/trading-strategy/** + session card + heartbeat · 2026-07-11
