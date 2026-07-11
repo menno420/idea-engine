@@ -1,6 +1,6 @@
 # Branch-prefix drift tripwire — keep `automerge.branch_patterns` honest against merged reality
 
-> **State:** park(built-here — scripts/preflight.py --branch-prefix-drift, shipped in this same PR)
+> **State:** historical(#62)
 > **Class:** process · **Target:** `menno420/idea-engine` (this repo's own preflight — built here, see report Q7)
 
 **Origin:** the PR #55 session card 💡 (`.sessions/2026-07-11-wire-automerge-enabler.md`
