@@ -1,8 +1,8 @@
 [
   {
-    "id": "R-0013",
-    "lesson": "Recurring attention on scripts/check_sections.py",
-    "evidence": "2026-07-11-product-forge-first-batch.md:L90, 2026-07-11-venture-lab-forecast-verify-park.md:L26",
+    "id": "R-0018",
+    "lesson": "Recurring attention on control/outbox.md",
+    "evidence": "2026-07-11-session.md:L20, 2026-07-11-verdict-005-superbot-fanin.md:L26",
     "tags": [
       "recurring-path"
     ],
@@ -10,9 +10,9 @@
     "date": "2026-07-11"
   },
   {
-    "id": "R-0014",
-    "lesson": "Recurring attention on scripts/preflight.py",
-    "evidence": "2026-07-11-venture-lab-forecast-verify-park.md:L35, 2026-07-11-wire-automerge-enabler.md:L79",
+    "id": "R-0019",
+    "lesson": "Recurring attention on control/verdict-registry.md",
+    "evidence": "2026-07-11-session.md:L65, 2026-07-11-verdict-005-superbot-fanin.md:L64",
     "tags": [
       "recurring-path"
     ],
@@ -20,19 +20,9 @@
     "date": "2026-07-11"
   },
   {
-    "id": "R-0015",
-    "lesson": "taken as METHOD \u2014 \"when a capture touches a lane younger than ~a day, the lane-HEAD",
-    "evidence": "2026-07-11-superbot-mineverse-first-batch.md:L132",
-    "tags": [
-      "idea"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
-    "id": "R-0016",
-    "lesson": "Recurring attention on docs/roster.md",
-    "evidence": "2026-07-11-superbot-mineverse-first-batch.md:L35, 2026-07-11-venture-lab-forecast-verify-park.md:L37",
+    "id": "R-0020",
+    "lesson": "Recurring attention on github/workflows/auto-merge-enabler.yml",
+    "evidence": "2026-07-11-session.md:L38, 2026-07-11-wire-automerge-enabler.md:L28",
     "tags": [
       "recurring-path"
     ],
@@ -40,9 +30,19 @@
     "date": "2026-07-11"
   },
   {
-    "id": "R-0017",
-    "lesson": "Recurring attention on control/status.md",
-    "evidence": "2026-07-11-superbot-mineverse-first-batch.md:L99, 2026-07-11-venture-lab-forecast-verify-park.md:L26, 2026-07-11-wire-automerge-enabler.md:L67",
+    "id": "R-0021",
+    "lesson": "Recurring attention on ideas/superbot/project-capability-self-awareness-2026-07-10.md",
+    "evidence": "2026-07-11-session.md:L21, 2026-07-11-verdict-005-superbot-fanin.md:L13",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0022",
+    "lesson": "Recurring attention on sessions/2026-07-11-idle-economy-sim-kernel-probe.md",
+    "evidence": "2026-07-11-session.md:L57, 2026-07-11-verdict-005-superbot-fanin.md:L73",
     "tags": [
       "recurring-path"
     ],
