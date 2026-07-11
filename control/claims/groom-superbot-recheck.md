@@ -1,0 +1,1 @@
+- `groom/superbot-recheck` · **ideas/superbot grooming** — recheck ideas/superbot against live superbot HEAD (badge flips, new/deleted docs, re-pin 58040c6 → live) · expected files/area: ideas/superbot/ + control/ · 2026-07-11
