@@ -1,1 +1,0 @@
-- `probe/pokemon-mod-lab-post-eap-playtest-kit` · **ideas/pokemon-mod-lab** — probe post-eap-playtest-kit-2026-07-10 (battery v0, DARK-lane verify-first; EAP window 2026-07-14) · expected files: ideas/pokemon-mod-lab/**, .sessions/**, control/status.md, control/claims/** · 2026-07-11
