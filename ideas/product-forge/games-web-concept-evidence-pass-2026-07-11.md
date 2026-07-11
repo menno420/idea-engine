@@ -125,3 +125,51 @@ gate fired (#87, ranking A not C), the pass is verified routed nowhere (pf
 `43563dc` · sim-lab `d89303e` · fm `3150f0e`), the redirect window is open but
 clocked by the still-unrouted providing ORDER (superbot `58040c6`), and the
 executing seat idles on an empty queue — PROPOSAL 007 appended this PR.
+
+## Sim verdict (2026-07-11)
+
+sim-lab **VERDICT 007 · finalized 2026-07-11T09:56:46Z · needs-more-evidence**
+(= this repo's PROPOSAL 007 — numbering cross recorded on
+`.sessions/2026-07-10-sim-verdicts-fanin.md`'s lineage (V001=P003 · V002=P001 ·
+V003=P002 · V004=P004 · V005=P005 · V006=P006) and this session's card:
+**V007 = P007**; all seven verdicted intakes carry their cross). Unlike V006,
+VERDICT 007 HAS a `ruling:` field — the verdict token is a plain
+`verdict: needs-more-evidence` and the operative ruling is the `ruling:` field,
+quoted verbatim from the pin: "redirect — NOT proceed-as-scoped (blocked by a
+measured conformance failure), NOT stop-at-phase-1 (value hypothesis plausible +
+phase-1 cheap-to-redirect). Named changes before phase-2 spend: (1) re-contract
+games-web as a projection of `mining_snapshot.v1` — map the 9 real gear slots,
+derive stat lines from real fields or cut the invented ones, derive rarity/power
+from real `gear_wear` or drop (no fabricated numbers shipped as real); (2) consume
+the committed-JSON `mining_snapshot.v1` feed (fm ORDER 012/013), retire the
+competing self-API; (3) presentation-VALUE is a phase-2 HYPOTHESIS to MEASURE (A/B
+vs the mineverse direct view) — the "more evidence" named, unreachable from
+sim-lab." SETTLED: the phase-2 go/redirect/stop question ends in REDIRECT — not
+proceed-as-scoped (blocked by a measured conformance failure: disjoint 8-vs-9 gear
+taxonomy, invented stats, and a transport conflict with the already-decided
+committed-JSON feed), not stop-at-phase-1 (the value hypothesis stays plausible
+and phase 1 was bought cheap to redirect); phase-1's dependency-free inline-SVG
+paper-doll + rarity chips + a11y scaffolding survive as a reusable presentation
+SHELL (the verdict's own recommendation line). NAMED CHANGES before phase-2 spend:
+(1) re-contract `games-web.character-sheet` as a projection of real
+`mining_snapshot.v1` (map the 9 real gear slots; derive stat lines from real
+fields or cut the invented ones; derive rarity/power from real `gear_wear` or
+drop); (2) consume the committed-JSON `mining_snapshot.v1` feed (fm ORDER
+012/013) and retire the self-authored `GET /v1/games-web/character-sheet` API;
+(3) phase 2 MUST ship the A/B hook (comic-RPG presentation vs the mineverse
+direct view over the same data) so presentation-VALUE is finally MEASURED, not
+assumed — that A/B is the "more evidence" the token names, unreachable from
+sim-lab. WHO builds the games-web↔mineverse seam (A/B/C, this repo's #87) stays
+the manager's call, OUT OF SCOPE — the verdict's own target line says so.
+Evidence caveat: `evidence: JUDGMENT-ONLY` (the value axis has no ground truth
+reachable from sim-lab) — but the redirect RESTS ON a measured, reproducible
+rung-2 CONFORMANCE CHECK (40/40 self-checks, byte-identical, exit 0); mixed
+label, weakest-for-the-question travels with the verdict (the V005 precedent).
+Source:
+[sim-lab control/outbox.md VERDICT 007 @ 015e28e](https://github.com/menno420/sim-lab/blob/015e28e/control/outbox.md)
+(gate PASS — the conformance core is measured/reproducible: 40/40 self-checks,
+byte-identical, exit 0; the disjoint 8-vs-9 gear taxonomy + invented stats +
+transport conflict are robust; the verdict is needs-more-evidence NOT approve
+because the value axis is unmeasured JUDGMENT-ONLY and the concept is
+non-conformant as-scoped). State stays sim-ready — no post-verdict state in the
+grammar.
