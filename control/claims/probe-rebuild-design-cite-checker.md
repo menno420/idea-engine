@@ -1,0 +1,1 @@
+- `probe/rebuild-design-cite-checker` · **superbot section** — probe battery v0 on TOP-5 item 4 rebuild-design-cite-checker (validate `path.py:NNN` cites in analysis/design docs; zero cite validation at N) · ideas/superbot/rebuild-design-cite-checker-2026-07-10.md · 2026-07-11
