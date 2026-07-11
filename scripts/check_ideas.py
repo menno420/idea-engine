@@ -42,10 +42,16 @@ Lints every idea file against the README idea grammar (README § Idea file gramm
                  state annotation (`— <state> ·` on the standard index row, or
                  `· <state>` in the fleet-README entry form) no longer matches the
                  linked idea file's actual current state FAMILY (the token before
-                 any `(…)` reason). State echoes in OTHER files are exactly the
-                 annotation class that rots when a state advances later. ADVISORY
+                 any `(…)` reason), OR — the reason-PRESENCE leg, PR #161 card 💡 —
+                 whose echo is BARE while the linked file's state carries a
+                 `(<reason>)` (bare-vs-bare counts as agreement; an echo with ANY
+                 parenthetical passes — abbreviated echoes stay blessed per the
+                 #160 index-row format precedent; reason-DETAIL drift stays
+                 deliberately unchecked, judgment territory per the lint-bundle
+                 Q4). State echoes in OTHER files are exactly the annotation
+                 class that rots when a state advances later. ADVISORY
                  (warn-first, never exit-affecting — READMEs carry no filename
-                 date to gate on; source: PR #29 card 💡).
+                 date to gate on; source: PR #29 card 💡 + PR #161 card 💡).
 - GROUNDING    — a `> **Grounding:**` optional header line (README § Idea file
                  grammar, blessed by PR #21) present but malformed: must be
                  `> **Grounding:** <url>@<sha> · fetched <ISO time>` with an
@@ -128,12 +134,19 @@ CANONICAL_LINK_RE = re.compile(
 # an actual `parked(routed — kit lane build …)` — the rot class is a FAMILY
 # advance (captured → parked/historical), not reason-detail drift. `park` and
 # `parked` are DISTINCT families (park(built-here…) advances to historical(<PR>)
-# on merge — exactly an echo-rot case to flag).
+# on merge — exactly an echo-rot case to flag). Reason-PRESENCE leg (PR #161
+# card 💡 — the class that slice hand-fixed 3 of): when families agree, a BARE
+# echo against a file state that carries a `(<reason>)` still warns — bare-vs-
+# bare is agreement, and an echo with ANY parenthetical passes (abbreviated
+# echoes are blessed, the #160 index-row precedent; reason-DETAIL drift stays
+# deliberately unchecked per the lint-bundle idea's Q4). The optional `(\()`
+# group below must sit IMMEDIATELY after the token — a space-separated
+# parenthetical is prose, not a state reason.
 INDEX_BULLET_RE = re.compile(r"^- \[")
 INDEX_CONTINUATION_RE = re.compile(r"^\s+\S")
 INDEX_LINK_RE = re.compile(r"\]\(([^)#\s]+\.md)\)")
 STATE_ECHO_RE = re.compile(
-    r"[—·]\s+(captured|probed|sim-ready|parked|park|rejected|historical)\b"
+    r"[—·]\s+(captured|probed|sim-ready|parked|park|rejected|historical)\b(\()?"
 )
 STATE_FAMILY_RE = re.compile(
     r"^(captured|probed|sim-ready|parked|park|rejected|historical)\b"
@@ -455,6 +468,20 @@ def check_state_echoes(ideas_dir: Path) -> list[str]:
                     f"STATE-ECHO {rel}:{lineno}: entry echoes state "
                     f"'{em.group(1)}' but the linked {lm.group(1)} is "
                     f"'{actual[:60]}' — re-badge the index line"
+                )
+                continue
+            # Reason-presence leg (PR #161 card 💡): families agree, but a BARE
+            # echo against a reasoned file state is the drift class that slice
+            # hand-fixed 3 of. An echo carrying ANY `(…)` passes (abbreviation
+            # is blessed); a bare file state (captured/probed/sim-ready) never
+            # fires this leg — bare-vs-bare is agreement.
+            echo_has_reason = bool(em.group(2))
+            actual_has_reason = bool(am) and actual[am.end() : am.end() + 1] == "("
+            if actual_has_reason and not echo_has_reason:
+                warnings.append(
+                    f"STATE-ECHO {rel}:{lineno}: entry echoes bare "
+                    f"'{em.group(1)}' but the linked {lm.group(1)} is "
+                    f"'{actual[:60]}' — echo the reason (abbreviated is fine)"
                 )
     return warnings
 

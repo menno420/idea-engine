@@ -164,3 +164,20 @@ extension of three existing checkers, proven by its own live run + five planted
 violations in this same PR (the README battery shortcut, PR #2/#11/#16 lineage);
 nothing sim-shaped, so no outbox proposal — a contract check is proven by its own
 red/green (the #114 precedent).
+
+## Extension note (2026-07-11, this slice — appended, probe report and state untouched)
+
+Head 2 (cross-link STATE-ECHO) grew a **reason-presence leg** (PR #161 card 💡):
+Q4's "family-compare blindness" carve-out deliberately skipped reason drift, and
+PR #161 then hand-fixed exactly 3 instances of the sub-class the family compare
+cannot see — a BARE echo (`parked`) against a file state that had advanced to a
+full terminal `parked(<reason>)`. The leg warns (same ADVISORY severity, same
+pass, no parallel check) when families agree but the echo is bare while the
+linked file's state carries a `(<reason>)`; bare-vs-bare stays agreement, an
+echo with ANY parenthetical passes (abbreviated echoes stay blessed per the #160
+index-row precedent), and reason-DETAIL drift stays unchecked per Q4 — judgment
+territory. The extension's own live run found 41 rotted bare `historical`
+echoes in `ideas/superbot/README.md` (that README's line-18 convention and every
+other section already write `historical(...)`), all exact-echo re-badged in the
+same PR. State stays `park(built-here — …)`; slice card:
+`.sessions/2026-07-11-index-echo-reason-drift.md`.
