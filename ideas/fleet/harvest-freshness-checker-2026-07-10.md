@@ -137,3 +137,44 @@ default run's network legs are unchanged — ls-remote + one listing per section
 State stays `historical(#22)`; slice card:
 `.sessions/2026-07-11-check-harvest-output-refinements.md` (live runs of all three
 refinements recorded there, including a real emitted stub).
+
+## Extension note (2026-07-11, content-identity slice — appended; probe report and state untouched)
+
+The probe's own depth axis (Q2: "existence-only diff → per-doc content drift via
+blob shas → state drift") gets its MIDDLE rung built — deferred from contract
+grooming round 4 as "build slice, not prose", and forced by a lived failure pair:
+the PR #49 probe found the websites backlog's CONTENT had moved 47/31 lines while
+the checker's `HEAD MOVED (docs unchanged)` verdict — filename-set-only — implied
+freshness, and the PR #52 re-pin rider then had to be hand-sized by a clone-level
+diff. Built on `scripts/check_harvest.py`, still stdlib-only / wake-time-only
+(the Q4 hermeticity rule holds: no preflight or CI membership, the default run's
+network legs unchanged — ls-remote + one listing per section):
+
+- **CHANGED finding class** — same filename, different blob sha, reported
+  DISTINCTLY from NEW/DELETED. Cheap by construction: both listing sources the
+  checker already fetches carry per-doc blob shas (the contents-API `sha` field /
+  the `ls-tree` object column), so the live side costs zero extra network; the
+  pin side comes from the section's **pin record**.
+- **`--write-pins` + `ideas/<section>/.harvest-pin.json`** — the harvester runs
+  it in the SAME session that (re-)pins the README; it records the per-doc
+  blob-sha map at the pin and REFUSES (exit 2) when README pin ≠ live HEAD (a
+  record taken away from the pin would lie). The one deliberate write mode —
+  the check itself stays report-only. Backward compatible: a section without a
+  record (every pin predating this slice) degrades to filename-set behavior
+  WITH A NOTE naming the blindness — `docs unchanged` now says
+  `(filename set only — content drift invisible …)` instead of implying
+  content freshness.
+- **`--bullet-drift`** — exact pin→HEAD content-delta sizing for re-pin riders:
+  one blobless clone per moved section fetches the pin commit and
+  `git diff --numstat/--name-status <pin> HEAD` yields per-doc `+N/-M` line
+  deltas (only changed blobs lazy-fetched); M-rows feed CHANGED, A/D rows
+  annotate NEW/DELETED with sizes. Works even without a pin record (git itself
+  is the pin-time truth), so a backlog file's drift — the lane-backlog case —
+  is sized by data, not hand-diffing. Flag-gated OFF by default (extra network
+  leg per moved section).
+
+First live run found REAL drift the old checker reported as `docs unchanged`:
+websites `docs/ideas/backlog.md` +117/-54 lines since pin `8c19e93` (plus 2 more
+websites docs and 2 superbot docs, all sized). State stays `historical(#22)`;
+slice card: `.sessions/2026-07-11-check-harvest-content-identity.md` (live runs,
+planted-sha smoke, and the write/load round-trip recorded there).
