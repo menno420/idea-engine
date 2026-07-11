@@ -71,6 +71,12 @@ NO proposal appended (outbox stays at 5, all pulled). Claim
 `claims/probe-ci-collection-parity-guard.md` taken first commit, cleared in the
 close-out commit. Preflight (6 checks) + `python3 bootstrap.py check --strict` green
 before push; landed per README § Landing conventions (PR READY, merge-on-green).
+Sibling PR #45 (websites public-leaderboards probe) landed MID-FLIGHT — detected as
+`mergeable_state: dirty` with zero check runs on this PR (the control/README jam class,
+read mergeable_state first); forward-merged origin/main per the README recipe, one
+status.md conflict reconciled keeping both sides' facts (their #45 facts preserved;
+this slice's fields win for its own work), gates re-run green on the merged tree
+before re-push.
 
 ## Handoff → next wake
 
