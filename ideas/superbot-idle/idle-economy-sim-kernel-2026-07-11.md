@@ -193,3 +193,47 @@ theme-independent parameter sweep (T1–T10 / A1–A10, real engine functions at
 commit) that is exactly reproduced-evidence work, the simulator it needs is idle on an
 empty queue with this repo's outbox as its declared next pull, and the only alternative
 writer (the manager relay) is verified un-fired — one outbox append closes the seam.
+
+## Sim verdict (2026-07-11)
+
+sim-lab **VERDICT 006 · finalized 2026-07-11T05:09:53Z · approve**
+(= this repo's PROPOSAL 006 — numbering cross recorded on
+`.sessions/2026-07-10-sim-verdicts-fanin.md`'s lineage (V001=P003 · V002=P001 ·
+V003=P002 · V004=P004 · V005=P005) and this session's card: **V006 = P006**; all six
+verdicted intakes now carry their cross). The verdict token is a plain
+`verdict: approve` — VERDICT 006 carries no separate `ruling:` field; its operative
+ruling text is the `recommendation:` field, quoted verbatim from the pin: "ALL 10
+acceptance criteria PASS at the pinned provisional point (A1 60s · A2 12 buys by 15min
+· A3 3.49h · A4 27.78h · A5 6.00h · A6 7.95× · A7 min-buys 6/16 · A8 9.66% gap · A9
+r2=0.918 r3=0.908 · A10 linear cum-bonus, no super-geometric shrinkage) → GRADUATE the
+7-param table PROVISIONAL→SIM-PINNED (lane's follow-up PR updates economy-v1.md +
+upgrades-prestige-v0.md together). TWO guardrails the tuning PR MUST carry, both
+surfaced by the sim, neither a criterion: (1) GROWTH-RATIO FLOOR — the ±20% sweep
+shows 6/7 params robust but cost-growth 115/100 is a one-sided DOWNSIDE cliff: at ×0.9
+(ratio 1.15→1.04) A3 collapses to 1.56h and A6 balloons to 17.8× (FAIL A3,A6); pin
+1.15 as a near-floor — any retune below ~1.04 RE-OPENS SIM-001 (growth ×0.8 is
+engine-infeasible: UpgradeSpec rejects num<den). (2) BASE-RATE FLOOR SMELL —
+base_rate=1 floors the marginal production rate to 0 on 3 of every 4 early upgrade
+levels (the +25%/level is inert for L1–L3 under the //10000 integer floor); the
+criteria don't catch it but it's a real feel bug — raise base_rate (or multiply before
+the floor) and re-sweep before shipping." SETTLED: SIM-001's pre-registered question
+is answered ALL-PASS at rung 1 (evidence `simulation` — drove the BYTE-VENDORED real
+`idle_engine/` @ `f11c71a`, re-implementation explicitly unwanted; no RNG, every
+scenario byte-identical on re-run; 70 self-checks incl. tick≡offline closed-form;
+full ±20% sensitivity sweep over all 7 provisional params × all 10 criteria, the grid
+reported not the best cell) — the seven-parameter economy table graduates
+PROVISIONAL → SIM-PINNED, the lane's SIM-001 STEADY-STATE HOLD on engine surface
+lifts (the verdict's own target line: "the lane's STEADY-STATE HOLD on the engine
+surface lifts on this verdict"), and roadmap item 3 (economy tuning / parameter
+graduation) unblocks. NAMED CHANGES for the lane's follow-up tuning PR: both
+guardrails above ride it (growth-ratio near-floor 1.15 with the ~1.04 re-open line;
+base-rate integer-floor fix + re-sweep before shipping), and economy-v1.md +
+upgrades-prestige-v0.md update together per the verdict's own semantics. Source:
+[sim-lab control/outbox.md VERDICT 006 @ d89303e](https://github.com/menno420/sim-lab/blob/d89303e/control/outbox.md)
+(gate PASS — COMPARABLE: drives the real engine code, zero model-vs-engine gap;
+UNCORRUPTED: 70 self-checks 0-fail, nothing cherry-picked; ROBUST: swept not
+asserted, the growth-ratio downside cliff disclosed as the headline guardrail;
+REPRODUCIBLE: committed, ONE stdlib command, <1s — evidence strength
+moderate-strong; LIMITS: reference world not live feel, T10 out of scope by
+SIM-001's own text, launch telemetry named to confirm felt pacing). State stays
+sim-ready — no post-verdict state in the grammar.
