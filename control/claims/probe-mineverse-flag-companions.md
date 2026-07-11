@@ -1,0 +1,1 @@
+- `probe/mineverse-flag-companions` · **superbot-mineverse** — batched probe: snapshot-contract-shared-constant + shim-replay-determinism-harness (FLAG 1/2 companions) · ideas/superbot-mineverse/** + control/** · 2026-07-11
