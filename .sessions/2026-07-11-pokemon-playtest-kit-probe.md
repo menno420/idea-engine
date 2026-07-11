@@ -1,6 +1,6 @@
 # Session — pokemon-mod-lab post-EAP playtest-kit probe (DARK-lane, roster/manager-relayed)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~07:30Z (worker slice, dispatched by the coordinator under continuous-chaining mode per Q-0265)
 
 ## Scope
