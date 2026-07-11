@@ -154,3 +154,40 @@ money-safety class with six documented instances and a proven false-positive
 trap: reproduced evidence (catch matrix + false-positive count per candidate
 contract) beats judgment here, and PROPOSAL 009 routes that one question to
 sim-lab before any lane builds the checker.
+
+## Sim verdict (2026-07-11)
+
+sim-lab **VERDICT 010 · finalized 2026-07-11T17:15:57Z · approve**
+(= this repo's PROPOSAL 009 — sim-lab numbers by INTAKE order; sim-lab's own
+VERDICT 009 is an unrelated OWNER-DIRECT superbot-next sim; lineage through
+V008 on the V007 card). Source pin:
+[sim-lab `control/outbox.md` @ `87ca0df`](https://github.com/menno420/sim-lab/blob/87ca0dfb562cb00a3da390c1c155d244fb4bb9b8/control/outbox.md)
+(verdict PR #36 squash `e559a37`; triage/INTAKE PR #35 squash `41b26b5`;
+report `sims/verdict-010-settle-once-architecture-guard/`). Like V006/V008
+the entry carries no `ruling:` field — the operative ruling is the
+`recommendation:` field, quoted: "adopt contract (c) — row-consumption +
+mandated check-and-set for no-row legs." Catch matrix (4 contracts × 6
+double-settlement instances, exhaustive interleaving sweep 6/90 per
+instance, 72 self-checks 0 failed): (c) 6/6 0-missed WINNER; (b)
+row-consumption alone — the current superbot-next D-0042 discipline — 1/6,
+already breached by #133 at a no-escrow-row leg (the headline negative);
+(a) caller-side atomic claim 3/6 as-shipped → 5/6 with the cogs/ roots-fix
+(still cross-tree miss on #133). Gate: PASS (COMPARABLE bounded-structural ·
+UNCORRUPTED 72 self-checks 0 failed, one real escrow-pot model bug caught by
+self-check and fixed pre-finalization · ROBUST exhaustive interleaving +
+retry-3 variant · REPRODUCIBLE one command byte-identical · LIMITS:
+live-checker false-positive count NOT MEASURED — grep enforcement-surface
+proxies only, an over-count upper bound). Build guardrails carried by the
+verdict: the checker scope must enumerate EVERY money-moving root (the
+cogs/ drift IS the failure mode), and the settle-flag must expose explicit
+re-arm (`rearm_settlement`) or it false-positives legit multi-stage
+tournament settlement. The probe's Rule 6 registry-roots finding is
+CONFIRMED STILL LIVE by the sim (`check_consistency.py:1151` registers
+`roots=("views/","services/")` while the docstring/default at
+`:984`/`:1007` claim `cogs/`; 8 cogs/ guard-adopters outside the scanned
+roots) — the done-when's drift question is answered: it moves contract (a)
+from 3/6 to 5/6 but does not change the winner. Post-verdict routing is the
+manager's per Q-0264 — targets superbot-next (`tools/check_*` settle-once
+fence over the K7 op grammar D-0010, warn-first per Q-0105) + superbot
+(one-liner `roots += "cogs/"`). State stays `sim-ready`, forward-only and
+untouched — this note, not a new state, is the canonical verdict marker.

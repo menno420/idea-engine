@@ -82,6 +82,12 @@ Before executing any `new` order:
    heartbeat referencing the order) after ~24h may be treated as abandoned and re-claimed;
    note the takeover in your status `notes:`. A dead lane must never deadlock an order.
 
+A STANDING order (a per-wake rule whose id lives permanently in `done=`) needs NO
+per-wake claim: the claim ritual covers the `new→done` gap, which a standing order
+has already crossed — re-claiming one only trips the checker's `[claims-stale]`
+warning (source: idea-engine PR #144 card 💡; the checker-side carve-out is kit
+machinery, routed via the kit-lane fan-in bundle).
+
 With an active claim the `orders:` line reads e.g.:
 `orders: acked=001-008 done=001-006 claimed-by: 007+008 coordinator-lane 2026-07-09T18:38Z`
 — the executor drops the `claimed-by:` annotation in the overwrite that moves those ids
