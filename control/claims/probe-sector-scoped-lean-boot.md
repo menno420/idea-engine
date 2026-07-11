@@ -1,1 +1,0 @@
-- `probe/sector-scoped-lean-boot` · **superbot section** — probe battery pass on the sector-scoped lean-boot idea + VERDICT 008 fan-in on mining-grid-encounters · ideas/superbot/sector-scoped-lean-boot-for-cheap-models-2026-07-10.md, ideas/superbot/mining-grid-encounters-2026-07-10.md, control/status.md · 2026-07-11
