@@ -102,3 +102,38 @@ rationale: trivial repo-internal PROCESS tooling per the blessed same-PR shortcu
 used by PR #2; deviation-from-routing flagged exactly as there) — nothing routes to
 sim-lab (no reproducible question worth a cycle; the checker's own live run IS the
 evidence), and the state advances to `historical(#22)` on merge (shipped by PR #22).
+
+## Extension note (2026-07-11, this slice — appended, probe report and state untouched)
+
+The output-refinement bundle the run cards flagged after three live harvest passes
+(PRs #26/#37/#38 all ran the checker; the heartbeat's ripest-next list named the three
+💡s as one small PROCESS slice) is BUILT, still stdlib-only / report-only / wake-time
+only (the Q4 hermeticity rule holds: the checker joins no preflight or CI, and the
+default run's network legs are unchanged — ls-remote + one listing per section):
+
+- **`HEAD MOVED (docs unchanged)` finding class** (PR #38 card 💡,
+  `.sessions/2026-07-10-superbot-theme-engine-reharvest.md`): a HEAD≠pin section whose
+  doc set is byte-list-identical now reports as pin-bump-only and no longer counts as
+  drift work — the DRIFT exit line finally means "there is harvest work" (twice in one
+  evening the hub's commit rate had overstated the re-harvest queue).
+- **`--emit-entries`** (PR #26 card 💡,
+  `.sessions/2026-07-10-superbot-drift-reharvest.md`): per NEW upstream doc, a
+  ready-to-fill link-index entry stub to stdout — pinned blob+raw links @ the live
+  HEAD, blessed-byte-form Grounding line, `[[fill:…]]` gist slots, plus the
+  section-README index row — so a re-harvest slice reduces to "write the gists" and
+  the mechanical link/pin assembly (the part that drifts under a cheaper model) comes
+  pre-filled. Prints only, never writes files.
+- **`--re-badge` suggestion pass** (PR #37 card 💡,
+  `.sessions/2026-07-10-websites-backlog-harvest.md`): flags an indexed entry whose
+  local state is not `historical(…)` while the canonical doc's own front-matter
+  records a built outcome (`state:`/`status:` built/shipped/done, or a `shipped_pr:`)
+  — the outcome-mirroring staleness NEW/DELETED can't see. Deliberately OFF by
+  default and flag-gated: it reads canonical doc blobs (one batched blobless-clone
+  checkout per section, never per-doc round-trips) — the depth the PR #22 card 💡
+  flagged as non-trivial; the bounded suggestion-pass shape (front-matter markers
+  only, harvester judges) is what ships here, the full `--states` depth stays
+  unbuilt.
+
+State stays `historical(#22)`; slice card:
+`.sessions/2026-07-11-check-harvest-output-refinements.md` (live runs of all three
+refinements recorded there, including a real emitted stub).
