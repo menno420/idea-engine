@@ -1,0 +1,1 @@
+- `probe/games-theme-engine` · **ideas/superbot — games-theme-engine probe** — battery v0 on games-theme-engine-website-first-2026-07-10 (the harvest-flagged "revisit when the idle seat exists" head; section pin 227c220) · expected files/area: ideas/superbot/ + control/ + .sessions/ · 2026-07-11
