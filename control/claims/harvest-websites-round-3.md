@@ -1,0 +1,1 @@
+- `harvest/websites-round-3` · **ideas/websites (+ superbot pin check)** — websites re-harvest round 3 (re-pin d862364 → live HEAD, backlog CHANGED +101/-27, deliberate-divergence annotation on open-pr-awareness) · expected files: ideas/websites/**, README.md (one grammar sentence), scripts/check_harvest.py (ACK read), control/status.md, .sessions/ · 2026-07-11
