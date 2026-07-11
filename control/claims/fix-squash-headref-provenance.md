@@ -1,0 +1,1 @@
+- `fix/squash-headref-provenance` · **ideas/fleet** — squash head-ref provenance: enabler merge step records `Head-ref:` in the squash commit body + tripwire reads it (the PR #62 card's 💡 consumed) · .github/workflows/auto-merge-enabler.yml + scripts/preflight.py + ideas/fleet/branch-prefix-drift-tripwire-2026-07-11.md · 2026-07-11
