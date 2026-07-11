@@ -1,0 +1,1 @@
+- `probe/channel-role-authority-gap` · **superbot section** — probe battery pass on the channel/role-scoped authority gap idea · ideas/superbot/channel-role-scoped-authority-gap-2026-07-10.md · 2026-07-11
