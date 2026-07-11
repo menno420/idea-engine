@@ -30,6 +30,9 @@ The planted doc set (this router reaches every live doc — keep it that way):
 `docs/owner-profile.md` · `docs/current-state.md` · `docs/decisions.md` ·
 `docs/question-router.md` · `docs/CAPABILITIES.md` · `docs/ideas/README.md` — plus the root
 `CONSTITUTION.md` (the working agreement) and `.session-journal.md`.
+Durable retro records live under `docs/retro/` (first entry:
+`docs/retro/self-review-2026-07-11.md`, the ORDER 002 self-review moved verbatim
+off the heartbeat at the 2026-07-11 wrap-up close-out).
 
 ## Verifying any change
 
