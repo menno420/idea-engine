@@ -1,15 +1,5 @@
 [
   {
-    "id": "R-0039",
-    "lesson": "Recurring attention on scripts/check_ideas.py",
-    "evidence": "2026-07-11-verdict-registry-probe.md:L48, 2026-07-11-websites-round-3-reharvest.md:L68",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
     "id": "R-0040",
     "lesson": "Recurring attention on scripts/check_harvest.py",
     "evidence": "2026-07-11-groom-superbot-recheck.md:L67, 2026-07-11-websites-round-3-reharvest.md:L42",
@@ -43,6 +33,16 @@
     "id": "R-0043",
     "lesson": "Recurring attention on scripts/preflight.py",
     "evidence": "2026-07-11-verdict-006-fanin.md:L52, 2026-07-11-verdict-registry-probe.md:L28, 2026-07-11-websites-round-3-reharvest.md:L70, 2026-07-11-wire-automerge-enabler.md:L79",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0044",
+    "lesson": "Recurring attention on control/claims/README.md",
+    "evidence": "2026-07-11-verdict-007-fanin.md:L89, 2026-07-11-wire-automerge-enabler.md:L121",
     "tags": [
       "recurring-path"
     ],

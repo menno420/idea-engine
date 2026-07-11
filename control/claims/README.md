@@ -84,6 +84,11 @@ over unchanged:
   section is off-limits until the claim clears (README § Sections).
 - **Filename**: flatten `/` in branch names to `-` for the claim filename
   (the PR #1 card's guard recipe, consumed by every claim since).
+- **Claim-branch naming**: the fast-lane claim PR's branch is the WORK branch +
+  `-claim` suffix (e.g. `probe/pinned-feed-contract-claim` for work branch
+  `probe/pinned-feed-contract`, this convention line's own slice), never a
+  `claim/` prefix — the `claim/` prefix minted by #166 was a one-off; every
+  other claim rode its work prefix.
 - Pre-resolved at seed (blueprint §1): kit adoption, `.substrate/`,
   `control/`, and the section tree were seeded in one pass by the dispatch
   copilot (2026-07-10) — no claim races on shared ground remain from birth.
