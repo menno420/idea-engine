@@ -1,1 +1,0 @@
-- `probe/superbot-next-four-heads` · **ideas/superbot-next section probe** — verify-and-park battery over the section's four captured heads (composition-parity-registration-diff · band-binding-doctrine-encoding · parity-flip-cadence · effect-arming-compensator-checklist), grounded at superbot-next live HEAD · ideas/superbot-next/** + session card + heartbeat · 2026-07-11
