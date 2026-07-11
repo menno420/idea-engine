@@ -1,1 +1,0 @@
-- `probe/pokemon-mod-lab-patch-only-egress` · **ideas/pokemon-mod-lab** — patch-only-egress-doctrine probe (the section's LAST open head; DARK-lane recipe, fm-roster-grounded) · ideas/pokemon-mod-lab/patch-only-egress-doctrine-2026-07-10.md + section README + card + heartbeat · 2026-07-11
