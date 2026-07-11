@@ -1,0 +1,1 @@
+- `probe/substrate-kit-agent-fleet-starter` · **venture-lab section** — battery-v0 probe of substrate-kit-agent-fleet-starter idea · ideas/venture-lab/substrate-kit-agent-fleet-starter-2026-07-11.md, control/outbox.md, control/claims/ (self-delete) · 2026-07-11
