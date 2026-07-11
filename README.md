@@ -119,6 +119,18 @@ ahead of non-expiring heads once the event is imminent; a dead premise re-confir
 itself from stale grounding, and only a live lane-HEAD check breaks the loop (source:
 PR #48/#25 cards — one capture missed a window by ~4 h, another was mooted overnight).
 
+Probe order is also self-serve-aware: a maintenance-shaped capture aimed at a LIVE lane
+is often executed by that lane before the probe runs — four datapoints (~19 min on
+websites PR #79 per the #49 card; twice in ~24 h per the #51 card, covering BOTH arrival
+paths — harvested bullet and seeded capture; 14 min / ~19 min / hours per the #53 card,
+two of three self-serves within ~20 minutes) — so for that shape, budget a five-minute
+verify-and-park FIRST at lane HEAD, escalating to a full battery pass only if the live
+check finds the slice unexecuted. The verify step keys on the capture's INVARIANT, never
+its named artifact: a lane can execute the mechanism without executing the fix, and a
+fingerprint-grep returns a false MOOT (the #56 card's lesson — rebind-then-delete shipped
+without fresh-session-per-fire). Independent convergence is evidence the capture
+heuristic aims true, not wasted work (#51 card). (source: PR #49/#51/#53/#56 cards)
+
 ## The outbox — `control/outbox.md`
 
 Sim-ready ideas become **append-only** outbox entries in the kit ORDER grammar:
@@ -156,18 +168,28 @@ files.
 - **Sibling landed mid-flight** (rejected push or `control/status.md` conflict):
   `git fetch origin main && git merge origin/main` into the branch — forward-only, never
   rebase — reconcile the heartbeat keeping both sides' facts (yours win for your own
-  fields), rerun the preflight, push again (proven across PRs #10–#17).
+  fields), rerun the preflight, push again (proven across PRs #10–#17). Shared monotonic
+  counters in the heartbeat (e.g. manifest-staleness datapoint numbers) collide by number
+  when siblings land — earliest-merged keeps the number, the later slice renumbers its
+  own (source: PR #52's merge commit 516bdab).
 - Verify before push: `python3 bootstrap.py check --strict`.
 - Wake preflight in one command: `python3 scripts/preflight.py` — runs the whole ritual
   (sections + ideas + outbox + control status gate), one PASS/FAIL line per check,
   exits with the worst code.
+- **`.github/workflows/substrate-gate.yml` is KIT-OWNED**: any `bootstrap upgrade` or
+  `adopt` that regenerates it silently drops the PR #18 `wake preflight` step, and the
+  step must be re-applied before push; PR #36's gate-wiring self-check reds the next
+  preflight if the step is missing (executed live three times: PRs #35, #54, #55).
 - Repo conventions override harness defaults.
 
 ## Coordination
 
 `control/` is the bus (see `control/README.md`): `inbox.md` manager-written ORDERs ·
 `status.md` coordinator-only heartbeat (overwrite as the deliberate LAST step of every
-session) · `outbox.md` this repo's append-only proposals.
+session) · `outbox.md` this repo's append-only proposals. A grooming slice's heartbeat
+overwrite must re-state every standing-seed tracker it consumed — encoded → where,
+skipped → why — so no future harvest re-derives a stale list (source: PR #50 card 💡,
+practiced by round 3).
 
 **Operating cadence (owner ruling, 2026-07-10):** the coordinator chains bounded slices
 **continuously** via child sessions — the next slice dispatches as each one reports. The
