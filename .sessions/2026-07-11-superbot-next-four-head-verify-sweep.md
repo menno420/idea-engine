@@ -44,7 +44,7 @@ all four reports (the #102/#116/#132/#136-slice sibling-batteries precedent).
   `docs/collaboration-model.md` carries only the ORDER-010 @codex rule); BUT bands 6–7
   carried both bindings anyway via the emergent walking-skeleton test convention
   (`tests/unit/band6/` riding every band-6 port PR; `tests/unit/band7/*_walking_skeleton.py`,
-  5 files at HEAD) + live-drive proof in the port PR bodies (#144/#148/#151/#160).
+  5 files at HEAD) + per-slice live-drive proof records (#144/#148/#151/#160).
 - **Compensator-checklist head:** "Still queued: role/proof_channel live EFFECT action
   ports (GuildRoleActions, ChannelPermActions still unarmed)" verbatim at the heartbeat
   @ `910c44e`; no arming-checklist doc exists (grep zero); lessons demonstrably
