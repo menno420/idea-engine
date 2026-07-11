@@ -1,0 +1,1 @@
+- `venture/sellables-brainstorm` · **ideas/venture-lab/ (section claim)** — owner-directed sellables brainstorm: batch capture + shortlist files · ideas/venture-lab/*, .sessions/ · 2026-07-11
