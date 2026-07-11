@@ -443,6 +443,26 @@ def re_badge_candidates(section_dir: Path, repo: str, canonical_dir: str,
     return out
 
 
+# Full-line state extraction for the emit path — unlike STATE_RE (first token
+# only, --re-badge's family compare), the minted echo must carry the state's
+# ENTIRE reason string verbatim (the PR #163 card 💡: bare-token minting was the
+# writer-side origin of the 41-bullet echo rot the reason-presence lint caught).
+FULL_STATE_RE = re.compile(r"^>\s*\*\*State:\*\*\s*(.+?)\s*$", re.MULTILINE)
+
+
+def local_state_line(section_dir: str, name: str) -> str:
+    """Exact full state string of an existing local idea file (the PR #163 card
+    💡): a re-emitted stub must echo the file's reasoned state verbatim so the
+    reader-side reason-presence lint only ever fires on true post-write drift.
+    Missing file or missing/unparseable state line → `captured`, the mint
+    default for a genuinely new capture."""
+    entry = REPO_ROOT / section_dir / name
+    if not entry.is_file():
+        return "captured"
+    m = FULL_STATE_RE.search(entry.read_text(encoding="utf-8"))
+    return m.group(1) if m else "captured"
+
+
 def emit_entry_stub(section_dir: str, repo: str, canonical_dir: str,
                     name: str, head: str) -> None:
     """Ready-to-fill link-index entry stub for one NEW upstream doc (PR #26 card 💡):
@@ -452,15 +472,21 @@ def emit_entry_stub(section_dir: str, repo: str, canonical_dir: str,
     raw = f"https://raw.githubusercontent.com/{repo}/{head}/{canonical_dir}/{name}"
     blob = f"https://github.com/{repo}/blob/{head}/{canonical_dir}/{name}"
     fetched = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
+    # Single source for BOTH minted state lines (stub + index row) — they can
+    # never disagree, and an existing local file's exact reasoned state is
+    # echoed verbatim (the PR #163 card 💡).
+    state = local_state_line(section_dir, name)
     print(f"""
 --- emit-entries stub → {section_dir}/{name} ---
 (fill every [[fill:…]] slot from a FULL raw read at the pin; verify the state
-mirrors any recorded canonical outcome — built → historical(…) — and re-stamp
-`fetched` at your own read; this stub's stamp is the checker's listing fetch)
+mirrors any recorded canonical outcome — built → historical(…) — applying any
+state advance to BOTH the file state line and the index-row echo identically
+(exact echo, the PR #163 reason-presence leg); re-stamp `fetched` at your own
+read — this stub's stamp is the checker's listing fetch)
 
 # [[fill:title]] — link index
 
-> **State:** captured
+> **State:** {state}
 > **Class:** [[fill:product|process|venture]] · **Target:** `{repo}`
 > **Grounding:** {raw}@{head[:7]} · fetched {fetched}
 
@@ -472,7 +498,7 @@ mirrors any recorded canonical outcome — built → historical(…) — and re-
 [[fill:gist — in the harvester's own words, from the full raw read at the pin]]
 
 --- index row → {section_dir}/README.md ---
-- [`{name}`]({name}) — captured · [[fill:one-line gist]] (canonical: {lane} `{canonical_dir}/{name}` @ `{head[:7]}`)
+- [`{name}`]({name}) — {state} · [[fill:one-line gist]] (canonical: {lane} `{canonical_dir}/{name}` @ `{head[:7]}`)
 --- end stub ---""")
 
 
