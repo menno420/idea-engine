@@ -1,1 +1,0 @@
-- `seed-superbot-idle-first-batch` · **ideas/superbot-idle/** — first idea batch (3 captures + section index) · expected files: ideas/superbot-idle/**, .sessions/, control/status.md · 2026-07-11
