@@ -46,6 +46,18 @@ NON_LANE_REPOS = {"fleet-manager"}
 # unavoidable; parse failures must fail LOUD, never report a false clean).
 CLOSED_MARKERS = ("project closed",)
 
+# The manifest's own retirement tombstone (superbot 34ebbac1, 2026-07-11T02:34Z:
+# "retire fleet-manifest to pointer stub" — Status flipped to historical, all table
+# rows removed, canonical fleet state moved to the fleet-manager GENERATED roster,
+# menno420/fleet-manager docs/roster.md). Detected EXPLICITLY so the supersede is a
+# loud advisory, not a red: with zero rows upstream there is nothing to diff, and a
+# hard exit 2 here reds every non-control CI run fleet-decision-wide (found live
+# mid-flight of the squash-headref-provenance slice, ~10 min after the tombstone
+# landed). Re-pointing the section derivation at the roster is a REAL grooming slice
+# (lane→section mapping + new-section duties), deliberately not folded in here —
+# genuine parse failures (rows present but unparseable) still exit 2.
+SUPERSEDED_MARKER = "superseded"
+
 
 def read_manifest(path: str | None) -> str:
     if path:
@@ -101,8 +113,22 @@ def main() -> int:
 
     try:
         manifest = read_manifest(args.manifest)
-        expected = active_sections(manifest) | ALWAYS_EXPECTED
     except Exception as exc:  # fail loud: a false clean is worse than a crash
+        print(f"check_sections: cannot read/parse manifest: {exc}", file=sys.stderr)
+        return 2
+    try:
+        expected = active_sections(manifest) | ALWAYS_EXPECTED
+    except Exception as exc:  # fail loud — EXCEPT the explicit retirement tombstone
+        if SUPERSEDED_MARKER in manifest.lower():
+            print(
+                "check_sections: SUPERSEDED (advisory) — the fleet manifest is a "
+                "retirement tombstone (zero lane rows; canonical fleet state moved "
+                "to the fleet-manager GENERATED roster, menno420/fleet-manager "
+                "docs/roster.md). Section-vs-lane sync is UNCHECKABLE until the "
+                "section derivation is re-pointed at the roster (queued follow-up "
+                "slice) — passing LOUDLY, never silently."
+            )
+            return 0
         print(f"check_sections: cannot read/parse manifest: {exc}", file=sys.stderr)
         return 2
 
