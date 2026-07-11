@@ -1,0 +1,1 @@
+- `probe/pokemon-mod-lab-verify-park-pair` · **ideas/pokemon-mod-lab** — verify-and-park pair: qol-plus-wave-2-option-board (likely overtaken by the Q-0266/Option A un-park) + ruling-sync-first-boot (part-mooted — the lane has booted; judge the residual kernel) · expected files: ideas/pokemon-mod-lab/**, .sessions/**, control/status.md, control/claims/** · 2026-07-11
