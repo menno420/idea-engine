@@ -8,12 +8,12 @@ link below. Claim this section (`control/claims/`) before working it.
 ## Index
 
 - [`idle-economy-sim-kernel-2026-07-11.md`](idle-economy-sim-kernel-2026-07-11.md) —
-  captured · product: the §6 kernel, armed — the lane pre-registered pacing targets
-  T1–T10 + the executable SIM-001 request (lane PRs #9+#12+#13), so the harvest note's
-  arming condition is MET; SIM-001 sits "awaiting manager relay" while sim-lab idles on
-  an EMPTY queue — probe → likely sim-ready → an outbox proposal relaying SIM-001's own
-  committed spec across the one seam the lane cannot write (verify sim-lab's intake
-  first at probe time)
+  sim-ready · product: the §6 kernel, probed (battery v0, single-pass) with the
+  verify-first read run FIRST — sim-lab's live intake @ `f70fbea` carries NO SIM-001
+  relay (INTAKE 001–005 only, all finalized; queue EMPTY, its declared next action =
+  pull this repo's outbox), lane pin `f11c71a` unchanged — so the head holds:
+  PROPOSAL 006 relays SIM-001's own committed spec (T1–T10 per A1–A10, real engine
+  functions at the pinned commit) across the one seam the lane cannot write
 - [`theme-catalog-gallery-read-contract-2026-07-11.md`](theme-catalog-gallery-read-contract-2026-07-11.md) —
   captured · product: setup-code v1 contract-closed the WRITE path to the websites
   lane, but §3's theme gallery has no READ surface — a committed regenerate-or-red
