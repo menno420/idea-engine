@@ -1,1 +1,0 @@
-- `groom/superbot-supersession-rebadge` · **ideas/superbot** — supersession-pointer re-badge sweep + index-echo fixes · ideas/superbot/ + control/ · 2026-07-11

@@ -1,6 +1,6 @@
 # Session — groom: superbot supersession re-badge sweep (index echoes + pointer census @ c77ee0d6)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~11:22Z (worker slice, dispatched by the
 > coordinator under continuous-chaining mode per Q-0265)
 
@@ -97,3 +97,43 @@ pipeline worked as designed. One nit: it echoed its OWN bullet but left the thre
 sibling parked bullets bare — an index-echo pass over the whole section costs one
 grep and would have made this slice unnecessary; folded into this card's 💡 as a
 checker so the class dies structurally.
+
+## Results
+
+**Pointers found:** 621 supersession-grammar hits repo-wide @ superbot live HEAD
+`c77ee0d6` (pinned enumeration), ~95 doc-level pointers, 4 targeting `docs/ideas/`
+(our link-indexed surface). Pointer-sweep mechanical yield: zero flips — the
+mechanical yield was the index-echo class.
+
+**Badges flipped (3, index-echo only — idea files untouched, already terminal):**
+
+- `rebuild-websites-cutover-role-2026-07-10.md` bullet: `parked` →
+  `parked(routed — …)` abbreviated echo of the file's state line (file flipped by
+  PR #159, merge `03ace5f`; echo format per the #160 line-59 precedent).
+- `competitive-teardown-2026-07-10.md` bullet: `parked` → `parked(reference — …)`,
+  exact echo of the file's state line (file terminal since harvest; canonical
+  superbot `docs/ideas/competitive-teardown-2026-06-10.md` @ `fd638e3`).
+- `wire-level-live-bot-loop-2026-07-10.md` bullet: `parked` →
+  `parked(contradicted-in-part by superbot canonical-plan F-4, PR #1770 — do not
+  build as written)`, exact echo (canonical @ `fd638e3`).
+
+**Reported, NOT flipped (judgment-laden or already done):**
+
+- `railway-deploy-alerts-discord-webhook` — canonical pointer supersedes only "the
+  destination question" (central-admin-and-logging-guilds:83-84 @ `c77ee0d6`);
+  partial supersession, canonical Status still `ideas` — our `captured` stands.
+- `superbot-fresh-rebuild-vision` — superseded-IN-PART update block (extended by
+  fresh-rebuild-strategy-2026-07-02 @ `c77ee0d6`); canonical Status still `ideas` —
+  our `captured` stands.
+- `claude-code-projects-for-the-rebuild` — already terminal both sides
+  (`parked(overtaken)`) via PR #160 / merge `b627d12` — no work left here.
+- Self-historical pair verified in place, no action: `supersede-banner-integrity-
+  checker` + `fleet-manifest-freshness-checker` — files `historical(…)`, bullets
+  `historical`.
+
+**Routing note:** canonical-side Status-line fixes are superbot's own (Q-0260 — we
+write no lane files); routed as a MANAGER SWEEP FLAG on the heartbeat notes line
+(adoption-record retirement sweep, ORDER-worthy: claude-code-projects-for-the-
+rebuild Status still `ideas` @ `c77ee0d6` despite operating adoption; plus the gen1
+email draft-v2 one-sided handshake; plus one prose-only successor in
+stability-preimplementation-plan).
