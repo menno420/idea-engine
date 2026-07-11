@@ -1,0 +1,1 @@
+- `upgrade/substrate-kit-v1.8.0` · **kit surface + claims convention** — vendored kit v1.7.1 → v1.8.0 (bootstrap.py, substrate.config.json, .substrate/, kit-owned gate regen + PR #18 step re-apply) plus the claims-directory reconcile (root claims/ ↔ kit-planted control/claims/) · 2026-07-11
