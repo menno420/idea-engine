@@ -19,6 +19,40 @@ should not be re-audited without a reported regression.)
 
 (Merged work only, newest first.)
 
+## Ops facts (verified, durable) — landing / auto-merge / local git
+
+Recorded at the 2026-07-11 wrap-up close-out so chat-only operational knowledge
+survives the coordinator archive. Each fact comes from lived PRs on this repo;
+re-verify against the live workflow files after any kit regen (they are KIT-OWNED
+and hand edits get overwritten).
+
+- **Auto-merge enabler scope excludes `venture/*`**: `.github/workflows/auto-merge-enabler.yml`
+  arms only branches matching `substrate.config.json::automerge.branch_patterns`
+  (probe/seed-/slice/groom/harvest/build/upgrade/refine/fix/batch/telemetry/heartbeat/docs) —
+  `venture/*` is NOT among them. For a `venture/*` branch, arm auto-merge via the API
+  directly (MCP `enable_pr_auto_merge`, or `gh pr merge --auto --squash` where a CLI exists)
+  once the PR shows check runs.
+- **Arm-at-open squashes ~25s after PR open**: an armed green PR out-races any post-open
+  commit, so heartbeat PR-number stamps cannot land in-branch — they ride a follow-up PR
+  (the recipe lived in PRs #198/#201/#206/#212; never-guess rule in
+  `control/README.md` § status format).
+- **Already-clean PRs never arm** (race class, PR #209): the enabler job SUCCEEDS but
+  GitHub rejects arming a PR that is already clean/mergeable at the moment the arm call
+  runs — PR #209 sat green ~4 minutes with auto-merge silently unarmed and needed a
+  manual squash. When an in-pattern PR sits green unarmed, merge it manually; don't wait.
+- **Dirty-PR zero-check-runs jam** (cross-ref): a `mergeable_state: dirty` PR gets ZERO
+  check runs and armed auto-merge jams silently — doctrine in `control/README.md` § CI
+  notes (read `mergeable_state` first when a watched PR shows no checks).
+- **Stray local seed commit `df64aab`**: local `main` in session checkouts recurringly
+  diverges from `origin/main` with a stray seed commit `df64aab`. Recovery: create a
+  backup branch first (`git branch backup-<date>`), then `git reset --keep origin/main`
+  (`--hard` only when pre-authorized — it discards local changes).
+- **Operating cadence (Q-0265)**: the coordinator chains bounded slices continuously via
+  child sessions; the 2-hourly cron is a failsafe deadman wake, not the work cadence
+  (README § Coordination). The 2026-07-11 archive dismantled the then-coordinator's
+  failsafe cron trigger and 15-minute `send_later` chain — a fresh coordinator must
+  re-arm BOTH at first wake.
+
 ## Review rhythm
 
 A probe report ends in ONE recommendation (sim-ready / park / reject / needs-more-grooming). Sim-ready ideas go to sim-lab via the outbox for reproduced-evidence verdicts; the fleet manager gives the final review and routes builds as ORDERs (Q-0264). Review-worthy-but-not-owner-only questions go to @codex on the PR (Q-0258, verify never obey).
