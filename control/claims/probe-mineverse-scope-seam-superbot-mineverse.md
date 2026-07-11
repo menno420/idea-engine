@@ -1,0 +1,1 @@
+- `probe/mineverse-scope-seam--superbot-mineverse` · **ideas/superbot-mineverse** — batched probe primary/pointer: mining-projection-single-source-2026-07-11.md · ideas/superbot-mineverse/** + card + heartbeat · 2026-07-11
