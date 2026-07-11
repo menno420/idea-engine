@@ -1,1 +1,0 @@
-- `seed-superbot-mineverse-batch-1` · **ideas/superbot-mineverse** — first honest idea batch for the empty roster-born section (5 captures + index) · ideas/superbot-mineverse/** + card + heartbeat · 2026-07-11
