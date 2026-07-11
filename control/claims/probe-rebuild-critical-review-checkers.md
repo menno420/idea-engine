@@ -1,1 +1,0 @@
-- `probe/rebuild-critical-review-checkers` · **superbot section** — probe TOP-5 item 3 rebuild-critical-review-checkers (rubric classes 11/12/13 live per D-0014/D-0033, enforcement manual) · ideas/superbot/ · 2026-07-11
