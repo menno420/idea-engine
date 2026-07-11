@@ -1,25 +1,5 @@
 [
   {
-    "id": "R-0014",
-    "lesson": "Recurring attention on scripts/preflight.py",
-    "evidence": "2026-07-11-venture-lab-forecast-verify-park.md:L35, 2026-07-11-wire-automerge-enabler.md:L79",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
-    "id": "R-0015",
-    "lesson": "taken as METHOD \u2014 \"when a capture touches a lane younger than ~a day, the lane-HEAD",
-    "evidence": "2026-07-11-superbot-mineverse-first-batch.md:L132",
-    "tags": [
-      "idea"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
     "id": "R-0016",
     "lesson": "Recurring attention on docs/roster.md",
     "evidence": "2026-07-11-superbot-mineverse-first-batch.md:L35, 2026-07-11-venture-lab-forecast-verify-park.md:L37",
@@ -43,6 +23,26 @@
     "id": "R-0018",
     "lesson": "Recurring attention on ideas/substrate-kit/README.md",
     "evidence": "2026-07-11-session.md:L17, 2026-07-11-wire-automerge-enabler.md:L112",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0019",
+    "lesson": "Recurring attention on ideas/fleet/branch-prefix-drift-tripwire-2026-07-11.md",
+    "evidence": "2026-07-11-automerge-arm-race-guard.md:L45, 2026-07-11-session.md:L31",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0020",
+    "lesson": "Recurring attention on sessions/2026-07-11-verdict-005-superbot-fanin.md",
+    "evidence": "2026-07-11-automerge-arm-race-guard.md:L116, 2026-07-11-mineverse-scope-seam-probe.md:L52",
     "tags": [
       "recurring-path"
     ],
