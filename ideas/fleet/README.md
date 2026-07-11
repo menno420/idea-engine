@@ -32,3 +32,9 @@
   gates) · historical(#62): probed + built in the same PR
   (`scripts/preflight.py --branch-prefix-drift`, seventh CHECKS entry); origin: PR #55
   card 💡
+- [`stop-hook-telemetry-loop-exemption-2026-07-11.md`](stop-hook-telemetry-loop-exemption-2026-07-11.md) — end the
+  self-feeding one-line telemetry-PR loop (#58..#100): exempt the three kit state
+  anchors (`.substrate/guard-fires.jsonl` / `reflections.json` / `state.json`) + auto-drafted
+  content-free session stubs from the HARNESS stop hook's git-cleanliness nag — nag-only,
+  telemetry stays committable · park(built-here — `scripts/patch-stop-hook-git-check.sh`,
+  SessionStart-wired, this PR); origin: the merged-PR ledger itself
