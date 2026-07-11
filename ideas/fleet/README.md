@@ -26,3 +26,9 @@
   exit 0 — never gates) · historical(#42): probed + built in the same PR
   (`scripts/preflight.py --open-work`, sixth CHECKS entry); origin: PR #40 card 💡 via the
   websites open-pr-awareness probe
+- [`branch-prefix-drift-tripwire-2026-07-11.md`](branch-prefix-drift-tripwire-2026-07-11.md) — report-only
+  merged-branch-prefix vs `automerge.branch_patterns` drift advisory (recurring unmatched
+  prefix = the enabler silently stopped arming that convention, always exit 0 — never
+  gates) · park(built-here): probed + built in the same PR
+  (`scripts/preflight.py --branch-prefix-drift`, seventh CHECKS entry); origin: PR #55
+  card 💡
