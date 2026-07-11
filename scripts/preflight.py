@@ -23,8 +23,12 @@ check, exiting with the WORST (max) exit code so a single red check reds the run
   `substrate.config.json::automerge.branch_patterns` entry — the silent-no-op class
   PR #55 fixed by survey (the kit's default `claude/*` matched zero real branches, so
   the staged auto-merge enabler was disarmed for a whole slice with nothing red
-  anywhere). Local git only (hermetic); a shallow clone or squash-only history
-  degrades to an informational line, still exit 0.
+  anywhere). Branch names come from TWO local sources: PR-merge subjects, plus
+  `Head-ref: <branch>` provenance lines the auto-merge enabler stamps into squash
+  commit bodies (squash subjects carry no branch name — the PR #62 card's 💡; the
+  subject leg stays the fallback for pre-provenance history). Local git only
+  (hermetic); a shallow clone or provenance-less squash history degrades to an
+  informational line, still exit 0.
 
 Convention source: control/README.md § Per-session ritual + README § Landing
 conventions — this collects the (previously discipline-only) multi-command ritual
@@ -176,10 +180,14 @@ def check_open_work() -> int:
 
 
 # --branch-prefix-drift anchors: the PR-merge subject GitHub writes on merge-commit
-# landings ("Merge pull request #N from <owner-or-fork>/<branch>"), the config key the
-# auto-merge enabler is generated from, and the recurrence bar that separates a
-# convention (>=2 merged branches) from a one-off branch name.
+# landings ("Merge pull request #N from <owner-or-fork>/<branch>"), the `Head-ref:`
+# provenance line the auto-merge enabler stamps into squash commit bodies (squash
+# subjects carry no branch name — `gh pr merge --auto --squash --body`, see
+# .github/workflows/auto-merge-enabler.yml), the config key the auto-merge enabler
+# is generated from, and the recurrence bar that separates a convention (>=2 merged
+# branches) from a one-off branch name.
 MERGE_SUBJECT_RE = re.compile(r"^Merge pull request #\d+ from [^/\s]+/(\S+)$")
+HEAD_REF_BODY_RE = re.compile(r"^Head-ref: (\S+)$", re.MULTILINE)
 CONFIG_FILE = "substrate.config.json"
 DRIFT_RECURRENCE = 2
 MERGE_LOG_LIMIT = 200
@@ -202,17 +210,21 @@ def check_branch_prefix_drift(config_path: Path | None = None) -> int:
     """Branch-prefix drift tripwire — ADVISORY ONLY, unconditionally exit 0.
 
     Compares the branch prefixes this repo ACTUALLY merges (parsed from local
-    `git log --merges` PR-merge subjects — hermetic, no network) against
+    git history — hermetic, no network) against
     `substrate.config.json::automerge.branch_patterns`, and reports any RECURRING
     prefix (>= DRIFT_RECURRENCE merged branches) that matches no configured pattern.
     That mismatch is the exact silent-disarm class PR #55 fixed by hand survey: the
     enabler never arms on an unmatched prefix, nothing goes red, and auto-merge
     quietly stops being structural. Report-only by construction (the open-work
     advisory's hermeticity rule): findings, empty findings, a shallow clone, a
-    squash-only history window, and an unreadable config all PASS — the value is
-    the listing, the exit code carries nothing. Known blind spot, documented not
-    fixed: squash-merged PRs write `<title> (#N)` subjects that carry no branch
-    name, so only merge-commit landings feed the survey (see the idea file's Q4).
+    provenance-less squash window, and an unreadable config all PASS — the value is
+    the listing, the exit code carries nothing. TWO branch-name sources: (1)
+    `git log --merges` PR-merge subjects ("Merge pull request #N from owner/branch"
+    — merge-commit landings only), and (2) `Head-ref: <branch>` provenance lines in
+    squash commit bodies, stamped at arm time by the auto-merge enabler (squash
+    subjects are `<title> (#N)` with no branch name — the idea file's Q4 blind
+    spot, thinned by the provenance line from the PR that shipped it onward; the
+    subject leg stays the fallback for the pre-provenance history).
 
     `config_path` overrides the config location — the planted-violation smoke-test
     seam (point it at a doctored copy; production callers pass nothing).
@@ -244,9 +256,30 @@ def check_branch_prefix_drift(config_path: Path | None = None) -> int:
         return 0
 
     branches = [m.group(1) for s in subjects if (m := MERGE_SUBJECT_RE.match(s))]
+
+    # Provenance leg: squash landings are NOT merge commits and their default
+    # subject carries no branch name, so read the `Head-ref: <branch>` line the
+    # auto-merge enabler stamps into squash commit bodies at arm time. The
+    # subject leg above stays the fallback for pre-provenance history (and any
+    # future merge-commit landings).
+    provenance: list[str] = []
+    try:
+        proc = subprocess.run(
+            ["git", "log", "--no-merges", "-n", str(MERGE_LOG_LIMIT), "--pretty=%b"],
+            cwd=REPO_ROOT, capture_output=True, text=True, timeout=30,
+        )
+        if proc.returncode != 0:
+            raise RuntimeError(_first_line(proc.stderr) or f"exit {proc.returncode}")
+        provenance = HEAD_REF_BODY_RE.findall(proc.stdout)
+    except Exception as exc:  # advisory only — the subject leg already ran
+        print(f"branch-prefix-drift: could not read squash-provenance bodies "
+              f"({_first_line(str(exc))}) — continuing on merge subjects alone")
+    branches += provenance
+
     if not branches:
-        print("branch-prefix-drift: no PR merge subjects in local history "
-              "(shallow clone or squash-only window) — nothing to compare, still PASS")
+        print("branch-prefix-drift: no PR merge subjects or Head-ref provenance "
+              "lines in local history (shallow clone or pre-provenance squash "
+              "window) — nothing to compare, still PASS")
         return 0
 
     uncovered: dict[str, list[str]] = {}
@@ -268,7 +301,8 @@ def check_branch_prefix_drift(config_path: Path | None = None) -> int:
         singles = sum(len(v) for v in uncovered.values())
         print(f"branch-prefix-drift: OK — every recurring merged-branch prefix "
               f"matches a configured pattern ({len(branches)} merged branches "
-              f"surveyed, {len(patterns)} patterns, {singles} one-off unmatched "
+              f"surveyed ({len(provenance)} via Head-ref provenance), "
+              f"{len(patterns)} patterns, {singles} one-off unmatched "
               "branch(es) below the recurrence bar)")
     print("branch-prefix-drift: OK — advisory sweep complete "
           "(report-only, never affects the exit)")

@@ -136,3 +136,40 @@ rationale: trivial repo-internal PROCESS tooling per the blessed same-PR shortcu
 deterministic string comparison with no simulator question (proven by its own live run
 plus the claude/* replay on real history), nothing routes to sim-lab, and the state
 advances to `historical(<this PR>)` on merge.
+
+## Extension note (2026-07-11, this slice — appended, probe report and state untouched)
+
+The Q4 blind spot ("squash-merge blindness — the honest one") closed at its source,
+per the PR #62 card's 💡 (`.sessions/2026-07-11-branch-prefix-drift-tripwire.md` § 💡:
+"Squash landings should carry merge provenance — or the history-derived tripwire
+starves"). Squash subjects are `<title> (#N)` with NO branch name, and this repo's
+enabler squashes — so every convention born after the enabler cutover was invisible to
+`git log --merges` and the survey was thinning toward "nothing to compare". This slice
+adds head-ref provenance at both ends of that data path:
+
+- **Enabler side** (`.github/workflows/auto-merge-enabler.yml`, arm step): the
+  `gh pr merge --auto --squash` call now passes
+  `--body "Head-ref: $HEAD_REF"` (env-passed `github.head_ref`, never interpolated
+  into the script), so every enabler-armed squash commit body records its source
+  branch from this PR's merge onward. Honest tradeoff: `--body` REPLACES GitHub's
+  default squash body (the concatenated commit-message trail) with the provenance
+  line — the per-commit trail stays readable on the PR itself. The refuse-to-arm
+  guard, required-context count, and label re-read are untouched. The file is
+  KIT-OWNED: this is a host customization in the PR #18 gate-step re-apply class —
+  any adopt/upgrade regeneration drops it and it must be re-applied (an in-file
+  comment marks it; the tripwire itself degrades honestly, not red, if the line
+  stops being written).
+- **Tripwire side** (`scripts/preflight.py::check_branch_prefix_drift`): a second
+  branch-name source — `Head-ref: <branch>` lines parsed from non-merge commit
+  bodies (`git log --no-merges --pretty=%b`, `HEAD_REF_BODY_RE`) — feeding the same
+  fnmatch/recurrence pipeline; PR-merge-subject parsing stays the fallback for the
+  pre-provenance history. Every failure leg still prints-and-passes (the advisory
+  hermeticity rule unchanged).
+
+Smoked in a scratch repo (planted `Head-ref: probe/*` bodies → DRIFT ×2 reported via
+the provenance leg alone; covered `fix/*` provenance matched; a classic merge-subject
+landing still parsed by the fallback; provenance-less window degrades to the
+informational line) plus the live run on real history — evidence on the slice card,
+`.sessions/2026-07-11-squash-headref-provenance.md`.
+
+State stays `historical(#62)`.
