@@ -1,0 +1,1 @@
+- `probe/leaderboard-row-avatars` · **superbot section** — probe TOP-5 item 5 leaderboard-row-avatars (games completion wave, Q-0259 live-bot slot) · ideas/superbot/ · 2026-07-11
