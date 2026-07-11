@@ -22,6 +22,21 @@ reports drift these ways:
                  rider had to be hand-sized). Needs a pin record (`--write-pins`,
                  below) or `--bullet-drift`; without either, content drift stays
                  invisible and the checker SAYS SO instead of implying freshness.
+- STATE-DRIFT  — `--states` only (the PR #22 card 💡's full per-doc state-drift
+                 depth): for EVERY indexed entry, the canonical doc's own state
+                 marker at HEAD (`state:`/`status:`/`shipped_pr:` front-matter)
+                 is diffed against the local entry's recorded `> **State:**` at
+                 lifecycle-stage granularity (built ↔ historical(…) ·
+                 retired ↔ rejected(…) · open ↔ everything else), and BOTH drift
+                 directions report — a `captured` entry whose canonical doc
+                 advanced to built (the PR #22 test case), AND a `historical(…)`
+                 entry whose canonical doc walked back or retired (the reverse
+                 direction `--re-badge` cannot see). Suggestion pass,
+                 report-only: it names the pairs, the harvester judges the fix.
+                 OFF by default — it reads canonical doc BLOBS (one batched
+                 blobless-clone checkout per section), the same depth flag-gating
+                 rationale as `--re-badge`; the default run's network legs stay
+                 exactly as before.
 - RE-BADGE     — `--re-badge` only: an indexed entry whose LOCAL state is not
                  `historical(…)` while the canonical doc's own front-matter records a
                  built outcome (`state:`/`status:` built/shipped/done, or a
@@ -76,6 +91,7 @@ moved section, and the default run's network legs stay exactly as before.
 
 Usage:
     python3 scripts/check_harvest.py [--emit-entries] [--re-badge] [--bullet-drift]
+                                     [--states]
     python3 scripts/check_harvest.py --write-pins
 
 --emit-entries (the PR #26 card 💡): for each NEW upstream doc, also print a
@@ -132,6 +148,16 @@ CANON_STATE_RE = re.compile(r"^(?:state|status):\s*(\S+)", re.IGNORECASE)
 CANON_SHIPPED_RE = re.compile(r"^shipped_pr:\s*(\S+)", re.IGNORECASE)
 BUILT_STATES = {"built", "shipped", "done", "historical"}
 CANON_HEAD_LINES = 40  # markers live in front-matter / the first header lines
+
+# `--states` lifecycle-stage vocabulary (the PR #22 card 💡's full depth): the
+# canonical repos' marker vocabulary and this repo's state grammar differ, so
+# the diff runs at STAGE granularity — built / retired / open — never on raw
+# tokens (a raw compare of `built` vs `historical(#41)` would false-drift on
+# every correctly mirrored entry). Same loud co-edit rule as every grammar
+# constant here.
+CANON_RETIRED_STATES = {"retired", "rejected", "dropped", "superseded", "wontfix"}
+LOCAL_BUILT_PREFIX = "historical("
+LOCAL_RETIRED_PREFIX = "rejected("
 
 
 def canonical_entry_re(canonical_dir: str) -> re.Pattern[str]:
@@ -334,6 +360,60 @@ def canonical_built_marker(text: str) -> str | None:
     return None
 
 
+def canonical_stage(text: str) -> tuple[str, str]:
+    """`--states` only — (lifecycle stage, marker-or-note) from a canonical doc's
+    front-matter/header lines: 'built' / 'retired' / 'open'. The marker is
+    returned verbatim for honest reporting; a doc with no marker at all is
+    ('open', '<no state marker>') — unmarked upstream docs are the common case,
+    never a drift by themselves."""
+    for line in text.splitlines()[:CANON_HEAD_LINES]:
+        m = CANON_SHIPPED_RE.match(line)
+        if m and m.group(1) not in ("", "~", "null", "none"):
+            return "built", line.strip()
+        m = CANON_STATE_RE.match(line)
+        if m:
+            token = m.group(1).lower().rstrip(".,;")
+            if token in BUILT_STATES:
+                return "built", line.strip()
+            if token in CANON_RETIRED_STATES:
+                return "retired", line.strip()
+            return "open", line.strip()
+    return "open", "<no state marker>"
+
+
+def local_stage(state: str) -> str:
+    """Local `> **State:**` value → lifecycle stage ('built'/'retired'/'open')."""
+    if state.startswith(LOCAL_BUILT_PREFIX):
+        return "built"
+    if state.startswith(LOCAL_RETIRED_PREFIX):
+        return "retired"
+    return "open"
+
+
+def state_drift_pairs(section_dir: Path, repo: str, canonical_dir: str,
+                      branch: str, indexed: set[str]) -> list[tuple[str, str, str]]:
+    """`--states` only — `(name, local_state, canonical_marker)` per indexed entry
+    whose local state and canonical state marker disagree at lifecycle-stage
+    granularity, in EITHER direction (the full PR #22 depth; `--re-badge` only
+    sees the local-open ↔ canonical-built quadrant)."""
+    texts = canonical_doc_texts(repo, canonical_dir, branch, indexed)
+    out: list[tuple[str, str, str]] = []
+    for name in sorted(indexed):
+        entry = section_dir / name
+        if not entry.is_file() or name not in texts:
+            continue  # NEW/DELETED classes already report the existence gaps
+        state_m = STATE_RE.search(entry.read_text(encoding="utf-8"))
+        if not state_m:
+            continue  # a state-less local entry is check_ideas' problem
+        local = state_m.group(1)
+        canon_stage, marker = canonical_stage(texts[name])
+        if canon_stage == "open" and marker == "<no state marker>":
+            continue  # unmarked upstream doc — nothing recorded to diff against
+        if local_stage(local) != canon_stage:
+            out.append((name, local, marker))
+    return out
+
+
 def re_badge_candidates(section_dir: Path, repo: str, canonical_dir: str,
                         branch: str, indexed: set[str]) -> list[tuple[str, str, str]]:
     """`(name, local_state, canonical_marker)` per indexed entry whose local state
@@ -388,7 +468,7 @@ mirrors any recorded canonical outcome — built → historical(…) — and re-
 
 def check_section(readme_rel: str, repo: str, canonical_dir: str, branch: str,
                   emit_entries: bool = False, re_badge: bool = False,
-                  bullet_drift: bool = False) -> tuple[int, bool]:
+                  bullet_drift: bool = False, states: bool = False) -> tuple[int, bool]:
     """Returns `(work, moved_only)` for one harvested section: `work` counts the
     findings that size actual harvest work; `moved_only` flags a pin-bump-only HEAD
     move (docs unchanged — reported, never counted as work). Raises on could-not-run."""
@@ -473,6 +553,16 @@ def check_section(readme_rel: str, repo: str, canonical_dir: str, branch: str,
                   f"'{local_state}', canonical records `{marker}` (suggestion only — "
                   "verify, then mirror as historical(…))")
 
+    drifted_states: list[tuple[str, str, str]] = []
+    if states:
+        drifted_states = state_drift_pairs(section_dir, repo, canonical_dir, branch,
+                                           indexed)
+        for name, local_state, marker in drifted_states:
+            print(f"  STATE-DRIFT: {canonical_dir}/{name} — local entry says "
+                  f"'{local_state}', canonical records `{marker}` (lifecycle stages "
+                  "disagree; suggestion only — verify at the canonical doc, then "
+                  "mirror forward-only)")
+
     head_state = ("unmoved" if head == pin
                   else "moved (docs unchanged)" if moved_only else "moved")
     print(
@@ -480,6 +570,7 @@ def check_section(readme_rel: str, repo: str, canonical_dir: str, branch: str,
         f"{len(new)} new · {len(unmarked)} unmarked · {len(deleted)} deleted · "
         f"{len(changed)} changed"
         + (f" · {len(badges)} re-badge" if re_badge else "")
+        + (f" · {len(drifted_states)} state-drift" if states else "")
         + f" · HEAD {head_state}"
     )
 
@@ -488,7 +579,8 @@ def check_section(readme_rel: str, repo: str, canonical_dir: str, branch: str,
             emit_entry_stub(str(section_dir.relative_to(REPO_ROOT)), repo,
                             canonical_dir, name, head)
 
-    work = doc_work + len(badges) + (1 if head != pin and not moved_only else 0)
+    work = (doc_work + len(badges) + len(drifted_states)
+            + (1 if head != pin and not moved_only else 0))
     return work, moved_only
 
 
@@ -522,11 +614,12 @@ def write_pins() -> int:
 
 def main() -> int:
     argv = sys.argv[1:]
-    known = ("--emit-entries", "--re-badge", "--bullet-drift", "--write-pins")
+    known = ("--emit-entries", "--re-badge", "--bullet-drift", "--states",
+             "--write-pins")
     unknown = [a for a in argv if a not in known]
     if unknown:
         print(f"check_harvest: unknown argument(s): {' '.join(unknown)} "
-              f"(usage: check_harvest.py [{'] ['.join(known[:3])}] | --write-pins)",
+              f"(usage: check_harvest.py [{'] ['.join(known[:4])}] | --write-pins)",
               file=sys.stderr)
         return 2
     if "--write-pins" in argv:
@@ -538,6 +631,7 @@ def main() -> int:
     emit_entries = "--emit-entries" in argv
     re_badge = "--re-badge" in argv
     bullet_drift = "--bullet-drift" in argv
+    states = "--states" in argv
 
     work = 0
     moved_only_sections = 0
@@ -545,7 +639,7 @@ def main() -> int:
         try:
             section_work, moved_only = check_section(
                 readme_rel, repo, canonical_dir, branch, emit_entries, re_badge,
-                bullet_drift)
+                bullet_drift, states)
         except Exception as exc:  # fail loud: a false clean is worse than a crash
             print(f"check_harvest: could not run for {readme_rel}: {exc}", file=sys.stderr)
             return 2
