@@ -1,0 +1,1 @@
+- `probe/venture-lab-pre-publish-conservative-forecast` · **ideas/venture-lab/** — probe pre-publish-conservative-forecast-2026-07-10.md (battery v0, verify-first at lane HEAD) · ideas/venture-lab/ + control/ · 2026-07-11
