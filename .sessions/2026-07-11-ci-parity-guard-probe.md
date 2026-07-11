@@ -1,6 +1,6 @@
 # Session — CI collection parity guard probe (superbot-games): battery v0
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 (dispatched by the continuous-mode coordinator per Q-0265)
 
 ## What this session did
