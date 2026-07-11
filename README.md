@@ -17,9 +17,12 @@ the public raw path.
 
 ## Sections — `ideas/<section>/`
 
-One section per **active fleet lane**, derived from the fleet manifest
-(superbot `docs/eap/fleet-manifest.md` at HEAD) plus `ideas/fleet/` for cross-cutting
-workflow/doctrine ideas. Never invent a section ad hoc: a new active lane row in the
+One section per **active fleet lane**, derived from the fleet's canonical lane
+registry — since 2026-07-11 that is the fleet-manager GENERATED roster
+(`docs/roster.md`, regenerated each manager wake), which superseded the original
+hand-maintained fleet manifest (superbot `docs/eap/fleet-manifest.md`; the manifest
+file itself carries the supersession banner, fleet-manager PR #59 `b0639a9`) — plus
+`ideas/fleet/` for cross-cutting workflow/doctrine ideas. Never invent a section ad hoc: a new active lane row in the
 manifest → the wake that spots it creates the section (README stub first). Sections
 partition the tree so **parallel agents never collide** — claim a section before working
 it (`control/claims/`, one file per claim — the kit-native v1.8.0 home; the original
