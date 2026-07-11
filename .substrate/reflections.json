@@ -1,48 +1,48 @@
 [
   {
-    "id": "R-0025",
-    "lesson": "Recurring attention on control/claims/README.md",
-    "evidence": "2026-07-11-kit-upgrade-v1.9.0.md:L37, 2026-07-11-wire-automerge-enabler.md:L121",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
-    "id": "R-0026",
-    "lesson": "Recurring attention on control/status.md",
-    "evidence": "2026-07-11-kit-upgrade-v1.9.0.md:L76, 2026-07-11-venture-lab-self-landable-probe.md:L43, 2026-07-11-wire-automerge-enabler.md:L67",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
-    "id": "R-0027",
-    "lesson": "Recurring attention on github/workflows/auto-merge-enabler.yml",
-    "evidence": "2026-07-11-kit-upgrade-v1.9.0.md:L67, 2026-07-11-wire-automerge-enabler.md:L28",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
-    "id": "R-0028",
-    "lesson": "Recurring attention on github/workflows/substrate-gate.yml",
-    "evidence": "2026-07-11-kit-upgrade-v1.9.0.md:L112, 2026-07-11-wire-automerge-enabler.md:L46",
-    "tags": [
-      "recurring-path"
-    ],
-    "status": "provisional",
-    "date": "2026-07-11"
-  },
-  {
     "id": "R-0029",
     "lesson": "Recurring attention on substrate/backup/substrate-gate.pre-regen-1ce5228e.yml",
     "evidence": "2026-07-11-kit-upgrade-v1.9.0.md:L53, 2026-07-11-wire-automerge-enabler.md:L43",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0030",
+    "lesson": "Recurring attention on control/outbox.md",
+    "evidence": "2026-07-11-verdict-005-superbot-fanin.md:L26, 2026-07-11-verdict-006-fanin.md:L26",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0031",
+    "lesson": "Recurring attention on scripts/preflight.py",
+    "evidence": "2026-07-11-verdict-005-superbot-fanin.md:L50, 2026-07-11-verdict-006-fanin.md:L52, 2026-07-11-wire-automerge-enabler.md:L79",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0032",
+    "lesson": "Recurring attention on sessions/2026-07-10-sim-verdicts-fanin.md",
+    "evidence": "2026-07-11-verdict-005-superbot-fanin.md:L18, 2026-07-11-verdict-006-fanin.md:L17",
+    "tags": [
+      "recurring-path"
+    ],
+    "status": "provisional",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "R-0033",
+    "lesson": "Recurring attention on substrate/ci/auto-merge-enabler.yml",
+    "evidence": "2026-07-11-venture-lab-self-landable-probe.md:L18, 2026-07-11-wire-automerge-enabler.md:L9",
     "tags": [
       "recurring-path"
     ],
