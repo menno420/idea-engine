@@ -1,0 +1,1 @@
+- `probe/substrate-kit-host-checkers-one-gate` · **ideas/substrate-kit** — probe the section's LAST captured head: host-checkers-one-gate (extra_checks seam) · expected files: ideas/substrate-kit/**, .sessions/**, control/status.md, control/claims/**, .substrate/reflections.json · 2026-07-11
