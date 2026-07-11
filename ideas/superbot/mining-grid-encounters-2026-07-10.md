@@ -105,3 +105,43 @@ waits on sim-tunable depth/chance/cooldown defaults; that is a parameter-sweep q
 simulator can settle against synthetic traversal traces exactly the way VERDICT 001
 settled the sister trigger's spawn defaults, and pinning it now (before the Q-0186 cog
 build hard-codes an engine) keeps the one-engine-two-triggers design open.
+
+## Sim verdict (2026-07-11)
+
+sim-lab **VERDICT 008 · finalized 2026-07-11T13:01:19Z · needs-more-evidence**
+(= this repo's PROPOSAL 008 — coincidental alignment, sim-lab numbers by intake
+order; lineage on the V007 card: V001=P003 · V002=P001 · V003=P002 · V004=P004 ·
+V005=P005 · V006=P006 · V007=P007). Like V006 and unlike V007, this entry
+carries NO `ruling:` field — the operative ruling is the `recommendation:`
+field, quoted from the pin below. SETTLED half: gating is structural — "the
+per-PLAYER cooldown analytically caps encounters at 3600/cooldown enc/hr for
+EVERYONE including the !fastmine grinder (grinder-vs-honest RATE ratio bounded,
+shrinking toward ~1.15 as chance rises; grinder rolls-per-encounter 2-4x the
+honest player's, so reward-per-action collapses)". Recommended defaults
+**threshold=15 (or 20 for a silent surface) · chance=0.02 · cooldown=600s**
+(cap 6.00 enc/hr: casual ~0.2, honest deep-runner ~2.8, grinder ~5.2). Ship-with
+guardrails: **per-PLAYER (not per-cell) cooldown + one-live-encounter-per-player
++ audited-seam resolution** (`economy_service`/`update_mining_item`/`game_xp`
+via `mining_workflow` RS02/Q-0071) — exactly the probe's Q4/Q8 guardrail set,
+now sim-pinned. UNSETTLED half, COUPLED: the loot faucet's ABSOLUTE VALUE — no
+live earn-rate baseline exists, so loot values stay provisional and
+farm-unprofitability is settled in RATE terms, not VALUE terms (the owner-vague
+"rare-but-present" numeric target stays open); the slice MUST log the named
+telemetry: per-action encounter fire rate per playstyle depth-band, per-player
+cooldown-hit rate, encounter-loot coin value vs `mine_here` coin value,
+real-player depth distribution — VERDICT 001's unsettled-half form, restated
+verbatim as PROPOSAL 008's done-when demanded. Post-verdict HARDENING (sim-lab
+heartbeat @ the same pin): a wider-variation robustness pass (sim-lab PR #32,
+merge `0235679`, module `robustness_wide.py`, 811 self-checks 0 failed)
+answered the @codex STRUCTURAL-vs-artifact question as **STRUCTURAL** — the
+3600/cooldown cap survives bot-speed cadence, boundary-timing burst farming,
+and a wider cd×chance grid; the boundary farmer PINS to the cap (6.00 at
+cd=600s) but never exceeds it; verdict unchanged. Shares the
+encounter-resolution engine with VERDICT 001 (Q-0186 wild-encounters) —
+whichever build lands first fixes it. Source:
+[sim-lab `control/outbox.md` VERDICT 008 @ `b639ef0`](https://github.com/menno420/sim-lab/blob/b639ef0d6d2f082829ddf03acc4803d515940d2d/control/outbox.md)
+(gate PASS; evidence: simulation — sim PR #30, 7723 self-checks 0 failed,
+byte-identical re-runs; verdict block re-read RAW at the live-HEAD pin at write
+time, byte-identical to the orientation read). State stays `sim-ready` — the
+grammar has no post-verdict state; `historical(<merged PR>)` is a build-time
+move (post-merge routing is the manager's).
