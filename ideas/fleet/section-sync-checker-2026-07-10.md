@@ -95,3 +95,33 @@ sim-lab* (a trivial stdlib reporter is cheaper to build than to simulate; no rep
 question exists worth a sim-lab cycle) — while the true disposition is BUILT: the slice
 ships in this PR and the state line advances to `historical(#2)` on merge, which the idea
 grammar does permit.
+
+## Extension note (2026-07-11, appended — probe report and state untouched)
+
+The checker's own anticipated failure mode fired live: the hand-maintained fleet
+manifest was SUPERSEDED mid-day by the fleet-manager GENERATED roster
+(`docs/roster.md`, regenerated each manager wake — fleet-manager PR #59, merge
+`b0639a9`; the manifest's table was REMOVED, leaving only the supersession banner),
+so the manifest parse hit its fail-loud path exactly as designed ("no table rows
+parsed — manifest format changed? (it is slated to be replaced by a generated
+roster; update this parser, do not trust this run)") and redded every non-control
+PR's gate in this repo. The parser was updated the same session, per its own error
+message:
+
+- **Canonical source flipped to the roster** (`fleet-manager docs/roster.md` raw
+  path; format auto-detected by table header — `| Lane |` = roster, legacy
+  `| Project |` manifest parse retained for offline copies of the historical file).
+- **Roster row semantics, fail-loud preserved:** Lane-cell display decorations
+  stripped (`**bold**`, `(hub)`, `(NEW)`, `· Seat A`); registry-only seats skipped
+  only when the Lane CELL declares "NO repo" (a full-row substring match
+  false-positived on superbot's "No repo wake trigger" prose — caught live in the
+  first run); wound-down lanes skipped ("wound down"/"wind-down complete" markers);
+  an unreducible lane cell RAISES (never a silent skip); zero rows RAISES.
+- **NON_LANE_REPOS extended** with loud comments: `sim-lab` (the pipeline's verdict
+  stage per Q-0264, not a build lane — no section has ever existed) and
+  `idea-engine` (this repo itself — its process ideas live in `ideas/fleet/`,
+  established practice) join `fleet-manager`.
+- **Three new sections seeded** per README § Sections (the wake that spots a new
+  active lane creates the section, README stub first): `ideas/product-forge/`,
+  `ideas/superbot-idle/`, `ideas/superbot-mineverse/` — the roster surfaces live
+  lanes the stale manifest never rowed. Post-fix run: 13 sections in sync.
