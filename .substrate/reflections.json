@@ -42,7 +42,7 @@
   {
     "id": "R-0021",
     "lesson": "Recurring attention on scripts/preflight.py",
-    "evidence": "2026-07-11-verdict-005-superbot-fanin.md:L50, 2026-07-11-wire-automerge-enabler.md:L79",
+    "evidence": "2026-07-11-session.md:L22, 2026-07-11-verdict-005-superbot-fanin.md:L50, 2026-07-11-wire-automerge-enabler.md:L79",
     "tags": [
       "recurring-path"
     ],
