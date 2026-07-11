@@ -1,6 +1,6 @@
 # Session — fleet slice: auto-merge enabler arm-at-open race guard (skip while the in-diff card is in-progress)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 ~04:40Z (worker slice, dispatched by the continuous-mode coordinator per Q-0265)
 
 ## Scope
@@ -73,8 +73,23 @@ manual discipline.
 
 ## Live-fire outcomes (filled at close-out)
 
-- Half (a) — skip while in-progress: PENDING at first push.
-- Half (b) — arm on the card-flip synchronize: PENDING at first push.
+- **Half (a) — skip while in-progress: PROVEN.** Enabler run
+  https://github.com/menno420/idea-engine/actions/runs/29140112239 (pull_request
+  `opened`, head `1692e6b`, completed 04:45:44Z, conclusion success): the card step
+  logged `card .sessions/2026-07-11-automerge-arm-race-guard.md @ 1692e6b0858b:
+  status=in-progress` then `in-progress session card(s) in this PR's diff —
+  refusing to arm; the close-out push that flips the card to `complete` re-runs
+  this workflow via `synchronize` and arms then`; the "Enable native auto-merge
+  (squash)" step conclusion = **skipped**. PR #86 sat OPEN with
+  `mergeable_state: clean` minutes after open (API read 04:47Z) — under the old
+  behavior a clean carded PR merged in ~25s (#64/#80 measurements above), so
+  open-while-clean IS the observable delta. The refuse-to-arm and label steps both
+  ran success before the card step, untouched.
+- **Half (b) — arm on the card-flip synchronize: this commit is the experiment.**
+  This close-out push (card → `complete`, claim cleared, heartbeat) fires the
+  `synchronize` re-run, which must find the card past `in-progress` and arm; the
+  merge outcome is verified post-push against the API and reported to the
+  coordinator, not pre-written here (honest-stamps rule).
 
 **📊 Model:** fable-5 · high · fix payload (enabler guard step + arm condition,
 idea-file extension note, claim add via PR #84 + clear, card, heartbeat; no new
