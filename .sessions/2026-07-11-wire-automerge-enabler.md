@@ -61,6 +61,13 @@ ships it).
   per PR, which implies both are set; if the live-fire fails anyway, the exact
   workflow-run failure becomes the follow-up (and a ⚑ owner-action if it names a repo
   setting).
+- **Sibling PR #53 landed MID-FLIGHT** (trading-strategy kit-upgrade-oldest-pin probe,
+  merge `5ab0d74` — exactly the sibling the PR #54 handoff predicted; its landing
+  turned this PR's `mergeable_state` dirty at open): merged origin/main forward-only
+  per the README recipe, one `control/status.md` conflict reconciled keeping both
+  sides' facts (PR #53's probe facts, datapoint 15, and fan-in updates preserved;
+  this slice's fields win for its own work), gates re-run green on the merged tree
+  before re-push.
 - **Not touched:** no idea-tree changes, no proposal (outbox stays at 5, all pulled —
   process slice, nothing earned an append), no claim (kit/config surface, same
   no-claim shape as PR #50's root-contract precedent; `control/claims/` verified empty
