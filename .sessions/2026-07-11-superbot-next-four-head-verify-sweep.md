@@ -68,9 +68,11 @@ all four reports (the #102/#116/#132/#136-slice sibling-batteries precedent).
 
 No outbox proposal (nothing sim-shaped — doctrine text is proven by the next arming/band
 close-out citing it, the #114 precedent family). Section README index re-badged for all
-four rows. **SECTION MILESTONE: superbot-next 4/4 probed-or-parked — the SEVENTH complete
+four rows. **SECTION MILESTONE: superbot-next 4/4 probed-or-parked — the EIGHTH complete
 section** (after superbot-games, trading-strategy, superbot-mineverse, venture-lab,
-superbot-idle, pokemon-mod-lab).
+superbot-idle, pokemon-mod-lab, and substrate-kit — whose host-checkers-one-gate probe
+#141 landed mid-flight of this slice and took the seventh; forward-merged, never
+rebased, heartbeat reconciled forward-only).
 
 ## Verification (real runs, this tree)
 
@@ -123,5 +125,7 @@ the heartbeat notes say so for the manager's :30 sweep; sequencing matters on th
 already dispatched at the lane's last heartbeat, so the window is measured in wakes, not
 days). Watch the lane's cadence: 50 commits in ~24h means any relay should re-verify at
 the then-live HEAD before writing the ORDER. The substrate-kit host-checkers-one-gate
-probe (claim #140) was in flight this session — expect its heartbeat facts to need a
-forward reconcile if it lands first.
+probe (claim #140) was in flight this session — it landed mid-flight as #141 (merged
+`f71881c`), was forward-merged into this branch per the README recipe, and took the
+seventh-section milestone (its heartbeat facts, including the kit-lane SIX-head fan-in
+and its #138 stamp, are preserved under this slice's heartbeat chains).
