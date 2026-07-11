@@ -16,7 +16,20 @@ battery pass runs. Section claimed first
 commit `3be0d9b`), claim cleared in the close-out commit. Sibling PR #62
 (branch-prefix drift tripwire) landed AT SETUP TIME of this slice — merged
 origin/main forward-only per the README recipe (clean merge, no status.md
-conflict; this slice's overwrite comes after).
+conflict). THREE MORE siblings landed MID-FLIGHT pre-merge (surfaced as
+mergeable_state dirty on this slice's own PR — the documented jam mode, checked
+first exactly as control/README prescribes): PR #63 (telemetry stash flush),
+PR #64 (squash-headref provenance + an INTERIM check_sections tombstone
+carve-out — it hit the same upstream red this session fixed, ~independently,
+and explicitly queued the roster re-point as follow-up), PR #65 (control-only
+heartbeat stamp). Merged origin/main forward-only; conflicts in
+control/status.md AND scripts/check_sections.py reconciled keeping both sides'
+facts — the check_sections reconcile: this slice's roster re-point wins the
+live path (it IS the follow-up PR #64's carve-out queued), the interim exit-0
+carve-out is retired, and the SUPERSEDED marker is kept to name the tombstone
+on offline --manifest runs (exit 2 usage error, never a false clean); all
+three offline/live paths re-smoked post-reconcile (live roster 13-in-sync,
+tombstone exit 2 with pointer message, offline roster copy OK).
 
 **Mid-slice gate fix (unplanned, forced by an upstream supersession):** at gate
 time, `python3 scripts/preflight.py` came back exit 2 — the superbot fleet

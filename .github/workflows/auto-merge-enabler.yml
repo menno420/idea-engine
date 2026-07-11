@@ -90,8 +90,19 @@ jobs:
           # user; GITHUB_TOKEN is the fallback.
           GH_TOKEN: ${{ secrets.ROUTINE_PAT || secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.number }}
+          # HOST CUSTOMIZATION (idea-engine — squash head-ref provenance,
+          # origin: PR #62 card 💡): the default squash subject `<title> (#N)`
+          # carries NO branch name, so squash-only history starves every
+          # history-derived branch survey (preflight --branch-prefix-drift).
+          # `--body` below stamps the source branch into the squash commit
+          # body as a `Head-ref:` line the tripwire parses. Passed via env,
+          # never interpolated into the script (injection-safe). This file is
+          # KIT-OWNED — re-apply this customization after any adopt/upgrade
+          # regenerates it (the PR #18 gate-step re-apply duty, enabler
+          # edition; see the idea file's extension note).
+          HEAD_REF: ${{ github.head_ref }}
         run: |
-          if gh pr merge --auto --squash "$PR" --repo "$GITHUB_REPOSITORY"; then
+          if gh pr merge --auto --squash "$PR" --repo "$GITHUB_REPOSITORY" --body "Head-ref: $HEAD_REF"; then
             echo "Auto-merge enabled for PR #$PR — it merges when 'substrate-gate' is green."
           else
             echo "::warning::Could not enable auto-merge for PR #$PR. Confirm: (1) 'Allow auto-merge' is ON, (2) the base branch requires the 'substrate-gate' check, (3) the token has Pull requests + Contents write. On a repo shape where GitHub structurally refuses the arm (born-red required checks with no pending window, or PR-required-but-no-CI), REST merge-on-green is the landing path instead — see docs/operations/auto-merge-guards.md."

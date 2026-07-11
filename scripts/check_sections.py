@@ -74,6 +74,19 @@ NON_LANE_REPOS = {"fleet-manager", "sim-lab", "idea-engine"}
 # unavoidable; parse failures must fail LOUD, never report a false clean).
 CLOSED_MARKERS = ("project closed",)
 
+# The manifest's own retirement tombstone (superbot 34ebbac1, 2026-07-11T02:34Z:
+# "retire fleet-manifest to pointer stub" — Status flipped to historical, all table
+# rows removed, canonical fleet state moved to the fleet-manager GENERATED roster).
+# HISTORY: the PR #64 sibling detected this marker as an interim exit-0 advisory
+# carve-out (the tombstone had redded every non-control CI run ~10 min after it
+# landed upstream) and queued the roster re-point as a follow-up slice; the sibling
+# slice that merged with it SHIPPED that re-point (read_source fetches the roster,
+# roster_sections parses it), so the carve-out is retired — the live path never
+# sees the tombstone anymore. The marker is kept to NAME the tombstone when an
+# offline `--manifest` run points at the retired file (a usage error, exit 2 —
+# never a silent or false clean).
+SUPERSEDED_MARKER = "superseded"
+
 
 def read_source(path: str | None) -> str:
     """A local saved copy (either format), or the live canonical roster."""
@@ -181,12 +194,30 @@ def main() -> int:
 
     try:
         source = read_source(args.manifest)
+    except Exception as exc:  # fail loud: a false clean is worse than a crash
+        print(f"check_sections: cannot read lane registry: {exc}", file=sys.stderr)
+        return 2
+    try:
         if ROSTER_HEADER_RE.search(source):
             expected = roster_sections(source) | ALWAYS_EXPECTED
         else:
             expected = active_sections(source) | ALWAYS_EXPECTED
-    except Exception as exc:  # fail loud: a false clean is worse than a crash
-        print(f"check_sections: cannot read/parse lane registry: {exc}", file=sys.stderr)
+    except Exception as exc:  # fail loud — naming the tombstone when it is the cause
+        if SUPERSEDED_MARKER in source.lower():
+            # Only reachable via an explicit --manifest pointing at the retired
+            # manifest file: the live path fetches the roster (see the
+            # SUPERSEDED_MARKER comment above for the PR #64 interim-carve-out
+            # history this replaces).
+            print(
+                "check_sections: the given source is the fleet manifest's "
+                "retirement tombstone (zero lane rows — SUPERSEDED 2026-07-11 by "
+                "the fleet-manager GENERATED roster, menno420/fleet-manager "
+                "docs/roster.md). This checker now reads the roster by default: "
+                "rerun without --manifest, or point it at a roster copy.",
+                file=sys.stderr,
+            )
+            return 2
+        print(f"check_sections: cannot parse lane registry: {exc}", file=sys.stderr)
         return 2
 
     ideas_dir = Path(args.ideas_dir)
