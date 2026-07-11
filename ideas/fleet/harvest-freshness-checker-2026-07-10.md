@@ -178,3 +178,31 @@ websites `docs/ideas/backlog.md` +117/-54 lines since pin `8c19e93` (plus 2 more
 websites docs and 2 superbot docs, all sized). State stays `historical(#22)`;
 slice card: `.sessions/2026-07-11-check-harvest-content-identity.md` (live runs,
 planted-sha smoke, and the write/load round-trip recorded there).
+
+## Extension note (2026-07-11, emit-exact-echo slice — appended; probe report and state untouched)
+
+The `--emit-entries` minting path gets its writer-side state-echo fix (the
+PR #163 card 💡: the 41-bullet bare-`historical` echo rot that slice hand-fixed
+was MINTED here — `emit_entry_stub` hardcoded bare `captured` in both the stub
+state line and the index row regardless of any existing local file's reasoned
+state), still stdlib-only / report-only / wake-time only — the Q4 hermeticity
+rule holds (emit prints to stdout, never writes files; no preflight or CI
+membership; the default run's network legs unchanged):
+
+- **`local_state_line()` + single-source `state`** — the stub's
+  `> **State:**` line and the index-row echo are now minted from ONE value:
+  the linked local idea file's exact full state string (`FULL_STATE_RE`, the
+  whole rest of the line — unlike `--re-badge`'s first-token `STATE_RE`),
+  echoed verbatim when the file exists; bare `captured` only for a genuinely
+  new capture (missing file or missing/unparseable state line). The two minted
+  lines can never disagree, and the reader-side reason-presence leg
+  (`check_ideas.py` STATE-ECHO, merged as 12a6241) only ever fires on true
+  post-write drift — never on freshly minted stubs.
+- **Stub header prose** — one clause added: any state advance the harvester
+  applies must land on BOTH the file state line and the index-row echo
+  identically (exact echo, the PR #163 reason-presence leg).
+
+State stays `historical(#22)`; slice card:
+`.sessions/2026-07-11-emit-exact-state-echo.md` (direct-seam smoke — planted
+reasoned state echoed verbatim in both minted lines; new-capture default
+regression — recorded there).
