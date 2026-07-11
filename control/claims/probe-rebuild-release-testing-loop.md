@@ -1,1 +1,0 @@
-- `probe/rebuild-release-testing-loop` · **superbot section** — probe TOP-5 item 2 rebuild-release-testing-loop (in-server announce/coverage/approve loop half) · ideas/superbot/ · 2026-07-11
