@@ -1,0 +1,1 @@
+- `probe/wager-flow-map` · **ideas/superbot section** — probe standing TOP-5 item 5 (wager-flow-map-2026-07-10.md, ripest since #189 removed the last head above it; sequence-sensitive — cheapest before the V001/V008 faucet builds land) · expected files: ideas/superbot/, control/status.md (close-out) · 2026-07-11
