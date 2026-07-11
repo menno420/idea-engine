@@ -150,3 +150,32 @@ capabilities are session-properties while the ledger is a repo-file, so whether 
 automated probe can regenerate `docs/CAPABILITIES.md` HONESTLY (across seat types,
 vs transient noise, vs the hand-maintained baseline) is empirically open — and sim-lab
 owns the exact coordinator/worker split that founded the idea; PROPOSAL 005 appended.
+
+## Sim verdict (2026-07-11)
+
+sim-lab **VERDICT 005 · finalized 2026-07-10T23:30:00Z · needs-more-evidence**
+(= this repo's PROPOSAL 005 — numbering cross recorded on
+`.sessions/2026-07-10-sim-verdicts-fanin.md` and this session's card). Ruling (verbatim
+from the pin): "probe must annotate per-seat-type sections (schema named:
+CAPABILITIES.v1) — regenerate-whole-file-from-one-seat is measured-NOT-honest (5 of 9
+agent-plane items diverge coordinator↔worker → single-seat whole-file regen = 5
+false-walls + 1 false-capability vs sim-lab's ledger); file-granularity IS honest for
+the seat-invariant subprocess plane (agreement 1.00, 0 false-walls), so the fix is
+per-seat annotation + source{probed|ledger} + a not-probeable result, NOT abandoning
+file granularity." SETTLED: the Q4 honesty question is answered with measured evidence
+(rung 2 prototype — 5 worker-seat runs, subprocess-plane agreement 1.00, 0 false-walls,
+403 walls reproduced verbatim, 394 self-checks) — the seat-invariant SUBPROCESS section
+is safe to auto-regenerate whole; the degenerate corner Q4 named (one seat's world
+laundered into "the repo's abilities") is real and measured, not hypothetical. NAMED
+CHANGES for the eventual kit slice: (1) per-SEAT-TYPE agent-plane sections, never a
+single-seat whole-file regen; (2) every record carries `source{probed|ledger}` —
+behavioral/side-effect walls (trigger binding, push-to-main) MUST stay `source:ledger`,
+never machine-asserted (presence≠ability: `create_trigger` present in both seats yet
+cross-session bind org-walled per OA-003 = the measured false-capability); (3) a
+`not-probeable` result in the vocabulary. Verdict is needs-more-evidence, not approve:
+the fleet-manager roll-up baseline was reachable but not content-diffed, and
+cross-environment generality is JUDGMENT-ONLY (one container, 2 seats). Source:
+[sim-lab control/outbox.md VERDICT 005 @ f70fbea](https://github.com/menno420/sim-lab/blob/f70fbea/control/outbox.md)
+(gate PASS — the structural claim "single-seat whole-file regen launders seat variance"
+uncorrupted, robust, reproducible). State stays sim-ready — no post-verdict state in
+the grammar.
