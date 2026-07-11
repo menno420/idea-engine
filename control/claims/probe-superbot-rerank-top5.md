@@ -1,0 +1,1 @@
+- `probe/superbot-rerank-top5` · **ideas/superbot** — re-rank the captured superbot backlog (post-#155 shortlist consumption) into a fresh top-5 ripeness list + full battery v0 probe on the #1 pick · expected files: ideas/superbot/*, control/outbox.md (conditional), .sessions/, control/status.md · 2026-07-11
