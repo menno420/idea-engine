@@ -155,3 +155,22 @@ the one genuinely open question — per-seat PR-tooling variance — is already 
 repo does not write: websites build-direct for its own ritual step (manager fan-in
 relay via the heartbeat) plus substrate-kit for the fleet-generic planted
 `control/README.md` convention (Cross-links entry landed this slice).
+
+## Upstream outcome (2026-07-11 re-pin)
+
+> **Grounding:** https://raw.githubusercontent.com/menno420/websites/d8623642cabf068125dccb69ac775f2de0311104/docs/ideas/open-pr-awareness-at-wake-2026-07-10.md@d862364 · fetched 2026-07-11T06:47Z
+
+The lane SELF-SERVED the probe's recommended slice (§8's websites half) — shipped
+2026-07-11 as `scripts/open_work.py` via **menno420/websites#90** (front-matter at
+the pin: `state: built · shipped_pr: 90 · shipped_repo: menno420/websites ·
+merged_date: 2026-07-11 · outcome: shipped`; the +5/-5 drift since pin `8c19e93`
+is that front-matter flip only). The shipped classifier is FOUR-state, not the
+capture's three: PR-OPEN (leave to its session) / PR-LESS (rescue candidate) /
+MERGED-STALE (prune candidate) / **PR-UNKNOWN (api wall — labeled, never
+guessed)** — the lane building exactly the Q4 graceful-degradation state this
+probe named decisive (per-seat PR-tooling variance), and its first live run
+surfaced the four gen-1 leftover branches the probe's degenerate-corner warning
+was about. The park verdict above STANDS as written: the websites half is now
+built (by the lane, not via the manager relay — self-serve was the report's own
+named alternative), the substrate-kit fleet-generic half remains routed via the
+Cross-links entry and un-built. Forward-only note; the probe report is untouched.

@@ -80,3 +80,82 @@ backlog #3 plus the shipped Atom feed relate to the `/activity` "living epilogue
 folded into that same pulse-feed capture; backlog #13 is the same failure class as
 idea-engine's own claims ritual (`claims/README.md`) — the order-claim fix applied
 to branches.
+
+## Re-pin (2026-07-11 second content re-harvest)
+
+> **Grounding:** https://raw.githubusercontent.com/menno420/websites/d8623642cabf068125dccb69ac775f2de0311104/docs/ideas/backlog.md@d862364 · fetched 2026-07-11T06:47Z
+
+The backlog's CONTENT moved **+125/-54 lines** under an UNCHANGED filename set
+between the first re-pin `8c19e93` and this one (`check_harvest --bullet-drift`
+sizing, confirmed by the blobless-clone diff; the sizing run saw HEAD `ce2ec38`,
+websites #102 — HEAD then moved once more to `d862364`, #103, whose `docs/ideas/`
+tree is **byte-identical** to `ce2ec38`'s by tree diff, so this section pins the
+newer sha with the same facts). At this re-pin the list holds **6 captured,
+19 built, 3 retired** (was 10/9/1 at `8c19e93`). Bullet-lifecycle flips vs the
+original numbering above (the trail is the product — nothing deleted upstream):
+
+- **Seven captured→Built** (all merged 2026-07-11, the lane's continuous-mode
+  slices 10–15):
+  - **#3 (`?repo=` per-repo filter) → Built** — slice 10; sibling entry
+    [`activity-per-repo-filter-2026-07-09.md`](activity-per-repo-filter-2026-07-09.md)
+    flipped `historical(menno420/websites#86)` this pass (see its re-pin note for
+    the front-matter-vs-commit-subject citation split).
+  - **#13 (open-PR awareness at wake) → Built** — slice 12, shipped as
+    `scripts/open_work.py` via websites PR #90 (front-matter `shipped_pr: 90`
+    explicit); sibling entry
+    [`open-pr-awareness-at-wake-2026-07-10.md`](open-pr-awareness-at-wake-2026-07-10.md)
+    stays parked(build-direct) — the lane self-served the probe's recommended
+    slice; forward-only outcome note appended there.
+  - **#8 (review-queue row auto-check) → Built** — slice 14, shipped as
+    `scripts/review_row_check.py` (commit `cbc87c8` subject cites lane PR #96);
+    the lane self-served this one too, ~a day after this repo's probe
+    [`review-queue-row-auto-check-2026-07-11.md`](review-queue-row-auto-check-2026-07-11.md)
+    parked it build-direct — second confirmed instance of the lane-self-served
+    lesson.
+  - **#7 (`wait-deploy` sha-convergence poller) → Built** — slice 13, shipped as
+    `scripts/wait_deploy.py` (commit `3f2ea62` cites lane PR #92).
+  - **#12 (ladder-rung telemetry) → Built** — slice 12, same wake-tooling batch
+    as #13 (commit `47b6168`, PR #90): optional `rung:` heartbeat line, in
+    `fleet.KNOWN_KEYS`, rendered on /fleet.
+  - **Re-pin new-born A (same-shape contract tests) → Built** — slice 11,
+    `tests/test_json_contracts.py` pinning /orders.json /queue.json
+    /projects.json /reviews.json key sets (commit `b16e23f` cites PR #88).
+  - **Re-pin new-born B (backlog fact-check pass) → Built** — slice 15: the
+    habit line lives in the lane's `docs/ideas/README.md` § Lifecycle and the
+    first full pass ran the same slice (commit `d6b91c9` cites PR #99).
+- **Two captured→Retired:**
+  - **#5 ("unseen orders?" badge) → Retired** — slice 15 fact-check verdict:
+    superseded by /orders, which computes actual per-repo outstanding orders
+    (done/claimed/open/unknown), strictly stronger than the commit-time proxy.
+  - **#2 (re-check PR #9 branch) → Retired** — slice 11 investigation: nothing
+    to salvage; the branch's one unique hardening commit `a0b459f` is fully
+    superseded on main by PR #10 (verified by diff upstream); branch left for a
+    delete-rights sweep.
+- **Five NEW captured bullets born:** flag to the kit lane that
+  `upgrade --apply-docs` regenerates `.substrate/upgrade-report.md` WITHOUT the
+  #156-mandated carve-out scan section (lived on the lane's v1.9.0 upgrade,
+  PR #101); conveyor-health chips ("ideas: 3c/1b") on the readiness-board rows;
+  a `tooling: pr-capable | ritual-only` capability token in the fired session's
+  heartbeat; ask the manager for a generated `lanes.json` (the /fleet ↔
+  fm-`gen_roster.py`-internals coupling broke once already — caught by cron
+  run 2, fixed as the `ce2ec38` commit itself, websites #102); nav overflow
+  guard (ten header links and growing).
+- **Three Built entries not from captured bullets** (born straight to Built,
+  slices 13–15): the relay-PR merge protocol on the bus (`control/README.md`
+  doctrine "Landing other sessions' control-only work" — one WRITER, not one
+  MERGER; generalized from relay PR #94 + the 04:03Z stranded-heartbeat rescue
+  PR #98); `scripts/cron_slots.py` (5-field cron → next UTC fire slots, the
+  `17 */6 * * *` incident pinned as a test); the `/ideas` `?state=` filter with
+  per-repo lifecycle counts.
+- **Survivor: #10 (meta.md state-line convention)** — the only pin-time captured
+  bullet still captured.
+
+**Honesty note (citation split, the PR #37 pattern):** "Built/Retired" states,
+merge dates, artifact names and slice numbers above are quoted from the backlog's
+own text at the pin; the LANE PR numbers are cited from upstream front-matter only
+where it carries one (`open-pr-awareness`: `shipped_pr: 90`) — every other PR
+number (#86, #88, #92, #96, #99, #98, #94, #101, #10, #102) is inferred from the
+squash-commit subjects `(#NN)` in the blobless clone's `git log` at `d862364`,
+plus the backlog/retired prose itself. `activity-per-repo-filter`'s front-matter
+still says `shipped_pr: null` at this pin — its #86 comes from commit `580f5e0`'s
+subject, stated as such in the sibling entry.
