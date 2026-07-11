@@ -1,0 +1,1 @@
+- `probe/superbot-mineverse-heartbeat-ladder` · **ideas/superbot-mineverse** — single-pass probe of heartbeat-ladder-field-2026-07-11.md (process head, → fleet-manager/kit grammar seam) · expected files: ideas/superbot-mineverse/**, ideas/substrate-kit/README.md (cross-link only), .sessions/**, control/status.md · 2026-07-11
