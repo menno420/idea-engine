@@ -7,7 +7,7 @@
     "soft_target_sessions": 50
   },
   "graduation_proposed": false,
-  "kit_version": "1.7.1",
+  "kit_version": "1.8.0",
   "last_compaction_session": 0,
   "mode": "guided",
   "mode_history": [
@@ -19,12 +19,14 @@
   ],
   "open_questions": [],
   "planted_doc_hashes": {
+    ".claude/CLAUDE.md": "24948915b81292aafaf7f844c5c3382cdcca46cd49eef7cddf7ae14f8df51375",
     ".session-journal.md": "cdd854bda6b71091ca51322926f5173916103dbe5b320431e68028619cc9a57e",
     "CONSTITUTION.md": "eaad19ce443677c0c6cd4726ddd570fc8f5dce77ce0b77f8a8a6fcb7d85d3943",
     "control/README.md": "a925288917080ceea444c3064e73e1e5bbda709953c8d23bd8d51f7d5590d06a",
+    "control/claims/README.md": "ea0bdeb7e38e388b3081b8e0432516072f7632ea24980311db84afc6542d048d",
     "control/inbox.md": "f38d6534adb7c9f6998186d449aa6d6ed3b49d9ec1f8491404ad9a9ab6a86c7a",
     "control/status.md": "a4ed985f8c6ba04854147f0b752936d98a1e3abdfb15e225b268c2a17acc7f28",
-    "docs/AGENT_ORIENTATION.md": "96521ab92c733f0777b6d5bcf4bdcb0231eb5fa46a9f1dcb62a736553f53fdc7",
+    "docs/AGENT_ORIENTATION.md": "af0f521210f1029a542c855cb8ee24ec675db182997fdd1068ea608da8c95a18",
     "docs/CAPABILITIES.md": "237ff01af64f21313eb7d79f9756520ec7901a1a9898012dbf2d8512761125cb",
     "docs/ai-project-workflow.md": "d3062197040efce840a12a37dbea42c66c345f97bfb286d4db8cf533b230137f",
     "docs/architecture.md": "9a1e3f491845dc95d19c53e9ebd6b05f41ce569bb53d9919c7d64ccd24d0e7e5",
@@ -36,17 +38,24 @@
     "docs/owner-profile.md": "e49539546d5d7bcc0cd7e793121ce0dcfe91dce1733a45666ac179a3467bb5fb",
     "docs/ownership.md": "40a6d55a704cb47b46577c06c1a92cb8b62669c6b9a93ab0d3a9921bcb6ea777",
     "docs/question-router.md": "58b826c539482263aaa08fb3e79a5c7a19bfc7db1ac0d74196134a7b52766d7b",
-    "docs/repo-navigation-map.md": "f5c006694fbbce3501e14e29f6a2095334442013c0caee833451d02f150c3029",
-    "docs/runtime_contracts.md": "7375f0bb6b01758a25afb2a1d2db3409692892d7f3792be93073d59377500223"
+    "docs/repo-navigation-map.md": "e88cd38778c4a50b4fc7ee14f55887362add6130b4ec8e036d273aa6920b010b",
+    "docs/runtime_contracts.md": "7375f0bb6b01758a25afb2a1d2db3409692892d7f3792be93073d59377500223",
+    "scripts/env-setup.sh": "cd2145129fcba288ff9399ad44146a09017d85813e282c16bcba22340b613a2c"
   },
   "project_id": "48e1a642761b",
   "promotion_rights": "propose",
   "quiet_sessions": 0,
   "reflection_buffer": {
-    "active_count": 0,
-    "last_mined": "2026-07-10"
+    "active_count": 5,
+    "last_mined": "2026-07-11"
   },
   "review_log": [],
+  "session_anchor": {
+    "branch": "fix/session-log-2026-07-11",
+    "epoch": 1783747150.307447,
+    "head": "cce4aae96bd1cfdb5b26598ec2bdf13f53e371fa",
+    "ts": "2026-07-11T05:19:10+00:00"
+  },
   "session_count": 0,
   "slot_values": {
     "architecture_layers": {

@@ -20,6 +20,14 @@ idea-engine is built in Python 3 (stdlib-only tooling; the repo itself is markdo
    append the finding same session.
 4. `docs/AGENT_ORIENTATION.md` — the task-specific reading router.
 
+## Kit machinery — search hygiene
+
+`bootstrap.py` (~12k generated lines) and `.substrate/` (kit state + a byte
+backup of the previous dist) are substrate-kit machinery, not project code.
+Exclude them from repo-wide searches: `grep -r --exclude=bootstrap.py
+--exclude-dir=.substrate …`, or ripgrep `rg -g '!bootstrap.py' -g
+'!.substrate' …`.
+
 ## Architecture — layers & import rules
 
 Content layer: ideas/<section>/ (one section per active fleet lane, derived from superbot docs/eap/fleet-manifest.md, plus ideas/fleet/ for cross-cutting). Coordination layer: control/ (status=coordinator-only heartbeat, inbox=manager-written ORDERs, outbox=append-only proposals to sim-lab/manager). Contract layer: README.md + docs/. No product code lives here.
