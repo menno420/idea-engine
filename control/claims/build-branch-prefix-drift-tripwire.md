@@ -1,1 +1,0 @@
-- `build/branch-prefix-drift-tripwire` · **ideas/fleet** — branch-prefix drift tripwire (PR #55 card 💡): capture + probe + built-here advisory check · expected files: ideas/fleet/, scripts/preflight.py, .sessions/, control/status.md · 2026-07-11
