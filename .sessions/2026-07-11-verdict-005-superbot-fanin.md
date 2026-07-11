@@ -1,6 +1,6 @@
 # Session — VERDICT 005 fan-in: `## Sim verdict` note on the capability self-awareness idea
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-11 (worker slice, dispatched by the coordinator
 > under continuous-chaining mode per Q-0265)
 

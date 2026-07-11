@@ -1,1 +1,0 @@
-- `fix/verdict-005-superbot-fanin` · **ideas/superbot** — VERDICT 005 fan-in note on project-capability-self-awareness-2026-07-10.md · ideas/superbot/project-capability-self-awareness-2026-07-10.md + card + heartbeat · 2026-07-11
