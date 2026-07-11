@@ -13,7 +13,7 @@
 
 ## Documentation roots
 
-docs
+docs/ (kit contracts) + ideas/ (the product: per-lane idea sections) + control/ (coordination)
 
 ## Placement rule of thumb
 
