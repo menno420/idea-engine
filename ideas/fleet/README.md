@@ -38,6 +38,13 @@
   content-free session stubs from the HARNESS stop hook's git-cleanliness nag — nag-only,
   telemetry stays committable · park(built-here — `scripts/patch-stop-hook-git-check.sh`,
   SessionStart-wired, this PR); origin: the merged-PR ledger itself
+- [`lint-bundle-2026-07-11.md`](lint-bundle-2026-07-11.md) — five standing advisory
+  lint heads accumulated across session cards, built as one bundle · park(built-here —
+  RECOMMENDATION + STATE-ECHO in `scripts/check_ideas.py` · `--states` in
+  `scripts/check_harvest.py` · `--step-anchor-drift` + `--heartbeat-keys` in
+  `scripts/preflight.py`, ninth/tenth CHECKS entries; six rotted index badges fixed by
+  the live run); origin: PR #36/#29/#33/#22/#59 card 💡s, bundle-named by the PR #59
+  card and the PR #144 grooming ledger
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
