@@ -23,7 +23,7 @@ registry — since 2026-07-11 that is the fleet-manager GENERATED roster
 hand-maintained fleet manifest (superbot `docs/eap/fleet-manifest.md`; the manifest
 file itself carries the supersession banner, fleet-manager PR #59 `b0639a9`) — plus
 `ideas/fleet/` for cross-cutting workflow/doctrine ideas. Never invent a section ad hoc: a new active lane row in the
-manifest → the wake that spots it creates the section (README stub first). Sections
+registry → the wake that spots it creates the section (README stub first). Sections
 partition the tree so **parallel agents never collide** — claim a section before working
 it (`control/claims/`, one file per claim — the kit-native v1.8.0 home; the original
 root `claims/` was migrated there wholesale by the v1.8.0 upgrade, see
