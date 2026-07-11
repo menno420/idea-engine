@@ -1,0 +1,1 @@
+- `probe/layout-success-simulator` · **superbot section** — probe battery pass on the rebuild-layout-success-simulator idea + standing TOP-5 re-rank · ideas/superbot/rebuild-layout-success-simulator-2026-07-10.md, control/outbox.md, control/status.md · 2026-07-11
