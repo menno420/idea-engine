@@ -7,7 +7,7 @@
     "soft_target_sessions": 50
   },
   "graduation_proposed": false,
-  "kit_version": "1.7.1",
+  "kit_version": "1.8.0",
   "last_compaction_session": 0,
   "mode": "guided",
   "mode_history": [
@@ -22,6 +22,7 @@
     ".session-journal.md": "cdd854bda6b71091ca51322926f5173916103dbe5b320431e68028619cc9a57e",
     "CONSTITUTION.md": "eaad19ce443677c0c6cd4726ddd570fc8f5dce77ce0b77f8a8a6fcb7d85d3943",
     "control/README.md": "a925288917080ceea444c3064e73e1e5bbda709953c8d23bd8d51f7d5590d06a",
+    "control/claims/README.md": "ea0bdeb7e38e388b3081b8e0432516072f7632ea24980311db84afc6542d048d",
     "control/inbox.md": "f38d6534adb7c9f6998186d449aa6d6ed3b49d9ec1f8491404ad9a9ab6a86c7a",
     "control/status.md": "a4ed985f8c6ba04854147f0b752936d98a1e3abdfb15e225b268c2a17acc7f28",
     "docs/AGENT_ORIENTATION.md": "96521ab92c733f0777b6d5bcf4bdcb0231eb5fa46a9f1dcb62a736553f53fdc7",
@@ -37,7 +38,8 @@
     "docs/ownership.md": "40a6d55a704cb47b46577c06c1a92cb8b62669c6b9a93ab0d3a9921bcb6ea777",
     "docs/question-router.md": "58b826c539482263aaa08fb3e79a5c7a19bfc7db1ac0d74196134a7b52766d7b",
     "docs/repo-navigation-map.md": "f5c006694fbbce3501e14e29f6a2095334442013c0caee833451d02f150c3029",
-    "docs/runtime_contracts.md": "7375f0bb6b01758a25afb2a1d2db3409692892d7f3792be93073d59377500223"
+    "docs/runtime_contracts.md": "7375f0bb6b01758a25afb2a1d2db3409692892d7f3792be93073d59377500223",
+    "scripts/env-setup.sh": "cd2145129fcba288ff9399ad44146a09017d85813e282c16bcba22340b613a2c"
   },
   "project_id": "48e1a642761b",
   "promotion_rights": "propose",

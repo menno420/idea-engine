@@ -75,7 +75,14 @@ lane itself). Section index row updated. Preflight (6 checks) green;
 `python3 bootstrap.py check --strict` green before push; landed per README § Landing
 conventions (PR READY, merge-on-green). Sibling PR #52 (websites review-queue probe)
 landed BEFORE this branch was cut — branched from its merge (`7be9a1f`), heartbeat
-reconciled on top of its freshest version, no mid-flight conflict at write time.
+first reconciled on top of its version. Then sibling PR #54 (this repo's OWN kit
+self-upgrade v1.7.1 → v1.8.0 + claims-dir reconcile, merge `935ebaa`) landed
+MID-FLIGHT — exactly the sibling its heartbeat predicted — and was forward-merged per
+the README recipe: one status.md conflict reconciled keeping both sides' facts (PR
+#54's kit/claims/gate facts preserved, this slice's fields win for its own work; this
+slice's claim was taken at root claims/ pre-migration and cleared before the merge, so
+PR #54's claims-dir move to control/claims/ leaves no residue), gates re-run green on
+the merged v1.8.0 tree before re-push.
 
 **Section milestone check: NOT complete.** ideas/trading-strategy/ after this slice:
 post-holdout-reseal parked(overtaken) @ #25 · cross-sectional-momentum
