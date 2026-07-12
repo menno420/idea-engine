@@ -1,7 +1,8 @@
 # Story bubble-texts as a committed content feed — owner voice grows without a code session
 
-> **State:** captured
+> **State:** parked(build-direct — first-commit content/code-separation constraint on the P002 phase-1 story page, not an independent build surface; fold "narrative lives in ONE committed content file (chapter texts + speaker-attributed bubble asides, stable chapter-ID anchors), rendered honest-empty, page code never embeds prose" into the phase-1 story-page ORDER when the manager routes it — deviation upheld, see probe report)
 > **Class:** product · **Target:** `menno420/websites`
+> **Sequence:** before websites builds P002 phase-1 story page commit #1 — the narrative-feed shape is decided at that page's first commit; the lane's revealed default is narrative hardcoded in code (`review/story.py` @ `8f97654`)
 > **Grounding:** https://raw.githubusercontent.com/menno420/idea-engine/698fd93869f8a05200f26fde45bbd71596323e6a/ideas/websites/superbot-site-stats-data-story-2026-07-10.md@698fd93 · fetched 2026-07-10T22:08Z
 > **Grounding:** https://github.com/menno420/websites@0cd08d2da1580fffff1595a6f4119b6d98a8b4b3 · fetched 2026-07-10T22:08Z (manifest row: behind)
 > *(pin annotation: lane HEAD via `git ls-remote`; the manifest websites row @ superbot `9624c53` still records close-out #58/`d493792` 13:57Z + kit v1.6.0 while the lane heartbeat @ `0cd08d2` reads #75 @ 21:58Z + kit v1.7.1 — staleness datapoint #8, relayed on the heartbeat)*
@@ -35,3 +36,188 @@ voices that matter while its code stays frozen.
 shippable slice, routable now) hardcodes its first chapter — and the lane's
 proven 4-hourly wake + continuous send_later chain means content commits get
 picked up and deployed with no human in the render loop.
+
+## Probe report (v0, 2026-07-12)
+
+> **Grounding:** https://github.com/menno420/websites@8f9765483a7df57ce426e7d11d200f10b5495ed7 · fetched 2026-07-12T01:12Z
+> *(pin annotation: live lane HEAD by `git ls-remote refs/heads/main` this probe,
+> then blobless-cloned and tree-scanned this session — BYTE-IDENTICAL to the HEAD
+> the pulse-feed probe (PR #222) cloned 2026-07-11T23:57Z and the explorer-facets
+> probe (PR #225) pinned 2026-07-12T00:33Z, so the lane has not moved across all
+> three P002-family probes; every #222/#225 whole-tree finding carries over to
+> this exact commit and was independently re-checked here where load-bearing.)*
+> **Sequence:** before websites builds P002 phase-1 story page commit #1 — the
+> narrative-feed shape is decided at that page's first commit
+
+> Single-pass battery (panel not escalated: docs/design-constraint surface,
+> reversible, no security/data/spend/public blast radius — README § probe
+> battery). This probe is ALSO the flagged review of the fourth ledger's TOP-5 #5
+> DEVIATION from the Q-0259 "websites below superbot" weighting (coordinator flag
+> (a) on the fourth mint): each deviation pin is re-verified below and the
+> recommendation carries an explicit deviation ruling.
+
+*Timeliness verified live FIRST (the PR #25 lesson). At websites HEAD `8f97654`
+(re-resolved by `ls-remote` 2026-07-12T01:12Z, blobless clone + full-tree scan
+this session): the P002 phase-1 story page is UNBUILT — the only story-shaped
+files in the tree are the review service's (`review/story.py`,
+`review/gen_snapshot.py`), a different page for a different audience — and
+UNROUTED: `control/inbox.md` carries ORDERs 001–011 with ZERO matches for
+story/bubble/narrative/scrolly, despite VERDICT 003's explicit "phases 1–2 … do
+NOT wait" (sim-lab `control/outbox.md` @ `8713f26`, recorded in the parent idea's
+Sim verdict section). NEW measured datapoint, decisive for this capture:
+`review/story.py`'s own module docstring declares "Curated narrative — the
+process/successes/problems record … lives here" — the lane's ONE shipped
+story-shaped page hardcodes its entire narrative (owner/agent explainer rows,
+Q&A prose, chapter copy) inside the Python module. The lane's revealed default
+for narrative is code-coupled prose; without a folded constraint, the story
+page's first commit does the same to chapter 1 and every future owner aside
+costs a code session.*
+
+**1. What is this really?**
+A first-commit CONTENT/CODE-SEPARATION constraint on the P002 phase-1 story
+page, not an independent build item — and, stated explicitly: the THIRD RIDER of
+the same PROPOSAL 002 routing family, after
+[`fleet-program-pulse-feed-2026-07-10.md`](fleet-program-pulse-feed-2026-07-10.md)
+(phase-1 rider, the page's generated-NUMBERS half, PR #222) and
+[`contract-driven-explorer-facets-2026-07-10.md`](contract-driven-explorer-facets-2026-07-10.md)
+(phase-2 rider, PR #225). This file is the phase-1 page's NARRATIVE half: the
+one part of the story page agents cannot generate — the owner's "bubble texts"
+(§1 of the parent capture, the owner's own words) — moved out of page code into
+one committed content file (chapter texts + asides with `speaker: owner|agent` +
+a stable anchor), so a new owner aside is a one-line content commit relayable
+straight from owner chat by the dispatch copilot. Who it is for: the owner (his
+voice grows without a code session — he is the program's scarcest resource), the
+websites lane (story-page code freezes after commit 1), and the copilot relay
+path the original idea itself arrived through.
+
+**2. What is the possibility space?**
+- **Where narrative lives:** hardcoded in templates/module (the lane's revealed
+  default — `review/story.py` @ `8f97654` does exactly this, measured above) →
+  ONE committed content file with a small schema (chapters + speaker-attributed
+  asides + anchors; the capture's ask) → per-chapter content files (more files,
+  same doctrine — a rendering detail, not a fork) → a CMS/admin surface
+  (rejected: new service + auth surface, against VERDICT 003's zero-auth phase-1
+  clearing and the lane's committed-feed doctrine).
+- **Anchor semantics:** scroll positions (rejected: page-redesign-fragile) →
+  graph moments (fragile the same way) → stable chapter IDs the page defines
+  once (the survivable floor; an aside anchored to a missing ID renders in the
+  chapter's honest-empty aside rail, never dropped silently).
+- **Voice integrity:** `speaker: owner` entries must be RELAYED owner words, not
+  agent-authored owner voice — the "never fake data" doctrine
+  (`dashboard/data_source.py` @ `8f97654`) applied to prose; agent asides carry
+  `speaker: agent` honestly.
+
+**3. What is the most advanced capability reachable by the simplest implementation?**
+One committed content file (JSON/YAML: `chapters[{id, text, asides[{speaker,
+text, anchor}]}]`) plus one render loop in the story page and an honest-empty
+state per chapter — the same committed-artifact shape the lane renders
+everywhere already. That alone buys the advanced capability: the story page's
+narrative becomes append-cheap for the two voices that matter, landable by ANY
+session or relayed from owner chat with zero template work and zero design
+decisions reopened, while the page code stays frozen. The lane's proven
+4-hourly wake + continuous chain (measured self-serve latencies: ~19 min /
+14 min per the README's #49/#51/#53 cards) then deploys content commits with no
+human in the render loop. Measured caveat, not guessed: WHICH moments deserve
+asides is judgment the schema cannot encode — the file makes asides cheap, not
+automatic.
+
+**4. What breaks it?**
+- **Sequencing (decisive):** the constraint is worthless the day after the story
+  page hardcodes chapter 1. Two same-class datapoints say the lane WILL default
+  that way at pace: the pulse-feed window half-closed on an unpredicted page
+  between capture and probe (PR #222), and `review/story.py` already shipped
+  narrative-in-module once. The Sequence pin above is the guard; the phase-1
+  ORDER is the only carrier that reaches the lane in time.
+- **Deviation-evidence audit (the TOP-5 #5 flag, each pin re-verified):**
+  (a) window class half-closes at lane pace — SOUND: PR #222's probe report read
+  this session, plus the independent `review/story.py` narrative-in-code
+  datapoint measured above; (b) VERDICT 003 cleared phases 1–2 and routing still
+  absent — SOUND: verdict text at sim-lab `control/outbox.md` @ `8713f26` (via
+  the parent's Sim verdict section), inbox re-greped LIVE this probe at
+  `8f97654` (11 ORDERs, zero story-shaped); (c) narrative-feed shape decided at
+  the page's first commit — SOUND: the page does not exist in the tree, so its
+  first commit has not happened; the window is verifiably still OPEN.
+- **Anchor drift:** asides anchored to page structure dangle when the
+  scrollytelling design iterates — stable chapter IDs + honest-empty fallback is
+  the floor; anything fancier re-couples content to code.
+- **Fake owner voice:** an agent writing `speaker: owner` prose is the BUG-0022
+  silent-desync class applied to trust in the page itself; the relay-only rule
+  (Q2) is the guard.
+
+**5. What does it unlock?**
+The story page's narrative grows at chat pace instead of code-session pace —
+the owner's voice becomes an append-only committed feed exactly like the lane's
+data. The copilot relay path (owner chat → one-line content commit) closes the
+loop the original idea itself traveled. And the phase-1 ORDER becomes symmetric:
+the pulse-feed rider covers the page's generated numbers, this rider covers its
+authored prose — one committed-artifact doctrine for both halves, page code
+frozen after commit 1.
+
+**6. What does it depend on?**
+- The manager routing PROPOSAL 002 phase 1 to websites (VERDICT 003 cleared it
+  explicitly; verified still unrouted at websites `control/inbox.md` @ `8f97654`
+  this probe) — the constraint's only carrier, same as both sibling riders.
+- NOT a dependency: auth, databases, the read-only API, the fm ORDER 012/013
+  contract fan-in, any new service — one static content file + a render loop.
+  Zero owner clicks; the owner's asides are the PAYLOAD, not a gate.
+- Cost, priced honestly: as a folded constraint, ~zero — one instruction line in
+  the phase-1 ORDER plus the content file being the FIRST implementation instead
+  of an extraction refactor later; this probe itself was docs-only (one
+  `ls-remote`, one blobless clone, three greps).
+
+**7. Which lane should build it — and what does it displace or duplicate?**
+**websites** implements it (inside the phase-1 ORDER); **nobody** builds
+anything from THIS file — it is a constraint rider, and explicitly the third
+one on the same P002 routing. Dedup findings, named (repo-wide
+`rg -il 'story|bubble|narrative|feed'` over `ideas/`, kit machinery excluded,
+this session):
+- SAME PAGE, OTHER HALF: [`fleet-program-pulse-feed-2026-07-10.md`](fleet-program-pulse-feed-2026-07-10.md)
+  — parked(build-direct) riding the SAME phase-1 routing (PR #222); it is the
+  page's generated-numbers half, this is the authored-prose half. Not a
+  duplicate — disjoint payloads, same carrier — but the manager should fold BOTH
+  riders into ONE phase-1 ORDER line-pair rather than two separate instructions.
+- SAME SHAPE, OTHER PHASE: [`contract-driven-explorer-facets-2026-07-10.md`](contract-driven-explorer-facets-2026-07-10.md)
+  — parked(build-direct), the phase-2 twin of this ride-the-routing move
+  (PR #225); its "columns+search from v1 today" split has no analog here (this
+  constraint is whole from day one).
+- PARENT: [`superbot-site-stats-data-story-2026-07-10.md`](superbot-site-stats-data-story-2026-07-10.md)
+  (PROPOSAL 002) — §1's "bubble texts" is the owner's own phrase this capture
+  extracts; its probe Q4 already flags scrollytelling as "an unbounded design
+  sink", of which content/code coupling is half.
+- DOCTRINE-RELATED ONLY: [`public-leaderboards-committed-feed-2026-07-10.md`](public-leaderboards-committed-feed-2026-07-10.md)
+  (committed-feed doctrine on game data) and the websites lane backlog
+  ([`lane-backlog-2026-07-10.md`](lane-backlog-2026-07-10.md) — greped: zero
+  story/bubble/narrative bullets, no lane-side overlap).
+- No other narrative-content-file or bubble-text mechanism exists anywhere in
+  `ideas/` (grep above); the review service's hardcoded narrative is the
+  ANTI-instance, not a duplicate.
+
+**8. What is the smallest shippable slice?**
+No independent slice ships from this file. The deliverable is ONE instruction
+folded into the manager's phase-1 story-page ORDER when it routes (paired with
+the pulse-feed rider's exporter line): "the story page's narrative — chapter
+texts and bubble asides — lives in ONE committed content file (schema:
+chapters + asides with `speaker: owner|agent` and a stable chapter-ID anchor),
+rendered with honest-empty states; page code never embeds prose; `speaker:
+owner` entries are relayed owner words only; a new aside must land as a
+content-only commit, proven by a fixture test." If phase 1 somehow builds
+before the ORDER carries this, the constraint dies and the extraction refactor
+becomes lane-priced follow-up work — that is the reversibility the deviation
+flag named.
+
+**Recommendation: park** — build-direct, as a first-commit content/code
+separation constraint folded into the P002 phase-1 story-page ORDER: no
+simulator question exists (rendering a committed content file is deterministic
+and trivially demonstrable — judgment/routing only, the PR #222/#225 precedent),
+the first-commit window is verified still open (no story page at websites
+`8f97654`, phase 1 unrouted, inbox re-greped live), and the best implementation
+found is the Q8 fold-in — one committed narrative file with speaker-attributed,
+chapter-anchored asides, honest-empty states, relay-only owner voice — paired
+with the pulse-feed rider in the same ORDER. **Deviation upheld**: all three
+TOP-5 #5 evidence pins re-verified sound this probe — (a) two same-class
+datapoints of the window closing at lane pace (PR #222 + `review/story.py`'s
+hardcoded narrative), (b) VERDICT 003 clearance with routing still absent at
+live `8f97654`, (c) the page's first commit not yet made — and the probe's
+output had to exist BEFORE the routing lands, which can be any wake; yes, this
+is the third rider of the same routing (Q7, stated), and with it the P002
+fold-in family is CLOSED — no fourth rider candidate exists in the section.
