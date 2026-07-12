@@ -193,3 +193,48 @@ in the same slice that appends the PROPOSAL (question + done-when are
 paste-ready in the verdict paragraph above; grounding pins: superbot-next
 `af985c17def5ff2478103cb363ebb150cb583a97`, superbot
 `1ecc21138fe0a1eb672d03b66bd319164c29d55f`). Forward-only holds.)*
+
+## Sim verdict (2026-07-12)
+
+sim-lab **VERDICT 013 · finalized 2026-07-12T05:00:00Z · reject**
+(= this repo's PROPOSAL 011 — sim-lab numbers proposal-sourced intakes by
+proposal per its PR #46 rule; its own V009/V011 were owner-direct interleaves,
+so PROPOSAL 011 → VERDICT 013). Source pin:
+[sim-lab `control/outbox.md` @ `e857b24`](https://github.com/menno420/sim-lab/blob/e857b24041df5e540fe171d6acf8647ae11cce52/control/outbox.md)
+(verdict PR #47 squash `4984069`; control fan-out PR #48 squash `e857b24`;
+report `sims/verdict-013-oracle-copy-drift-sweep/REPORT.md`). Run: `python3
+sims/verdict-013-oracle-copy-drift-sweep/copy_drift_sweep.py` — 1490
+self-checks 0 failed, byte-identical re-runs warm and cold, single committed
+seed (20260712, planted layer only). The ruling: REJECT the red-gating
+checker — the one-line fix wins; the probe's own Q4(e) decision rule ("if the
+sweep finds ONLY tournament.py:153 on the real tree, a one-line fix beats a
+tool") fired on the measured numbers. Measured: 60 cells (6 enumeration
+grammars × 5 normalization tiers × 2 gating rules) over the real pinned
+corpora (superbot-next @ `af985c17` sb/ literals vs superbot @ `1ecc2113`
+disbot/ copy); the FP-free frontier `g5-msg|t3-case|r-noexact` = **1 TC /
+0 FP**, and the 1 TC IS the motivating instance —
+`sb/domain/rps/tournament.py:153` "You're already registered." (period) vs
+oracle "!", re-found mechanically with both oracle sites self-checked
+(`disbot/utils/tournaments.py:44` + `disbot/views/rps/registration.py:49`);
+whole-tree true drift = 3 pairs, the other two being double-space hint drifts
+(`sb/manifest/economy.py:64`, `sb/manifest/xp.py:94`) reachable only through
+`g6-all` at 38-68 audited FPs — no cell reaches TC≥2 at zero FP. Probe
+grammar (a) verbatim-comment-adjacency MISSES the motivating instance (marker
+7 lines away); grammar (c) send/reply/embed args flags NOTHING at exact tiers
+(returned refusal copy); r-noexact gating removes 60-75% of flags with zero
+TC loss; planted recall at the winning cell 10/11. Disposition: the CHECKER
+build is dead; the one-line copy fix (+ the two optional manifest whitespace
+restores) is routed to the superbot-next lane via the manager sweep flag on
+this repo's heartbeat, evidence VERDICT 013; the winning cell's spec is
+recorded machine-readably in the REPORT as the build spec iff the class
+recurs at checker-funding size. Gate: PASS, evidence strength moderate-strong
+(COMPARABLE — real pinned corpora, the engine IS the candidate checker;
+abstractions bias toward more catches, the honest direction for reject ·
+UNCORRUPTED — 1490 self-checks, full 60-cell sweep reported · ROBUST —
+frontier identical across 4 grammar×tier cells, every widening strictly adds
+FPs · REPRODUCIBLE — one command, byte-identical warm + cold · LIMITS —
+whole-tree TC=3 is sampled on g6, single-auditor labels, site-level drift
+unmeasured). @codex on sim-lab PR #47: question posted, reply pending (OA-002
+usage-limit wall — bot returned "reached usage limits"). State stays
+`sim-ready` — no post-verdict state in the grammar (the V002/V007/V012
+precedent); the reject disposes the checker, not the idea record.
