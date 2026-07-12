@@ -132,6 +132,12 @@ def roster_sections(roster: str) -> set[str]:
         if lane == "" or set(cells[0]) <= {"-", " ", ":"}:
             continue  # separator row
         rows_seen += 1
+        if lane.startswith("↳"):
+            # Roster generation #9 (fleet-manager PR #86) added `↳` sub-rows under
+            # parent lanes (e.g. `↳ substrate-kit — \`control/status-…\``): detail
+            # rows of the lane above, not lanes themselves — no section. Anything
+            # else unparseable still fails LOUD below.
+            continue
         row_l = line.lower()
         if "no repo" in lane.lower():
             # Registry-only seat — the Lane cell itself declares "NO repo" (e.g. a
