@@ -304,3 +304,66 @@ every lane PR number in this section (#120, #122, #125, #127, #130, #132, #141,
 #142, #145, #146, #150, #154) is inferred from the squash-commit subjects
 `(#NN)` in the shallow clone's `git log c81ce76..8f97654` (51 commits) — no
 front-matter in this delta carries a `shipped_pr:`.
+
+## Groom (2026-07-12 fourth-re-pin reconciliation)
+
+> **Grounding:** https://raw.githubusercontent.com/menno420/websites/8f9765483a7df57ce426e7d11d200f10b5495ed7/docs/ideas/backlog.md@8f97654 · re-fetched 2026-07-12 by this groom pass; fetched bytes hash to blob `e14bb15408b1f45de14eae72efe990024f0e548c` by `git hash-object` — the fourth re-pin's blob claim verified byte-level, zero clone. Prior-pin fetch (`…/c81ce76/docs/ideas/backlog.md`) hashes to `0897a6f6a63a6e452689d94edd5919131e732ae1`; `git diff --no-index --numstat` between the two fetches = **+194/-30**, matching the sizing above exactly.
+
+**Tally reconciliation — CONFIRMED, 14 / 31 / 6, no correction.** Independent
+per-bullet count at blob `e14bb15` (51 bullets total, every bullet classified):
+**captured 14** (14 `captured` tokens, all under `## Captured / planned`);
+**built 31** = 3 `built` tokens + 28 `— shipped` outcome entries; **retired 6**
+= 3 retired-in-place `retired` tokens under `## Captured / planned` + 3
+`— retired <date>` entries under `## Retired`. 14+31+6 = 51 ✓. One precision
+fix to the fourth re-pin's stated granularity, number unchanged: it reads
+"per-bullet state markers — `captured`/`built`/`retired` tokens plus
+`— shipped` entries", but the three `## Retired`-section entries carry
+`— retired <date>` outcome prose, NOT `retired` tokens — the literal stated
+rule reproduces retired=3, not 6. The reproducible count rule is: **state
+token OR em-dash outcome prose (`— shipped` / `— retired`), section headings
+never** — recorded here so the next re-pin counts the same way.
+
+**Pin-integrity notes (@ `8f97654`, blob `e14bb15` — both anomalies verified
+against the prior blob `0897a6f`, observed not fixed; read-only lane, and the
+lane chain is PARKED so restoration has no ETA):**
+
+1. **`## Built` heading GONE.** Heading set at `e14bb15`: `## Captured /
+   planned` (line 10) and `## Retired` (line 441) only. At `0897a6f` it was
+   `## Captured / planned` (10) / `## Built` (90) / `## Retired` (277). All 31
+   built entries now sit under `## Captured / planned`; any heading-grouped
+   sizing over-counts the captured section until the lane restores the heading
+   (the fourth re-pin's format-anomaly paragraph above, now pinned with line
+   numbers on both blobs).
+2. **One bullet REPLACED in place — the backlog's first bullet deletion.**
+   "Route-level clock freeze for TestClient tests" · `captured` (line 80 @
+   `0897a6f`) is absent at `e14bb15`; in its slot sits "Port the clock-freeze
+   pattern to botsite/dashboard if they grow age-measuring code" · `captured`
+   (line 188 @ `e14bb15`). The original shipped as `app/clock.py` (lane
+   PR #130) with NO `— shipped` Built entry — the ship is invisible at this
+   pin except through the replacement bullet's own source citation. Checker
+   gap already seeded upstream of this groom: the harvest card's 💡
+   (bullet-title-set diff for `--bullet-drift`,
+   `.sessions/2026-07-12-websites-fourth-reharvest.md`).
+
+**Indexing-rule check (decide-and-flag): the link-index-only rule HOLDS.** Of
+the eleven new captured bullets at this pin, ten are lane work items or asks
+whose routing half already exists outside this head: the `guilds[]` export ask
+is flagged on the lane heartbeat @ `8f97654` AND deduped in the harvest card;
+the provenance-token list says "flagged in the heartbeat notes" in its own
+bullet text; the pickup-latency ask says "flag to the manager in the
+heartbeat"; the merge-hold pair is already this section's standalone sibling
+entry, probed and routed 2026-07-12 (PR #243, parked(routed — kit/manager
+layer)); the rest are lane-internal chores/tripwires. **ONE candidate named,
+not captured: the verdict-inheritance guard for carried heartbeat watches**
+(`watch: <claim> · verified <ISO>`, line ~154 @ `e14bb15`) — the only new
+bullet that is idea-shaped AND fleet-relevant beyond this lane (heartbeat
+grammar is kit/manager territory and the `/fleet` badge half spans lanes) AND
+carries no routing flag in its own text; with the lane PARKED, self-serve
+never comes. Named for a future probe/mint slot — no idea file created this
+pass, per the section's no-mass-capture convention.
+
+**Next step: keep-as-index(re-pin cadence)** — tally exact at the pin,
+anomalies recorded above, indexing rule holds with one named candidate; the
+lane chain is PARKED at `8f97654`, so the next re-pin fires on the first
+harvest sweep that finds HEAD moved. State stays `captured` — no disposition
+change.
