@@ -1,6 +1,6 @@
 # Fleet program-pulse feed — generalize the story page's git-history graphs into a committed fleet-wide metrics feed
 
-> **State:** captured
+> **State:** parked(build-direct — the exporter shipped single-repo as websites `review/gen_snapshot.py` @ `8f97654`; the fleet-general lift + the missing rollup ride the PROPOSAL 002 phase-1 story-page routing — see probe report)
 > **Class:** product · **Target:** `menno420/websites`
 > **Grounding:** https://raw.githubusercontent.com/menno420/idea-engine/698fd93869f8a05200f26fde45bbd71596323e6a/ideas/websites/superbot-site-stats-data-story-2026-07-10.md@698fd93 · fetched 2026-07-10T22:08Z
 > **Grounding:** https://raw.githubusercontent.com/menno420/websites/0cd08d2da1580fffff1595a6f4119b6d98a8b4b3/dashboard/data_source.py@0cd08d2 · fetched 2026-07-10T22:08Z
@@ -36,3 +36,155 @@ being written (that fold-in replaces a separate "living epilogue" capture).
 (probe recommendation) — the exporter's shape gets decided at the story page's
 FIRST commit, and a one-off superbot-only script is the cheap-today choice that
 costs a rewrite the moment the fleet story (or any second consumer) is wanted.
+
+## Probe report (v0, 2026-07-12)
+
+> **Grounding:** https://github.com/menno420/websites@8f9765483a7df57ce426e7d11d200f10b5495ed7 · fetched 2026-07-11T23:57Z
+> *(pin annotation: blobless clone at live lane HEAD — merge #156, committed 2026-07-11T22:33Z; `git ls-remote refs/heads/main` same fetch confirms `8f97654`)*
+> **Grounding:** https://raw.githubusercontent.com/menno420/sim-lab/062211864aba5e2b4edb60ec14e139524c1aa5c7/.sessions/2026-07-11-verdict-011-owner-002.md@0622118 · fetched 2026-07-11T23:56Z
+> *(pin annotation: fetched raw at `main`; `git ls-remote` in the same fetch resolved main = `0622118`, so the pinned URL is what was read)*
+> **Sequence:** after the manager routes PROPOSAL 002 phases 1–2 (the story page) to websites — the fleet-general lift is one line inside that routing, not a separate work item
+
+*Timeliness verified live FIRST (the PR #25 lesson). The decisive live finding, at
+websites HEAD `8f97654`: the exporter this capture wants shaped "at the story page's
+FIRST commit" ALREADY SHIPPED, single-repo, on a different page — the review service.
+`review/gen_snapshot.py` is a stdlib build-time git-history walk emitting exactly the
+capture's metric list — merged-PR refs/day (squash `(#N)` + merge-subject regexes),
+commits/day, `.sessions/` cards/day, `def test_` count trend — as a committed
+`review/data/snapshot.json` (`{generated_at, git_head, days[], totals}`; totals at
+HEAD: 126 PRs / 149 commits / 72 cards / 250 test functions / 4 services, generated
+2026-07-11T13:38:18Z), rendered honest-degrade ("never invented data") by
+`review/story.py`. Websites-only: no `pulse.json`, no fleet rollup, no second-repo
+walk anywhere in the tree (case-insensitive `rg` over the clone). The story page
+itself (PROPOSAL 002 phase 1) is UNBUILT and UNROUTED — websites `control/inbox.md`
+@ `8f97654` carries ORDERs 001–011, none story-shaped, despite VERDICT 003's explicit
+"phases 1–2 … do NOT wait". And the one shipped renderer of this data shape has no
+URL: sim-lab VERDICT 011 (owner-002 four-websites audit, 243 self-checks) measured
+all four sites — the `review` service is NOT deployed ("Built for Anthropic reviewers"
+but reviewers have no URL — owner-action), control-plane carries 25 dead in-content
+links, and `/fleet` is confirmed live-heartbeats-only (no trend), which re-verifies
+this capture's central "no historical program-wide metrics anywhere" claim.*
+
+**1. What is this really?**
+A sequencing capture whose window HALF-CLOSED between capture and probe. It argued
+the exporter's shape gets decided at the story page's first commit; the lane decided
+a shape earlier, on a page nobody predicted — the review service's story-shaped
+snapshot (see the timeliness block). What remains real is two different-sized halves:
+(a) a lane-sized REFACTOR — parameterize the proven single-repo walk over the fleet
+repo list — and (b) the one genuinely missing artifact, the FLEET ROLLUP (lanes born
+over time, program-wide merge rate): still produced by nothing anywhere (VERDICT 011
+re-confirms `/fleet` renders live heartbeats only). Who it is for: the story page's
+fleet chapter (the owner's public EAP showcase, parent probe Q5), `/fleet` trend
+sparklines (lane backlog #1/#4 name this file as that consumer), and the review
+service's program-context chapter.
+
+**2. What is the possibility space?**
+- **Scope:** websites-only (SHIPPED, `gen_snapshot.py`) → per-repo `pulse.json`
+  across the ~18-seat fleet → rollup-only (skip per-repo files, emit one fleet
+  feed). The capture wants all three tiers; the rollup is the only tier with zero
+  existing artifact.
+- **Producer home:** websites build-time job (the shipped review pattern — the
+  container cannot read git at runtime under Railway's Root Directory model, per
+  `gen_snapshot.py`'s own docstring, so build/CI-time generation is already the
+  lane's settled answer) · fleet-manager (owns the canonical lane registry — the
+  `LANES` literal in `scripts/gen_roster.py`, 18 seats, the exact source websites'
+  `/fleet` now parses per its decisions ledger @ `8f97654` — and a regeneration
+  cadence) · per-lane self-emit (N lanes × one script; rejected by the capture's own
+  one-script premise, correctly).
+- **Transport:** blobless clone per repo (proven cheap — this probe read the whole
+  websites tree that way) for generation; committed-feed raw fetch (the live
+  `dashboard/data_source.py` seam) for render.
+
+**3. What is the most advanced capability reachable by the simplest implementation?**
+Parameterizing `gen_snapshot.py`'s walk (repo list in → blobless clone → same
+regex/glob metric pass → schema-stamped `pulse.json` out) buys the whole per-repo
+feed for a loop plus a schema stamp — the regex/glob set is the hard-won part and it
+exists and is rendering real numbers today. The fleet rollup is then a fold over the
+per-repo files (lanes-born from first-commit dates, summed merge rate). Measured
+caveat, not guessed: the PR-ref regexes and `TEST_GLOBS` in `gen_snapshot.py` are
+websites-shaped (hardcoded `tests/*.py` service dirs), so portability means per-repo
+config plus HONEST per-metric absence — a repo whose layout defeats a metric gets an
+absent field, never an invented zero-trend.
+
+**4. What breaks it?**
+- **Consumer absence (decisive for sequencing):** the story page is unrouted, the
+  review service undeployed (VERDICT 011 owner-action) — a fleet feed with zero
+  deployed renderers is inventory. The cheapest evidence that would have killed or
+  confirmed this capture was exactly the live-tree read this probe ran (one blobless
+  clone + three greps): it half-killed it (exporter exists) and half-confirmed it
+  (rollup missing, `/fleet` trendless).
+- **Regeneration seat + cadence:** a fleet walk needs a build/CI seat that clones
+  ~18 repos each refresh; the shipped snapshot was already ~10h stale at read
+  (generated 13:38Z, read 23:57Z). Cadence and staleness policy are undesigned —
+  though the lane's honest-degrade banner pattern already handles gaps at render.
+- **Metric drift across repos:** merge-subject formats, test layouts and `.sessions/`
+  presence differ per repo; without per-metric absence the rollup manufactures false
+  trends (the BUG-0022 silent-desync class, dressed as history).
+- **Premise decay:** every further review-service iteration deepens the single-repo
+  shape; the refactor cost grows the longer the fleet lift waits.
+
+**5. What does it unlock?**
+The program's historical story as authentic data — the ~15-repo, hundreds-of-PRs EAP
+experiment currently has NO artifact producing program-wide history (re-verified, see
+timeliness block). Off one feed: the story page's fleet graphs, `/fleet` sparklines
+essentially free (backlog #1/#4's named ask), the review service's program chapter,
+and evidence-grade material for the EAP wrap-up. The capture's "living epilogue"
+fold-in (close the story on the lane's live `/activity` feed) stays valid and costs
+nothing here — `/activity` is live at the lane today.
+
+**6. What does it depend on?**
+- The manager routing PROPOSAL 002 phases 1–2 (VERDICT 003 cleared them explicitly;
+  verified still absent from websites `control/inbox.md` @ `8f97654`) — the natural
+  carrier for the "build it fleet-general" instruction.
+- A clone-capable build seat + a regeneration cadence (Q4).
+- The fleet repo list: fleet-manager `scripts/gen_roster.py`'s `LANES` registry —
+  the same machine-readable source websites' `/fleet` already parses (its decisions
+  ledger @ `8f97654` records the repoint, 18 seats).
+- NOT a dependency: auth, databases, the superbot read-only API — pure git-history,
+  the cheap class. Zero owner clicks for the feed itself; the review DEPLOY (its
+  second consumer) is the already-flagged VERDICT 011 owner-action.
+- Cost, priced honestly: build = one lane-sized PR (refactor + rollup + schema);
+  maintenance = one recurring regeneration job + per-repo config as lanes are born
+  (roster-driven, so mostly automatic); this probe itself was docs-only.
+
+**7. Which lane should build it — and what does it displace or duplicate?**
+**websites** builds it: it owns the proven walk, both consumer surfaces, and the
+committed-feed doctrine; **fleet-manager** is the alternative producer seat only if
+the manager prefers the roster's owner to own the rollup — a routing call, not a
+probe call. Dedup findings, named:
+- PARTIAL DUPLICATE (the single-repo instance, already built): websites
+  `review/gen_snapshot.py` + `review/data/snapshot.json` + `review/story.py` @
+  `8f97654` — same metrics, same committed-feed mechanism, one repo.
+- PARENT: [`superbot-site-stats-data-story-2026-07-10.md`](superbot-site-stats-data-story-2026-07-10.md)
+  (PROPOSAL 002) — this capture is its probe-Q2 unclaimed generalization; its Q8
+  story-page slice is the flagship consumer.
+- CROSS-LINKED CONSUMERS: [`lane-backlog-2026-07-10.md`](lane-backlog-2026-07-10.md)
+  § Cross-links names THIS file for backlog #1/#4 (`/fleet` sparklines) and #3
+  (`/activity` epilogue fold-in); no separate living-epilogue file exists — this
+  capture absorbed it at birth.
+- ADJACENT, NOT DUPLICATE: [`story-bubble-texts-content-feed-2026-07-10.md`](story-bubble-texts-content-feed-2026-07-10.md)
+  (same story page, the narrative half vs this file's generated-numbers half) and
+  [`public-leaderboards-committed-feed-2026-07-10.md`](public-leaderboards-committed-feed-2026-07-10.md)
+  (same committed-feed doctrine, different data class — game runtime DB vs git
+  history; its premise-reversal lesson is the caution this probe applied).
+- DOCTRINE-RELATED ONLY: [`../product-forge/read-projection-fanin-fourth-consumer-2026-07-11.md`](../product-forge/read-projection-fanin-fourth-consumer-2026-07-11.md)
+  (rung-1 committed-feed transport fan-in; different producer, different data).
+
+**8. What is the smallest shippable slice?**
+One websites slice: lift `gen_snapshot.py`'s metric walk into a repo-parameterized
+`gen_pulse.py` (repo list from the fleet-manager `LANES` registry the lane already
+parses), emit schema-stamped per-repo `pulse.json` + one fleet rollup file with
+per-metric honest absence, and regenerate `review/data/snapshot.json` THROUGH the
+same code path so the one shipped consumer proves behavior-identity in the same PR.
+What must NOT ship: a fleet feed with no renderer while the story page stays
+unrouted — the slice belongs INSIDE the story-page routing, which is exactly the
+sequencing point the capture was filed to make.
+
+**Recommendation: park** — build-direct, riding the story-page routing: no simulator
+question exists (deterministic git-walk data, nothing to sweep — judgment/routing
+only), and the capture's first-commit window already half-closed — the exporter
+shipped single-repo as websites `review/gen_snapshot.py` @ `8f97654`, so the best
+implementation found is to parameterize that proven walk (+ the genuinely missing
+fleet rollup) as one lane-sized slice inside the manager's PROPOSAL 002 phase-1
+routing, which VERDICT 003 cleared and which is verified still unrouted at websites
+`control/inbox.md` @ `8f97654`.
