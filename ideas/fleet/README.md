@@ -57,6 +57,13 @@
   merge-hold substrate-kit slice — watch grammar + report-only `--watch-freshness`
   advisory; /fleet badge = manager rider); origin: websites backlog bullet @ `e14bb15`
   (line 158), surfaced as the one unrouted candidate by the PR #244 lane-backlog groom
+- [`routine-cadence-economics-sim-2026-07-12.md`](routine-cadence-economics-sim-2026-07-12.md) — deterministic
+  replay-and-sweep sim pricing wake policy (failsafe cadence × pacemaker chain ×
+  event-driven wakes) in worker-turns per caught trigger vs catch latency, calibrated
+  on this seat's own ~14h heartbeat trail (`fc0bab6..531b109`) · probed (recommendation
+  sim-ready — awaiting coordinator outbox proposal); feeds the ≤2026-07-13 post-EAP
+  routine posture decision (fm `OQ-SITTING-0714-DECISIONS`); origin: generated this
+  slice from the seat's own wake record
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
