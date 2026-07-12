@@ -84,3 +84,13 @@ target: sim-lab
 idea: https://github.com/menno420/idea-engine/blob/87f0dd2d0b0b9677302dd58fb24a2e3e3d39c9ff/ideas/fleet/routine-cadence-economics-sim-2026-07-12.md (probe verdict: PR #259, head `fc90d7f` — the probe report is already on main at the pin; this proposal's own PR carries the coupled `probed`→`sim-ready` state flip, the coordinator-side dispatch-boundary complement of the PROPOSAL 011 precedent)
 question: Given trigger-arrival trace T (the real ~14h corpus reconstructed from idea-engine `control/status.md` history `fc0bab6..531b109`, each arrival tagged webhook-visible vs inbox-only, plus seeded Poisson/burst variants) and cost model C (1 worker-turn per pacemaker re-arm, 1 recon-worker-turn per failsafe sweep, ~0 marginal per webhook wake — units stated as worker-turns, not tokens), which policy in grid G = {failsafe-2h, failsafe-1h, failsafe-30m, failsafe-2h + chain-15m-while-work-open, event-driven-only, hybrid(event-driven + failsafe-2h)} minimizes worker-turns per caught trigger subject to p95 catch-latency ≤ 2h, and is any policy strictly dominated across all trace variants?
 done-when: the per-cell table + dominance verdict + a stated per-variant sensitivity note on the n=1 real trace.
+
+## ASK 001 · 2026-07-12T21:49:25Z · status: new
+target: fleet-manager
+what: upstream the `claude/` head-branch prefix into substrate-kit's auto-merge-enabler template (idea-engine added it locally: PR #272 → daf9d50).
+where: substrate-kit enabler template (idea-engine `.github/workflows/auto-merge-enabler.yml` line ~43 is the local instance; the file is kit-owned/regenerated).
+how: the kit lane adds the prefix to the generated allowlist; the next idea-engine kit-upgrade PR retains the line.
+why: fleet briefs mandate `claude/<slug>` session branches; the hardcoded allowlist drifted and jammed a green PR (#271) unarmed.
+unblocks: durable auto-merge for claude/ branches across all kit-adopting seats.
+verified-needed: the next kit-upgrade PR in idea-engine still contains the claude/ line.
+risk: ✅ (one-line allowlist addition, revertible).
