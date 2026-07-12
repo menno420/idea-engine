@@ -229,3 +229,78 @@ the pin; every lane PR number in this section (#104, #105, #107, #109, #113,
 #114, and upstream kit #176/#187) is inferred from the squash-commit subjects
 `(#NN)` in the blobless clone's `git log d862364..02adf7c` or from the backlog
 prose itself — no front-matter in this delta carries a `shipped_pr:`.
+
+## Re-pin (2026-07-12 fourth content re-harvest)
+
+> **Grounding:** https://raw.githubusercontent.com/menno420/websites/8f9765483a7df57ce426e7d11d200f10b5495ed7/docs/ideas/backlog.md@8f97654 · fetched 2026-07-12T01:47Z
+> *(pin annotation: HEAD verified unmoved across the whole sweep — `8f97654` at
+> `git ls-remote` AND at the shallow-clone read, the same sha all three 2026-07-12
+> P002-family probes (PRs #222/#225/#233) verified; the lane's continuous-mode
+> chain is PARKED per its heartbeat, so no mid-harvest tail-move this time)*
+
+The backlog's CONTENT moved **+194/-30 lines** (blob `0897a6f` → `e14bb15`) between
+the third re-pin `c81ce76` and this one — sized by `check_harvest --bullet-drift`
+and caught as a `CHANGED` finding by the `.harvest-pin.json` blob compare (second
+live catch for the PR #115 leg). This delta also carries the section's **first NEW
+standalone doc since the first harvest**:
+[`merge-hold-at-head-2026-07-11.md`](merge-hold-at-head-2026-07-11.md) (+40/-0,
+indexed as its own sibling entry this pass). At this re-pin the list holds
+**14 captured, 31 built, 6 retired** (was 6/24/5 at `c81ce76`; counts here are
+per-bullet state markers — `captured`/`built`/`retired` tokens plus `— shipped`
+entries — same granularity as the prior sections). The delta is the lane's
+close-out wave: continuous-mode slices 23–35 plus the archive-prep capture.
+Flips and births vs the third re-pin's roster:
+
+- **Two captured→Built:** the quality.yml every-card session-gate fold (slice 23,
+  lane PR #120) and the nav manifest single source (slice 24, lane PR #122 —
+  `app/nav.py` + membership test).
+- **One captured bullet REPLACED in place — a first for this backlog** ("nothing
+  deleted upstream" no longer holds at bullet granularity): the route-level clock
+  freeze shipped as `app/clock.py` (lane PR #130) but got NO Built entry — the
+  bullet was rewritten into its residue capture, "Port the clock-freeze pattern
+  to botsite/dashboard if they grow age-measuring code" (premise-checked
+  tripwire: neither service measures wall-clock ages today, verified by the
+  lane's own grep).
+- **Five born straight to Built:** fast-lane control gates in quality.yml
+  (slice 25, PR #125); control-gate suite tests (slice 26, PR #127);
+  snapshot-aging banner on the review site (review-site expansion, PRs
+  #132/#141); the HANDOFF read-first line applied to the live CLAUDE.md via
+  `upgrade --apply-docs` (rode the v1.12.0 kit upgrade, PR #146); dogfood the
+  pickup convention (`pickup: 011 19m` seeded as writer #1, PR #150,
+  live-verified on deployed /orders).
+- **One born already-Retired:** the hand-kept-list audit sweep — executed as
+  rung-5 upkeep (slice 32, PR #142), CLASS CLEAR verdict recorded in the bullet.
+- **Eleven NEW captured bullets born** (the close-out wave sheds seeds fast):
+  sanitized `guilds[]` list in superbot's `dashboard.json` (cross-lane export
+  ask, from the #145 dry-run bot-management build; ALSO already flagged to the
+  manager on the lane heartbeat @ `8f97654`); bake-time questions sync from
+  GitHub issues (review-bake fourth generator); ⚑ owner-gated live answer-bot on
+  the review site (model-key spend — deliberately not built); hand-merge the
+  v1.12.0 boot-set-trim deltas into CONSTITUTION.md/AGENT_ORIENTATION.md (diffs
+  retrievable via `git show 31cfd9f:.substrate/upgrade-report.md` — the v1.12.1
+  upgrade overwrote the report); pin the current-state kit line to
+  `substrate.config.json` with a test; chain-entry refresh as a close-out ender;
+  verdict-inheritance guard for carried heartbeat watches (`watch: <claim> ·
+  verified <ISO>`); provenance-token list to the kit lane (gate half — ONE token
+  convention, not two half-matching spoof detectors); the clock-freeze port
+  tripwire (the replacement bullet above); persist pickup latencies before
+  claims clear (protocol-layer ask to the manager); and merge holds announced in
+  a file at HEAD (the standalone-doc pair — see the sibling entry).
+- **Survivors: the `lanes.json` manager ask, backlog low-water heartbeat signal,
+  and #10 (meta.md state-line convention)** — #10 is now a
+  three-consecutive-re-pin survivor.
+
+**Format anomaly, observed not fixed (read-only lane):** the `## Built` heading
+is GONE at this pin — all 31 built entries sit under `## Captured / planned`
+(the heading was lost in the delta; the `## Retired` heading survives). State
+tokens, not section headings, are what this index mirrors — same rule the third
+re-pin set for retired-in-place — but a future `--bullet-drift` sizing that
+groups by heading will over-count the captured section until the lane restores
+it.
+
+**Honesty note (citation split, same pattern as above):** states, slice numbers,
+artifact names and verdicts are quoted from the backlog's own text at the pin;
+every lane PR number in this section (#120, #122, #125, #127, #130, #132, #141,
+#142, #145, #146, #150, #154) is inferred from the squash-commit subjects
+`(#NN)` in the shallow clone's `git log c81ce76..8f97654` (51 commits) — no
+front-matter in this delta carries a `shipped_pr:`.

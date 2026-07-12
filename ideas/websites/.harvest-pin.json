@@ -3,12 +3,13 @@
   "repo": "menno420/websites",
   "canonical_dir": "docs/ideas",
   "branch": "main",
-  "pin": "c81ce767ac336c7915a73de18ca2ddbb868efcc1",
-  "recorded": "2026-07-11T09:58:07Z",
+  "pin": "8f9765483a7df57ce426e7d11d200f10b5495ed7",
+  "recorded": "2026-07-12T01:50:00Z",
   "docs": {
     "activity-atom-feed-2026-07-09.md": "bbc4625e0810ba0667dcb711bf66d1da72e35d17",
     "activity-per-repo-filter-2026-07-09.md": "42292d8cac25d5817fff4a597dcdeeb0d0b1687c",
-    "backlog.md": "0897a6f6a63a6e452689d94edd5919131e732ae1",
+    "backlog.md": "e14bb15408b1f45de14eae72efe990024f0e548c",
+    "merge-hold-at-head-2026-07-11.md": "bca35059a5fa92723aa93ecb2fd7f3cd402ba20d",
     "open-pr-awareness-at-wake-2026-07-10.md": "11627fd38e2d8b304990648323ee23b74bce45cf",
     "scheduled-healthcheck-workflow-2026-07-10.md": "9d87feb9f151bafa40fbe56eb0ce82398cd7dd1f"
   }
