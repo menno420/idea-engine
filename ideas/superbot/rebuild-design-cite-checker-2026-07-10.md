@@ -33,3 +33,54 @@ Validate `path.py:NNN` source citations in analysis/design docs: one fabricated 
 **8. What is the smallest shippable slice?** `tools/check_doc_cites.py` implementing the sim-selected grammar over the sim-selected scope, plus the one-word ci.yml loop addition — the same landing pattern as the class-11/12/13 checkers.
 
 **Recommendation: sim-ready** — unlike TOP-5 item 3 (one named rule, nothing to sweep), this head has a real parameter space (grammar × scope × gating) and two live corpora; one sim pass measuring per-variant catch and false-positive rates settles the spec so the lane build ships red-gating on day one instead of joining the warn-first graveyard. PROPOSAL 010.
+
+## Sim verdict (2026-07-12)
+
+sim-lab **VERDICT 012 · finalized 2026-07-12T01:30:00Z · approve**
+(= this repo's PROPOSAL 010 — sim-lab numbers by INTAKE order; sim-lab's own
+V009 and V011 were owner-direct intakes, so PROPOSAL 010 → VERDICT 012).
+Source pin — honest substitution: the verdict is parked, NOT yet landed in the
+sim-lab outbox — [sim-lab `control/outbox.md` @ `b083581`](https://github.com/menno420/sim-lab/blob/b0835812faf7f5a6e4b190a9cc93a11280f099a4/control/outbox.md)
+does not yet carry VERDICT 012; the evidence lives on sim-lab
+[PR #44](https://github.com/menno420/sim-lab/pull/44) (final head `b083581`,
+CI substrate-gate green, parked READY), and the paste-ready VERDICT 012 outbox
+entry sits at the end of [`sims/verdict-012-doc-cite-checker-spec/REPORT.md` @ `b083581`](https://github.com/menno420/sim-lab/blob/b083581/sims/verdict-012-doc-cite-checker-spec/REPORT.md)
+— that REPORT pin stands in for the usual outbox pin until the outbox landing,
+pending PR #44 merge (coordinator step). Run: `python3
+sims/verdict-012-doc-cite-checker-spec/cite_checker_sweep.py` — deterministic,
+no RNG, 453 self-checks 0 failed, byte-identical re-runs; corpora fetch-on-run
+pinned to superbot-next@`2c62a09` and superbot@`b2b7fe0`. The operative ruling
+is the `recommendation:` field, quoted: grammar =
+`(?<![\w/.-])((?:[\w.-]+/)*[\w.-]+\.(?:py|ts|tsx|yml|yaml)):(\d+)(?:-(\d+))?`
+restricted to slash-containing paths, every segment contains a letter, no
+`...`, fenced blocks skipped; scope = all tracked `*.md` minus a FOREIGN_ROOTS
+config (superbot-next: disbot/, views/, cogs/, utils/, scripts/, ext/),
+resolution exact-or-unique-suffix (ambiguous passes); gating = rule (a)
+missing-file RED with inline waiver token, rule (b) WARN, rule (c) not
+shipped; superbot port warn-first only. Build = single stdlib file + one
+ci.yml loop word. Headline numbers at the chosen spec: superbot-next (124 md,
+22 cite tokens) 0 rule-a and 0 rule-b flags — 0 FP across both scopes and
+fence settings; superbot (1778 md, 5144 cite tokens) best cell 14 TC / 14 FP
+rule-a (hence warn-first there), rule-b 24 TC / 21 FP (systematic ≤2-line
+EOF-overshoot FP cluster), rule-c sampled 1 TC / 14 FP (~7% precision,
+dropped); synthetic planted-corpus recall 1.0 in all 18 cells, frontier cell
+P=1.0 R=1.0. Fabrication check: `disbot/core/contracts.py` verified ABSENT
+from superbot @ `b2b7fe0` (real analogue
+`disbot/services/lifecycle/contracts.py` exists); all 7 surviving cite
+instances of the fabricated path are rule-a-flagged by all three grammars,
+each survivor a deliberate correction note (e.g.
+`docs/analysis/rebuild-discovery/foundations/design/shared-vocabulary.md:53`)
+— hence the ruling's inline waiver token. Gate: PASS, EVIDENCE STRENGTH
+moderate-strong (COMPARABLE — real checker logic on real pinned corpora,
+snapshot-in-time + FOREIGN_ROOTS-circularity disclosed · UNCORRUPTED — 453
+self-checks 0 failed, full sweep reported, no RNG · ROBUST — frontier variant
+FP-minimal in every cell on both corpora/scopes; rule-c window and extension
+set not swept · REPRODUCIBLE — one command, stdlib-only, byte-identical,
+SHA-pinned inputs · LIMITS — 0 true catches exist on the target tree today,
+so the red gate is proven non-noisy but not yet load-bearing; single-auditor
+labels; rule (d) content-drift unmeasured). codex:
+[PR #44 comment](https://github.com/menno420/sim-lab/pull/44#issuecomment-4949354456)
+(one question — unique-suffix resolution's silent false-negative mode) ·
+reply: pending (OA-002 Codex usage-capped). State stays `sim-ready`,
+forward-only and untouched — this note, not a new state, is the canonical
+verdict marker.
