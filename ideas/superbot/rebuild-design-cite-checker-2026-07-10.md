@@ -42,9 +42,9 @@ V009 and V011 were owner-direct intakes, so PROPOSAL 010 → VERDICT 012).
 Source pin — honest substitution: the verdict is parked, NOT yet landed in the
 sim-lab outbox — [sim-lab `control/outbox.md` @ `b083581`](https://github.com/menno420/sim-lab/blob/b0835812faf7f5a6e4b190a9cc93a11280f099a4/control/outbox.md)
 does not yet carry VERDICT 012; the evidence lives on sim-lab
-[PR #44](https://github.com/menno420/sim-lab/pull/44) (final head `b083581`,
+[PR #44](https://github.com/menno420/sim-lab/pull/44) (final head `dae714d`,
 CI substrate-gate green, parked READY), and the paste-ready VERDICT 012 outbox
-entry sits at the end of [`sims/verdict-012-doc-cite-checker-spec/REPORT.md` @ `b083581`](https://github.com/menno420/sim-lab/blob/b083581/sims/verdict-012-doc-cite-checker-spec/REPORT.md)
+entry sits at the end of [`sims/verdict-012-doc-cite-checker-spec/REPORT.md` @ `dae714d`](https://github.com/menno420/sim-lab/blob/dae714d1b5ff29d2b015dba95d924fb3645885db/sims/verdict-012-doc-cite-checker-spec/REPORT.md)
 — that REPORT pin stands in for the usual outbox pin until the outbox landing,
 pending PR #44 merge (coordinator step). Run: `python3
 sims/verdict-012-doc-cite-checker-spec/cite_checker_sweep.py` — deterministic,
@@ -79,8 +79,13 @@ set not swept · REPRODUCIBLE — one command, stdlib-only, byte-identical,
 SHA-pinned inputs · LIMITS — 0 true catches exist on the target tree today,
 so the red gate is proven non-noisy but not yet load-bearing; single-auditor
 labels; rule (d) content-drift unmeasured). codex:
-[PR #44 comment](https://github.com/menno420/sim-lab/pull/44#issuecomment-4949354456)
+[PR #44 question](https://github.com/menno420/sim-lab/pull/44#issuecomment-4949354456)
 (one question — unique-suffix resolution's silent false-negative mode) ·
-reply: pending (OA-002 Codex usage-capped). State stays `sim-ready`,
+reply: **rejected** — bot replied claiming committed telemetry changes + a
+follow-up PR that do not exist anywhere on GitHub and it never ran the sweep;
+verified-then-rejected per Q-0120,
+[disposition](https://github.com/menno420/sim-lab/pull/44#issuecomment-4949374641);
+its substantive telemetry suggestion is recorded in the REPORT as an
+unadopted follow-up candidate. State stays `sim-ready`,
 forward-only and untouched — this note, not a new state, is the canonical
 verdict marker.
