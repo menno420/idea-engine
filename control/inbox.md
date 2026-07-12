@@ -28,5 +28,5 @@ from: owner — live turn in the Ideas Lab coordinator session, 2026-07-12 ~21:5
 executor: idea-engine seat (standing, every wake)
 do: the owner's words, quoted verbatim: "continue coming up with new ideas, that is your main purpose, make sure there are new ideas coming and being tested for each repo"
 why: owner-stated main purpose of this lane, given live in the coordinator chat.
-done-when (coordinator's restatement, marked as such): standing — the PROPOSAL→VERDICT pipeline is never dry: at all times ≥1 new PROPOSAL drafted-or-in-flight in idea-engine's outbox, each PROPOSAL simulated to a sim-lab VERDICT, idea coverage spanning both repos' domains.
+done-when: (coordinator's restatement, marked as such) standing — the PROPOSAL→VERDICT pipeline is never dry: at all times ≥1 new PROPOSAL drafted-or-in-flight in idea-engine's outbox, each PROPOSAL simulated to a sim-lab VERDICT, idea coverage spanning both repos' domains.
 provenance: owner live turn in the Ideas Lab coordinator session, 2026-07-12 ~21:56Z; landed per seat doctrine "an owner turn is the top ORDER — land it verbatim".
