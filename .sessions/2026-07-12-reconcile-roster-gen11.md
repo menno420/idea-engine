@@ -1,6 +1,6 @@
 # Session — reconcile ideas/ sections against roster generation #11 (honest null)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-12 (worker slice, dispatched by the coordinator)
 
 ## What this session did
