@@ -8,8 +8,10 @@
 ## What it is
 
 Owner request (2026-07-12): create a GitHub repo as a **gift for a friend** who has
-two 3D printers (one small, one 3-color/multi-material) plus an Arduino robot arm
-and does general Arduino tinkering. The repo ships **pre-seeded** — substrate-kit
+two 3D printers (one small, one 3-color/multi-material) plus a robot arm — a
+generic 6DOF/6-servo kit (Amazon.nl, no controller included): six 180° hobby
+servos and a gripper claw, driven by the friend's own Arduino — and does general
+Arduino tinkering. The repo ships **pre-seeded** — substrate-kit
 machinery (cut down, see the cut list), a starter idea backlog, and several
 already-finished projects — so the friend can discover Claude+GitHub workflows with
 **his own Claude account**, on day one, having never used Claude-with-a-repo before.
@@ -64,7 +66,7 @@ makerbench/
     presets/           # per-printer profiles: small/, color3/ (multi-material)
     calibration/       # temp-tower + flow generators (project d)
   arduino/             # sketches, one folder per gadget
-  arm/                 # serial control starter, envelope, routines (project c)
+  arm/                 # calibration config + control starter + routines (project c)
   projects/            # finished starter projects' docs + tutorials
   ideas/               # the backlog: one file per idea head (§4 seeds it)
   .sessions/           # simplified session cards (§5)
@@ -156,9 +158,13 @@ mode, every rule shown with a worked example rather than doctrine prose.
    - Claude designs; **the human slices and starts every print**. Claude never
      auto-prints, never generates or sends G-code to a printer, never marks a
      model "safe to print unattended".
-   - The robot arm moves **only inside the soft envelope** in `arm/envelope.py`,
-     only via routines that clamp to it, and **only with the human watching**.
-     No motion code merges without the envelope constants at the top of the file.
+   - The robot arm moves **only inside the soft envelope** defined by
+     `arm/calibration.json`, only via routines that clamp to it, and **only with
+     the human watching**. No motion code merges without the clamp in the path.
+   - **Servo power is external, always:** the arm's six servos run from their
+     own 5–6 V supply with a shared ground — **never from the Arduino's 5 V
+     pin** (six unbranded servos will brown-out or cook the board). Claude
+     refuses to write wiring docs that skip this.
    - Anything mains-powered, hot-end, or load-bearing gets a "check this
      yourself" note in the PR — Claude flags, the human verifies.
 4. **Git in maker terms** (full version in `docs/git-for-makers.md`):
@@ -208,16 +214,33 @@ lives in git" lesson. Acceptance criteria:
 4. Documented upgrade path to Spoolman (import-script stub + doc note), so the
    toy version has a growth story instead of a dead end.
 
-**(c) Robot-arm serial control starter** — Python + pyserial, safe-envelope
-limits, recorded "wave" demo routine. Acceptance criteria:
-1. `arm/envelope.py` defines per-joint min/max constants; **every** motion call
-   clamps to them and raises on an out-of-envelope request **before any serial
-   write** (unit-tested).
-2. `python3 arm/wave.py --dry-run` prints the exact serial command sequence with
-   no port attached (CI-provable, hardware-free).
-3. The wave routine's recorded poses all verify inside the envelope by test.
-4. README states the §2 safety rule verbatim at the top: live motion only with a
-   human watching.
+**(c) Robot-arm control starter** — targeted at exactly the friend's hardware: a
+generic 6DOF/6-servo kit (Amazon.nl, no controller included), driven by his own
+Arduino, most likely through a **PCA9685 16-channel servo driver** (the typical
+controller for these kits; MG996R-class 180° servos likely). Two layers: an
+Arduino firmware sketch (PCA9685 over I2C, accepts joint commands over USB
+serial, clamps + eases on-board) and a Python + pyserial side that sends
+routines. Because unbranded 180° servos vary unit-to-unit and strip easily, the
+defaults are **conservative software travel limits + slow easing**, and the
+**FIRST arm project is a per-joint calibration routine**: step each servo gently
+to find its real min/max, store the result as `arm/calibration.json` in the repo
+— a config-file edit that is deliberately perfect first-PR material (it feeds
+the §6 curriculum: his calibration numbers land via his own PR). Acceptance
+criteria:
+1. The calibration routine walks one joint at a time in small increments with
+   confirm-to-continue, and writes/updates `arm/calibration.json` (per-joint
+   min/max + easing rate); the firmware and Python side both **load limits from
+   that file's values and clamp before any pulse is sent** — out-of-envelope
+   requests raise/refuse before motion (unit-tested against a stub).
+2. Shipped defaults are conservative (well inside 180°, slow easing) and apply
+   whenever a joint has no calibration entry yet — uncalibrated never means
+   unlimited.
+3. `python3 arm/wave.py --dry-run` prints the exact command sequence with no
+   port attached (CI-provable, hardware-free), and the recorded wave poses all
+   verify inside the calibrated envelope by test.
+4. README states the §2 safety rules verbatim at the top: live motion only with
+   a human watching, and servo power from an external 5–6 V supply (shared
+   ground), never the Arduino's 5 V pin.
 
 **(d) Calibration pack** — temp-tower + flow-test generators plus a
 `printing/presets/` convention for **both** printers including 3-color profiles.
@@ -313,11 +336,15 @@ already prove.
    temperature into presets via PR, tag `presets-v1` as a Release with the STL
    assets attached. Payoff: his printer's first calibrated baseline, versioned.
    Teaches: tags + releases.
-7. **Day 7 — hardware in the loop:** run `arm/wave.py --dry-run`, read the
-   command stream, then run it live inside the envelope with hand on the switch
-   (project c); open an `ideas/` head for his first end-effector (backlog #3).
-   Payoff: the arm waves at him. Teaches: the safety agreement as lived practice,
-   and the loop closing — hardware feeds ideas feeds the repo.
+7. **Day 7 — hardware in the loop:** wire the arm per the safety rules (external
+   servo supply, PCA9685), run the per-joint calibration routine (project c) and
+   land his real min/max numbers as a `arm/calibration.json` PR — his first PR
+   that changes how a physical machine moves. Then `arm/wave.py --dry-run`, read
+   the command stream, and run it live inside his freshly calibrated envelope
+   with hand on the switch; open an `ideas/` head for his first end-effector
+   (backlog #3). Payoff: the arm waves at him, within limits he measured
+   himself. Teaches: the safety agreement as lived practice, and the loop
+   closing — hardware feeds config feeds ideas feeds the repo.
 
 ## 7 · Delivery plan + boundary
 
@@ -338,8 +365,10 @@ repo once it exists):
    so they land first.
 3. **Slice 3 — projects (b) + (d):** print-log/filament tracker and the
    calibration pack with both printers' preset folders.
-4. **Slice 4 — project (c):** arm serial starter, envelope, dry-run wave, tests
-   (hardware-free by design, §3c).
+4. **Slice 4 — project (c):** arm control starter — firmware sketch (PCA9685),
+   Python side, per-joint calibration routine, conservative defaults, dry-run
+   wave, tests (hardware-free by design, §3c; real min/max land later via the
+   friend's own calibration PR).
 5. **Slice 5 — content polish:** the 14 backlog heads seeded into `ideas/`,
    `docs/idea-ritual.md`, the curriculum as `README` day-one section, gift-letter
    README pass.
@@ -356,6 +385,9 @@ line):**
 > private (fine, nothing sensitive — private is recommended only so his first
 > fumbling PRs aren't world-readable); `"drop project (c)"` if gifting sooner
 > matters more than the arm demo (slices renumber, nothing else changes).
+> Possible shopping-list add-on to the same reply: a **PCA9685 16-channel servo
+> driver board** (a-few-euro part) if the friend doesn't already have one — his
+> arm kit ships with no controller, and project (c) assumes one.
 > **WHY-IT-MATTERS:** name and visibility gate slice 1; the project cut sizes
 > slices 2–4 — everything downstream of one reply. **UNBLOCKS:** slice-1 routing
 > to a build lane, and the sibling research dossier gets a concrete target to pin
