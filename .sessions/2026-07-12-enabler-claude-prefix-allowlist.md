@@ -1,6 +1,6 @@
 # Session — add `claude/` to the auto-merge-enabler branch allowlist
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-12 ~21:31Z (Ideas Lab landing-worker slice)
 
 ## Scope
@@ -21,7 +21,16 @@ workflow diff; PR #271 unjam (event re-fire) follows once this lands.
 
 ## 💡 Session idea
 
-_To be filled at flip._
+Enabler-allowlist conformance check: substrate-gate or a tripwire probe should
+assert the enabler allowlist covers every branch prefix the seat briefs mandate
+(`claude/`), so doctrine and automation can't drift apart silently — observed
+2026-07-12, PR #271 jam. Dedup note: distinct from
+`ideas/fleet/branch-prefix-drift-tripwire-2026-07-11.md`, which watches the kit
+config key `automerge.branch_patterns` against observed history and is advisory
+by design ("NEVER affects the preflight exit code"); this proposes asserting the
+WORKFLOW's hardcoded job-level `if:` allowlist against the doctrine-mandated
+prefix set — the seam the existing tripwire provably did not cover (#271 jammed
+with the tripwire already landed).
 
 ## ⟲ Previous-session review
 
