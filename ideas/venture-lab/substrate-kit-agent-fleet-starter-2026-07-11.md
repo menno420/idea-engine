@@ -1,8 +1,9 @@
 # substrate-kit as a product — agent-fleet starter kit
 
-> **State:** probed
+> **State:** parked(owner-gated — behind kit public-readiness: settled name + P8 + P11/P13 + curation; re-open on public flip under a settled name, or on a manager ownership ruling)
 > **Class:** venture · **Target:** menno420/venture-lab
 > **Grounding:** https://raw.githubusercontent.com/menno420/fleet-manager/main/docs/roster.md@6d5e3b3 · fetched 2026-07-11T18:54Z
+> **Sequence:** behind substrate-kit public-readiness gates (settled name · P8 license confirm · P11 public flip or P13 veto path — kit docs/current-state.md@8a544a6)
 > **Shortlist rank:** 1 of 5 · sellables brainstorm 2026-07-11 · [batch](sellables-brainstorm-batch-2026-07-11.md)
 
 ## What it is
@@ -49,3 +50,104 @@ Verify-first pass (read-only worker, this session): substrate-kit main pinned at
 **8. What is the smallest shippable slice?** Not the captured one. "Landing README + docs page + sponsor link, ships on two clicks" cannot ship as scoped: the landing copy would market a placeholder name, the sponsor link has no gated tier behind it (no open-core boundary drafted anywhere), and the public flip is explicitly held as pending owner action WITH a veto path (P11 → P13). The honest smallest slice is a re-scope, not a build: split this head into (a) a kit-lane public-readiness task — name decision relay + P8/P11 + internal-material curation, three of which the kit already tracks as its own pending actions — and (b) a venture-lab sale task — landing copy, docs page on the websites-lane machinery, and an open-core/sponsor-tier DRAFT presented as a paste-ready owner choice — sequenced behind (a), with the Q7 ownership ruling flagged for the manager sweep. No sim question exists to route: every open unknown (name, license confirm, public flip, boundary, ownership) is an owner or manager call with no parameter space, no corpus, and no evidence-settleable form — inventing one would duplicate the owner-queue surface, and the family-probe precedent (pricing elasticity, PROPOSAL-routed lane-side) has no analogue here. Rationale for the verdict: the asset is real and closer to sellable than anything else on the batch, but the capture's premise ("pure packaging", "two gates") is contradicted by the kit's own pending-action ledger and missing boundary — the file needs re-scoping into the two properly-owned heads above before any forward disposition.
 
 **Recommendation: needs-more-grooming**
+
+## Grooming pass (2026-07-12)
+
+> **Grounding:** https://raw.githubusercontent.com/menno420/substrate-kit/main/docs/current-state.md@8a544a6 · fetched 2026-07-12T00:32Z
+
+Follow-through on the probe's `needs-more-grooming`: the probe named the re-scope
+("split this head into a kit-lane public-readiness task and a venture-lab sale task")
+but left the gaps open. This pass closes them one by one, against a FRESH kit pin —
+`git ls-remote` 2026-07-12 puts substrate-kit main at
+`8a544a63d9b98bab41ac3ba0e31f8863216b7582` (v1.12.1 per pyproject.toml@8a544a6, one
+release since the probe's fa921f4/v1.12.0), and the pending-owner-action ledger
+re-read at that ref (current-state.md@8a544a6, items 6–7 + the pyproject name
+comment) confirms ALL THREE kit-side gates still open: distribution name still the
+"one-place-swappable placeholder", 👤 P8 (confirm MIT) still pending, 👤 P11 (public
+flip, or veto → 👤 P13 read-only PAT) still pending.
+
+**Gap 1 — the costing premise ("pure packaging … two clicks").** Closed by
+replacement. Retired from this file's claims; the honest gate ledger is FOUR owner
+decisions (settled name · P8 license confirm · P11 public-flip-or-P13-veto · sponsor
+account) plus one kit-lane internal-material curation slice (120+ `.sessions/`
+cards, `control/`, owner-profile/planning/telemetry/bench trees) plus a
+venture-lab presentation build (quickstart/examples/docs page/sponsor link — all
+verified absent by the probe). Revenue expectation unchanged and conservative per
+Q-0259 r.4: tens of dollars/month without distribution.
+
+**Gap 2 — the open-core boundary (open question 1) existed nowhere.** Closed by
+drafting it, paste-ready (structured choice, recommendation first, per Q-0263.2):
+
+- **(a) RECOMMENDED — kit free, service and extras gated.** Free: the entire
+  working kit (MIT `bootstrap.py`, adopt path, README, versioned sha256-provenanced
+  releases, the generated adopter registry — the registry is the marketing asset
+  and must stay public). Sponsor-gated: support/answers, upgrade guides, extra
+  host-check/template packs. Gumroad one-time: a pro doctrine bundle (operating-
+  ceremony templates + worked examples as FILES) — kept explicitly disjoint from
+  the rank-5 playbook e-book, which sells the NARRATIVE (cannibalization guard,
+  new finding of this pass's dedup sweep).
+- (b) Kit + all docs free, sponsor = support only — cheapest, weakest pull.
+- (c) `bootstrap.py` free, docs gated — rejected: cripples adoption and kills the
+  "an actual autonomous fleet runs on it" story.
+
+Rationale for (a): sponsorship needs a durable artifact behind the link, not
+goodwill; gating the kit itself contradicts both the MIT default and the proof-by-
+adoption story.
+
+**Gap 3 — ownership (open question 2 / probe Q7).** Closed by a recommended split,
+flagged for the manager sweep: the **substrate-kit lane owns public-readiness**
+(name-decision relay, P8, P11-or-P13, internal-material curation — three of the
+four are ALREADY its own tracked pending owner actions at 8a544a6, so no new
+surface is invented), and **venture-lab owns the sale head** (landing copy, docs
+page on the websites-lane static machinery, sponsor tiers, Gumroad listing),
+sequenced strictly behind. KF-2 ("the lab never writes to consumers",
+docs/adopters.md) bounds the kit lane against ADOPTER repos, not against packaging
+its own tree — no constraint blocks the split. This slice writes nothing under
+`control/` (dispatch boundary): the flag rides this file + the session card for
+the coordinator's next heartbeat, not a heartbeat line.
+
+**Gap 4 — the smallest shippable slice was wrong.** Re-scoped. The captured slice
+(landing README + docs page + sponsor link, "ships on two clicks") cannot ship:
+the copy would market a placeholder name, the sponsor link has no gated tier, and
+P11 is held WITH a veto path. The honest smallest slice shippable with ZERO owner
+gates is the open-core boundary draft as a paste-ready owner choice — gap 2 above
+IS that slice, so it no longer blocks. Next slice after the gates flip: venture-lab
+landing copy pinned to a tagged kit release (gap 5's rule).
+
+**Gap 5 — version conflation / moving target.** Closed by a pinning rule: the sale
+surface never markets kit HEAD — it pins the newest tagged release (release.yml
+ships `bootstrap.py` + sha256 + release.json per tag) and names that tag in the
+landing copy. Cadence datapoint at re-pin: fa921f4/v1.12.0 (2026-07-11) →
+8a544a6/v1.12.1 (2026-07-12) — still roughly a release a day; the rule is
+load-bearing, not hygiene.
+
+**Gap 6 — public-status unsettled (probe Q3's differential-raw anomaly).** Routed,
+not resolved: whether the repo is de-facto public already is the kit-lane head's
+verification, not a venture-lab premise. This pass re-confirms only that P11 is
+still on the pending ledger at 8a544a6; the sale head's entry condition is
+"verifiably public under a settled name".
+
+**Dedup sweep (2026-07-12, `rg -g '!bootstrap.py' -g '!.substrate'` across
+ideas/):** no true duplicate found.
+
+- [`sellables-brainstorm-batch-2026-07-11.md`](sellables-brainstorm-batch-2026-07-11.md) — the parent batch (this head is its rank 1), source not duplicate.
+- [`agent-fleet-playbook-ebook-2026-07-11.md`](agent-fleet-playbook-ebook-2026-07-11.md) — the rank-5 distribution-stack sibling; NEW overlap surfaced: its Gumroad e-book and this head's Gumroad doctrine bundle sell adjacent doctrine — boundary drawn in gap 2(a), files-vs-narrative.
+- [`gba-homebrew-starter-kit-2026-07-11.md`](gba-homebrew-starter-kit-2026-07-11.md) — "starter kit" naming overlap only; different asset, different lane machinery.
+- `ideas/substrate-kit/` (6 heads) — kit MACHINERY process/product heads (drift checks, auto-updater, gate seams); zero sale/productization overlap.
+- `ideas/superbot/` kit-adjacent heads (`portable-agent-memory-package`, `kit-seed-command-fleet-repo-bootstrap`, `multi-repo-program-kit-lab-trading`) — zero sell-channel overlap.
+- `ideas/product-forge/` — zero hits for sponsor/open-core/productization/sellable.
+
+**Honest read after grooming:** weaker than the capture sold it, exactly as the
+probe warned — the "biggest asymmetric upside" framing survives only as "cheapest
+asset-to-story ratio". Correctly priced, the head is four owner decisions and a
+kit-lane curation slice deep before the first sponsor link can exist, with
+conservative revenue and distribution still the binding constraint. What grooming
+genuinely improved: the boundary draft (gap 2) removes the one blocker that was
+agent-shaped, and the ownership split (gap 3) makes the rest routable. Nothing
+further is buildable from this repo until the kit-side gates flip — every
+remaining unknown is an owner or manager call with no evidence-settleable form
+(probe Q8's finding, re-confirmed at the fresh pin).
+
+**Next step: park(owner-gated — behind kit public-readiness: settled name + P8 +
+P11/P13 + curation)** — re-open trigger: the kit repo verifiably public under a
+settled name, or a manager ownership ruling that re-scopes the gap-3 split.
