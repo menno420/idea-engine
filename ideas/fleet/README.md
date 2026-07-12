@@ -53,8 +53,10 @@
 - [`carried-watch-verdict-inheritance-guard-2026-07-12.md`](carried-watch-verdict-inheritance-guard-2026-07-12.md) — carried
   heartbeat watches must name and re-verify the verdict/evidence that justified them
   (`watch: <claim> · verified <ISO>` + report-only staleness advisory, mandatory re-affirm
-  at generation handoff) · captured; origin: websites backlog bullet @ `e14bb15` (line 158),
-  surfaced as the one unrouted candidate by the PR #244 lane-backlog groom
+  at generation handoff) · parked(routed — kit/manager layer: fifth-touch rider on the
+  merge-hold substrate-kit slice — watch grammar + report-only `--watch-freshness`
+  advisory; /fleet badge = manager rider); origin: websites backlog bullet @ `e14bb15`
+  (line 158), surfaced as the one unrouted candidate by the PR #244 lane-backlog groom
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
