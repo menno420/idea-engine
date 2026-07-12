@@ -1,0 +1,1 @@
+- `claude/ideas-lab-session2-boot` · **scope** — session-2 boot heartbeat + routine cutover record · control/status.md + .sessions/ card · 2026-07-12
