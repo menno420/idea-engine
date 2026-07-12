@@ -2,7 +2,7 @@
 
 > **State:** captured
 > **Class:** venture · **Target:** menno420/venture-lab
-> **Sequence:** before the `maker-gift-repo-blueprint` head lands (companion blueprint, in flight in a sibling session)
+> **Sequence:** after the `maker-gift-repo-blueprint-2026-07-12.md` companion blueprint head (in flight in a sibling session at capture time; landed mid-flight via #264)
 
 This is a **reference dossier, not a build proposal** — the external-ecosystem
 research companion for the maker gift repo: the owner is gifting a friend a
@@ -13,8 +13,9 @@ from the owner — plus general Arduino tinkering, and
 will drive the repo with his own Claude. Everything below is what already
 exists out there, cited by link, researched 2026-07-12; entries keep the
 format *name — link — what — how it helps him*. The gift-repo design itself
-lives in the companion head `maker-gift-repo-blueprint` (being written in a
-sibling session as of this capture — cross-link by name, no file exists yet).
+lives in the companion head
+[`maker-gift-repo-blueprint-2026-07-12.md`](maker-gift-repo-blueprint-2026-07-12.md)
+(in flight in a sibling session at capture time; landed mid-flight via #264).
 For the "substrate-kit as a seeded starter repo" seam, see the existing
 [`substrate-kit-agent-fleet-starter-2026-07-11.md`](substrate-kit-agent-fleet-starter-2026-07-11.md)
 head (kit packaging, open-core boundary draft) — referenced here, not
