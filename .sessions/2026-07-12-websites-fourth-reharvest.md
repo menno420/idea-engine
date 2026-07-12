@@ -1,6 +1,6 @@
 # Session — websites re-harvest round 4 (close-out wave + first new standalone doc)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable-5 · 2026-07-12 (worker slice, dispatched by the coordinator
 > under continuous-chaining mode per Q-0265)
 
@@ -42,8 +42,10 @@ Findings → actions:
    born-Retired, 11 new-born captured, 3 survivors. Per section convention the
    backlog's bullets ride the link entry — none promoted to standalone files
    without a probe.
-3. README index re-badged (lane-backlog bullet + harvest paragraph + new
-   merge-hold entry); `.harvest-pin.json` re-recorded at `8f97654` by hand
+3. README index re-badged (lane-backlog bullet + harvest paragraph incl. its
+   leading pin sentence — the line `check_harvest` actually parses, caught live
+   when the first post-edit run reported a STALE record + new merge-hold
+   entry); `.harvest-pin.json` re-recorded at `8f97654` by hand
    (websites section only — the checker's `--write-pins` is all-sections and the
    superbot pin is stale with 2 NEW upstream docs, ANOTHER lane's sweep; exactly
    the per-section-selector gap the round-3 card's 💡 named, lived again).
