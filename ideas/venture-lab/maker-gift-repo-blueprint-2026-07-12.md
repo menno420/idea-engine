@@ -25,8 +25,9 @@ the idea family whose commercial head is
 commercial starter, and **neither supersedes the other**. The commercial head waits
 on a settled public name, license confirm, public flip, and sponsor tiering; this
 gift instance needs none of those gates: the repo is private, the kit rides in as a
-vendored `bootstrap.py` file (MIT, LICENSE already in the kit tree per that head's
-probe), nothing is marketed, nothing is sold. The gift also *feeds* the commercial
+vendored `bootstrap.py` file (MIT; the kit's LICENSE is **copied into the gift repo
+alongside it** at seed time — upstream-only is not enough for a vendored copy, see
+§1 layout + §5), nothing is marketed, nothing is sold. The gift also *feeds* the commercial
 head: a real outside-the-fleet human running the kit solo is exactly the adopter
 evidence the starter-kit pitch currently lacks.
 
@@ -56,6 +57,7 @@ makerbench/
   README.md            # the gift letter: what this is, day-one steps, the map
   CLAUDE.md            # working agreement, beginner edition (§2 outline)
   bootstrap.py         # substrate-kit dist, vendored at a TAGGED release
+  LICENSE-substrate-kit  # the kit's MIT license, copied verbatim from the pinned release (notice-retention)
   docs/
     idea-ritual.md     # the one-page 8-question probe, maker edition (§5)
     git-for-makers.md  # branch/PR/merge/CI in bench terms (§2)
@@ -71,6 +73,7 @@ makerbench/
   ideas/               # the backlog: one file per idea head (§4 seeds it)
   .sessions/           # simplified session cards (§5)
   .github/workflows/   # gate + adapted auto-merge enabler + render/compile CI
+  .devcontainer/       # devcontainer.json pinning OpenSCAD + arduino-cli + Python deps — day-3+ toolchain as a browser Codespace, no install festival (https://containers.dev/)
   scripts/             # the 3 lightweight checks (§5) + preflight wrapper
 ```
 
@@ -164,9 +167,20 @@ mode, every rule shown with a worked example rather than doctrine prose.
    - **Servo power is external, always:** the arm's six servos run from their
      own 5–6 V supply with a shared ground — **never from the Arduino's 5 V
      pin** (six unbranded servos will brown-out or cook the board). Claude
-     refuses to write wiring docs that skip this.
+     refuses to write wiring docs that skip this. The supply is **sized for
+     stall headroom** — MG996R-class servos stall at ~2.5 A each
+     (https://components101.com/motors/mg996r-servo-motor-datasheet), so six
+     ≈ 15 A worst-case; a 10 A-class supply is workable only with slow easing
+     and staggered moves — and the V+ rail carries an **inline fuse (or
+     polyfuse) plus a human-reachable e-stop/power switch**: alerts stay
+     software, cutting power stays a hand on a switch.
    - Anything mains-powered, hot-end, or load-bearing gets a "check this
      yourself" note in the PR — Claude flags, the human verifies.
+   - **Secrets never live in files:** any token (Wokwi CI, printer APIs) goes
+     in Actions/Codespaces secrets referenced as `${{ secrets.X }}`; ship a
+     `.env.example` with names only; never a literal token in YAML, sketches,
+     or committed scripts
+     (https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
 4. **Git in maker terms** (full version in `docs/git-for-makers.md`):
    - a **branch** is a fresh piece of stock — cut it up freely, the good material
      is untouched;
@@ -217,7 +231,12 @@ lives in git" lesson. Acceptance criteria:
 **(c) Robot-arm control starter** — targeted at exactly the friend's hardware: a
 generic 6DOF/6-servo kit (Amazon.nl, no controller included), driven by his own
 Arduino, most likely through a **PCA9685 16-channel servo driver** (the typical
-controller for these kits; MG996R-class 180° servos likely). Two layers: an
+controller for these kits; MG996R-class 180° servos likely). Buy-one-part
+alternative: a **Pololu Micro Maestro 6-channel USB servo controller**
+(https://www.pololu.com/product/1350 — native USB/TTL serial, per-channel
+speed/acceleration limits) drives the arm host-side from Python with no Arduino
+in the loop; PCA9685 stays the default since the friend already owns the
+Arduino. Two layers: an
 Arduino firmware sketch (PCA9685 over I2C, accepts joint commands over USB
 serial, clamps + eases on-board) and a Python + pyserial side that sends
 routines. Because unbranded 180° servos vary unit-to-unit and strip easily, the
@@ -229,9 +248,13 @@ the §6 curriculum: his calibration numbers land via his own PR). Acceptance
 criteria:
 1. The calibration routine walks one joint at a time in small increments with
    confirm-to-continue, and writes/updates `arm/calibration.json` (per-joint
-   min/max + easing rate); the firmware and Python side both **load limits from
-   that file's values and clamp before any pulse is sent** — out-of-envelope
-   requests raise/refuse before motion (unit-tested against a stub).
+   min/max + easing rate); the **Python host loads that file and sends the
+   per-joint limits over serial in a connect handshake** before any motion
+   command (an Uno-class board has no filesystem — the file never reaches the
+   firmware directly), and the **firmware clamps every command to BOTH the
+   received limits AND a flashed conservative safe superset** (compile-time
+   constants), so out-of-envelope requests are refused twice — host-side
+   (unit-tested against a stub) and on-board — before any pulse is sent.
 2. Shipped defaults are conservative (well inside 180°, slow easing) and apply
    whenever a joint has no calibration entry yet — uncalibrated never means
    unlimited.
@@ -240,7 +263,8 @@ criteria:
    verify inside the calibrated envelope by test.
 4. README states the §2 safety rules verbatim at the top: live motion only with
    a human watching, and servo power from an external 5–6 V supply (shared
-   ground), never the Arduino's 5 V pin.
+   ground, sized for stall headroom, fused V+ rail, human-reachable
+   e-stop/power switch), never the Arduino's 5 V pin.
 
 **(d) Calibration pack** — temp-tower + flow-test generators plus a
 `printing/presets/` convention for **both** printers including 3-color profiles.
@@ -302,7 +326,7 @@ own Claude via the idea ritual. Arm+printer crossovers marked ⨯.
 
 | Artifact | Source (citation) | Adaptation needed |
 |---|---|---|
-| substrate-kit itself (vendored `bootstrap.py`) | kit HEAD v1.15.0: substrate-kit `pyproject.toml`@0801be9 + `CHANGELOG.md`@0801be9; what adopt plants + guided mode: substrate-kit `README.md`@0801be9; fleet lanes on v1.14.0 per fleet-manager `docs/roster.md`@54a9588 | vendor the newest **tagged release** at seed time (never HEAD — the sibling head's gap-5 pinning rule); adopt in `guided` mode; the §1 cut list applied (no control plane, no fleet checkers) |
+| substrate-kit itself (vendored `bootstrap.py`) | kit HEAD v1.15.0: substrate-kit `pyproject.toml`@0801be9 + `CHANGELOG.md`@0801be9; what adopt plants + guided mode: substrate-kit `README.md`@0801be9; fleet lanes on v1.14.0 per fleet-manager `docs/roster.md`@54a9588 | vendor the newest **tagged release** at seed time (never HEAD — the sibling head's gap-5 pinning rule); copy the kit's LICENSE alongside `bootstrap.py` as `LICENSE-substrate-kit` (MIT notice-retention — confirmed present upstream at the pin: https://raw.githubusercontent.com/menno420/substrate-kit/0801be9/LICENSE); adopt in `guided` mode; the §1 cut list applied (no control plane, no fleet checkers) |
 | auto-merge-enabler workflow | `.github/workflows/auto-merge-enabler.yml`@949fc0b (idea-engine local) | rewrite the branch allowlist to the gift repo's prefixes (`project/`, `idea/`, `fix/`, `tutorial/`); KEEP the refuse-to-arm-on-zero-required-contexts guard verbatim (it protects a beginner from instant-merge surprise); DROP the born-red card-status host customization (§1 cut) |
 | `.sessions/` card ritual | `.sessions/README.md`@949fc0b | simplify to three fields: **Status** · **what happened** (3 bullets max) · **💡 next time** — drop model-attribution lines, previous-session review duty, and auto-draft `[[fill]]` machinery; check nags on malformed cards, never blocks on absent ones |
 | preflight/check pattern, reduced to 3 lightweight checks | `scripts/preflight.py`@949fc0b (one PASS/FAIL line per check, worst-exit wrapper) + `scripts/check_ideas.py`@949fc0b (grammar-lint shape) | new checks: (1) every `printing/models/` source renders a manifold STL headlessly; (2) every `arduino/` sketch compiles via arduino-cli; (3) every markdown link in the repo resolves — keep the wrapper's one-command, one-line-per-check report shape |
@@ -316,6 +340,14 @@ Each step teaches exactly one GitHub+Claude concept and pays off with something 
 maker actually wants. Ordered so no step needs a tool the previous one didn't
 already prove.
 
+0. **Day 0 — connect Claude (setup, before the fun starts):** install/authorize
+   the Claude GitHub integration on **his** account for the gift repo, then
+   verify it: comment `@claude hello` on the seeded welcome Issue — Claude
+   replies = connected. Fallback if the integration isn't available to him:
+   run Day 1 through Claude chat instead — paste the Issue text into chat,
+   paste Claude's plan back as a manual Issue comment (same payoff, one copy
+   hop). The walkthrough ships as a `docs/` setup page (slice 5). Teaches:
+   nothing yet — it removes the one stall that would kill Day 1.
 1. **Day 1 — Issues:** open an Issue describing a part he needs ("a hook for my
    headphones under the desk"); ask Claude to answer in the Issue with a design
    plan. Payoff: the repo talks back. Teaches: Issues as the front door.
@@ -339,7 +371,9 @@ already prove.
 7. **Day 7 — hardware in the loop:** wire the arm per the safety rules (external
    servo supply, PCA9685), run the per-joint calibration routine (project c) and
    land his real min/max numbers as a `arm/calibration.json` PR — his first PR
-   that changes how a physical machine moves. Then `arm/wave.py --dry-run`, read
+   that changes how a physical machine moves (the limits reach the board over
+   serial at connect, per the §3c handshake — no reflash needed). Then
+   `arm/wave.py --dry-run`, read
    the command stream, and run it live inside his freshly calibrated envelope
    with hand on the switch; open an `ideas/` head for his first end-effector
    (backlog #3). Payoff: the arm waves at him, within limits he measured
@@ -358,8 +392,14 @@ nothing to provision from the fleet).
 repo once it exists):
 
 1. **Slice 1 — skeleton + kit seed:** repo layout (§1), vendored `bootstrap.py`
-   at the newest tagged release, CI gate with the 3 lightweight checks, adapted
-   auto-merge enabler, CLAUDE.md + docs rendered per §2.
+   at the newest tagged release (+ its LICENSE copy), CI gate with the 3
+   lightweight checks, adapted auto-merge enabler, CLAUDE.md + docs rendered
+   per §2. **Step 0, owner clicks (agents cannot change repo settings):**
+   Settings → General → Pull Requests → enable **"Allow auto-merge"**, and add
+   a **default-branch ruleset requiring the gate status check** — the enabler
+   is inert without both, and its guard refuses to arm on zero required
+   contexts (kept verbatim per §5), so skipping this silently disables the
+   Day 3 merge-on-green demo.
 2. **Slice 2 — projects (a) + (e):** box/bracket generator with STL-preview
    Action, and the first-PR tutorial — the day-2/3 curriculum depends on these,
    so they land first.
@@ -370,24 +410,43 @@ repo once it exists):
    wave, tests (hardware-free by design, §3c; real min/max land later via the
    friend's own calibration PR).
 5. **Slice 5 — content polish:** the 14 backlog heads seeded into `ideas/`,
-   `docs/idea-ritual.md`, the curriculum as `README` day-one section, gift-letter
+   `docs/idea-ritual.md`, the Day-0 connect-Claude setup page (§6, with the
+   chat fallback), the curriculum as `README` day-one section, gift-letter
    README pass.
 
 **Owner ask (paste-ready, six-field OWNER-ACTION style — answerable with ONE
 line):**
 
 > ⚑ OWNER-ACTION · **WHAT:** three choices in one reply — gift repo name,
-> visibility, and which starter projects make the cut. **WHERE:** reply in any
+> visibility, and which starter projects make the cut — plus **two one-time
+> setup clicks after creating the repo** (owner-only, agents cannot change
+> repo settings): Settings → General → Pull Requests → enable **"Allow
+> auto-merge"**, and add a **default-branch ruleset requiring the gate status
+> check** — without both, the seeded auto-merge enabler stays inert and the
+> Day 3 "PR merges itself on green" demo never fires. **WHERE:** reply in any
 > owner channel the manager sweep reads; the build routes as slices 1–5 above.
 > **HOW (paste ONE line — recommendation first):** RECOMMENDED
 > `"Gift repo: name=makerbench, private + invite my friend as collaborator, ship all five starter projects (a–e), build slices 1–5 as blueprinted."`
 > · Alternatives: name=`filament-and-firmware` or your own; `public` instead of
 > private (fine, nothing sensitive — private is recommended only so his first
-> fumbling PRs aren't world-readable); `"drop project (c)"` if gifting sooner
+> fumbling PRs aren't world-readable; caveat: on a Free-plan **private** repo
+> GitHub Pages is unavailable, and a published Pages site is public regardless
+> of repo visibility — any gallery idea uses Releases/artifacts instead,
+> https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages);
+> `"drop project (c)"` if gifting sooner
 > matters more than the arm demo (slices renumber, nothing else changes).
 > Possible shopping-list add-on to the same reply: a **PCA9685 16-channel servo
 > driver board** (a-few-euro part) if the friend doesn't already have one — his
-> arm kit ships with no controller, and project (c) assumes one.
+> arm kit ships with no controller, and project (c) assumes one — **plus,
+> unless he confirms he already has them, a 5–6 V high-current external servo
+> supply sized for stall headroom (six MG996R-class servos ≈ 15 A worst-case;
+> 10 A-class workable with easing + staggered moves), an inline fuse for the
+> V+ rail, a barrel-jack/screw-terminal adapter, and common-ground jumper
+> wiring** — the §2 safety rules forbid powering the servos from the Arduino's
+> 5 V pin, so a missing supply stalls Day 7 or nudges an unsafe workaround.
+> One-part alternative: a **Pololu Micro Maestro 6-channel USB servo
+> controller** (https://www.pololu.com/product/1350) replaces both the PCA9685
+> and the Arduino-in-the-loop for the host-driven path (§3c).
 > **WHY-IT-MATTERS:** name and visibility gate slice 1; the project cut sizes
 > slices 2–4 — everything downstream of one reply. **UNBLOCKS:** slice-1 routing
 > to a build lane, and the sibling research dossier gets a concrete target to pin
@@ -403,3 +462,45 @@ cited files fetched at those exact SHAs via raw.githubusercontent.com (the
 `949fc0b`. Nothing below a claim carries an invented SHA; where the recon
 expectation (kit ~v1.14.0) diverged from the measured truth (kit HEAD v1.15.0,
 lanes on v1.14.0), both are stated.
+
+## Review fold-in (2026-07-12, codex review @ bb5a9d6)
+
+codex left five P2 line comments on PR #264; a read-only verification pass
+checked each against the tree (auto-merge-enabler guard code included) and
+external sources. All five **accepted** and folded in above:
+
+1. **r3566889627 — auto-merge setup missing from the owner ask:** accepted —
+   the Day 3 self-merge demo depends on "Allow auto-merge" + a required-check
+   ruleset, which no slice or owner ask covered, and the enabler's guard
+   refuses to arm on zero required contexts; owner clicks added to §7 and
+   slice 1.
+2. **r3566889628 — vendored kit LICENSE not carried:** accepted — the skeleton
+   copied MIT-licensed `bootstrap.py` while the LICENSE stayed upstream only
+   (confirmed present at the pin:
+   https://raw.githubusercontent.com/menno420/substrate-kit/0801be9/LICENSE);
+   `LICENSE-substrate-kit` added to §1/§5 and the intro claim corrected.
+3. **r3566889629 — no Day 0 Claude authorization step:** accepted — Day 1
+   assumed a working Claude/GitHub integration nothing ever set up; Day 0
+   (install/authorize + `@claude hello` verification + chat fallback) added to
+   §6, setup page added to slice 5.
+4. **r3566889630 — firmware can't read `arm/calibration.json` at runtime:**
+   accepted — an Uno-class board has no filesystem; criterion (c)1 rewritten
+   to a serial connect-handshake (host sends limits) plus a flashed
+   conservative safe superset clamp on-board, Day 7 noted no-reflash.
+5. **r3566889631 — servo supply missing from the shopping list:** accepted —
+   the §2 safety rules mandate an external 5–6 V supply the add-on never
+   listed; supply + fuse + wiring + confirm-ask added to §7.
+
+Cross-folded from the companion dossier's review (PR #265 @ fb9039e), the five
+points flagged `blueprint_too` by the verification pass:
+
+- stall headroom (6 × ~2.5 A), V+ fusing, and a human-reachable e-stop added
+  to the §2.3 servo-power rule and project (c) acceptance criterion 4;
+- Pololu Micro Maestro named as the buy-one-part alternative in §3c and the
+  §7 shopping list;
+- `.devcontainer/` line added to the §1 skeleton (day-3+ toolchain as a
+  Codespace);
+- secrets convention (Actions secrets, `.env.example`, never tokens in YAML)
+  added to the §2 rules;
+- GitHub Pages private-repo caveat (paid plan required, published sites are
+  public regardless) added to the §7 visibility alternative.
