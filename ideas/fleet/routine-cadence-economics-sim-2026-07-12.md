@@ -205,3 +205,45 @@ hybrid(event-driven + failsafe-2h)} minimizes worker-turns per caught trigger su
 to p95 catch-latency ≤ 2h, and is any policy strictly dominated across all trace
 variants?* Done-when: the per-cell table + dominance verdict + a stated per-variant
 sensitivity note on the n=1 real trace.
+
+## Sim verdict (2026-07-12)
+
+sim-lab **VERDICT 014 · finalized 2026-07-12T15:30:00Z · approve**
+(= this repo's PROPOSAL 012 — sim-lab numbers proposal-sourced intakes by
+proposal per its PR #46 rule and verdict numbers run sequentially over all
+verdicts with no owner-direct interleave since V013, so PROPOSAL 012 →
+VERDICT 014, ledgered as INTAKE 012). Source pin:
+[sim-lab `control/outbox.md` @ `46d7387`](https://github.com/menno420/sim-lab/blob/46d73877848715a6bb6a302fe8ec2e483b2b15d6/control/outbox.md)
+(verdict PR #53 squash `477b452`; control fan-out PR #54 squash `46d7387`;
+report `sims/verdict-014-routine-cadence-economics/REPORT.md`). Run: `python3
+sims/verdict-014-routine-cadence-economics/cadence_economics_sim.py` — 272
+self-checks 0 failed, byte-identical re-runs proven by external diff, 40
+committed seeds per synthetic variant. The ruling: APPROVE — and the approved
+answer is NO CHANGE: keep the incumbent **hybrid(event-driven + failsafe-2h)**
+posture. Measured, over the 144-cell grid (6 policies × {real trace, 40-seed
+Poisson λ=5/732, 40-seed burst, empty night} × webhook fraction
+w∈{0,.25,.5,.75,1} × 2 catch defs): hybrid ties plain failsafe-2h at **1.75
+worker-turns per caught trigger** on the real trace (1.39–1.47 synthetic),
+margin **+1.50** to failsafe-1h, the next distinct survivor (+1.19–1.26
+synthetic); **failsafe-2h+chain-15m is strictly dominated everywhere** (31 vs
+7 turns real — chain re-arms buy zero coverage, E2 the live proof; never
+revive the chain as a catch mechanism); **event-driven-only catches 0 of 4
+real arrivals** (the webhook-visible class is empty on the whole real trace)
+and wins only at w=1; and the **catch-DEFINITION, not the cadence, is the
+real decision variable** — under catch-at-evidence (def-B, +31.4 min measured
+E4 lag) the whole 2h family misses p95 ≤ 2h by **1.4 min** on the real trace
+(Poisson 147.6 min), making failsafe-1h the cheapest survivor at ~1.9× cost;
+a definition choice, not an n=1 evidence question. Observed reality check:
+the real night's p95 was 178 min under nominal failsafe-2h — sweep FIDELITY,
+not cadence, was the binding failure, and no policy in the grid fixes it.
+Gate: **5/5 PASS**, evidence strength **moderate** (COMPARABLE — real
+reconstructed trace at named pins, 12 gaps disclosed in labels.json ·
+UNCORRUPTED — 272 self-checks incl. hand-derived vectors, full grid committed
+· ROBUST — S1–S8 sensitivities, def-A winner phase/seed/variant-stable, def-B
+knife-edge reported fragile · REPRODUCIBLE — one command, stdlib-only,
+byte-identical · LIMITS — n=1 night, 3 latency datapoints, cost proxies
+as-given, webhook fraction swept not known). Disposition: routed to the fm
+owner-queue "post-EAP routine posture" decision (HARD deadline ≤2026-07-13) —
+posture unchanged; paste-ready decision line on this repo's heartbeat.
+State stays `sim-ready` — no post-verdict state in the grammar (the V002/V007/V012
+precedent); the approve disposes the question, not the idea record.
