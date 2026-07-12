@@ -1,6 +1,6 @@
 # Session — groom slice: story-page first-commit window re-check (post-ORDER-017)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 - **📊 Model:** fable-5 · groom slice (window re-verification addendums on two
   parked idea heads + this card; no code, no new idea files)
