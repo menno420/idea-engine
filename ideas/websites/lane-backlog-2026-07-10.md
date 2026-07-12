@@ -307,7 +307,14 @@ front-matter in this delta carries a `shipped_pr:`.
 
 ## Groom (2026-07-12 fourth-re-pin reconciliation)
 
-> **Grounding:** https://raw.githubusercontent.com/menno420/websites/8f9765483a7df57ce426e7d11d200f10b5495ed7/docs/ideas/backlog.md@8f97654 · re-fetched 2026-07-12 by this groom pass; fetched bytes hash to blob `e14bb15408b1f45de14eae72efe990024f0e548c` by `git hash-object` — the fourth re-pin's blob claim verified byte-level, zero clone. Prior-pin fetch (`…/c81ce76/docs/ideas/backlog.md`) hashes to `0897a6f6a63a6e452689d94edd5919131e732ae1`; `git diff --no-index --numstat` between the two fetches = **+194/-30**, matching the sizing above exactly.
+> **Grounding:** https://raw.githubusercontent.com/menno420/websites/8f9765483a7df57ce426e7d11d200f10b5495ed7/docs/ideas/backlog.md@8f97654 · fetched 2026-07-12T02:15Z
+> *(groom-pass verification: the fetched bytes hash to blob
+> `e14bb15408b1f45de14eae72efe990024f0e548c` by `git hash-object` — the fourth
+> re-pin's blob claim verified byte-level, zero clone; the prior-pin fetch
+> (`…/c81ce76/docs/ideas/backlog.md`) hashes to
+> `0897a6f6a63a6e452689d94edd5919131e732ae1`, and `git diff --no-index
+> --numstat` between the two fetches = **+194/-30**, matching the sizing above
+> exactly)*
 
 **Tally reconciliation — CONFIRMED, 14 / 31 / 6, no correction.** Independent
 per-bullet count at blob `e14bb15` (51 bullets total, every bullet classified):
