@@ -72,6 +72,15 @@
   `control/status.md` corpus (live specimen: `c77563c` LEFT ARMED vs DISMANTLED, same
   trigger id; hard FP case: `e66c78a`'s quotation-negation carry) · sim-ready; origin:
   session-2 boot card 💡, promoted as PROPOSAL 013
+- [`external-review-authenticity-gate-2026-07-12.md`](external-review-authenticity-gate-2026-07-12.md) — mechanical
+  pre-trust gate for external review replies: every checkable cited artifact (commit
+  SHA in refs · PR/branch exists · path exists at the cited blob · line range ≤ EOF)
+  validates against pinned repo state before the reply counts as signal, specced as a
+  measured (extraction grammar × validation set × decision rule) sweep over the three
+  recorded fabricated @codex replies (sim-lab #44/#53, 2026-07-12) vs the
+  verified-genuine review corpus (idea-engine #264/#265, 17/17 accepted) ·
+  sim-ready; origin: drafted this slice from sim-lab's fabrication-incident ledger
+  (`dedc12e`) under standing ORDER 003, promoted as PROPOSAL 014
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
