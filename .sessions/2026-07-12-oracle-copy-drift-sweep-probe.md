@@ -28,7 +28,10 @@ pinnable SHA, BUT N's own boundary doctrine ("this repo never imports the old
 bot" — `tools/compute_corpus.py` header) means oracle-derived inputs arrive as
 committed artifacts, which shapes the smallest slice.
 
-Verdict: **sim-ready** — same family as VERDICT 012's cite-checker sweep
+Verdict: **recommendation sim-ready** (state advanced captured→probed here;
+the sim-ready STATE flip is outbox-coupled by `check_ideas --outbox` and
+control/ is coordinator-only for this slice, so flip + PROPOSAL append ride
+the coordinator's slice together) — same family as VERDICT 012's cite-checker sweep
 (deterministic corpus diff, real grammar × normalization × gating parameter
 space, two real pinned corpora), and the spec questions are genuinely open:
 which AST contexts count as user copy across 528 `sb/**.py` files, what match
@@ -57,7 +60,8 @@ the PR #222/#225/#226/#228 workflow convention.
 **Evidence:**
 
 - ideas touched (2): `ideas/superbot-next/oracle-copy-punctuation-drift-sweep-2026-07-12.md`
-  (state flip captured→sim-ready + probe report v0 append),
+  (state flip captured→probed + probe report v0 append; sim-ready flip is
+  coordinator-side, outbox-coupled),
   `ideas/superbot-next/README.md` (index bullet re-badge, PR #192 card
   convention)
 - sessions touched (1): `.sessions/2026-07-12-oracle-copy-drift-sweep-probe.md`
@@ -72,7 +76,8 @@ the PR #222/#225/#226/#228 workflow convention.
 
 **Judgment (the half only the session knows):**
 
-- Decisions made: no D-entry — probe verdict only (sim-ready). One
+- Decisions made: no D-entry — probe verdict only (recommendation
+  sim-ready, state probed pending the coordinator's outbox-coupled flip). One
   evidence-over-claim call, declared: the capture frames the oracle side as
   "search_code fragments" because the SOURCE seat had direct oracle reads
   denied; this probe verified the denial is seat-specific (raw reads at
@@ -115,8 +120,10 @@ stray was left uncommitted.
 
 ## Handoff → next wake
 
-Coordinator: this head is sim-ready — the outbox PROPOSAL append is yours
-(control/ boundary). Question + done-when are paste-ready in the probe
+Coordinator: this head's recommendation is sim-ready — BOTH the
+probed→sim-ready state flip AND the outbox PROPOSAL append are yours
+(control/ boundary; `check_ideas --outbox` couples them, so do both in one
+slice). Question + done-when are paste-ready in the probe
 report's verdict. The idea's grounding pins to carry into the proposal:
 superbot-next @ `af985c17def5ff2478103cb363ebb150cb583a97`, superbot (oracle)
 @ `1ecc21138fe0a1eb672d03b66bd319164c29d55f`.
