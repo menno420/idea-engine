@@ -188,3 +188,66 @@ implementation found is to parameterize that proven walk (+ the genuinely missin
 fleet rollup) as one lane-sized slice inside the manager's PROPOSAL 002 phase-1
 routing, which VERDICT 003 cleared and which is verified still unrouted at websites
 `control/inbox.md` @ `8f97654`.
+
+## Groom (2026-07-12 story-window re-check)
+
+> **Grounding:** https://github.com/menno420/websites@d67eaaddc6b6c6a4fb53bb633849e3a05b1b6e8c · fetched 2026-07-12T16:21Z
+> *(pin annotation: grooming re-verification, NOT a re-probe — dispatched after
+> the lane's 2026-07-12 ORDER 017 burst (39 commits `8f97654` → `d67eaad`)
+> landed story work on the review service; `review/gen_snapshot.py` fetched at
+> `8f97654`/`50dd661`/`d7721bb`/`d67eaad` and hash-compared, `control/inbox.md`
+> read in full at `d67eaad` (ORDERs 001–020), full `git ls-tree -r` stem scan
+> for pulse/rollup/story surfaces. HEAD moved once more DURING the re-check —
+> `3bfdf18`, websites #187, `app/`-only by `--stat`, orthogonal — so the pin
+> stays at the dispatched head.)*
+
+**VERDICT: window OPEN — today's work was orthogonal to the exporter
+remainder.** The fleet-wide parameterization + rollup this rider carries were
+not touched:
+
+- **Exporter untouched, byte-level:** `review/gen_snapshot.py` is blob
+  `21f013a` at BOTH `8f97654` and `d67eaad` (`git ls-tree` both sides;
+  raw fetches at all four SHAs hash identical) — no parameterization, no
+  second-repo walk.
+- **Rollup still missing:** no `pulse.json`, no fleet rollup, no
+  git-history trend artifact anywhere in the `d67eaad` tree (full-tree scan).
+  ORDER 017 A (websites PR #175, `50dd661`) DID expand `review/gen_fleet.py`
+  (+194) — but that is the LIVE-state fleet mirror (fleet-manager `LANES`
+  registry + per-lane heartbeats + per-repo HEAD probes over anonymous git
+  transport), not history: the capture's central "no historical program-wide
+  metrics anywhere" premise still holds at `d67eaad`.
+- **Routing still ABSENT:** inbox @ `d67eaad` grew ORDERs 012–020 today;
+  none routes P002 phases 1–2. ORDER 017 targets the review service
+  exclusively.
+
+**Three measured updates that STRENGTHEN the rider (fold-in cost fell):**
+(1) the Q4 consumer-absence concern shrank — the review service deployed
+publicly 2026-07-12 (its own `MILESTONES` @ `d67eaad`; ORDER 017 D confirms
+the cold-browser check), so a fleet feed now has a live renderer family;
+(2) the regeneration-cadence gap has a working seat — ORDER 017 A fixed the
+scheduled `review-bake` Actions workflow in the same commit
+(`.github/workflows/review-bake.yml`, `50dd661`); (3) `gen_fleet.py`'s new
+registry-parse + ~18-repo anonymous-git-transport loop is a proven in-tree
+scaffold the parameterized pulse walk can reuse. Premise-decay clock (Q4)
+ticked once: another review-service iteration deepened the single-repo shape.
+NEW window threat, shared with the sibling rider: websites ORDER 016 @
+`d67eaad` ("find all website related plans across the multiple repos and
+execute all the important ones") could start the story page lane-side without
+the manager fold-in, and the lane's auto-merge-enabler (websites #167,
+`f14aeaa`) makes that hours-scale.
+
+**Manager-flag status (the standing "fold BOTH riders into ONE ORDER on the
+phase-1 carrier" flag): AMEND.** Replacement text, verbatim: "Fold BOTH
+riders — the pulse-feed exporter line (parameterize `review/gen_snapshot.py`'s
+walk + the fleet rollup) and the story-bubble narrative line (ONE committed
+content file, `speaker: owner|agent`, stable chapter-ID anchors, honest-empty
+render, page code never embeds prose) — into ONE ORDER on the P002 phase-1
+story-page routing, unchanged in substance; AND, new tripwire: websites
+ORDER 016 can surface P002 and start the story page lane-side without that
+routing — if the lane self-starts story-page work under ORDER 016 (or any
+order), inject both rider lines into that work item immediately; with the
+lane's auto-merge-enabler live (websites #167), the fold-in is hours-scale
+time-sensitive from the first story-shaped commit."
+
+State unchanged: `parked(build-direct)` stands, Sequence pin stands (no
+re-badge; groom precedent PR #244).

@@ -221,3 +221,69 @@ live `8f97654`, (c) the page's first commit not yet made — and the probe's
 output had to exist BEFORE the routing lands, which can be any wake; yes, this
 is the third rider of the same routing (Q7, stated), and with it the P002
 fold-in family is CLOSED — no fourth rider candidate exists in the section.
+
+## Groom (2026-07-12 story-window re-check)
+
+> **Grounding:** https://github.com/menno420/websites@d67eaaddc6b6c6a4fb53bb633849e3a05b1b6e8c · fetched 2026-07-12T16:21Z
+> *(pin annotation: grooming re-verification, NOT a re-probe — dispatched after
+> the lane's 2026-07-12 ORDER 017 burst (39 commits `8f97654` → `d67eaad`, HEAD
+> committed 16:06Z) landed story work; `review/story.py` read IN FULL at
+> `d67eaad` (769 lines, blob `b35ad65`) and diffed locally against `8f97654`
+> (505 lines), `50dd661` (ORDER 017 A, websites PR #175, +116) and `d7721bb`
+> (ORDER 017 C homepage rebuild, websites PR #180, +156); `control/inbox.md`
+> read in full at `d67eaad` (ORDERs 001–020); full `git ls-tree -r` stem scan
+> for story/scrolly/narrat/bubble/chapter. HEAD moved once more DURING the
+> re-check — `3bfdf18`, websites #187, `app/`-only by `--stat`, orthogonal —
+> so the pin stays at the dispatched head.)*
+
+**VERDICT: window OPEN — the ORDER 017 story work was orthogonal to this
+rider's carrier.** The burst refreshed and rebuilt the REVIEW service (inbox
+ORDER 017 @ `d67eaad`: "Refresh and upgrade the public program-review site
+(review-production-f027)… the Anthropic Claude Code team is reviewing it this
+week") — the probe's named ANTI-instance, "a different page for a different
+audience". The P002 phase-1 story page's first commit has still not happened:
+
+- **Page still UNBUILT:** the only story-shaped file in the whole `d67eaad`
+  tree remains `review/story.py` (full-tree stem scan above); no
+  scrollytelling page, no chapter/bubble file, no content-file seam for
+  narrative anywhere. (`review/data/questions.json` + `load_questions` are the
+  Q&A ledger and pre-existed at `8f97654` — data, not chapter narrative.)
+- **Routing still ABSENT:** inbox @ `d67eaad` grew ORDERs 012–020 today; zero
+  are P002/story-page-shaped (greps: `scrolly|bubble|narrative` = 1 hit,
+  "reviewer narrative" inside ORDER 017 A's source list; `story` hits are the
+  review site's "scale story"/"story in brief"). The literal token "P002"
+  appears nowhere in the websites tree — the phase naming is this repo's, so
+  its absence is expected and carries no signal either way.
+- **First-commit shape NOT decided:** there is still room for the content-feed
+  mechanism to be the story page's commit #1; nothing built today constrains
+  it.
+
+**The constraint got MORE necessary, not less:** all +272 gross new
+`review/story.py` lines are hardcoded module literals (the 07-12 incident
+`PROBLEMS` entry with its evidence URLs, `START_HERE` cards,
+`GENERATIONS_TILE`, `site_map`, `EVIDENCE_LINKS`) — the revealed
+narrative-in-code default's third and largest same-class datapoint, landed at
+burst pace under an owner deadline. Two NEW window threats, measured: (1)
+websites ORDER 016 @ `d67eaad` ("find all website related plans across the
+multiple repos and execute all the important ones") is a lane-initiated path
+that could surface PROPOSAL 002 and start the story page WITHOUT the
+manager-routed phase-1 ORDER this rider waits on; (2) the lane's new
+auto-merge-enabler (websites #167, `f14aeaa` — green `claude/*` PRs land
+themselves) plus today's measured burst pace means any story-shaped start
+closes the window in hours.
+
+**Manager-flag status (the standing "fold BOTH riders into ONE ORDER on the
+phase-1 carrier" flag): AMEND.** Replacement text, verbatim: "Fold BOTH
+riders — the pulse-feed exporter line (parameterize `review/gen_snapshot.py`'s
+walk + the fleet rollup) and the story-bubble narrative line (ONE committed
+content file, `speaker: owner|agent`, stable chapter-ID anchors, honest-empty
+render, page code never embeds prose) — into ONE ORDER on the P002 phase-1
+story-page routing, unchanged in substance; AND, new tripwire: websites
+ORDER 016 can surface P002 and start the story page lane-side without that
+routing — if the lane self-starts story-page work under ORDER 016 (or any
+order), inject both rider lines into that work item immediately; with the
+lane's auto-merge-enabler live (websites #167), the fold-in is hours-scale
+time-sensitive from the first story-shaped commit."
+
+State unchanged: `parked(build-direct)` stands, Sequence pin stands (no
+re-badge; groom precedent PR #244).
