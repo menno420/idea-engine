@@ -1,6 +1,6 @@
 # Routine-cadence economics sim — replay the seat's own wake trail, price every wake policy
 
-> **State:** probed
+> **State:** sim-ready
 > **Class:** process · **Target:** `menno420/sim-lab` (verification target per the Q-0264
 > pipeline; the verdict routes to the manager/owner — the buildable artifact is a
 > one-file stdlib simulator sim-lab can run and any lane can re-run)
