@@ -1,10 +1,9 @@
 # Session — Ideas Lab coordinator session 2 boot: routine cutover + heartbeat
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-12T21:02:52Z (landing worker slice, dispatched by
-> the session-2 coordinator; born-red HOLD — this badge flips to `complete` in the
-> final commit of the boot PR, and the substrate-gate red it causes until then is
-> DESIGNED, not a defect)
+> the session-2 coordinator; card born in-progress as the designed gate hold,
+> flipped complete in the boot PR's final commit)
 
 ## Scope
 
@@ -40,7 +39,16 @@ heartbeat overwrite of `control/status.md`.
 
 ## 💡 Session idea
 
-[[fill: session idea — filled at flip time]]
+Heartbeat single-home rule + contradiction linter: routine-disposition facts
+must live in exactly one block of `control/status.md`; a kit checker could flag
+intra-file contradictions (e.g. "DISMANTLED" vs "LEFT ARMED" about the same
+trigger id, observed 2026-07-12) so successors never have to adjudicate a
+heartbeat against live enumeration. Dedup note: nearest neighbor is
+`ideas/fleet/carried-watch-verdict-inheritance-guard-2026-07-12.md` (verified
+stamps on watches inherited ACROSS overwrites — staleness); this one is
+distinct: duplicate statements of the same fact disagreeing WITHIN one file
+revision, prevented structurally (single home) and caught mechanically
+(contradiction flag on shared keys like trigger ids).
 
 ## ⟲ Previous-session review
 
