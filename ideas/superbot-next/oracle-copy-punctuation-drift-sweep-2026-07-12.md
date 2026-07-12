@@ -1,6 +1,6 @@
 # Oracle user-copy punctuation-drift sweep — grep rebuild literals against oracle fragments
 
-> **State:** probed
+> **State:** sim-ready
 > **Class:** process · **Target:** `menno420/superbot-next`
 > **Grounding:** https://github.com/menno420/superbot-next@80464ab39f86d55cede1e38b4780e7b1cc4a1777 · fetched 2026-07-12T01:34:18Z
 
