@@ -1,6 +1,6 @@
 # Session — single-pass probe: superbot-next oracle-copy punctuation-drift sweep
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 ## What this session did
 
@@ -69,8 +69,8 @@ the PR #222/#225/#226/#228 workflow convention.
   reads of `control/status.md` and `control/outbox.md` for VERDICT 012 /
   proposal-grammar context)
 - git: branch `probe/oracle-copy-drift-sweep` off main `d68ac2d`, born-red
-  card first commit, probe+close-out commit follows; draft PR flipped ready
-  on green per dispatch instructions.
+  card first commit `8554ef5`, probe commit `99132cf`, this close-out flip
+  follows; draft PR #239 flipped ready on green per dispatch instructions.
 - verify: `python3 bootstrap.py check --strict` and
   `python3 scripts/preflight.py` run before every push.
 
