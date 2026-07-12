@@ -66,6 +66,12 @@
   `477b452`, report `sims/verdict-014-routine-cadence-economics/`); feeds the ≤2026-07-13 post-EAP
   routine posture decision (fm `OQ-SITTING-0714-DECISIONS`); origin: generated this
   slice from the seat's own wake record
+- [`heartbeat-contradiction-linter-2026-07-12.md`](heartbeat-contradiction-linter-2026-07-12.md) — heartbeat
+  single-home rule (one fact, one block) + intra-file contradiction linter, specced as a
+  measured (extraction grammar × normalization × scope) sweep over the real 22-revision
+  `control/status.md` corpus (live specimen: `c77563c` LEFT ARMED vs DISMANTLED, same
+  trigger id; hard FP case: `e66c78a`'s quotation-negation carry) · sim-ready; origin:
+  session-2 boot card 💡, promoted as PROPOSAL 013
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
