@@ -1,6 +1,6 @@
 # Session — capture slice: verdict-inheritance guard for carried heartbeat watches (fleet)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 - **📊 Model:** fable-5 · capture slice (one new `ideas/fleet/` head + index row +
   this card; no code, no probe — capture only, per the PR #244 groom's routing)
