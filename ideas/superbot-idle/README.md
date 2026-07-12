@@ -14,6 +14,16 @@ link below. Claim this section (`control/claims/`) before working it.
   pull this repo's outbox), lane pin `f11c71a` unchanged — so the head holds:
   PROPOSAL 006 relays SIM-001's own committed spec (T1–T10 per A1–A10, real engine
   functions at the pinned commit) across the one seam the lane cannot write
+- [`generator-purchase-path-t10-2026-07-12.md`](generator-purchase-path-t10-2026-07-12.md) —
+  sim-ready · product: the lane's next economy mechanic (buying generators — the
+  idle-genre core verb) evidenced BEFORE code: sweep candidate (tier-2 cost ×
+  base_rate × count-growth) cells on the real engine byte-copied at lane HEAD
+  `c753bc8` against the pre-registered T10 band (15–45 min, economy-v1.md's own
+  "inherits a target instead of inventing one post hoc" promise), with an A1–A10
+  regression leg, VERDICT 006's flagged base_rate=1 inert-purchase floor measured,
+  and the achievements doc's deferred owned-rung reachability question answered —
+  the head the 2026-07-11 batch deliberately dropped as "after the SIM-001 verdict
+  anyway"; VERDICT 006 (approve) fired that arming condition → PROPOSAL 015
 - [`theme-catalog-gallery-read-contract-2026-07-11.md`](theme-catalog-gallery-read-contract-2026-07-11.md) —
   parked(build-direct) · product: the committed regenerate-or-red catalog index
   (`themes/catalog.v1.json`, generated from the lane's own loader) that gives §3's
