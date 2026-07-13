@@ -96,6 +96,19 @@ links both.
 - [`dispatch-resolution-json-hermes-2026-07-10.md`](dispatch-resolution-json-hermes-2026-07-10.md) — historical(executed 2026-06-16 in superbot PR #959) · Dispatch resolution — `dispatch_menu.py --json` wired into the Hermes dispatch skill (canonical: superbot `docs/ideas/dispatch-resolution-json-hermes-2026-06-14.md` @ `fd638e3`)
 - [`docs-ledger-parsing-helper-2026-07-10.md`](docs-ledger-parsing-helper-2026-07-10.md) — captured · Idea — a shared `docs_ledger` markdown-parsing helper (one source of truth for the ledger regexes) (canonical: superbot `docs/ideas/docs-ledger-parsing-helper-2026-06-16.md` @ `fd638e3`)
 - [`effective-check-constraint-test-helper-2026-07-10.md`](effective-check-constraint-test-helper-2026-07-10.md) — captured · Idea — a shared `effective_check_constraint(table, column)` test helper (canonical: superbot `docs/ideas/effective-check-constraint-test-helper-2026-06-14.md` @ `fd638e3`)
+- [`encounter-coexistence-cooldown-contract-2026-07-13.md`](encounter-coexistence-cooldown-contract-2026-07-13.md) —
+  sim-ready · product: the interaction term of VERDICTs 001 + 008 — both encounter
+  surfaces (wild CHAT_ACTIVITY, grid GRID_ROAM) are solo-tuned with different
+  cooldowns (900 s / 600 s) for ONE shared resolution engine whose contract has no
+  cooldown-namespace rule ("whichever build lands first fixes it", V008's own
+  clause); compose the two verdicts' committed trace models into joint player
+  profiles and sweep {per-source clocks · shared per-player clock · per-source +
+  combined hourly cap} against BOTH verdicts' pinned shapes, pricing the 2.5x
+  combined-interruption swing and the cross-surface cooldown-arbitrage farmer
+  neither solo sim could see — ONE contract row (namespace + combined-rate
+  guardrail) handed to the Q-0186 BUILD-FIRST cog and the superbot-games CONTRACT
+  slice before the first build hard-codes an accident; window verified open at
+  superbot `0f991a8` (PROPOSAL 016)
 - [`env-map-deploy-readiness-cross-check-2026-07-10.md`](env-map-deploy-readiness-cross-check-2026-07-10.md) — captured · Idea — turn the env-usage map into a deploy-readiness check (required-but-unset detection) (canonical: superbot `docs/ideas/env-map-deploy-readiness-cross-check-2026-06-16.md` @ `fd638e3`)
 - [`executable-verification-over-prose-verified-2026-07-10.md`](executable-verification-over-prose-verified-2026-07-10.md) — captured · Idea: executable invariants replace prose "verified" status claims (canonical: superbot `docs/ideas/executable-verification-over-prose-verified-2026-06-12.md` @ `fd638e3`)
 - [`executor-chain-trigger-via-workflow-2026-07-10.md`](executor-chain-trigger-via-workflow-2026-07-10.md) — captured · Idea: route executor self-chaining through the cron/PAT workflow, not a session-opened issue (canonical: superbot `docs/ideas/executor-chain-trigger-via-workflow-2026-06-15.md` @ `fd638e3`)
