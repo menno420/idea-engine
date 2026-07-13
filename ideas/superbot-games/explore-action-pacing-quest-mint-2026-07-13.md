@@ -5,9 +5,10 @@
 > the shared-engine CONTRACT slice) and `menno420/superbot` (the Q-0186 Encounters-cog
 > build — the HOST whose gate would otherwise fix the constant by accident);
 > verification target `menno420/sim-lab` per the Q-0264 pipeline
-> **Grounding:** superbot-games live HEAD `5aec110834345e20ce47941266fe598f43804ea0`
-> (anonymous blobless clone at drafting, 2026-07-13T07:3xZ) + sim-lab VERDICT 018
-> committed report/fixtures @ local clone `b50fd06` (`sims/verdict-018-encounter-coexistence/`)
+> **Grounding:** https://github.com/menno420/superbot-games@5aec110834345e20ce47941266fe598f43804ea0 · fetched 2026-07-13T07:53:10Z
+> (anonymous blobless clone at drafting, pin re-verified at the stamp; second
+> pin: sim-lab VERDICT 018 committed report/fixtures @ local clone `b50fd06`,
+> `sims/verdict-018-encounter-coexistence/`)
 
 **Origin:** drafted under standing owner ORDER 003 (continuous pipeline — "continue
 coming up with new ideas, that is your main purpose"). The ORDER 003 GAME-MECHANICS
@@ -222,6 +223,100 @@ reporting-only) until the named telemetry lands.
   inherits-by-contract lines, P016's out-of-scope clauses, and the contract
   capture above. No proposal 001–030 and no sim-lab verdict V001–V031 sweeps
   EXPLORE_ACTION pacing, quest-beat admission, or any currency-faucet mint bound.
+
+## Probe report (v0, 2026-07-13)
+
+> Single-pass battery (panel not escalated: a modeling head chained to a
+> committed parent verdict's own machinery, sim is report-only evidence, no
+> spend/publish/irreversible surface). Verify-first ran FIRST, live this slice:
+> (a) **grounding** — superbot-games cloned anonymously (blobless, depth 1) and
+> pinned at `5aec110`; the host-gate quote, `ITEM_FAUCET_MINTS_NO_CURRENCY`,
+> the 360/180 energy pins, `TIER_CAPS`/`GLOBAL_MAX`, and `supply_run required=3`
+> all read from the working tree at the pin, not from memory; `grep` over
+> `games/exploration/` + `games/shared/encounter/` confirmed zero pacing
+> surface and `EncounterTrigger.EXPLORE_ACTION` present in the seam. (b)
+> **parent anchors** — V018's REPORT.md re-read in full at the local sim-lab
+> clone @ `b50fd06`; the excluded-trigger line, the contract row, and every
+> regression number quoted verbatim above. (c) **dedup** — the sweeps in the
+> Dedup section, both trees, zero prior hits on the head's axes. (d)
+> **feasibility arithmetic** — ~24 decision + ~24 reporting cells × 5 profiles
+> × 5–8 seeds × 8 h event streams is the V018 measured runtime class (< 1 s
+> per sweep there; this adds one Poisson stream and a bundle counter — well
+> under a minute stdlib CPython).
+
+**1. What is this really?** The third-trigger completion of the encounter
+contract: V018 pinned two of three triggers and named the third out of scope;
+the lane then shipped its quest engine with the pacing constant explicitly
+host-gated; this head prices that constant (c_E × B × coupling under K=4)
+before the host build fixes it, and adds the mint axis (absolute currency)
+that no rate-terms parent could carry.
+
+**2. What is the possibility space?** (i) Don't run it — the Q-0186 cog build
+picks a host gate by engineering convenience and the quest faucet's farmability
+is discovered live. (ii) Route it to the lane as a design question — but the
+lane already answered with "host-gated, no in-domain cooldown": it does not
+believe it owns the number. (iii) Wait for telemetry — circular: the telemetry
+lands with the same build that needs the constant. (iv) This head: compose the
+committed parents, sweep the one free constant plus the two model unknowns,
+hand the row (or the carve-out) to both consumers before either builds.
+
+**3. What is the most advanced capability reachable by the simplest
+implementation?** One stdlib file that IMPORTS the shape of V018's committed
+machinery (its own report proves the composition runs in < 1 s): the third
+surface is one Poisson attempt stream + one admission check + one integer
+quest counter; the mint table is completions × committed bundle integers.
+That file yields the full 48-cell five-profile table, the exact V018
+regression gates, and the first absolute-currency mint pin — from a sim a
+verdict session runs cold in well under a minute.
+
+**4. What breaks it? (assumptions made explicit)** (a) the coupling fork is a
+design unknown — so it is SWEPT, not assumed, and the REJECT consequence is
+precisely "ship the free coupling"; (b) r_E is a dial — honest profiles
+BRACKET, the farmer is the optimizing adversary (the V018 stance), and the
+NULL/APPROVE consequence names the telemetry that measures it; (c) tier
+selection is bracketed {II center, III adversarial}, not swept; (d) B=8's
+arithmetic squeeze (K=4 caps honest completions at 0.5/hr) is disclosed in
+the NULL branch rather than discovered; (e) the ruling can only tighten or
+carve — both parents' verdicted defaults and K=4 are contractually not
+re-opened, so no outcome destabilizes a finalized verdict.
+
+**5. What does it unlock?** The completed three-trigger contract row (or its
+measured carve-out) handed to BOTH consumer builds before either lands; the
+first encounter-family conclusion in absolute native currency units; and the
+importable MINT-band pattern for every future host-gated faucet (dnd escort
+is the named next head if MINT binds).
+
+**6. What does it depend on? (cheapest confirm/kill, priced)** Nothing
+external at sim time — every constant is quoted in this file and committed as
+fixture JSON. Kill tests, run live this slice: an existing EXPLORE_ACTION
+pacing sweep anywhere (NOT found — dedup above); a pacing surface already in
+the lane tree (NOT found — grep at `5aec110` returns zero); a lane-side
+registration like P015's T11 (NOT found — the economy sim's own text punts to
+the host); infeasible runtime (NOT found — the V018 class runs < 1 s).
+
+**7. Which lane should build it — and what does it displace or duplicate?**
+sim-lab runs it (the V018 machinery and every anchor live in its own tree;
+the V001/V008 fixtures ride inside V018's manifest). Consumers: superbot's
+Q-0186 cog build and superbot-games' CONTRACT slice + exploration lane.
+Duplicates nothing: V018 is chained (regression gates), never re-run, and the
+parked consumer-contract capture is prose this verdict feeds, not a sim.
+
+**8. What is the smallest shippable slice?** One sim-lab verdict dir: one
+stdlib file (three-surface composition + quest counter + farmer steering +
+gates), one fixture JSON (constants verbatim from this file, seeds
+20260764–67), one results table {beats, completions/hr, currency/hr absolute,
+per-surface rates, pass/fail per band} × (48 cells × 5 profiles) plus the
+regression and stability legs, ending in exactly one of APPROVE/REJECT/NULL
+per the pre-registered rule — reproducible from the fixtures alone,
+byte-identical on re-run, no flags.
+
+**Recommendation: sim-ready** — the question is crisp and computable on
+committed machinery (V018's own < 1 s composition), the bands and decision
+rule are registered above BEFORE any code exists with REJECT checked first,
+the window is verified open AND closing (the lane finalized at `5aec110` with
+the constant orphaned), and every outcome changes what the Q-0186 build ships
+(the measured c_E band, or the free-coupling carve-out with its starvation
+table). Seeds 20260764–67, above the P030 high-water 20260763.
 
 ## Pinned constants (quoted at drafting — fixture JSON copies these verbatim)
 
