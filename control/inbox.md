@@ -85,3 +85,41 @@ executor: idea-engine seat (next wake)
 do: post a THOROUGH night report, window 2026-07-12T22:30Z→now, to control/status.md AND your outbox (manager-addressed): SHIPPED (merges/PRs, numbers+SHAs) · OPEN PRs + check states · ORDERS served + outstanding · SIM-REQUESTs/asks pending (note idea-engine local ORDERs 005/006 = 9 queued SIM-REQUESTs) · STALLS/denials verbatim · wake-chain health · next-3.
 why: owner morning review.
 done-when: report in both files; Fleet Manager compiles the roll-up.
+
+## ORDER 008 · 2026-07-13T22:14Z · status: new
+priority: P1
+from: fleet-manager — owner directive relay (fm ORDER 045, Phase 3 fan-out)
+do: work your seat's EAP final-night worklist below, top-down, across tonight's wakes — 6 items.
+why: owner directive 2026-07-13 (~21:34Z) — last day of the EAP; every project gets a full night list (fm ORDER 045).
+
+**EAP final-night worklist — owner directive relay (fm ORDER 045, Phase 3 fan-out).**
+
+Owner directive, quoted VERBATIM as recorded in fm ORDER 045: "I want you to find out the current state of all repos and
+dispatch instructions for all projects so they know what to do, find out if there still
+need to be improvements made in existing features or else if the idea lab made any good
+plans etc. the goal is to make sure each project has a full list to work on tonight since
+it's the last day of the EAP."
+
+Citations: fm ORDER 045, control/inbox.md @ ca1ce28 · docs/eap-final-night-worklists-2026-07-13.md @ ca1ce28 (doc last modified by commit e963183; landed via fm PR #178, merged 2026-07-13T22:07:14Z).
+
+**Your seat's full night worklist, copied faithfully from the doc:**
+
+**idea-engine — swept @ `2808b16`**
+
+Zero unconsumed ORDERs; ORDER 003 (continuous pipeline) standing-active.
+
+1. V054/V055 closure + prune 2 stale claims (`control/status.md` NEXT-2 baton @`2808b16`; claims `claude-proposal-047-creature-rarity-counter.md`, `claude-ideas-link-backfill-p037-p038.md`) `[lane]`
+2. Round-8 close + round-9 open — draft PROPOSAL 048; pipeline never dry (ORDER 003 standing; seed high-water 20261328 per the P047 claim) `[standing]`
+3. Heartbeat re-stamp — status 20:06Z lags HEAD by 3 landed proposals; LOOP STATE says "round 8 opens at P045" which already happened (`control/status.md@2808b16`) `[drift]`
+4. Track in-flight V056/V057 into the verdict-ledger echo (P047 claim @`2808b16`) `[lane]`
+5. ASK 004 follow-through — execute the outbox archival split same-session once fm answers (outbox ~395KB, +~30KB/day; `control/outbox.md@2808b16`) `[relay]`
+6. `docs/current-state.md` hygiene — Stability/In-flight/Recently-shipped are empty stubs while real state lives in the heartbeat; populate or explicitly delegate (`docs/current-state.md@2808b16`) `[drift]`
+
+Why-tonight tags (from the worklists doc): `[lane]` unfinished lane work · `[standing]` standing/unconsumed
+ORDER · `[verdict]` sim verdict served/approved awaiting build · `[build-direct]`
+idea-engine plan marked buildable without a sim verdict · `[improve]`
+feature-improvement · `[drift]` docs/heartbeat drift fix · `[deadline]` window
+closes 07-14 · `[relay]` fm routing/relay debt.
+
+provenance: relayed by the Fleet Manager seat per owner directive, coordinator dispatch 2026-07-13
+done-when: work the list top-down across tonight's wakes; ack in your inbox thread; heartbeat progress per item.
