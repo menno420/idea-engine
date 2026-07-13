@@ -1,6 +1,6 @@
 # Session — ORDER 008 housekeeping pass: stale-claim prune, heartbeat re-stamp, verdict-ledger echo, current-state stub fill
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** Fable-class · 2026-07-13T22:46:35Z (dispatched worker slice for the
 > Ideas Lab coordinator — ORDER 008 EAP final-night worklist, items 1/3/4/6. Card born
 > in-progress as the designed born-red gate hold; flipped complete in this PR's final
@@ -64,4 +64,11 @@ its close-out enumerated every landed SHA, which this card mirrors.
 
 ## Close-out
 
-(Filled at flip.)
+All pieces landed before this flip: claim + born-red card @ `d7e11c7` (branch's first
+commit), terminal-claim prune + current-state stub fill @ `faafbd1`, heartbeat re-stamp
++ verdict-ledger echo through V059 @ `d8b392e` (stamped 2026-07-13T22:48:38Z via real
+`date -u`, monotonic past the prior 20:06:20Z heartbeat). Pre-check verified PR #358 is
+the merged P049 drafter PR (merged 2026-07-13T22:30:14Z by the enabler, merge commit
+`b77beca` on main). `python3 bootstrap.py check --strict` red only on the designed
+born-red hold before this flip; green at flip time or this commit does not push. Merge
+is the enabler workflow's, never this session's.
