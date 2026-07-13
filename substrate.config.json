@@ -13,7 +13,8 @@
       "batch/*",
       "telemetry/*",
       "heartbeat/*",
-      "docs/*"
+      "docs/*",
+      "claude/*"
     ],
     "required_context": "substrate-gate"
   },

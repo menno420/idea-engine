@@ -28,18 +28,10 @@ The planted doc set (this router reaches every live doc — keep it that way):
 `docs/collaboration-model.md` · `docs/helper-policy.md` ·
 `docs/repo-navigation-map.md` · `docs/ai-project-workflow.md` ·
 `docs/owner-profile.md` · `docs/current-state.md` · `docs/decisions.md` ·
-`docs/question-router.md` · `docs/CAPABILITIES.md` · `docs/SKILLS.md` ·
-`docs/ROUTINES.md` · `docs/seat-digest.md` · `docs/ideas/README.md` — plus the root
+`docs/question-router.md` · `docs/CAPABILITIES.md` · `docs/ideas/README.md` ·
+`docs/SKILLS.md` · `docs/ROUTINES.md` · `docs/seat-digest.md` (the last three
+planted by the v1.15.0 kit upgrade) — plus the root
 `CONSTITUTION.md` (the working agreement) and `.session-journal.md`.
-
-Recurring action? **`docs/SKILLS.md`** — the skill index — names every
-kit-shipped skill and when to reach for it; check it before improvising a
-procedure.
-
-Arming, deleting, or auditing a scheduled trigger/routine/wake chain?
-**`docs/ROUTINES.md`** — binding choice, delivery verification,
-probe-not-record, scheduler-health signatures, pacing — read it before
-touching the trigger registry.
 Durable retro records live under `docs/retro/` (first entry:
 `docs/retro/self-review-2026-07-11.md`, the ORDER 002 self-review moved verbatim
 off the heartbeat at the 2026-07-11 wrap-up close-out).
