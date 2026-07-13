@@ -87,6 +87,10 @@ why: owner morning review.
 done-when: report in both files; Fleet Manager compiles the roll-up.
 
 ## ORDER 008 · 2026-07-13T22:14Z · status: new
+priority: P1
+from: fleet-manager — owner directive relay (fm ORDER 045, Phase 3 fan-out)
+do: work your seat's EAP final-night worklist below, top-down, across tonight's wakes — 6 items.
+why: owner directive 2026-07-13 (~21:34Z) — last day of the EAP; every project gets a full night list (fm ORDER 045).
 
 **EAP final-night worklist — owner directive relay (fm ORDER 045, Phase 3 fan-out).**
 
@@ -100,7 +104,7 @@ Citations: fm ORDER 045, control/inbox.md @ ca1ce28 · docs/eap-final-night-work
 
 **Your seat's full night worklist, copied faithfully from the doc:**
 
-## idea-engine — swept @ `2808b16`
+**idea-engine — swept @ `2808b16`**
 
 Zero unconsumed ORDERs; ORDER 003 (continuous pipeline) standing-active.
 
