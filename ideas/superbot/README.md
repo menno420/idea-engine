@@ -129,6 +129,17 @@ links both.
 - [`convergent-amendment-discovery-signal-2026-07-10.md`](convergent-amendment-discovery-signal-2026-07-10.md) — captured · Convergent-discovery as an amendment-confidence signal (multi-agent audit methodology) (canonical: superbot `docs/ideas/convergent-amendment-discovery-signal-2026-07-02.md` @ `fd638e3`)
 - [`coordinator-self-review-against-1901-2026-07-10.md`](coordinator-self-review-against-1901-2026-07-10.md) — historical(implemented in superbot PR #1924, 2026-07-10) · Coordinator lane answers its own retro question set (2026-07-10) (canonical: superbot `docs/ideas/coordinator-self-review-against-1901-2026-07-10.md` @ `fd638e3`)
 - [`creature-pvp-rematch-button-2026-07-10.md`](creature-pvp-rematch-button-2026-07-10.md) — historical(captured and built same day — superbot PR #1262) · Creature PvP — rematch button on the outcome embed (canonical: superbot `docs/ideas/creature-pvp-rematch-button-2026-06-21.md` @ `fd638e3`)
+- [`creature-rarity-skill-counter-2026-07-13.md`](creature-rarity-skill-counter-2026-07-13.md) —
+  sim-ready · game-mechanics: the level-normalized creature-PvP ruleset's own
+  never-cross-rarity-tested promise ("rarer = stronger, but level + type + move
+  choice still let a Common counter an Epic", battle.py @ `1cc5536`) priced as a
+  pre-registered hermetic seeded-MC battle sweep — max-skill Common teams vs the
+  catalog's unique committed all-Epic team over a 9-cell composition × pilot
+  grid, plus an exact-Fraction catch-economics stakes arm (the Epic team's grind
+  premium); REJECT = the 200-vs-300 budget wall stands and collection grind is
+  ranked PvP's pay-to-win side door (Q-0039), APPROVE = skill counters AND
+  rarity retains meaning, NULL = named axis (composition-straddle / margin-band
+  / budget-inert) with its knob (PROPOSAL 047)
 - [`creature-sim-engine-constant-parity-guard-2026-07-10.md`](creature-sim-engine-constant-parity-guard-2026-07-10.md) — historical(built 2026-06-21 in superbot PR #1227) · Idea — a parity guard tying the creature sim to the runtime battle engine (canonical: superbot `docs/ideas/creature-sim-engine-constant-parity-guard-2026-06-21.md` @ `fd638e3`)
 - [`cross-agent-trust-ledger-2026-07-10.md`](cross-agent-trust-ledger-2026-07-10.md) — historical(implemented same day — superbot `docs/owner/cross-agent-trust-ledger.md`) · Cross-agent trust ledger — per-model scores from repeatable eval suites (canonical: superbot `docs/ideas/cross-agent-trust-ledger-2026-07-10.md` @ `fd638e3`)
 - [`cross-repo-eap-verification-orientation-pointer-2026-07-10.md`](cross-repo-eap-verification-orientation-pointer-2026-07-10.md) — captured · Idea — a cross-repo EAP verification orientation pointer (per-repo interpreter + clone-and-run flow) (canonical: superbot `docs/ideas/cross-repo-eap-verification-orientation-pointer-2026-07-09.md` @ `fd638e3`)
