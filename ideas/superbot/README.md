@@ -49,6 +49,19 @@ links both.
 - [`btd6-shorthand-corpus-eval-2026-07-10.md`](btd6-shorthand-corpus-eval-2026-07-10.md) — historical(shipped 2026-06-16 in superbot PR #1007; hero-per-level-stats sub-item stays captured) · BTD6 community-shorthand corpus eval (router-class regression guard) (canonical: superbot `docs/ideas/btd6-shorthand-corpus-eval-2026-06-16.md` @ `fd638e3`)
 - [`bug-book-claimed-signal-2026-07-10.md`](bug-book-claimed-signal-2026-07-10.md) — captured · Bug-book entries need a "claimed / in-progress" signal (close the claim-ledger gap) (canonical: superbot `docs/ideas/bug-book-claimed-signal-2026-06-19.md` @ `fd638e3`)
 - [`button-command-surface-parity-2026-07-10.md`](button-command-surface-parity-2026-07-10.md) — captured · Idea — button ↔ text-command surface parity audit (canonical: superbot `docs/ideas/button-command-surface-parity-2026-06-16.md` @ `fd638e3`)
+- [`casino-entry-fee-ticket-envelope-2026-07-13.md`](casino-entry-fee-ticket-envelope-2026-07-13.md) —
+  sim-ready · product: the successor question VERDICT 022's own reject routed —
+  the odds lever measurably cannot hold FUN ∧ SAFE ∧ SINK (envelope empty
+  36/36), so this head prices the entry-fee-with-prize STRUCTURE lever the
+  verdict named ("turns the SAFE failure from a bankroll event into a bounded
+  fee", untested): a pre-registered transposed-envelope sweep over (take rate t
+  × per-round ticket cap c × prize shape T1/T2/T3) with re-buy policies (greedy
+  compounding + ticket-count chase) replacing stake policies, the parent's
+  bands held fixed for cell-addressable comparison, dual-arm (exact
+  binomial/DP/ruin closed forms + a cross-verdict FUN identity pin the seeded
+  MC), fully hermetic; APPROVE = one ticket-frame house rule, REJECT = the
+  second routed lever falls (comp/stipend + rake-only PvP remain), NULL =
+  per-shape envelope table is the pin (PROPOSAL 023)
 - [`casino-house-edge-fairness-envelope-2026-07-13.md`](casino-house-edge-fairness-envelope-2026-07-13.md) —
   sim-ready · product: the balance pin tonight's minigame/casino consolidation
   needs BEFORE it invents per-game odds (inbox ORDER 004: "World's balance pins")
