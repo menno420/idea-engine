@@ -153,6 +153,26 @@
   sections — no ad-hoc section; flagged in the file's placement note), promoted as
   PROPOSAL 036; origin: drafted this slice under standing ORDER 003 (rotation rule per
   ORDER 004 rule 3)
+- [`schelling-mild-preference-tipping-2026-07-13.md`](schelling-mild-preference-tipping-2026-07-13.md) — round-6
+  COMPLETELY-UNRELATED-domain rotation head (standing ORDER 003 continuous pipeline,
+  rotation per ORDER 004 rule 3; domain: emergent spatial self-organization /
+  agent-based relocation dynamics — Schelling segregation tipping, a SIXTH
+  fleet-external domain after P017's social choice, P024's congestion routing, P028's
+  tournament seeding, P032's pattern races, and P036's optimal stopping):
+  pre-registered seeded relocation-dynamics sweep (40×40 torus, 720/720/160 A/B/vacant,
+  Moore-8, satisfaction = like-fraction among occupied neighbors ≥ τ with
+  zero-occupied-neighbors ⇒ satisfied, live random-serial sweeps with uniform-random
+  vacant-cell relocation to fixation or cap 500, τ grid {1/8, 1/4, 3/10, 3/8, 1/2,
+  5/8, 3/4}, seeds 20261297–300, decision numbers exact Fractions) measuring whether
+  the integration-compatible preference τ = 0.30 still amplifies into strong global
+  segregation — median terminal like-neighbor share s(0.30) against registered
+  APPROVE/REJECT/NULL bands (REJECT iff median < 11/20, stated first / APPROVE iff
+  median ≥ 7/10 AND the stability leg reproduces / anything else = honest null naming
+  the binding axis from four pre-registered shapes; no closed form exists, no
+  expected landing pinned) · sim-ready; homed here per the `check_sections.py`
+  non-lane carve-out (roster-derived sections — no ad-hoc section; flagged in the
+  file's placement note), promoted as PROPOSAL 040; origin: drafted this slice under
+  standing ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
