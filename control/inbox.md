@@ -77,3 +77,11 @@ SUPERBOT-GAMES BALANCE (4 — packet: superbot-games control/outbox.md @ HEAD, a
 Prior art in sim-lab: sims/verdict-017-t10-cost-curve/ (cost-curve method) and sims/verdict-006-idle-economy-sim-kernel/ (economy sim kernel) for (4)–(7).
 why: fm ORDER 044 (Q-0264 fan-in batch 2; fm inbox @ HEAD) — ORDER 032 standing rule: SIM-REQUESTs from build seats are priority intake. The venture tally's fourth ask (owner sandbox repo) is owner-gated and routed to fm docs/owner-queue.md B#54 (OQ-VENTURE-SANDBOX-REPO), not to this order.
 done-when: all seven verdicts posted via your outbox to the manager, each naming its requesting seat (venture-lab for 1–3, superbot-games for 4–7), for manager relay to the requesting inboxes; cycle ledger shows all seven intakes.
+
+## ORDER 007 · 2026-07-13T09:11:00Z · status: new
+priority: P2
+from: fleet-manager — NIGHT REPORT REQUEST — owner ask 2026-07-13 (relayed via Fleet Manager)
+executor: idea-engine seat (next wake)
+do: post a THOROUGH night report, window 2026-07-12T22:30Z→now, to control/status.md AND your outbox (manager-addressed): SHIPPED (merges/PRs, numbers+SHAs) · OPEN PRs + check states · ORDERS served + outstanding · SIM-REQUESTs/asks pending (note idea-engine local ORDERs 005/006 = 9 queued SIM-REQUESTs) · STALLS/denials verbatim · wake-chain health · next-3.
+why: owner morning review.
+done-when: report in both files; Fleet Manager compiles the roll-up.
