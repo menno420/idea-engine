@@ -23,9 +23,12 @@ graduated, each linking its source card at the pin).)*
 - [`shim-replay-determinism-harness-2026-07-11.md`](shim-replay-determinism-harness-2026-07-11.md) — parked(build-direct) · product: graduates the stage-(c) shim card idea — property-based replay-determinism test (idempotent replay / 409 on mutated reuse / audit-digest reproduction) holdable first against the shim, later verbatim against the real FLAG 2 endpoint via the fixture base-URL seam — probed 2026-07-11 at live `2b1bd0b` (file byte-identical to pin, FLAG 2 unpicked): one committed-seed property test, zero new deps; its evidence is its own runs, no sim question until a real endpoint exists
 - [`heartbeat-ladder-field-2026-07-11.md`](heartbeat-ladder-field-2026-07-11.md) — parked(routed) · process (→ fleet-manager): a machine-parseable `ladder:` heartbeat line so the roster generator surfaces stage-level drift — probed 2026-07-11 at fleet-manager `6dedff6` / kit `941be2e`: the roster went MACHINE-GENERATED between capture and probe (gen #5, `scripts/gen_roster.py`, fm PR #62 — re-reads every heartbeat at verified HEAD each wake), mooting the auto-re-pin third of the payoff; the surviving structured-stage-diff value is a KIT grammar declaration decision (no ladder field in `grammar.py`; PR #59's fold-in-over-declare bars undeclared lane keys) with fm's generator as first consumer — routed via the heartbeat fan-in + cross-linked on `ideas/substrate-kit/README.md`; zero-grammar interim (ladder token in `phase:`, machine-quoted into the roster) available to any staged lane today
 
-**SECTION COMPLETE (2026-07-11):** all 5 ideas probed-or-parked (1 folded · 3
-build-direct · 1 routed) — no captured heads remain; new heads arrive by capture or
-harvest per README § Sections.
+- [`snapshot-stale-indicator-threshold-2026-07-13.md`](snapshot-stale-indicator-threshold-2026-07-13.md) — sim-ready · process (→ sim-lab): the READ contract's staleness rule ships a hedged constant ("default suggestion: 3 missed cycles ≈ 180 s" at the 60 s target cadence, `docs/mining-data-contract.md` § Delivery expectations @ `ae98dd0`) with both failure axes named in its own sentence (a cry-wolf stale badge vs presenting old numbers as live) and neither priced — pre-registered hermetic renewal-reward sim (exact-Fraction Arm A + seeded timeline Arm S, seeds 20261317–320), REJECT-first bands 1/200 false-stale · 240 s mean detection; harvested 2026-07-13 for the ORDER 003 fleet-backlogs rotation slot, round 8 (PROPOSAL 045)
+
+**SECTION COMPLETE (2026-07-11):** all 5 founding ideas probed-or-parked (1 folded ·
+3 build-direct · 1 routed) — no captured heads remained; new heads arrive by capture
+or harvest per README § Sections (first such harvest: the 2026-07-13
+stale-indicator head above, PROPOSAL 045).
 
 ## Cross-links
 
