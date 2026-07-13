@@ -91,6 +91,18 @@
   `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc section;
   flagged in the file's placement note), promoted as PROPOSAL 017; origin: drafted
   this slice under ORDER 003 + ORDER 004 rule 3
+- [`braess-paradox-added-edge-2026-07-13.md`](braess-paradox-added-edge-2026-07-13.md) — round-2
+  COMPLETELY-UNRELATED-domain rotation head (inbox ORDER 004 rule 3; domain:
+  transportation / Braess routing-game congestion — Wardrop selfish-user equilibrium,
+  a DIFFERENT fleet-external domain from P017's social choice): pre-registered dual-arm
+  sim (exhaustive integer census over affine-latency coefficients, 9⁴·4=26,244 fixtures,
+  exact Fraction + seeded continuous Monte Carlo, seeds 20260740–43) measuring how OFTEN
+  and by HOW MUCH adding a shortcut edge RAISES selfish-equilibrium travel cost, against
+  registered APPROVE/REJECT/NULL bands (f_A ≥ 15% OR median-inflation ≥ 1.15 / f_A ≤ 3%
+  AND max-inflation ≤ 1.05 / straddle-or-arm-disagreement = honest null) · sim-ready;
+  homed here per the `check_sections.py` non-lane carve-out (roster-derived sections — no
+  ad-hoc section; flagged in the file's placement note), promoted as PROPOSAL 024;
+  origin: drafted this slice under ORDER 003 + ORDER 004 rule 3
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
