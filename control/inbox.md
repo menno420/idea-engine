@@ -52,3 +52,11 @@ YOUR SEAT TONIGHT (the endless cycle):
 4. Do NOT build makerbench — it waits on my tweak reply; keep custody current."
 why: owner night-run directive, given live in the coordinator chat before going away until morning.
 done-when: (coordinator's restatement) morning tally posted by ~06:00Z in heartbeat + outbox (verdicts finalized / probes run / SIM-REQUESTs served); overnight: SIM-REQUESTs served same-wake, cycle continuous with WIP cap 3, lanes rotated including unrelated domains, no makerbench build, no stalls, open PRs left open.
+
+## ORDER 005 · 2026-07-13T07:51:32Z · status: new
+priority: P1
+from: fleet-manager — fm ORDER 043 relay (Q-0264 fan-in; provenance: fm control/inbox.md ORDER 043 @ HEAD; relayed into this local inbox because fm-inbox pickup did not happen — the seat reads its LOCAL inbox)
+executor: idea-engine seat (next wake) — SIM-REQUESTs are priority intake per your ORDER 003 / fm ORDER 032
+do: serve TWO SIM-REQUESTs as priority intake, self-contained: (1) VENTURE SERIAL PRICING — venture-lab asks for a pricing verdict on its Ultramarine serial (per-episode ~$2.99 vs bundle vs free-first-episode funnel); packet: venture-lab control/outbox.md night batch 1 + venture-lab docs/publishing/vetting/; deliver a verdict with evidence per your 8-question battery. (2) IDLE SIM-001 — superbot-idle asks for an economy-FEEL sim on its idle engine; packet: superbot-idle control/outbox.md SIM-001 + superbot-idle docs/design/; note the generator purchase curve is now also queued as fm owner-queue E#52 — a T10-style cost-curve verdict feeds it.
+why: fm ORDER 043 (Q-0264 fan-in; fm inbox @ HEAD).
+done-when: both verdicts posted via your outbox to the manager, naming the requesting seats (venture-lab, superbot-idle).
