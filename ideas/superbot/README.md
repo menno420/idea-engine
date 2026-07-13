@@ -29,6 +29,17 @@ links both.
 - [`ai-self-curated-memory-notebook-2026-07-10.md`](ai-self-curated-memory-notebook-2026-07-10.md) — captured · AI self-curated memory notebook — a write-back learning seam for the bot's AI (canonical: superbot `docs/ideas/ai-self-curated-memory-notebook-2026-06-22.md` @ `fd638e3`)
 - [`architecture-atlas-and-structure-review-2026-07-10.md`](architecture-atlas-and-structure-review-2026-07-10.md) — captured · Architecture atlas & structure review — capture + agent judgment (canonical: superbot `docs/ideas/architecture-atlas-and-structure-review-2026-06-16.md` @ `fd638e3`)
 - [`askuserquestion-preview-for-design-forks-2026-07-10.md`](askuserquestion-preview-for-design-forks-2026-07-10.md) — captured · Use `AskUserQuestion`'s per-option `preview` to show design-fork mockups (canonical: superbot `docs/ideas/askuserquestion-preview-for-design-forks-2026-06-24.md` @ `fd638e3`)
+- [`assign-at-merge-queue-tax-2026-07-13.md`](assign-at-merge-queue-tax-2026-07-13.md) —
+  sim-ready · process: the OTHER side of VERDICT 023's fork priced — the parent
+  measured what NOT building Option 3 costs (the residual renumber treadmill under
+  the shipped checker); this head measures what BUILDING it costs: the serialized
+  merge queue + re-validation (V_q) a real assign-at-merge mechanism forces, as a
+  pre-registered M/D/1-vs-committed-anchors sim on the parent's own (fleet-rate ×
+  validation-window) grid. WIN = the queue beats V023's committed per-cell P1
+  latency at ρ < 0.9; APPROVE = full-CI headroom (V_q* ≥ 2 h in ≥ 4/5 treadmill
+  cells), REJECT = even the 6-min re-check loses (descope the naive build), NULL =
+  the per-cell V_q* frontier + the two zero-tooling probes (git history for λ/V,
+  Actions wall-time for V_q) that locate superbot's real cell (PROPOSAL 033)
 - [`audit-log-catchup-on-reconnect-2026-07-10.md`](audit-log-catchup-on-reconnect-2026-07-10.md) — captured · Idea — Audit-log catch-up on reconnect (gap-free logging across restarts) (canonical: superbot `docs/ideas/audit-log-catchup-on-reconnect-2026-07-01.md` @ `fd638e3`)
 - [`audit-seam-coverage-checker-2026-07-10.md`](audit-seam-coverage-checker-2026-07-10.md) — historical(built advisory 2026-07-06 in superbot as `scripts/check_audit_seam.py`) · Idea — an "audit-seam coverage" checker (catch unaudited mutations at authoring time) (canonical: superbot `docs/ideas/audit-seam-coverage-checker-2026-07-05.md` @ `fd638e3`)
 - [`audited-score-subsystem-scaffold-2026-07-10.md`](audited-score-subsystem-scaffold-2026-07-10.md) — parked(routed — trigger fired 2026-06-22, general half built at superbot PR #1346, score half superseded at superbot-next D-0005/D-0038; the remaining RankProvider parity guard = superbot's own one-file test, manager-routed) · Idea — "audited per-user score" subsystem scaffold + parity guard (canonical: superbot `docs/ideas/audited-score-subsystem-scaffold-2026-06-22.md` @ `fd638e3`; probe report v0 appended 2026-07-11)
