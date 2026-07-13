@@ -194,6 +194,25 @@
   `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc
   section; flagged in the file's placement note), promoted as PROPOSAL 044; origin:
   drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`parrondo-losing-games-combine-2026-07-13.md`](parrondo-losing-games-combine-2026-07-13.md) — round-8
+  COMPLETELY-UNRELATED-domain rotation head (standing ORDER 003 continuous pipeline,
+  rotation per ORDER 004 rule 3; domain: stochastic-ratchet / capital-dependent game
+  switching — Parrondo's paradox, an EIGHTH fleet-external domain after P017's social
+  choice, P024's congestion routing, P028's tournament seeding, P032's pattern races,
+  P036's optimal stopping, P040's spatial self-organization, and P044's queue-discipline):
+  pre-registered dual-arm sim (Arm A = seedless exact `fractions.Fraction` stationary
+  solve + renewal drift on the capital-mod-3 random-switch Markov chain, the DECISION arm;
+  Arm B = seeded Monte-Carlo drift validation, seeds 20261329–332) measuring whether two
+  individually-losing games (Game A `a = 49/100`; capital-dependent Game B `b0 = 9/100`,
+  `b1 = 37/50` at `EPS = 1/100`, `M = 3`) combine into a WINNER by a MATERIAL margin — the
+  combined per-step drift `D_mix` against registered APPROVE/REJECT/NULL bands (REJECT iff
+  `D_mix ≤ 0`, stated first / APPROVE iff `D_mix ≥ 1/1000` AND the stability leg reproduces
+  / NULL in the thin `0 < D_mix < 1/1000` band or on validity failure; INVALID gate on the
+  two isolated-loss preconditions; expected landing DISCLOSED — APPROVE, thinly, at the
+  drafter's `D_mix = 26673/4429850 ≈ 0.006`, the sim re-derives from scratch) · sim-ready;
+  homed here per the `check_sections.py` non-lane carve-out (roster-derived sections — no
+  ad-hoc section; flagged in the file's placement note), promoted as PROPOSAL 048; origin:
+  drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
