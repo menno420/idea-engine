@@ -49,6 +49,17 @@ links both.
 - [`btd6-shorthand-corpus-eval-2026-07-10.md`](btd6-shorthand-corpus-eval-2026-07-10.md) — historical(shipped 2026-06-16 in superbot PR #1007; hero-per-level-stats sub-item stays captured) · BTD6 community-shorthand corpus eval (router-class regression guard) (canonical: superbot `docs/ideas/btd6-shorthand-corpus-eval-2026-06-16.md` @ `fd638e3`)
 - [`bug-book-claimed-signal-2026-07-10.md`](bug-book-claimed-signal-2026-07-10.md) — captured · Bug-book entries need a "claimed / in-progress" signal (close the claim-ledger gap) (canonical: superbot `docs/ideas/bug-book-claimed-signal-2026-06-19.md` @ `fd638e3`)
 - [`button-command-surface-parity-2026-07-10.md`](button-command-surface-parity-2026-07-10.md) — captured · Idea — button ↔ text-command surface parity audit (canonical: superbot `docs/ideas/button-command-surface-parity-2026-06-16.md` @ `fd638e3`)
+- [`casino-house-edge-fairness-envelope-2026-07-13.md`](casino-house-edge-fairness-envelope-2026-07-13.md) —
+  sim-ready · product: the balance pin tonight's minigame/casino consolidation
+  needs BEFORE it invents per-game odds (inbox ORDER 004: "World's balance pins")
+  — a pre-registered fairness-envelope sweep over (house-edge grid × max-bet cap ×
+  payout shape k ∈ {1, 5, 19}) asking whether ONE house rule can hold FUN (casual
+  P_ahead ≥ 0.25), SAFE (max-policy P_wipe ≤ 0.05, capped martingale swept), and
+  SINK (grinder best-policy P_double ≤ 0.10) at once; dual-arm (exact binomial +
+  gambler's-ruin closed forms pin the seeded MC), fully hermetic, PvP rake priced
+  free via the rake ≡ edge identity; APPROVE = one shared row, REJECT = odds
+  can't do the job (named non-odds levers), NULL = per-shape envelope table is
+  the pin (PROPOSAL 020)
 - [`central-admin-and-logging-guilds-2026-07-10.md`](central-admin-and-logging-guilds-2026-07-10.md) — captured · Central admin guild + central logging guild — the bot's HQ (2026-07-02) (canonical: superbot `docs/ideas/central-admin-and-logging-guilds-2026-07-02.md` @ `fd638e3`)
 - [`channel-deployed-component-menu-primitive-2026-07-10.md`](channel-deployed-component-menu-primitive-2026-07-10.md) — parked(mooted-in-part — built half: the deploy lifecycle shipped consumer-private at S `1ecc211` (role menus `RoleMenuView(PersistentView)` + `reattach_role_menus`; starboard reaction-based, own message_id rows); open half: the generic `deploy_component_message`/`deployed_messages` seam + component polls — re-open when a SECOND channel-deployed component consumer lands at S; probe 2026-07-12) · Channel-deployed component-menu primitive (role menus · starboard · polls) (canonical: superbot `docs/ideas/channel-deployed-component-menu-primitive-2026-06-21.md` @ `fd638e3`)
 - [`channel-role-scoped-authority-gap-2026-07-10.md`](channel-role-scoped-authority-gap-2026-07-10.md) — parked(routed — rebuild leg mooted: A-12/R-16 `Lane.ROLE_SET` landed live+tested at superbot-next `168ef80`; remaining consumer wiring + effect arming lane-sequenced behind the effect-arming compensator checklist; live-bot item 4 stays live-bot backlog) · Channel-level, role-scoped access is missing — live bot AND the frozen rebuild design (canonical: superbot `docs/ideas/channel-role-scoped-authority-gap-2026-07-07.md` @ `fd638e3`; probe report v0 appended 2026-07-11)
