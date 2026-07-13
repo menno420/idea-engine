@@ -118,6 +118,22 @@
   `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc section;
   flagged in the file's placement note), promoted as PROPOSAL 028; origin: drafted
   this slice under ORDER 003 + ORDER 004 rule 3
+- [`penney-game-responder-edge-decay-2026-07-13.md`](penney-game-responder-edge-decay-2026-07-13.md) — round-4
+  COMPLETELY-UNRELATED-domain rotation head (standing ORDER 003 continuous pipeline,
+  rotation per ORDER 004 rule 3; domain: recreational probability / sequential
+  pattern-race games — Penney's game over fair-coin words, a FOURTH fleet-external
+  domain after P017's social choice, P024's congestion routing, and P028's tournament
+  seeding): pre-registered fully-exact census sim (all ordered word pairs at
+  L ∈ {3,4,5} = 56/240/992 cells, exact `fractions.Fraction`, ZERO RNG/seeds/floats —
+  Conway leading numbers vs an independent automaton-absorption arm gated on rational
+  equality, classic anchors 3/4 · 7/8 · V(3)=2/3 as validity gates) measuring the decay
+  curve of the responder's guaranteed minimax edge V(L) and the popularized flip-rule
+  beater's exact optimality share, against registered APPROVE/REJECT/NULL bands
+  (REJECT iff V(5) ≤ 13/25, stated first / APPROVE iff V(L) ≥ 3/5 at all swept L /
+  straddle = honest null pinning the exact decay curve) · sim-ready; homed here per
+  the `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc
+  section; flagged in the file's placement note), promoted as PROPOSAL 032; origin:
+  drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
