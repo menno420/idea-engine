@@ -1,11 +1,11 @@
 # Session — session 2 close-out: universal ender (retro, disposition, baton)
 
-> **Status:** `in-progress`
-> **Model/time:** fable · 2026-07-13T12:34:58Z (coordinator session 2 SESSION ENDER
-> landing worker — the card is born in-progress as the designed gate hold and
-> flips complete in this PR's final commit, after the retro doc, the
+> **Status:** `complete`
+> **Model/time:** fable · 2026-07-13T12:34:58Z → 12:48Z (coordinator session 2
+> SESSION ENDER landing worker — the card was born in-progress as the designed
+> gate hold and flips complete in this final commit, after the retro doc, the
 > current-state refresh, ASK 002, the claims sweep, and the heartbeat overwrite
-> have all landed on this branch)
+> all landed on this branch)
 
 **📊 Model:** fable · session-2 ender close-out (session card, retro doc
 docs/retro/session-2-retro-2026-07-13.md, docs/current-state.md stale-line
@@ -68,7 +68,13 @@ dispatch.
 
 ## Close-out
 
-Filled at flip (final commit of this PR): retro doc, refresh, ASK 002, claims
-sweep, and heartbeat all landed on this branch; `python3 bootstrap.py check
---strict` exit 0 captured directly at the final push; PR left OPEN READY to
+All five ender pieces landed on this branch before this flip: the retro doc
+(`docs/retro/session-2-retro-2026-07-13.md`, commit 22a84b9), the
+current-state refresh (Q-0265 cadence bullet, d8e8475), ASK 002 + the claims
+sweep (P034 claim deleted, 1ca2d35), and the SESSION 2 CLOSED heartbeat
+(fd5473c — routine disposition re-verified via list_triggers at close:
+failsafe trig_01Kz3j5ECTZ29hNZCHukgCA1 ARMED, next 13:38:53Z; pacemaker
+trig_01CKr1w3b9f11VfFZshL41XL deleted). `python3 bootstrap.py check --strict`
+exit code captured directly (not in a compound chain) immediately before the
+final push — see the PR body for the recorded exit 0. PR left OPEN READY to
 land on green (no agent merge calls — enabler-lands-on-green posture).
