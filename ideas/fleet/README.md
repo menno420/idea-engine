@@ -196,6 +196,18 @@
   promoted as PROPOSAL 037 (drafted control-only via PR #315 — this file is the
   disclosed idea-doc BACKFILL healing the outbox LINK gate; the P037 block stays the
   source of truth)
+- [`spool-scale-go-no-go-margin-2026-07-13.md`](spool-scale-go-no-go-margin-2026-07-13.md) — round-7
+  FLEET-BACKLOGS rotation head (standing ORDER 003, rotation per ORDER 004 rule 3;
+  harvest source: curious-research @ `a9fd5fa`, a SIXTH repo for this slot, untapped
+  by any prior proposal — the spool-weight-scale build's own unquantified "leave
+  yourself margin" default and its unmeasured "your own measured empty weight beats
+  the seeded table, every time" claim, priced as a pre-registered hermetic
+  error-budget sim: go/no-go margin grid M ∈ {0..100} g × three tare-knowledge
+  regimes (measured-own / seeded-brand-table / midpoint-guess control) at the cited
+  ±5 g resolution, exact-enumeration decision arm + seeded confirmation arm, REJECT
+  checked first, seeds 20261301–304) · sim-ready; promoted as PROPOSAL 041; origin:
+  drafted this slice under ORDER 003 + ORDER 004 rule 3 from the curious-research
+  backlog harvest (ORDER 004 rule 4 untouched — nothing builds makerbench)
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
