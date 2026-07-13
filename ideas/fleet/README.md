@@ -166,6 +166,16 @@
   routing, websites bullet disposition, idea-engine as first adopter · sim-ready;
   promoted as PROPOSAL 019; origin: drafted this slice under ORDER 003 + ORDER 004
   rule 3 from the websites lane-backlog harvest
+- [`review-queue-row-threshold-2026-07-13.md`](review-queue-row-threshold-2026-07-13.md) — round-6
+  FLEET-BACKLOGS rotation head (standing ORDER 003, rotation per ORDER 004 rule 3;
+  harvest source: the fleet-manager's own backlog, a FIFTH repo for this slot — the
+  review-queue auto-append rule's decide-and-flag N = 50 row-trigger threshold, priced
+  on its own two named failure axes as a pre-registered hermetic dual-arm policy grid:
+  size-arm defect miss REL(N) vs drain utilization ρ(N) over 9 cells × 6 thresholds,
+  exact closed-form Fractions + seeded event-driven MC, seeds 20261285–88) · sim-ready;
+  promoted as PROPOSAL 037 (drafted control-only via PR #315 — this file is the
+  disclosed idea-doc BACKFILL healing the outbox LINK gate; the P037 block stays the
+  source of truth)
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
