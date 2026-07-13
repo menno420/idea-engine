@@ -49,6 +49,21 @@ links both.
 - [`btd6-shorthand-corpus-eval-2026-07-10.md`](btd6-shorthand-corpus-eval-2026-07-10.md) — historical(shipped 2026-06-16 in superbot PR #1007; hero-per-level-stats sub-item stays captured) · BTD6 community-shorthand corpus eval (router-class regression guard) (canonical: superbot `docs/ideas/btd6-shorthand-corpus-eval-2026-06-16.md` @ `fd638e3`)
 - [`bug-book-claimed-signal-2026-07-10.md`](bug-book-claimed-signal-2026-07-10.md) — captured · Bug-book entries need a "claimed / in-progress" signal (close the claim-ledger gap) (canonical: superbot `docs/ideas/bug-book-claimed-signal-2026-06-19.md` @ `fd638e3`)
 - [`button-command-surface-parity-2026-07-10.md`](button-command-surface-parity-2026-07-10.md) — captured · Idea — button ↔ text-command surface parity audit (canonical: superbot `docs/ideas/button-command-surface-parity-2026-06-16.md` @ `fd638e3`)
+- [`casino-comp-stipend-envelope-2026-07-13.md`](casino-comp-stipend-envelope-2026-07-13.md) —
+  sim-ready · product: the LAST of VERDICT 022's three routed non-odds levers,
+  the one no verdict has priced — VERDICT 025 (entry-fee, reject) named this
+  head verbatim in its follow-ups ("the comp/stipend envelope sim — the THIRD
+  routed lever, now the last unpriced one"): a pre-registered FOUR-band sweep
+  on V025's surviving ticket substrate (T1/T2 shapes × takes {0.05, 0.10} ×
+  comp designs D1 qualified stipend / D2 handle rebate / D3 loss rebate × 4
+  sizes) asking whether comp buys FUN back at the sink-firm take without any
+  policy — including a per-design farmer family (wash-qualifier, cap-chaser,
+  optimal-stopping harvester) — extracting positive EV from the house (the
+  new MINT band); dual-arm, fully hermetic, baselines reproducing both
+  parents' committed Fractions exactly; APPROVE = the composed house row
+  (fee frame + comp line), REJECT = all three routed levers measured dead
+  (triage complete: incumbent row + rake-only PvP), NULL = the per-design
+  signature table is the pin (PROPOSAL 027)
 - [`casino-entry-fee-ticket-envelope-2026-07-13.md`](casino-entry-fee-ticket-envelope-2026-07-13.md) —
   sim-ready · product: the successor question VERDICT 022's own reject routed —
   the odds lever measurably cannot hold FUN ∧ SAFE ∧ SINK (envelope empty
