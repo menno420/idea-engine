@@ -91,6 +91,19 @@
   `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc section;
   flagged in the file's placement note), promoted as PROPOSAL 017; origin: drafted
   this slice under ORDER 003 + ORDER 004 rule 3
+- [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
+  rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
+  captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
+  "~3" threshold + untested "routing latency beats idle wakes" claim): pre-registered
+  hermetic reorder-point sim — signal threshold N ∈ {0(off),1,2,3,4,6} × arrival
+  regimes (one anchored to the backlog's own four measured re-pin intervals, births
+  {2,5,4,11} / consumptions {5,9,4,3}) × consumption p_c × routing latency L, dry-wake
+  fraction vs alarm cost against registered APPROVE/REJECT/NULL bands (REJECT-a
+  organic-suffices checked first; APPROVE pins threshold = grid-median N\* and tests
+  the "~3"); verdict consumers: kit `backlog:` grammar-token decision, manager
+  routing, websites bullet disposition, idea-engine as first adopter · sim-ready;
+  promoted as PROPOSAL 019; origin: drafted this slice under ORDER 003 + ORDER 004
+  rule 3 from the websites lane-backlog harvest
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
