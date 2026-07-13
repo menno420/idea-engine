@@ -81,6 +81,16 @@
   verified-genuine review corpus (idea-engine #264/#265, 17/17 accepted) ·
   sim-ready; origin: drafted this slice from sim-lab's fabrication-incident ledger
   (`dedc12e`) under standing ORDER 003, promoted as PROPOSAL 014
+- [`irv-monotonicity-close-races-2026-07-13.md`](irv-monotonicity-close-races-2026-07-13.md) — first
+  COMPLETELY-UNRELATED-domain rotation head (inbox ORDER 004 rule 3; domain: social
+  choice — 3-candidate instant-runoff voting): pre-registered dual-arm sim (exhaustive
+  IAC enumeration n=13/25 + seeded IC Monte Carlo n=99/1,001) measuring how often
+  raising the winner makes it lose, overall vs close races, against registered
+  APPROVE/REJECT/NULL bands (V_close ≥ 10% both arms / < 5% both / straddle =
+  honest-null model-dependence finding) · sim-ready; homed here per the
+  `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc section;
+  flagged in the file's placement note), promoted as PROPOSAL 017; origin: drafted
+  this slice under ORDER 003 + ORDER 004 rule 3
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
