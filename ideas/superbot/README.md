@@ -171,6 +171,18 @@ links both.
 - [`media-quota-health-finding-2026-07-10.md`](media-quota-health-finding-2026-07-10.md) — captured · Idea — media provider-outcome → persistent health finding (2026-06-14) (canonical: superbot `docs/ideas/media-quota-health-finding-2026-06-14.md` @ `fd638e3`)
 - [`meter-external-moderation-calls-2026-07-10.md`](meter-external-moderation-calls-2026-07-10.md) — captured · Meter image moderation under the Q-0082 AI spend ceiling (2026-06-16) (canonical: superbot `docs/ideas/meter-external-moderation-calls-2026-06-16.md` @ `fd638e3`)
 - [`migration-number-collision-guard-2026-07-10.md`](migration-number-collision-guard-2026-07-10.md) — captured · Idea: pre-merge migration-number collision guard (kill the renumber treadmill) (canonical: superbot `docs/ideas/migration-number-collision-guard-2026-06-22.md` @ `fd638e3`)
+- [`migration-renumber-treadmill-residual-2026-07-13.md`](migration-renumber-treadmill-residual-2026-07-13.md) —
+  sim-ready · process: the fork the captured migration-number-collision doc leaves
+  open ("Options 2 + 3 remain") turned into a pre-registered queueing sim — under
+  the shipped re-pick-at-push checker (Option 1), is the RESIDUAL renumber
+  treadmill negligible, fatal, or PR-class-conditional? Endogenous event model
+  (renumber storms feed back into collision pressure) over 9 (fleet-rate ×
+  validation-window) cells, gated against the exact exogenous closed forms, with
+  assign-at-merge (Option 3) as the zero-collision control; APPROVE = retire
+  Options 2/3 quantified, REJECT = the shared append point must go (evidence row
+  for the Option-3 plan), NULL = the per-PR-class conditional rule + the
+  git-history probe that locates superbot's real cell; premise re-verified at live
+  superbot `4522522` (PROPOSAL 021)
 - [`mining-exploration-brainstorm-2026-07-10.md`](mining-exploration-brainstorm-2026-07-10.md) — captured · Mining & Exploration — Brainstorm & Roadmap (canonical: superbot `docs/ideas/mining_exploration_brainstorm.md` @ `fd638e3`)
 - [`mining-grid-encounters-2026-07-10.md`](mining-grid-encounters-2026-07-10.md) — sim-ready · Mining grid encounters — depth-gated sparse events (2026-06-22) (canonical: superbot `docs/ideas/mining-grid-encounters-2026-06-22.md` @ `fd638e3`; probe report v0 appended 2026-07-11 — Q-0198 build owner-ruled, defaults sim-tunable; premise re-verified live @ `e1090db`)
 - [`moderation-feature-gaps-2026-07-10.md`](moderation-feature-gaps-2026-07-10.md) — captured · Moderation feature gaps versus competitor bots (researched, most turned out already covered) (canonical: superbot `docs/ideas/moderation-feature-gaps-2026-07-07.md` @ `fd638e3`)
