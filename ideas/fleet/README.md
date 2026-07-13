@@ -134,6 +134,25 @@
   the `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc
   section; flagged in the file's placement note), promoted as PROPOSAL 032; origin:
   drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`secretary-rule-cardinal-regret-2026-07-13.md`](secretary-rule-cardinal-regret-2026-07-13.md) — round-5
+  COMPLETELY-UNRELATED-domain rotation head (standing ORDER 003 continuous pipeline,
+  rotation per ORDER 004 rule 3; domain: sequential search / optimal stopping — the
+  secretary problem's popularized "37% rule", a FIFTH fleet-external domain after
+  P017's social choice, P024's congestion routing, P028's tournament seeding, and
+  P032's pattern races): pre-registered fully-exact census sim (all 379 (N, r) cutoff
+  cells over N ∈ {5,10,20,50,100,200} × 2 objectives × 2 end conventions, exact
+  `fractions.Fraction`, ZERO RNG/seeds/floats — analytic closed forms vs an independent
+  combinatorial rank-census arm gated on rational equality, plus a full permutation
+  census at N ∈ {5,6,7} and classic anchors 1/2 · 11/24 · 13/30 as validity gates)
+  measuring the folk cutoff's exact cardinal regret ΔV(N) against the best cutoff in
+  its own family and its untold downside B(N) = P(bottom-half hire), against
+  registered APPROVE/REJECT/NULL bands (REJECT iff ΔV ≤ 1/50 at every swept N, stated
+  first / APPROVE iff ΔV ≥ 1/20 AND B ≥ 3/20 at every swept N ≥ 50 / anything else =
+  honest null pinning the exact frontier; band liveness disclosed in-file) ·
+  sim-ready; homed here per the `check_sections.py` non-lane carve-out (roster-derived
+  sections — no ad-hoc section; flagged in the file's placement note), promoted as
+  PROPOSAL 036; origin: drafted this slice under standing ORDER 003 (rotation rule per
+  ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
