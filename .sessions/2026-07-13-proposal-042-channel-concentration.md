@@ -1,6 +1,6 @@
 # Session — PROPOSAL 042: channel concentration vs diversification at fixed build budget (VENTURE rotation, round 7)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-13T18:26:50Z (Ideas Lab worker slice — draft the
 > VENTURE rotation round-7 head, non-books half, under standing owner ORDER 003.
 > Card born in-progress as the designed gate hold; flips complete in this PR's
@@ -106,4 +106,33 @@ check; that gap is this card's 💡.
 
 ## Close-out
 
-(fills at flip)
+All pieces landed before this flip, in the dispatched born-red order: card born
+in-progress @ `ca7f855` (first commit on the branch, the designed gate hold);
+claim @ `00a65a9` (riding the work branch, the P041 ordering — its timestamp
+was corrected to the real clock by amend BEFORE push, never after); idea doc
+`ideas/venture-lab/channel-concentration-vs-diversification-2026-07-13.md` +
+venture index row @ `8aad290`; outbox PROPOSAL 042 append (append-only,
+heading stamp 2026-07-13T18:33:00Z from real `date -u`, later than P041's
+18:01:18Z and ASK 003's 17:59:21Z; `idea:` blob link pinned at `8aad290`) @
+`45884de`; branch pushed; PR #333 opened READY (never draft; auto-merge left
+to the enabler — no agent merge). Verification on this tree at the flip:
+`python3 scripts/check_ideas.py --outbox` exit 0 ("check_ideas: OK — outbox
+proposals and sim-ready ideas are consistent"); `python3 bootstrap.py check
+--strict` exit 0 once this badge flipped — its only red before the flip was
+the designed born-red hold on this very card, plus the pre-existing
+never-exit-affecting owner-action advisory on control/status.md (predates and
+is untouched by this slice). Rotation verified before drafting: round 7 opened
+at fleet backlogs (P041 #331), venture slot next per ORDER 004 rule 3;
+non-books half per P038's block-verbatim half-alternation; served from the
+PRODUCTS lane per ORDER 004's literal wording, both readings cited in the idea
+doc (decide-and-flag). Seeds 20261305–308 registered strictly above the
+verified high-water 20261304 (tree-wide `rg -g '!bootstrap.py'
+-g '!.substrate' -o '202613[0-9][0-9]'` at HEAD `498a88e` maxes at 20261304;
+control/status.md's 20261300 line is stale prose; sim-lab allocates no seeds
+of its own — the parallel V052 session consumes P041's 20261301–304; 20261308
+aux never read by any decision number). Dedup sweep `rg -i -g '!bootstrap.py'
+-g '!.substrate' 'channel.concentration|diversif|organic sale'` → zero files
+at drafting HEAD. No control/status.md, control/inbox.md, or sim-lab writes;
+the V052 parallel-session claim and the two older stale merged claims in
+control/claims/ untouched (out of scope — see 💡); timestamps from real
+`date -u` throughout. Flip stamped 2026-07-13T18:35:19Z.
