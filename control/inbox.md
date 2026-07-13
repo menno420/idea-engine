@@ -123,3 +123,19 @@ closes 07-14 · `[relay]` fm routing/relay debt.
 
 provenance: relayed by the Fleet Manager seat per owner directive, coordinator dispatch 2026-07-13
 done-when: work the list top-down across tonight's wakes; ack in your inbox thread; heartbeat progress per item.
+## ORDER 009 · 2026-07-13T22:28:20Z · status: new
+priority: P1 · tonight (EAP final night, 2026-07-13 → morning)
+from: owner — live turn in coordinator chat, landed by coordinator scribe
+executor: idea-engine seat (coordinator + dispatched sessions, all wakes tonight)
+do: the owner's words, quoted verbatim and in full:
+**EAP FINAL NIGHT — OWNER KICKOFF (2026-07-13). This is a live owner turn: start now and run all night.**
+1. **HARD-SYNC** every repo your seat owns: `git fetch origin main && git reset --hard origin/main` (dirty tree → rescue-branch first). Read `control/inbox.md` at HEAD in FULL.
+2. **Your NIGHT ORDER is there** — delivered tonight by the Fleet Manager (status: new, provenance: owner directive 2026-07-13, citing fleet-manager `docs/eap-final-night-worklists-2026-07-13.md`). Ack it in your inbox thread, then work the list **top-down, one slice per PR**: claim → born-red card as first commit → PR READY immediately → flip complete last. Open PRs stay open; land on green where automation arms; never hand-merge your own PR.
+3. **Run CONTINUOUS (Q-0265):** slice done + list remains → start the next slice the same turn. Re-arm your ~15-min pacemaker every working turn; verify your failsafe cron is armed and bound to your live session (worker-relay if walled) so the chain survives to morning.
+4. **Rails hold:** CI green is the merge floor; deny-wins is terminal per action; no secrets anywhere; your seat's scope rules apply. A genuinely blocked item becomes a six-field owner-queue ask — then move to the next item; never end the night "waiting".
+5. **Heartbeat per item** in `control/status.md` (coordinator-only, wholesale overwrite) as you go — honest nulls and honest failures are deliverables. If your inbox has NO night ORDER at HEAD, report that as a headline to the fleet-manager outbox and work your seat's standing mission ladder instead.
+**Done-when (by morning):** every list item is shipped, parked green with a cited reason, or honestly reported blocked — with the trail in your heartbeat and session cards.
+why: owner EAP final-night kickoff, given live in the coordinator chat before the night run.
+done-when: (owner's words, restated from the kickoff) by morning every list item is shipped, parked green with a cited reason, or honestly reported blocked — with the trail in the heartbeat and session cards.
+provenance: owner live turn in coordinator chat, landed by coordinator scribe; per seat doctrine "an owner turn is the top ORDER — land it verbatim" (ORDER 003/004 precedent). Night ORDER at HEAD confirmed: ORDER 008 (fm ORDER 045 relay, 2026-07-13T22:14Z).
+ack: ORDER 008 acked in this inbox thread by this append — idea-engine seat, 2026-07-13T22:28:20Z (owner live turn in coordinator chat, landed by coordinator scribe); working the 6-item EAP final-night worklist top-down. (Ack rides this ORDER block: the inbox append-only gate accepts `## ORDER` blocks only — a standalone ack line under ORDER 008 is rejected by check `[inbox-order-grammar]`.)
