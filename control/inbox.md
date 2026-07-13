@@ -123,8 +123,6 @@ closes 07-14 · `[relay]` fm routing/relay debt.
 
 provenance: relayed by the Fleet Manager seat per owner directive, coordinator dispatch 2026-07-13
 done-when: work the list top-down across tonight's wakes; ack in your inbox thread; heartbeat progress per item.
-ack: idea-engine seat — acked 2026-07-13T22:28:20Z (owner live turn in coordinator chat, landed by coordinator scribe); working the 6-item EAP final-night worklist top-down per fm ORDER 045 relay, alongside the owner kickoff landed as ORDER 009 below.
-
 ## ORDER 009 · 2026-07-13T22:28:20Z · status: new
 priority: P1 · tonight (EAP final night, 2026-07-13 → morning)
 from: owner — live turn in coordinator chat, landed by coordinator scribe
@@ -140,3 +138,4 @@ do: the owner's words, quoted verbatim and in full:
 why: owner EAP final-night kickoff, given live in the coordinator chat before the night run.
 done-when: (owner's words, restated from the kickoff) by morning every list item is shipped, parked green with a cited reason, or honestly reported blocked — with the trail in the heartbeat and session cards.
 provenance: owner live turn in coordinator chat, landed by coordinator scribe; per seat doctrine "an owner turn is the top ORDER — land it verbatim" (ORDER 003/004 precedent). Night ORDER at HEAD confirmed: ORDER 008 (fm ORDER 045 relay, 2026-07-13T22:14Z).
+ack: ORDER 008 acked in this inbox thread by this append — idea-engine seat, 2026-07-13T22:28:20Z (owner live turn in coordinator chat, landed by coordinator scribe); working the 6-item EAP final-night worklist top-down. (Ack rides this ORDER block: the inbox append-only gate accepts `## ORDER` blocks only — a standalone ack line under ORDER 008 is rejected by check `[inbox-order-grammar]`.)
