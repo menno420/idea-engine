@@ -499,9 +499,19 @@ def check_outbox(outbox_path: Path, ideas_dir: Path) -> list[str] | int:
     linked_paths: set[str] = set()
 
     headings = list(PROPOSAL_HEADING_RE.finditer(text))
-    bounds = [m.start() for m in headings] + [len(text)]
+    # A PROPOSAL block ends at the NEXT `## ` heading of ANY kind (## ASK /
+    # ## INTAKE / ## VERDICT / ## PROPOSAL …), not at the next PROPOSAL
+    # heading: the merged Ideas Lab seat ledgers INTAKE/VERDICT entries in
+    # this same file (first landed by the control-fast-lane PR #285, which
+    # never ran this check), and a PROPOSAL block that swallows a following
+    # entry lets that entry's own `idea:` line shadow the proposal's (the
+    # fields dict keeps the LAST match per key) — producing a false LINK
+    # violation on the proposal plus a false UNPROPOSED on its idea file,
+    # the exact pair PR #286's gate surfaced against PROPOSAL 019.
+    h2_starts = [h.start() for h in ANY_H2_RE.finditer(text)]
     for i, m in enumerate(headings):
-        block = text[bounds[i] : bounds[i + 1]]
+        end = min((h for h in h2_starts if h > m.start()), default=len(text))
+        block = text[m.start() : end]
         num_m = re.search(r"PROPOSAL (\d+)", m.group(0))
         where = f"PROPOSAL {num_m.group(1)}" if num_m else f"proposal block #{i + 1}"
 
