@@ -47,11 +47,15 @@ and hand edits get overwritten).
   diverges from `origin/main` with a stray seed commit `df64aab`. Recovery: create a
   backup branch first (`git branch backup-<date>`), then `git reset --keep origin/main`
   (`--hard` only when pre-authorized — it discards local changes).
-- **Operating cadence (Q-0265)**: the coordinator chains bounded slices continuously via
-  child sessions; the 2-hourly cron is a failsafe deadman wake, not the work cadence
-  (README § Coordination). The 2026-07-11 archive dismantled the then-coordinator's
-  failsafe cron trigger and 15-minute `send_later` chain — a fresh coordinator must
-  re-arm BOTH at first wake.
+- **Operating cadence (Q-0265, updated 2026-07-13)**: the coordinator chains bounded
+  slices continuously via child sessions; the 2-hourly cron is a failsafe deadman wake,
+  not the work cadence (README § Coordination). The earlier "re-arm BOTH at first wake"
+  rule is SUPERSEDED by sim-lab VERDICT 014 (approve — reconciled with Q-0265,
+  decide-and-flag): a fresh coordinator re-arms the failsafe cron only; the
+  `send_later` chain is a turn-scoped pacemaker during ACTIVE work (re-armed per
+  turn), and a STANDING 15-minute chain is ruled strictly dominated — do not re-arm
+  one at wake. Live disposition always lives in `control/status.md`'s
+  routine-disposition block, never here.
 
 ## Review rhythm
 
