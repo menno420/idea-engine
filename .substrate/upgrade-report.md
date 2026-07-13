@@ -2,7 +2,7 @@
 
 > Generated 2026-07-13 by `bootstrap.py upgrade`. Rollback: `python3 bootstrap.py upgrade --rollback`.
 
-**Docs:** consumer-edited: 3 · diverged: 4 · missing: 2 · template-improved: 4 · unchanged: 11
+**Docs:** consumer-edited: 3 · diverged: 4 · template-improved: 4 · unchanged: 13
 
 | planted doc | class | note |
 |---|---|---|
@@ -20,8 +20,8 @@
 | docs/current-state.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
 | docs/question-router.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
 | docs/CAPABILITIES.md | diverged | both the template and the doc moved — manual merge |
-| docs/SKILLS.md | missing | absent — upgrade's adopt pass replants it |
-| docs/ROUTINES.md | missing | absent — upgrade's adopt pass replants it |
+| docs/SKILLS.md | unchanged | template identical across versions |
+| docs/ROUTINES.md | unchanged | template identical across versions |
 | docs/ideas/README.md | unchanged | template identical across versions |
 | .session-journal.md | unchanged | template identical across versions |
 | control/README.md | diverged | both the template and the doc moved — manual merge |
@@ -33,25 +33,33 @@
 
 ## ⚠️ Gate carve-outs (host additions the kit-owned regen could not keep)
 
-- carve-out: .github/workflows/substrate-gate.yml — host-added step 'wake preflight (gate↔ritual convergence — scripts/preflight.py is the ONE check list)' in job 'substrate-gate'
-- carve-out: full pre-regen gate banked at .substrate/backup/substrate-gate.pre-regen-0b32ae07.yml — host additions were NOT carried into the regenerated kit-owned gate; move them into a separate workflow file (e.g. .github/workflows/host-ci.yml) and commit that before shipping this upgrade/adopt PR.
-- carve-out: .github/workflows/auto-merge-enabler.yml — host-added step 'Skip arming while the PR's own in-diff session card is in-progress' in job 'enable-auto-merge'
-- carve-out: full pre-regen enabler banked at .substrate/backup/auto-merge-enabler.pre-regen-e3275f45.yml — host additions were NOT carried into the regenerated kit-owned enabler; move them into a separate workflow file (e.g. .github/workflows/host-ci.yml) and commit that before shipping this upgrade/adopt PR.
+- carve-out: .github/workflows/substrate-gate.yml — host-added step 'wake preflight (gate↔ritual convergence — scripts/preflight.py is the ONE check list)' in job 'substrate-gate' [carried from the previous upgrade report]
+- carve-out: full pre-regen gate banked at .substrate/backup/substrate-gate.pre-regen-0b32ae07.yml — host additions were NOT carried into the regenerated kit-owned gate; move them into a separate workflow file (e.g. .github/workflows/host-ci.yml) and commit that before shipping this upgrade/adopt PR. [carried from the previous upgrade report]
+- carve-out: .github/workflows/auto-merge-enabler.yml — host-added step 'Skip arming while the PR's own in-diff session card is in-progress' in job 'enable-auto-merge' [carried from the previous upgrade report]
+- carve-out: full pre-regen enabler banked at .substrate/backup/auto-merge-enabler.pre-regen-e3275f45.yml — host additions were NOT carried into the regenerated kit-owned enabler; move them into a separate workflow file (e.g. .github/workflows/host-ci.yml) and commit that before shipping this upgrade/adopt PR. [carried from the previous upgrade report]
 
 ## Carve-out scan
 
-- carve-out scan: .github/workflows/substrate-gate.yml — kit-updated 2 step(s)/job(s) (template evolution; not host additions, not banked)
+- carve-out scan: .github/workflows/substrate-gate.yml — ran, 0 found
+- carve-out scan: .github/workflows/auto-merge-enabler.yml — ran, 0 found
 - carve-out scan: 4 carve-out line(s) reported above (see the ⚠️ section).
 
 ## Capability-ledger seed refresh
 
-- capability-seed: adopted the marker fence in docs/CAPABILITIES.md — the pre-fence kit seed section matched the old template exactly and was replaced by the new fenced block; the append log and all consumer text preserved byte-for-byte.
+- capability-seed: docs/CAPABILITIES.md fence already current — nothing to refresh.
 
 This upgrade ships the venue-scoped capability ledger (grounded-skills §4.2): entries carry a venue token (owner-live · autonomous-project · routine-fired · subagent · any) and the ledger's kit-owned seed block carries the posture decision rule. If this repo carries a local prose copy of the boot-triad/venue-posture rule (superbot Q-0270), that copy is now superseded by docs/CAPABILITIES.md's posture rule — collapse the local copy into a pointer.
 
 ## Seat-digest refresh
 
 - seat-digest: docs/seat-digest.md already current — nothing to refresh.
+
+## Applied (--apply-docs)
+
+- applied: CONSTITUTION.md (template@new, hash re-recorded)
+- applied: docs/collaboration-model.md (template@new, hash re-recorded)
+- applied: docs/question-router.md (template@new, hash re-recorded)
+- applied: .claude/CLAUDE.md (template@new, hash re-recorded)
 
 ## Template deltas for diverged docs
 
