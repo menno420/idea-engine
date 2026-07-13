@@ -8,16 +8,29 @@
 
 ## Stability baseline
 
-(Describe the accepted-stable baseline once established — what is known-good and
-should not be re-audited without a reported regression.)
+The generate→verify loop is green end to end: substrate-kit v1.10.0, `python3
+bootstrap.py check --strict` exit 0 at HEAD. The auto-merge enabler is installed
+and armed for in-pattern `claude/*` PRs (known races documented under Ops facts
+below). The coordination bus is `control/` — inbox ORDERs, outbox
+proposals/ASKs, claims, heartbeat. Do not re-audit this baseline without a
+reported regression; the living record is `control/status.md` (the heartbeat).
 
 ## In flight
 
-(Verify against live source control — this section is a dated snapshot.)
+Dated snapshot (2026-07-13) — verify against live source control. PROPOSAL 049
+(magnet press-fit band) is sim-ready with VERDICT 060 in flight at sim-lab; the
+sim-lab kit upgrade v1.7.0→v1.15.0 is dispatched (claim landed via #360 @
+`f7841ec`); ASKs 001–004 are open to fleet-manager (004 = outbox archival
+convention, unanswered as of 2026-07-13T22:37Z); ORDER 008/009 (EAP final-night
+worklist) is in progress. The living record is `control/status.md` (the
+heartbeat).
 
 ## Recently shipped (newest first)
 
-(Merged work only, newest first.)
+2026-07-13 landings: idea-engine #310–#360 + sim-lab #96–#114 (all merged, 0
+parked); proposals through P049; verdicts through V059 (canonical ledger =
+sim-lab control/outbox.md @ `94cdfba`). The living record is
+`control/status.md` (the heartbeat).
 
 ## Ops facts (verified, durable) — landing / auto-merge / local git
 
