@@ -173,6 +173,27 @@
   non-lane carve-out (roster-derived sections — no ad-hoc section; flagged in the
   file's placement note), promoted as PROPOSAL 040; origin: drafted this slice under
   standing ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`checkout-pooling-single-line-2026-07-13.md`](checkout-pooling-single-line-2026-07-13.md) — round-7
+  COMPLETELY-UNRELATED-domain rotation head (standing ORDER 003 continuous pipeline,
+  rotation per ORDER 004 rule 3; domain: stochastic service operations /
+  queue-discipline design — the supermarket checkout pooling folk law, a SEVENTH
+  fleet-external domain after P017's social choice, P024's congestion routing, P028's
+  tournament seeding, P032's pattern races, P036's optimal stopping, and P040's
+  spatial self-organization): pre-registered discrete-time common-random-numbers sim
+  (c = 3 registers, Bernoulli-per-tick arrivals `randrange(35) < A` with decision cell
+  A = 27 ⇒ ρ = 9/10 exactly, service pmf {2:3, 3:3, 4:2, 6:2}/10 with mean 7/2,
+  POOLED vs SPLIT-RANDOM decision pair + SPLIT-JSQ reporting-only on the identical
+  per-run stream, T = 20,000 with warm-up 2,000 and drain-to-empty so every wait is
+  an exact integer, seeds 20261313–316, decision numbers exact Fractions) measuring
+  whether ONE shared line beats per-register lines "dramatically" — the median
+  per-run cohort mean-wait ratio R = Ŵ(SPLIT-RANDOM)/Ŵ(POOLED) against registered
+  APPROVE/REJECT/NULL bands (REJECT iff median R < 3/2, stated first / APPROVE iff
+  median R ≥ 2 AND the stability leg reproduces / anything else = honest null naming
+  the binding axis from four pre-registered shapes; no closed form binds the lattice
+  frame, no expected landing pinned) · sim-ready; homed here per the
+  `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc
+  section; flagged in the file's placement note), promoted as PROPOSAL 044; origin:
+  drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
