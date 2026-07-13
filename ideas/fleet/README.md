@@ -248,6 +248,23 @@
   checked first, seeds 20261301–304) · sim-ready; promoted as PROPOSAL 041; origin:
   drafted this slice under ORDER 003 + ORDER 004 rule 3 from the curious-research
   backlog harvest (ORDER 004 rule 4 untouched — nothing builds makerbench)
+- [`magnet-press-fit-band-2026-07-13.md`](magnet-press-fit-band-2026-07-13.md) — round-9
+  FLEET-BACKLOGS rotation head (standing ORDER 003, rotation per ORDER 004 rule 3;
+  harvest source: curious-research @ `a9fd5fa`, the slot's SECOND tap of that repo —
+  a different, untapped project subtree from P041's spool-scale: the effector-mount
+  magnet tool's shipped, never-printed `magnet_fit = 0.15` mm press-fit interference
+  default ("0.10-0.20 = a firm press-fit on most printers"), priced against the same
+  repo's tolerance-coin band semantics (Press/Snug/Loose per-side clearances, one
+  pinned exemplar row) as a pre-registered hermetic dual-arm sim: fit grid
+  F ∈ {0.05..0.30} mm × pinned integer-lattice printer population, exact-Fraction
+  enumeration decision arm + seeded common-random-numbers MC validation, REJECT
+  checked first then an INVALID controls gate, seeds 20261333–336; expected landing
+  DISCLOSED per the closed-form-arm norm — REJECT at the drafter's exact
+  FAIL(0.15) = 145/861 ≈ 0.168 > 1/10, the sim re-derives from scratch; the shipped
+  remedy-direction doc/geometry inversion carried as a reporting-only flag) ·
+  sim-ready; promoted as PROPOSAL 049; origin: drafted this slice under ORDER 003 +
+  ORDER 004 rule 3 from the curious-research backlog harvest (ORDER 004 rule 4
+  untouched — nothing builds makerbench)
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
