@@ -103,6 +103,21 @@
   homed here per the `check_sections.py` non-lane carve-out (roster-derived sections — no
   ad-hoc section; flagged in the file's placement note), promoted as PROPOSAL 024;
   origin: drafted this slice under ORDER 003 + ORDER 004 rule 3
+- [`tournament-seeding-bracket-optimality-2026-07-13.md`](tournament-seeding-bracket-optimality-2026-07-13.md) — round-3
+  COMPLETELY-UNRELATED-domain rotation head (inbox ORDER 004 rule 3; domain: sports
+  statistics / tournament-format design — single-elimination bracket seeding under a
+  Bradley–Terry win-probability model, a THIRD fleet-external domain after P017's
+  social choice and P024's congestion routing): pre-registered fully-exact census sim
+  (all 315 distinct 8-team brackets = 8!/2⁷, four committed strength profiles, exact
+  `fractions.Fraction`, ZERO RNG/seeds/floats — dual independent algorithms gated on
+  rational equality) measuring whether the standard seeding (1v8, 4v5 | 3v6, 2v7) is
+  EXACTLY optimal for P(best team wins) and P(1-vs-2 final), against registered
+  APPROVE/REJECT/NULL bands (REJECT iff exactly optimal in all 4 profiles, checked
+  first / APPROVE iff suboptimal by ≥ 0.5 pp on (a) or ≥ 1.0 pp on (b) anywhere /
+  straddle = honest null pinning the exact gap table) · sim-ready; homed here per the
+  `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc section;
+  flagged in the file's placement note), promoted as PROPOSAL 028; origin: drafted
+  this slice under ORDER 003 + ORDER 004 rule 3
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
