@@ -1,11 +1,11 @@
 # Session — PROPOSAL 063: menu-width leverage inversion — does message-XP widen the D&D menu into FEWER rewards, and can a data-only reorder fix it? (GAME-MECHANICS rotation, round 12)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-14T11:39:14Z (Ideas Lab worker slice — draft the
 > round-12 GAME-MECHANICS rotation slot proposal under standing owner
 > ORDER 003/004 and inbox ORDER 012 item (3) / ORDER 013 STEP 1. Card born
 > in-progress as the designed gate hold; flips complete in this PR's final
-> commit)
+> commit at 2026-07-14T11:43:14Z)
 
 **📊 Model:** fable-family · content-only slice (idea file, card, superbot-games
 index row, outbox append, claim file; no scripts/, no control/status.md or
@@ -64,3 +64,39 @@ PROPOSAL 063 append. Seeds 20261389–392 strictly above the V073 high-water
   allocation 20261388 (V073 registration); the larger standalone numerals
   (20261542/20261664/20261833 and kin) are the documented Fraction-numerator
   data-not-seed specimens.
+
+## 💡 Session idea
+
+**A permission surface that selects by PREFIX turns every list's ORDER into
+an unpriced game-design constant — and growth mechanics wired to such a
+surface can silently point backwards.** The sharpest thing this harvest
+found is a leverage system in perfect working order (width computed
+correctly, monotonic, hard-capped, model never decides it) whose actual
+effect on the economy is INVERTED: because the width cap slices a prefix
+and every scene's data happens to put the reward first and the no-op last,
+the "unlock" gradient only ever adds do-nothing buttons — more XP, fewer
+expected rewards, exactly 1/2 → 1/3 in closed form. Nothing was buggy;
+two individually-correct decisions (prefix truncation in code, mint-first
+ordering in data) composed into a gradient nobody chose. The durable
+pattern: wherever capability = f(rank) meets an ordered list — surfaced
+menu options, permission tiers over sorted scopes, feature flags over an
+ordered rollout list — the ORDERING is a live tuning constant and deserves
+one priced pass (or one sentence declaring the intended gradient) before
+the growth system ships around it. And when the fix menu is discrete
+(here: 6 permutations), closed-form the whole family FIRST — this slice
+found the {0, 1/2} impossibility partition in drafting, which converts the
+sim from "search for a fix" into "certify that no data-only fix exists",
+a much stronger verdict shape.
+
+## ⟲ Previous-session review
+
+Previous card (`.sessions/2026-07-14-proposal-062-owner-queue-attention-order.md`,
+P062 drafter, PR #410): honest and load-bearing — its 💡 ("a generator's
+emission order is a UX policy nobody chose") is literally this slice's
+kernel transposed from owner-attention lists to game menus, and its
+per-slot hermeticity clause (venture/game slots harvest firsthand at
+drafting, sim hermetic at verdict) was consumed verbatim here; its one
+standing nit — the seed-sweep recipe re-derived from prose for the seventh
+consecutive card because the committed sweep script (P059's suggestion)
+remains unbuilt — recurred an eighth time in this content-only slice, so
+the suggestion still stands for whoever next touches scripts/.
