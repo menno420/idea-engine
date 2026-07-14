@@ -3,7 +3,8 @@
 > **State:** sim-ready
 > **Class:** process (pipeline rotation — the standing ORDER 003 COMPLETELY-UNRELATED-domain slot, round 9 closer; a NINTH fleet-external domain: occupancy & collection problems / the coupon collector, disjoint from the eight prior occupants — social choice (P017), congestion routing (P024), tournament seeding (P028), pattern races (P032), optimal stopping (P036), spatial self-organization (P040), queue discipline (P044), stochastic ratchets (P048))
 > **Target:** sim-lab (verification target menno420/sim-lab per the Q-0264 pipeline; routing is the manager's per Q-0260, this repo never edits sim-lab files)
-> **Grounding:** menno420/idea-engine@a500048c488a80d449720d737918e887f3a4e9e8 · fetched 2026-07-14T00:26:42Z — the dedup-sweep HEAD, the only read this head takes; every model constant below is pinned in this file, zero repo/network reads at verdict time (the P017–P051 hermetic precedent)
+> **Grounding:** https://github.com/menno420/idea-engine@a500048c488a80d449720d737918e887f3a4e9e8 · fetched 2026-07-14T00:26:42Z
+> (the dedup-sweep HEAD, the only read this head takes; every model constant below is pinned in this file, zero repo/network reads at verdict time — the P017–P051 hermetic precedent)
 > **Origin:** standing ORDER 003 (continuous new ideas per repo) under ORDER 004 rule 3 (deliberate lane rotation, "COMPLETELY UNRELATED domains — I want those too"); round 9 has served fleet backlogs (P049 #358), venture (P050 #371) and game mechanics (P051 #373), so this head is the round-9 UNRELATED closer.
 
 **Placement note (decide-and-flag):** this fleet-external pure-probability head lives in `ideas/fleet/` per the check_sections carve-out for cross-cutting heads — flagged rather than silently squatting, exactly as PROPOSALs 017, 024, 028, 032, 036, 040, 044 and 048 did.
@@ -46,3 +47,112 @@ Fleet-external head: no lane CONSUMER; the deliverable is a citable measured ver
 ## Dedup
 
 Tree-wide `rg -i 'coupon|collector|occupancy|gacha|loot.?box|birthday|collect.?all|sticker'` (bootstrap.py/.substrate excluded) at HEAD a500048 — the sweep's hits are argued in the proposal block. No proposal P001–P051 and no verdict V001–V061 prices an occupancy/collection/coverage-completion problem; nearest by "counterintuitive pure-probability" are P032 (Penney) and P048 (Parrondo) — zero shared machinery (no harmonic-sum stage-expectation kernel, no collect-all-distinct absorbing structure). Method kin only: the P017–P051 exact-arm + seeded-confirmation discipline.
+
+## Probe report (v0, 2026-07-14)
+
+> Single-pass battery (panel not escalated: self-contained knowledge probe, sim is
+> report-only evidence, no spend/publish/irreversible surface — README § probe battery).
+> Verify-first ran FIRST, live this slice: (a) **dedup** — the tree-wide sweep
+> `rg -i 'coupon|collector|occupancy|gacha|loot.?box|birthday|collect.?all|sticker'`
+> (bootstrap.py/.substrate excluded) at the grounding pin `a500048` returned zero domain
+> hits; the 34 raw lines are all incidental (V024/P034 drift-*regime* occupancy, P051's
+> "self-funded collector", and the P044 checkout-pooling idea's set-aside "birthday-collision
+> scheduling" mention — the collision/occupancy family confirmed considered and never priced).
+> (b) **kill test NOT triggered** — no prior proposal P001–P051, idea file, or session-card 💡
+> prices an occupancy/collection/coverage-completion problem or the coupon collector.
+> (c) **feasibility + liveness arithmetic checked** — runtime bounded (Arm A is four exact
+> harmonic-sum `Fraction` reductions, Arm S is 200k draw-until-complete loops over N ≤ 200;
+> well under a minute, stdlib only); expected landing DISCLOSED with its exact drafting-time
+> value (REJECT, φ(50) = (137/60)/H_50 ≈ 0.508) rather than hidden, all rulings reachable
+> under the pre-registered rule, the band-straddle NULL axes and the INVALID controls gate
+> both named.
+
+**1. What is this really?** A pre-registered exact MEASUREMENT of the folk belief that
+finishing a random-draw collection is a minor mop-up — does the last ⌈N/10⌉ of a uniform
+coupon-collector set actually cost a materially large share of the expected draws — computed
+as the exact-rational tail-cost fraction φ(N) = H_m/H_N over the grid N ∈ {20,50,100,200},
+judged against bands fixed before any code (REJECT `φ ≥ 2/5` in ≥3 of 4 cells first, APPROVE
+`φ ≤ 1/5` at every N with stability reproduction, NULL otherwise), every decision number an
+exact `Fraction`, byte-identical across two runs, with a seeded draw-until-complete Monte-Carlo
+arm cross-validating the closed form.
+
+**2. What is the possibility space?** (i) Don't run it — the round-9 unrelated slot's closer
+goes unserved and the rotation closes short. (ii) Re-use a prior round's domain — fails the
+owner's "rotate" ask (P017/P024/P028/P032/P036/P040/P044/P048 occupy voting, routing,
+tournaments, pattern races, stopping, spatial self-organization, queueing, ratchets). (iii) A
+literature summary ("the coupon collector is N·H_N, see any probability text") — retells the
+textbook direction, measures nothing against a pre-registered consumer-relevant band, and
+dodges the live question (how much of the total does the *last 10%* cost, and does the folk
+belief fail). (iv) An MC-only estimate — leaves φ noisy and seed-dependent when an EXACT
+rational closed form is available, so the DECISION arm is the exact harmonic-sum solve and MC
+is demoted to confirmation. (v) This head: exact-rational Arm A on the pinned grid as the
+ruling, seeded Arm S as the cross-check, REJECT-first bands on φ, INVALID gate on the H_N /
+φ(m=N)=1 / φ(m=1)=1/H_N / exact-CDF identities, robustness disclosed via the reporting-only
+last-20% and weighted-rarity-tier legs. (vi) Over-scope (non-uniform weights as a *decision*
+arm, pity timers, multi-copy sets, partial-set objectives) — each named as a follow-up, none
+in scope.
+
+**3. What is the most advanced capability reachable by the simplest implementation?** One
+~150-line stdlib file: an exact `Fraction` harmonic-sum kernel H_N = Σ 1/k reused for E[T_N],
+E[tail_m], and φ = H_m/H_N across the four grid cells, plus one draw-until-complete MC loop
+parameterized by N and the tail index. That single file yields an exact, reproducible ruling
+on a famous counterintuitive result at a consumer-relevant pin, AND — as free side pins — the
+exact inclusion–exclusion CDF for the overshoot report P(T_50 > 2·E[T_50]), the last-single-
+coupon share 1/H_N, and the weighted-tier amplification column, all from a sim a verdict
+session runs cold in under a minute.
+
+**4. What breaks it? (assumptions made explicit)** (a) **The uniformity assumption is a
+choice** — equal per-item draw probability is the named most-likely-to-flip alternative; real
+collections are rarity-weighted, which pushes φ HIGHER, so a uniform REJECT is robust in the
+costly direction and the weighted-tier leg brackets the amplification (direction stated).
+(b) **Band placement could cherry-pick** — both bands (2/5, 1/5) are committed BEFORE any code,
+are DISJOINT, NULL is first-class (band-straddle, N-sensitivity, weight-sensitivity, arm
+disagreement), and the expected landing is DISCLOSED (REJECT) rather than hidden. (c) **The
+tail definition is a choice** — last-10% is the pinned tail; the last-20% and single-item legs
+bracket the definition sensitivity, and the N=20 cell at ≈0.417 sits deliberately just above
+the 2/5 edge so the falsifiability is real. (d) **The independence assumption** — iid draws
+with no pity timer or dedup-guarantee mechanic is the named alternative that would SHORTEN the
+tail and is the direction that could reach APPROVE, stated. (e) **An arithmetic slip in the
+drafter's hand check** — the sim RE-DERIVES every H_N, E[T_N], E[tail], and φ from scratch
+with zero trust in this file's `≈` values, and Arm S's independent draw-until-complete
+simulation cross-checks by a completely different code path, so a solver bug shows up as an
+Arm-A/Arm-S disagreement → INVALID.
+
+**5. What does it unlock?** The pipeline's NINTH fleet-external verdict and the rotation lane's
+proof it spans domains (voting → routing → tournaments → pattern races → stopping → spatial
+self-organization → queueing → ratchets → occupancy/collection); a measured, citable answer to
+"does almost-complete mean almost-done for a random-draw set, and by how much" — the exact φ
+table, the last-single-coupon share, and the overshoot report as standalone side pins; and a
+clean, fully-hermetic exact-rational harmonic-sum + collect-all-distinct template that any
+later occupancy/coverage question in the fleet can reuse (sample-all-N-shards,
+hit-every-N-endpoint coverage sweeps).
+
+**6. What is the cheapest experiment that decides it?** The whole head IS the cheapest deciding
+experiment: Arm A's four harmonic-sum `Fraction` reductions settle the ruling in microseconds
+and need no seed; Arm S's 200k draw-until-complete loops (≈ a second per cell) are the
+cross-check. The single cheapest probe if a reader doubts a specific leg is the small-N exact
+enumeration at N ∈ {2,3} (E[T_2] = 3, E[T_3] = 11/2), which anchors both the closed form and
+the MC against a hand-countable ground truth.
+
+**7. What would make this a mistake to run?** If the exact rational solve were somehow
+unavailable (it is not — harmonic numbers are always exact rationals), or if the domain
+duplicated a prior head (it does not — dedup returned zero), or if the ruling were
+pre-determined in a way that made it worthless. The last is the sharpest self-check: the
+landing is disclosed as REJECT, so is this theater? No — the VALUE is the independent hermetic
+re-derivation + MC cross-validation + the exact φ(N) growth curve and the weighted-tier
+amplification, and the falsifiability is real (the N=20 cell sits just above the 2/5 edge and
+the APPROVE band 1/5 is reachable via a single-item tail at large N). It would only be a
+mistake if run as a bare "compute a known constant"; framed as re-derive-plus-validate-plus-
+price-the-consumer-band, it is a genuine, self-contained knowledge deliverable.
+
+**8. How will we know it worked?** A committed sim-lab report with: Arm A's exact φ(N), E[T_N],
+and E[tail] as `Fraction`s and their `float` renderings; the last-single-coupon share 1/H_N;
+the inclusion–exclusion overshoot report P(T_50 > 2·E[T_50]); the verdict token (REJECT /
+APPROVE / NULL) against the pre-registered bands; Arm S's seeded empirical means each inside
+tolerance of Arm A per grid cell; the weighted-tier reporting column; the small-N enumeration
+anchors; and a byte-identity note (two process runs of Arm A produce identical rationals). A
+clean run reproduces φ(50) = (137/60)/H_50 (the drafter's disclosed reference) from scratch,
+or — the more interesting outcome — DISAGREES with it and pins the drafter's arithmetic error,
+which the pre-registered rule then rules on honestly.
+
+**Recommendation: sim-ready**
