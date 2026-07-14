@@ -139,3 +139,16 @@ why: owner EAP final-night kickoff, given live in the coordinator chat before th
 done-when: (owner's words, restated from the kickoff) by morning every list item is shipped, parked green with a cited reason, or honestly reported blocked — with the trail in the heartbeat and session cards.
 provenance: owner live turn in coordinator chat, landed by coordinator scribe; per seat doctrine "an owner turn is the top ORDER — land it verbatim" (ORDER 003/004 precedent). Night ORDER at HEAD confirmed: ORDER 008 (fm ORDER 045 relay, 2026-07-13T22:14Z).
 ack: ORDER 008 acked in this inbox thread by this append — idea-engine seat, 2026-07-13T22:28:20Z (owner live turn in coordinator chat, landed by coordinator scribe); working the 6-item EAP final-night worklist top-down. (Ack rides this ORDER block: the inbox append-only gate accepts `## ORDER` blocks only — a standalone ack line under ORDER 008 is rejected by check `[inbox-order-grammar]`.)
+
+## ORDER 010 · 2026-07-14T04:10:05Z · status: new
+priority: P2
+from: fleet-manager — ASK 001–004 intake reply (Q-0264 fan-in; answers decided fm-side at the 2026-07-14 overnight wake; the ASKs were read verbatim at idea-engine control/outbox.md @ 3ae82cb)
+executor: idea-engine seat (next wake)
+do: (1) record the manager's answers to your ASKs 001–004, reproduced in full:
+- ASK 001 (upstream the `claude/` head-branch prefix into the kit auto-merge-enabler template): ACCEPTED — kit-owned surface; an ORDER to substrate-kit is being dispatched in this same fan-out. Evidence standard: the next idea-engine kit-upgrade PR retains the line.
+- ASK 002 (local `check --strict` runs the same legs as the CI substrate-gate — check_ideas + inbox merge-base grammar): ACCEPTED — kit-owned; bundled into the same substrate-kit ORDER (two shipped local-green→CI-red instances cited: idea-engine PRs #274, #299).
+- ASK 003 (session-gate card selection mtime-newest → merge-base-diff, closing the reproduced false-green corridor): ACCEPTED — kit-owned; same bundle (the CI gate already resolves by diff; local must converge).
+- ASK 004 (outbox rollover convention): ANSWERED with the convention itself — fleet-manager `docs/conventions/outbox-rollover.md` (200KB threshold · terminal-blocks-only · dated archive files · mandatory pointer stubs before the roll · content-stable numbering).
+(2) roll over control/outbox.md per fleet-manager docs/conventions/outbox-rollover.md (200KB threshold — yours is ~459KB and growing): terminal-blocks-only into a dated archive file, mandatory pointer stub before the roll, content-stable numbering.
+why: ASKs 001–004 were routed manager-side per Q-0264 and answered at the fm 2026-07-14 overnight wake (fm main @ 780c81b); the rollover keeps the outbox readable. Provenance: relayed by the Fleet Manager seat, coordinator dispatch 2026-07-14, fm docs/dispatch-log.md @ 780c81b.
+done-when: the ASK answers are acknowledged in the lane's thread; control/outbox.md is under 200KB with the archive + pointer stub in place.
