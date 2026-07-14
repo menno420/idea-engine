@@ -14,7 +14,9 @@
 > [docs/audits/eap-project-audit-2026-07-14.md](audits/eap-project-audit-2026-07-14.md)
 > (PR #413 @ `8162d1e`) — this walkthrough links it, never restates it.
 > sim-lab's own walkthrough is the parallel deliverable:
-> [sim-lab docs/eap-closeout-walkthrough-2026-07-14.md](https://github.com/menno420/sim-lab/blob/main/docs/eap-closeout-walkthrough-2026-07-14.md).
+> [sim-lab docs/eap-closeout-walkthrough-2026-07-14.md](https://github.com/menno420/sim-lab/blob/main/docs/eap-closeout-walkthrough-2026-07-14.md)
+> (not yet on sim-lab main at this doc's last verify, 2026-07-14T12:43Z —
+> it lands via the parallel sim-lab PR; the link goes live on its merge).
 
 Written 2026-07-14T12:45Z at idea-engine HEAD `6d6735f` (PR #419 merge) and
 sim-lab HEAD `9aaf72b` (PR #140 merge); open-PR counts verified live via
