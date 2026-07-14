@@ -213,6 +213,83 @@
   homed here per the `check_sections.py` non-lane carve-out (roster-derived sections — no
   ad-hoc section; flagged in the file's placement note), promoted as PROPOSAL 048; origin:
   drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`coupon-collector-tail-2026-07-14.md`](coupon-collector-tail-2026-07-14.md) — round-9
+  COMPLETELY-UNRELATED-domain rotation head, the round-9 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: occupancy & collection
+  problems / the coupon collector's tail, a NINTH fleet-external domain after P017's
+  social choice, P024's congestion routing, P028's tournament seeding, P032's pattern
+  races, P036's optimal stopping, P040's spatial self-organization, P044's
+  queue-discipline, and P048's stochastic ratchets): pre-registered dual-arm sim
+  (Arm A = seedless exact `fractions.Fraction` harmonic-sum decision arm, the tail-cost
+  fraction φ(N) = H_m/H_N over the grid N ∈ {20,50,100,200} with last-10% tail
+  m = ⌈N/10⌉ = {2,5,10,20}, decision cell N = 50; Arm S = seeded MC draw-until-complete
+  confirmation, N_runs = 200,000 via `random.Random(20261345)`, agreement gate
+  |mean_S − E_A|/E_A ≤ 1/100 AND ≤ 4·SE per cell; seeds 20261345–348) measuring whether
+  the folk belief "once you've got most of a random-draw set you're basically done" fails
+  in the costly direction — φ against registered APPROVE/REJECT/NULL bands (REJECT iff
+  φ(50) ≥ 2/5 AND φ(N) ≥ 2/5 in ≥ 3 of 4 cells AND Arm S confirms, stated first / APPROVE
+  iff φ(N) ≤ 1/5 at EVERY grid N AND the seed-20261346 stability leg reproduces / anything
+  else = honest null naming the binding axis; INVALID controls gate on the H_N /
+  φ(m=N)=1 / φ(m=1)=1/H_N / exact-CDF / Arm-S identities; expected landing DISCLOSED per
+  the closed-form-arm norm — REJECT at the drafter's exact φ(50) = (137/60)/H_50 ≈ 0.508,
+  the sim re-derives from scratch) · sim-ready; homed here per the `check_sections.py`
+  non-lane carve-out (roster-derived sections — no ad-hoc section; flagged in the file's
+  placement note), promoted as PROPOSAL 052; origin: drafted this slice under standing
+  ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`inspection-paradox-wait-inflation-2026-07-14.md`](inspection-paradox-wait-inflation-2026-07-14.md) — round-10
+  COMPLETELY-UNRELATED-domain rotation head, the round-10 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: renewal theory & random
+  incidence / the inspection (waiting-time) paradox, a TENTH fleet-external domain after
+  P017's social choice, P024's congestion routing, P028's tournament seeding, P032's
+  pattern races, P036's optimal stopping, P040's spatial self-organization, P044's
+  queue-discipline, P048's stochastic ratchets, and P052's occupancy & collection):
+  pre-registered dual-arm sim (Arm A = seedless exact `fractions.Fraction` moment
+  arithmetic, the wait-inflation factor ρ = E[X²]/E[X]² = 1 + CV² and E[W] = E[X²]/(2E[X])
+  over five equal-mean-10 headway schedules CLOCKWORK/JITTER/SPREAD/MEMORYLESS/BUNCHED
+  with CV² ∈ {0, 1/25, 1/10, 9/10, 64/25}; Arm S = seeded renewal-trajectory +
+  uniform-landing MC confirmation, K = 100,000 intervals + N = 200,000 landings per cell
+  via `random.Random(20261361)`, agreement gate ≤ 1/100 relative AND ≤ 4·SE on E[W] and
+  P(W > 10) per cell; seeds 20261361–364) measuring whether the folk rule "average wait =
+  half the average headway" fails in the costly direction — ρ against registered bands
+  (REJECT iff ρ(BUNCHED) ≥ 2 AND ρ ≥ 11/10 in ≥ 3 of 4 stochastic cells AND Arm S
+  confirms, stated first / APPROVE iff ρ ≤ 21/20 at EVERY stochastic cell AND the
+  seed-20261362 stability leg reproduces / anything else = honest null naming the binding
+  axis; INVALID controls gate on the pmf / size-bias / degenerate / monotonicity / hand
+  identities; expected landing DISCLOSED per the closed-form-arm norm — REJECT at the
+  drafter's exact ρ(BUNCHED) = 89/25 = 3.56 with E[W] = 89/5 = 17.8 min exceeding the
+  entire 10-min mean headway, the sim re-derives from scratch) · sim-ready; homed here
+  per the `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc
+  section; flagged in the file's placement note), promoted as PROPOSAL 056; origin:
+  drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`noisy-reciprocity-tft-collapse-2026-07-14.md`](noisy-reciprocity-tft-collapse-2026-07-14.md) — round-11
+  COMPLETELY-UNRELATED-domain rotation head, the round-11 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: repeated games & the
+  evolution of cooperation / reciprocity under trembling-hand execution noise, an
+  ELEVENTH fleet-external domain after P017's social choice, P024's congestion routing,
+  P028's tournament seeding, P032's pattern races, P036's optimal stopping, P040's
+  spatial self-organization, P044's queue-discipline, P048's stochastic ratchets,
+  P052's occupancy & collection, and P056's random incidence; reopens P024's
+  card-recorded dropped runner-up with the drop reason answered): pre-registered
+  fully-deterministic sim (Arm A = seedless exact `fractions.Fraction` stationary
+  solves of all 256 rule-pair 4-state chains per noise cell over the COMPLETE 16-rule
+  deterministic memory-one field, ε ∈ {1/1000, 1/100, 1/20, 1/10} + the ε = 0 orbit
+  leg and ε = 1/2 degeneracy control; Arm B = independently-written Cramer twin,
+  exact-equal on every pair value; Arm R = seeded finite-horizon estimates
+  REPORTING-ONLY, seeds 20261377–380, no statistical gate) measuring whether the
+  Axelrod folk claim "Tit-for-Tat is the best strategy" survives the complete field
+  and any execution noise — decision-cell gap score(WSLS) − score(TFT) against
+  registered bands (REJECT iff gap ≥ 2/5 at ε = 1/100 AND v(TFT,TFT) = 9/4 exactly at
+  every grid ε (the echo identity) AND rank(TFT) worse than rank(WSLS) grid-wide AND
+  v(WSLS,WSLS) ≥ 14/5, stated first / APPROVE iff TFT ranks 1 at the decision cell /
+  anything else = honest null naming the binding axis; INVALID controls gate on the
+  field/solve, echo-theorem, closed-form-anchor, transpose, ε = 1/2 degeneracy, and
+  battery identities; expected landing DISCLOSED per the closed-form-arm norm —
+  REJECT at the drafter's exact gap ≈ 0.4915 with ranks TFT 10 / WSLS 5 at all four
+  grid ε and the ε-independent 9/4 echo tax, the sim re-derives from scratch) ·
+  sim-ready; homed here per the `check_sections.py` non-lane carve-out
+  (roster-derived sections — no ad-hoc section; flagged in the file's placement
+  note), promoted as PROPOSAL 060; origin: drafted this slice under standing
+  ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented

@@ -33,6 +33,17 @@ link below. Claim this section (`control/claims/`) before working it.
   `7da9fbf`, superseding the capture's `d4ed380` — Sequence window OPEN); a one-PR
   lane export slice settled by the lane's own CI, the sole open point (gallery
   ordering) is a product decision — no outbox proposal, build-direct lane pickup
+- [`prestige-reset-policy-optimality-2026-07-14.md`](prestige-reset-policy-optimality-2026-07-14.md) —
+  sim-ready · game-mechanics (rotation slot, round 11): the engine's own committed
+  "optimal-play" claim (prestige.py docstring + the S3 harness label) audited at the
+  FULL HEAD fold — which now includes the persistent milestone bonuses the committed
+  harness folds ZERO of — via a pinned 15-policy deterministic grid (greedy / patient
+  / one-detour hybrids / the lane's own flagged cooldown cap) at lane HEAD `5ddd5a2`;
+  drafting grid: one patient 10⁷ detour at P ≥ 1000 banks lifetime-3's permanent +5%
+  and beats the committed greedy loop by 7.98% over the registered 14-day horizon
+  (inverts to a LOSS with milestones off — the attribution control), while greedy
+  crushes never-reset 1024.97× (the docstring's grind half holds); REJECT-first at a
+  1% dominance line, exact integers, zero stochastic gates → PROPOSAL 059
 - [`theme-schema-plugin-contract-promotion-2026-07-11.md`](theme-schema-plugin-contract-promotion-2026-07-11.md) —
   parked(awaiting-arming-event) · product: the §4/§7 decided-and-flagged promotion of
   schema v1 into the plugin-contract family — this capture is the tracker (the lane's
