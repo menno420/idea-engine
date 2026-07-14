@@ -152,3 +152,29 @@ do: (1) record the manager's answers to your ASKs 001–004, reproduced in full:
 (2) roll over control/outbox.md per fleet-manager docs/conventions/outbox-rollover.md (200KB threshold — yours is ~459KB and growing): terminal-blocks-only into a dated archive file, mandatory pointer stub before the roll, content-stable numbering.
 why: ASKs 001–004 were routed manager-side per Q-0264 and answered at the fm 2026-07-14 overnight wake (fm main @ 780c81b); the rollover keeps the outbox readable. Provenance: relayed by the Fleet Manager seat, coordinator dispatch 2026-07-14, fm docs/dispatch-log.md @ 780c81b.
 done-when: the ASK answers are acknowledged in the lane's thread; control/outbox.md is under 200KB with the archive + pointer stub in place.
+
+## ORDER 011 · 2026-07-14T09:03:55Z · status: new
+priority: P1 · final EAP task (STEP 0 first — it interrupts nothing)
+from: owner — live turn in coordinator chat, landed by coordinator scribe
+executor: idea-engine seat (Ideas Lab — idea-engine + sim-lab, both repos)
+do: the owner's words, quoted verbatim and in full:
+PROJECT AUDIT — EAP CLOSE-OUT (owner directive). This is your seat's FINAL EAP task — but it interrupts NOTHING.
+STEP 0 — FINISH FIRST. Before starting the audit: complete the slice you are currently working on; drive your open PRs to terminal (merged, parked green with a cited reason, or closed-with-reason); work any unconsumed night-ORDER items in your inbox to done or an honest parked state. Only when your in-flight work is landed do you begin the audit. If something long-running genuinely can't finish this session, park it cleanly and note it in the audit's §11.
+MISSION: produce this seat's definitive EAP audit: what this project used, what it couldn't use, where it lost time, what it fixed, what still hurts — each finding dispositioned as FLEET-FIX (we can improve it ourselves — say how), ANTHROPIC (candidate for the final feedback email — say the exact ask), or ACCEPTED (inherent cost, no action). Format compliance matters more than prose style; this feeds the fleet-manager's synthesis.
+SOURCES (mine all that exist in your repo(s)): CAPABILITIES/walls ledgers · .sessions/ cards (denials, ⚑ flags, ⟲ reviews, run reports) · control/status history + inbox/outbox threads · owner-queue · guard-fire/telemetry ledgers · CI runs + PR history via GitHub MCP · journals. Verify counts by MEASURING (git log, PR queries — unshallow the clone before counting), never estimating from memory. TRUTH bar: every claim cites path@SHA / PR # / verbatim denial text; "not measured" beats invention; honest nulls are findings.
+OUTPUT: the landed doc is the deliverable — `docs/audits/eap-project-audit-2026-07-14.md` (Status badge in the first 12 lines + a real README link per your docs gate), landed via your normal PR ceremony. Your chat reply is a COMPACT summary only (≤40 lines: headline numbers, top walls, top asks, PR link). The doc uses EXACTLY this section order:
+1. Identity & scale — repo(s), seat, active window; measured totals: sessions, PRs opened/merged/closed-unmerged, commits, backlog size.
+2. Tooling used — table: tool/surface · how used · verdict (reliable/flaky/painful) + one citation each.
+3. Tooling walled or missing — table: capability wanted · what happened when tried (VERBATIM denial/error + date) · workaround (or none) · disposition.
+4. Merge & landing friction — MEASURED: median + worst time-to-land, PRs needing >1 CI round, auto-merge/enabler failures, owner-click dependencies (count), classifier denials on merge-path actions (count + verbatim), abandoned/conflicted branches. Disposition each recurring cause.
+5. Scheduling & wake friction — trigger/cron issues, rebind pain, fresh-session-per-fire failures, dead workers/sessions (count).
+6. Environment & platform issues — container deaths, disk, proxy walls, context limits, MCP staleness — verbatim evidence + disposition each.
+7. Process & ceremony cost — which required rituals paid for themselves vs pure tax; checker false-positives/false-greens caught.
+8. What we fixed ourselves — top self-engineered fixes that worked, 1 line + citation each.
+9. Top 5 remaining pains — ranked; each with disposition + (if ANTHROPIC) the exact ask, paste-ready for the final email.
+10. Wishlist — features that would have most changed outcomes, ranked, deduped against §3/§9.
+11. Honest gaps — what this audit couldn't measure and why (include anything parked at STEP 0).
+RULES: measure, don't vibe; if the repo already has a retrospective/walls doc, cite + DELTA it instead of restating; tables > prose; the doc must stand alone for a reader who never saw the repo.
+why: owner EAP close-out directive — the seat's definitive audit feeds the fleet-manager's synthesis and the final Anthropic feedback email; it is this seat's FINAL EAP task.
+done-when: (owner's words, restated) STEP 0 in-flight work landed first; then the audit doc `docs/audits/eap-project-audit-2026-07-14.md` landed via the normal PR ceremony with sections 1–11 exactly as specified, every claim cited, every finding dispositioned; the chat reply a COMPACT summary only (≤40 lines).
+provenance: owner live turn in coordinator chat, landed by coordinator scribe
