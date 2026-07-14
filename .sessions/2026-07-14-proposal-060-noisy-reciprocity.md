@@ -1,10 +1,10 @@
 # Session — PROPOSAL 060: noisy reciprocity — does "Tit-for-Tat is the best strategy" survive the complete memory-one field and execution noise? (COMPLETELY-UNRELATED rotation, round 11 closer)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-14T05:49:23Z (Ideas Lab worker slice — draft the
 > round-11 COMPLETELY-UNRELATED-domain slot proposal under standing owner
-> ORDER 003/004. Card born in-progress as the designed gate hold; flips
-> complete in this PR's final commit.)
+> ORDER 003/004. Card born in-progress as the designed gate hold; flipped
+> complete in this PR's final commit at 2026-07-14T05:57:53Z)
 
 **📊 Model:** fable-family · content-only slice (idea file, card, fleet index
 row, outbox append, claim file; no scripts/, no control/status.md or
@@ -34,6 +34,7 @@ Deliverables this slice: this card (born-red first commit), the claim file,
 `ideas/fleet/noisy-reciprocity-tft-collapse-2026-07-14.md` + the
 `ideas/fleet/README.md` index row, and the `control/outbox.md` PROPOSAL 060
 append. Seeds 20261377–380 strictly above the P059 high-water 20261376.
+PR #404.
 
 ## Constraints honored
 
@@ -53,9 +54,39 @@ append. Seeds 20261377–380 strictly above the P059 high-water 20261376.
 
 ## 💡 Session idea
 
-(lands with the flip-complete commit — this card is the designed born-red
-gate hold; in-progress until the deliverables above are on the branch)
+**A recorded dedup-DROP is a harvest lane, not a tombstone — but only if the
+drop reason is written down at drop time.** This slice's whole domain came
+from P024's card recording its runner-up ("prisoner's-dilemma
+tournament-strategy frequency") WITH the reason it lost ("method-adjacent to
+the game-mechanics heads — weakest 'completely unrelated' claim"): ten
+rounds later both horns of that reason had expired (the slot now spans ten
+domains none of which is strategic reciprocity, and the method here is exact
+stationary arithmetic, not the MC-frequency shape the drop worried about),
+so the drop converted straight into a drafted head with a built-in dedup
+argument — the P058/P050 re-open precedent, now twice-confirmed. The durable
+pattern: every dedup-drop and runner-up in a drafter card should carry its
+drop REASON as a machine-findable line, because the reason is the expiry
+condition — a bare "dropped X" can never be safely reopened, while a
+"dropped X because Y" reopens itself the day Y stops being true. Cheap to
+adopt: one sentence per drop, already the de-facto habit in P024/P050 —
+worth naming as the norm before a card ships a bare drop.
 
 ## ⟲ Previous-session review
 
-(lands with the flip-complete commit)
+Previous card (`.sessions/2026-07-14-proposal-059-prestige-reset-policy.md`,
+P059 drafter): the strongest card in the rotation set for onboarding the
+NEXT drafter — its rotation restatement made this slice's slot derivation
+(round 11 closer = unrelated) a one-line confirmation against the ORDER 004
+rule 3 text, and its constraints-honored section is now effectively the
+slot's checklist (this card reuses its shape verbatim). Its 💡 (a
+fold-extension silently stales every committed optimality label; nothing
+goes red) is a genuinely durable class, and this slice hit its mirror image:
+P024's DROPPED runner-up silently un-staled when the slot's coverage grew —
+in both cases the fix is recording the dependency/reason at write time. Its
+seed-sweep note again carried the exact boundary-aware regex and the three
+data-not-seed specimens, which this session consumed directly — fourth
+consecutive card to re-derive the recipe from prose; the committed-script
+suggestion stands. One nit: the P059 card's "superbot ×2, mineverse,
+gba-homebrew ×2" five-draw summary counts P047 (superbot) but the slot list
+it cites starts at P020 — harmless, but a reader reconciling the two lists
+loses a minute; this card cites the slot history once, in one place.
