@@ -213,6 +213,29 @@
   homed here per the `check_sections.py` non-lane carve-out (roster-derived sections — no
   ad-hoc section; flagged in the file's placement note), promoted as PROPOSAL 048; origin:
   drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`coupon-collector-tail-2026-07-14.md`](coupon-collector-tail-2026-07-14.md) — round-9
+  COMPLETELY-UNRELATED-domain rotation head, the round-9 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: occupancy & collection
+  problems / the coupon collector's tail, a NINTH fleet-external domain after P017's
+  social choice, P024's congestion routing, P028's tournament seeding, P032's pattern
+  races, P036's optimal stopping, P040's spatial self-organization, P044's
+  queue-discipline, and P048's stochastic ratchets): pre-registered dual-arm sim
+  (Arm A = seedless exact `fractions.Fraction` harmonic-sum decision arm, the tail-cost
+  fraction φ(N) = H_m/H_N over the grid N ∈ {20,50,100,200} with last-10% tail
+  m = ⌈N/10⌉ = {2,5,10,20}, decision cell N = 50; Arm S = seeded MC draw-until-complete
+  confirmation, N_runs = 200,000 via `random.Random(20261345)`, agreement gate
+  |mean_S − E_A|/E_A ≤ 1/100 AND ≤ 4·SE per cell; seeds 20261345–348) measuring whether
+  the folk belief "once you've got most of a random-draw set you're basically done" fails
+  in the costly direction — φ against registered APPROVE/REJECT/NULL bands (REJECT iff
+  φ(50) ≥ 2/5 AND φ(N) ≥ 2/5 in ≥ 3 of 4 cells AND Arm S confirms, stated first / APPROVE
+  iff φ(N) ≤ 1/5 at EVERY grid N AND the seed-20261346 stability leg reproduces / anything
+  else = honest null naming the binding axis; INVALID controls gate on the H_N /
+  φ(m=N)=1 / φ(m=1)=1/H_N / exact-CDF / Arm-S identities; expected landing DISCLOSED per
+  the closed-form-arm norm — REJECT at the drafter's exact φ(50) = (137/60)/H_50 ≈ 0.508,
+  the sim re-derives from scratch) · sim-ready; homed here per the `check_sections.py`
+  non-lane carve-out (roster-derived sections — no ad-hoc section; flagged in the file's
+  placement note), promoted as PROPOSAL 052; origin: drafted this slice under standing
+  ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
