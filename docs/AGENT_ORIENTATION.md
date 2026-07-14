@@ -30,7 +30,9 @@ The planted doc set (this router reaches every live doc — keep it that way):
 `docs/owner-profile.md` · `docs/current-state.md` · `docs/decisions.md` ·
 `docs/question-router.md` · `docs/CAPABILITIES.md` · `docs/ideas/README.md` ·
 `docs/SKILLS.md` · `docs/ROUTINES.md` · `docs/seat-digest.md` (the last three
-planted by the v1.15.0 kit upgrade) — plus the root
+planted by the v1.15.0 kit upgrade) ·
+`docs/audits/2026-07-13-fleet-cleanup-audit.md` (external fleet-wide
+cleanup/audit pass, EAP final night) — plus the root
 `CONSTITUTION.md` (the working agreement) and `.session-journal.md`.
 Durable retro records live under `docs/retro/` (first entry:
 `docs/retro/self-review-2026-07-11.md`, the ORDER 002 self-review moved verbatim
