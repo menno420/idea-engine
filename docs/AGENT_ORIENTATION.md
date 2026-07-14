@@ -34,7 +34,11 @@ planted by the v1.15.0 kit upgrade) ·
 `docs/audits/2026-07-13-fleet-cleanup-audit.md` (external fleet-wide
 cleanup/audit pass, EAP final night) ·
 `docs/audits/eap-project-audit-2026-07-14.md` (the seat's definitive EAP
-close-out audit per inbox ORDER 011 — both repos, measured) — plus the root
+close-out audit per inbox ORDER 011 — both repos, measured) ·
+[docs/eap-closeout-walkthrough-2026-07-14.md](eap-closeout-walkthrough-2026-07-14.md)
+(the owner-facing EAP close-out walkthrough per inbox ORDER 012 (b) /
+ORDER 013 STEP 2 — both repos: what shipped, current state, OWNER ACTIONS,
+5-minute tour, handoff) — plus the root
 `CONSTITUTION.md` (the working agreement) and `.session-journal.md`.
 Durable retro records live under `docs/retro/` (first entry:
 `docs/retro/self-review-2026-07-11.md`, the ORDER 002 self-review moved verbatim
