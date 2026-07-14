@@ -102,6 +102,19 @@ links both.
 - [`central-admin-and-logging-guilds-2026-07-10.md`](central-admin-and-logging-guilds-2026-07-10.md) — captured · Central admin guild + central logging guild — the bot's HQ (2026-07-02) (canonical: superbot `docs/ideas/central-admin-and-logging-guilds-2026-07-02.md` @ `fd638e3`)
 - [`channel-deployed-component-menu-primitive-2026-07-10.md`](channel-deployed-component-menu-primitive-2026-07-10.md) — parked(mooted-in-part — built half: the deploy lifecycle shipped consumer-private at S `1ecc211` (role menus `RoleMenuView(PersistentView)` + `reattach_role_menus`; starboard reaction-based, own message_id rows); open half: the generic `deploy_component_message`/`deployed_messages` seam + component polls — re-open when a SECOND channel-deployed component consumer lands at S; probe 2026-07-12) · Channel-deployed component-menu primitive (role menus · starboard · polls) (canonical: superbot `docs/ideas/channel-deployed-component-menu-primitive-2026-06-21.md` @ `fd638e3`)
 - [`channel-role-scoped-authority-gap-2026-07-10.md`](channel-role-scoped-authority-gap-2026-07-10.md) — parked(routed — rebuild leg mooted: A-12/R-16 `Lane.ROLE_SET` landed live+tested at superbot-next `168ef80`; remaining consumer wiring + effect arming lane-sequenced behind the effect-arming compensator checklist; live-bot item 4 stays live-bot backlog) · Channel-level, role-scoped access is missing — live bot AND the frozen rebuild design (canonical: superbot `docs/ideas/channel-role-scoped-authority-gap-2026-07-07.md` @ `fd638e3`; probe report v0 appended 2026-07-11)
+- [`chicken-farm-faucet-self-balance-2026-07-13.md`](chicken-farm-faucet-self-balance-2026-07-13.md) —
+  sim-ready · game-mechanics: the hub chicken farm's own never-quantified
+  header claims ("the loop stays self-balancing"; "~40 coins … a small
+  fraction of a `!daily`", farm.py @ `affd7ea`) priced as a pre-registered
+  hermetic purchase-path sim — exact deterministic greedy/pair trajectories
+  over the committed hen (×1.55) and coop (×1.8) price ladders at four
+  collect cadences, judged in absolute committed units against the exact
+  E[`!daily`] = 169201/100 anchor with a jittered seeded confirmation arm;
+  REJECT = the self-funded plateau out-earns κ = 1/2 of the daily at ≥ 2 of
+  4 cadences (the runaway faucet, checked first), APPROVE = bounded AND
+  alive at every cadence, NULL with five named axes (cadence-straddle,
+  idle-dead, family-split, arm disagreement, margin-thin); seeds
+  20261341–344 (PROPOSAL 051)
 - [`ci-cost-and-duplicate-work-prevention-2026-07-10.md`](ci-cost-and-duplicate-work-prevention-2026-07-10.md) — captured · Code-quality CI cost + duplicate-work prevention (early-claim convention) (canonical: superbot `docs/ideas/ci-cost-and-duplicate-work-prevention-2026-06-14.md` @ `fd638e3`)
 - [`ci-dropped-synchronize-auto-retrigger-2026-07-10.md`](ci-dropped-synchronize-auto-retrigger-2026-07-10.md) — historical(promoted and built same day in superbot PR #1288) · Idea: auto-re-trigger Code Quality when GitHub drops the `pull_request: synchronize` event (canonical: superbot `docs/ideas/ci-dropped-synchronize-auto-retrigger-2026-06-22.md` @ `fd638e3`)
 - [`claim-remote-visibility-scan-2026-07-10.md`](claim-remote-visibility-scan-2026-07-10.md) — historical(shipped 2026-07-10 in superbot PR #1919 as `check_lane_overlap.py --remote`) · Claim remote-visibility scan — make claims travel without waiting for a merge (canonical: superbot `docs/ideas/claim-remote-visibility-scan-2026-07-08.md` @ `fd638e3`)
