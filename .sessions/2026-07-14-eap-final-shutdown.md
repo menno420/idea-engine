@@ -54,3 +54,36 @@ merged. **Backlog dry at shutdown; nothing in flight** — the honest null.
 - No auto-merge arming, no self-merge — the installed enabler handles
   in-pattern `claude/*` PRs (#367 precedent).
 - All timestamps from real `date -u`.
+
+## 💡 Session idea
+
+**A shutdown is a custody transfer, not a stop — and its safe ordering is
+the inverse of the build instinct: record first, then kill.** The one
+irreversible hazard in decommissioning an agent seat is not the dormant
+repo (git keeps everything) but the out-of-band machinery: a scheduled
+trigger deleted before its id/cron/binding is committed anywhere is
+unrecoverable — `docs/ROUTINES.md` already evidences triggers vanishing
+with no tombstone, so the registry cannot be re-derived after the fact.
+Hence the directive's shape: the routine RECORD lands on main inside the
+shutdown PR, and the DELETION happens only after that PR merges, by the
+actor who owns the trigger. The durable pattern for any agent-fleet
+teardown: partition shutdown state into what git preserves for free
+(docs, orders, heartbeats) and what evaporates (triggers, sessions,
+chat-only context), then sequence the teardown so every evaporating fact
+is committed before the thing it describes is destroyed. The same
+inversion applies to revival: the record is only a claim — the revived
+seat must probe the live registry rather than trust this PR's snapshot.
+
+## ⟲ Previous-session review
+
+Previous card (`.sessions/2026-07-14-kit-upgrade-v1.16.0.md`, kit v1.16.0
+upgrade, PR #422): honest and precise — its sha256 three-way verification
+and byte-identical workflow restoration (the #367/Q-0261.3 rails) are the
+reason this shutdown session could trust the enabler + gate workflows
+unread; its "Verify evidence" section correctly pre-classified the exact
+advisory set (owner-action-fields + 10 model-line-shape) that still fires
+on this PR's CI run, saving this session a false-positive chase. One gap
+it left: the v1.17.0 upgrade that followed (#423 @ d086bfa) shipped with
+NO session card at all — card-less landings are exactly what the born-red
+ceremony exists to prevent, and this final-shutdown card is the last place
+the omission gets recorded before the seat sleeps.

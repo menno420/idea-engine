@@ -209,3 +209,18 @@ do:
   RULES: TRUTH bar — every claim cited (PR #, path@SHA, dates); owner steps paste-ready (deep link first, blobs paste-ready, one sitting, payoff + verification stated); honest nulls beat filler. Done-when: unfinished work terminal-or-parked-cited + walkthrough landed + owner checklist surfaced in chat.
 why: EAP final day — owner directive requires the seat terminal-or-parked plus a walkthrough.
 done-when: as stated in the directive (mirrors ORDER 012 done-when).
+
+## ORDER 014 · 2026-07-14T23:42:25Z · status: new
+
+priority: P0 · final (EAP FINAL SHUTDOWN)
+from: owner — EAP FINAL SHUTDOWN of the Ideas Lab seat, live turn in coordinator chat 2026-07-14; landed on the coordinator's dispatch by the finishing session. NOTE ON PROVENANCE: this block is the coordinator scribe's restatement of the directive, marked as such — the owner's verbatim turn lived in the coordinator chat (session_0146BSTEg76Sx9TSEZndRMkX) and was not carried into this landing session; the restatement below is the directive the dispatch carried.
+executor: idea-engine seat (this finishing session) for the landing; the coordinator for the post-merge routine deletion.
+do: shut the Ideas Lab seat down for good, in this order:
+  (1) FINISH SMALL — sweep for in-flight work and land or park-with-citation. Sweep result (2026-07-14T21:15Z, re-verified at this landing): 0 open PRs besides this one, pipeline DRY at P063 → V074 (sim-lab#140 @ 9aaf72b), claims/ EMPTY, newest outbox entry CLOSE-OUT 001 — backlog dry, nothing in flight.
+  (2) STOP ALL ROUTINES — record FIRST, delete AFTER: the routine record (failsafe cron id/schedule/binding) is written down in control/status.md's routine-disposition block and docs/HANDOFF.md BEFORE any deletion; the coordinator deletes the failsafe cron AFTER this PR merges and verifies absence to exhaustion per docs/ROUTINES.md. The ~15-min send_later pacemaker chain is already closed (~09:47Z 2026-07-14, EAP end); business crons: NONE exist for this seat.
+  (3) DOUBLE-CHECK THE HANDOFF — land docs/HANDOFF.md, the SEAT DORMANT revival record: read-first order, routine record, revival/re-arm pointers, parked list, duplication ledger. Pointers to fleet-manager central copies for doctrine, never restatements.
+  (4) SOURCE-OF-TRUTH POINTERS — control/status.md flips to the final SEAT DORMANT heartbeat with a revival pointer; docs/current-state.md gains the dormancy section pointing here and at docs/HANDOFF.md.
+  (5) LAND IT — one PR (#424), normal ceremony (born-red card first commit, complete-flip last), the installed enabler merges on green; no self-merge, no self-arming.
+why: owner ordered the seat's final shutdown on 2026-07-14 — the EAP is closed (walkthrough PR #420 @ d6abdfe, audit PR #413 @ 8162d1e) and the seat's pipeline ended dry; the seat goes dormant until the owner revives it.
+done-when: PR #424 merged with ORDER 014 on the bus, control/status.md reading SEAT DORMANT (owner order 2026-07-14), and docs/HANDOFF.md + the docs/current-state.md dormancy section on main; then — post-merge, coordinator-owned, outside this PR — the failsafe trigger deleted with absence verified to exhaustion.
+provenance: owner live turn in coordinator chat 2026-07-14 (EAP final shutdown directive); coordinator session_0146BSTEg76Sx9TSEZndRMkX dispatch; landed by the finishing session as a coordinator-restatement (marked above), per seat doctrine "an owner turn is the top ORDER" (ORDER 003/004/009 precedent).
