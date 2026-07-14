@@ -1,6 +1,6 @@
 # Session — PROPOSAL 053: the healthcheck blind window — what does a 6-hourly point-probe liveness net actually see? (FLEET-BACKLOG rotation, round 10 opener)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-14T01:09:18Z (Ideas Lab worker slice — draft the
 > FLEET-BACKLOG rotation round-10 opener under standing owner ORDER 003/004.
 > Card born in-progress as the designed gate hold; flips complete in this PR's
@@ -42,8 +42,37 @@ append. Seeds 20261349–352 strictly above the P052 high-water 20261348.
 
 ## 💡 Session idea
 
-(resolves at card flip — final commit of this PR)
+**The zero-noise-limit disclosure as a standing drafting pattern for
+invented-noise heads.** This slice's decision rule has two conjuncts and one
+invented delivery-noise pair (q, d); computing the q = 0, d ≡ 0 limit of BOTH
+conjuncts at drafting time (not just the headline) revealed a structural split
+worth pre-registering everywhere: the transient-blindness conjunct survives
+zero noise entirely (DET_mix(360) = 127/360 — a property of point-probing, the
+finding is about the WORLD), while the hard-window conjunct vanishes at zero
+noise (WINDOW = 0 exactly — the finding is about MY INVENTED q). Disclosing
+which conjuncts ride the invented parameters BEFORE the sim runs is a cheap,
+mechanical honesty upgrade over a bare sensitivity pair: it tells the verdict
+reader in advance which part of a REJECT can be argued away by disputing the
+pins and which part cannot. Prior heads (P045, P049) shipped sensitivity
+PAIRS; none shipped the per-conjunct zero-noise decomposition as a named
+drafting duty. **Dedup** (this slice, `rg -i 'zero.?noise|noise.?free
+decomposition|q ?= ?0' ideas/ .sessions/` kit-excluded): the only q=0-style
+hits are individual sensitivity legs inside idea files — no card or idea names
+the per-conjunct decomposition as a pattern. A clean candidate for the probe
+battery's question-4 checklist (kit/README grooming, not a sim head).
 
 ## ⟲ Previous-session review
 
-(resolves at card flip — final commit of this PR)
+Newest predecessor card
+(`.sessions/2026-07-14-proposal-052-coupon-collector-tail.md`, P052 drafter,
+round-9 UNRELATED closer): closed clean and paid forward twice — its seed-sweep
+archaeology (the 20261542/20261664/20261833 numerals are Fraction-numerator
+data, not seeds; the P046 trap) let this slice land the 20261349–352
+allocation in one pass, and its 💡 already pre-registered a deduped round-10
+UNRELATED candidate (the birthday problem as the coupon collector's mirror
+twin, kernel-reusing), so the round THIS slice just opened has its closer
+half-drafted before its middle slots run — the first time a card 💡 has
+pre-staged the same round it hands off to. One habit this slice pushes
+further: P052 disclosed its expected landing from a closed form; this head
+adds the per-conjunct zero-noise decomposition (see 💡) so the disclosure also
+says which conjunct the invented pins can and cannot flip.
