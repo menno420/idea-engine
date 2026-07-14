@@ -261,6 +261,35 @@
   per the `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc
   section; flagged in the file's placement note), promoted as PROPOSAL 056; origin:
   drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`noisy-reciprocity-tft-collapse-2026-07-14.md`](noisy-reciprocity-tft-collapse-2026-07-14.md) — round-11
+  COMPLETELY-UNRELATED-domain rotation head, the round-11 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: repeated games & the
+  evolution of cooperation / reciprocity under trembling-hand execution noise, an
+  ELEVENTH fleet-external domain after P017's social choice, P024's congestion routing,
+  P028's tournament seeding, P032's pattern races, P036's optimal stopping, P040's
+  spatial self-organization, P044's queue-discipline, P048's stochastic ratchets,
+  P052's occupancy & collection, and P056's random incidence; reopens P024's
+  card-recorded dropped runner-up with the drop reason answered): pre-registered
+  fully-deterministic sim (Arm A = seedless exact `fractions.Fraction` stationary
+  solves of all 256 rule-pair 4-state chains per noise cell over the COMPLETE 16-rule
+  deterministic memory-one field, ε ∈ {1/1000, 1/100, 1/20, 1/10} + the ε = 0 orbit
+  leg and ε = 1/2 degeneracy control; Arm B = independently-written Cramer twin,
+  exact-equal on every pair value; Arm R = seeded finite-horizon estimates
+  REPORTING-ONLY, seeds 20261377–380, no statistical gate) measuring whether the
+  Axelrod folk claim "Tit-for-Tat is the best strategy" survives the complete field
+  and any execution noise — decision-cell gap score(WSLS) − score(TFT) against
+  registered bands (REJECT iff gap ≥ 2/5 at ε = 1/100 AND v(TFT,TFT) = 9/4 exactly at
+  every grid ε (the echo identity) AND rank(TFT) worse than rank(WSLS) grid-wide AND
+  v(WSLS,WSLS) ≥ 14/5, stated first / APPROVE iff TFT ranks 1 at the decision cell /
+  anything else = honest null naming the binding axis; INVALID controls gate on the
+  field/solve, echo-theorem, closed-form-anchor, transpose, ε = 1/2 degeneracy, and
+  battery identities; expected landing DISCLOSED per the closed-form-arm norm —
+  REJECT at the drafter's exact gap ≈ 0.4915 with ranks TFT 10 / WSLS 5 at all four
+  grid ε and the ε-independent 9/4 echo tax, the sim re-derives from scratch) ·
+  sim-ready; homed here per the `check_sections.py` non-lane carve-out
+  (roster-derived sections — no ad-hoc section; flagged in the file's placement
+  note), promoted as PROPOSAL 060; origin: drafted this slice under standing
+  ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
