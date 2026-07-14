@@ -145,6 +145,17 @@ def roster_sections(roster: str) -> set[str]:
             # on the Lane cell only — a full-row substring match false-positives on
             # prose like "No repo wake trigger" in the Wake-state cell.
             continue
+        if len(cells) > 1 and "registry-only seat" in cells[1].lower():
+            # Registry-only seat, heartbeat-cell variant — the 2026-07-14 roster
+            # generation added grouped seat rows (e.g. `SuperBot World seat
+            # (games+idle+mineverse)`, `Ideas Lab seat (idea-engine+sim-lab)`)
+            # whose Lane cell carries no "NO repo" marker; the declaration moved
+            # to the heartbeat cell (`n/a — registry-only seat (no repo)`).
+            # Checked on the heartbeat cell ONLY (cells[1]) — same rationale as
+            # the Lane-cell rule above: a full-row substring match could
+            # false-positive on prose in the Phase/Wake-state cells. Any other
+            # unparseable lane cell still fails LOUD below.
+            continue
         if "wound down" in row_l or "wind-down complete" in row_l:
             continue  # archived lane (the roster's textual closed marker)
         name = re.split(r"\s*[(·]", lane)[0].strip().lower()
