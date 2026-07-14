@@ -6,6 +6,17 @@
 > work always win over this file. Read it second (right after the working
 > agreement) and keep it current as the project moves.
 
+## SEAT DORMANT (owner order 2026-07-14)
+
+The Ideas Lab seat was shut down for good by owner order on 2026-07-14 —
+EAP FINAL SHUTDOWN, landed as ORDER 014 in `control/inbox.md` via PR #424.
+The final heartbeat is `control/status.md` (SEAT DORMANT stamp; routine
+facts single-homed there). The revival record — routine record, revival
+path, parked list, duplication ledger — is [docs/HANDOFF.md](HANDOFF.md).
+Everything below this section is a dated EAP-era snapshot: read it as
+history, verify against `control/status.md` and merged work before
+building on it.
+
 ## Stability baseline
 
 The generate→verify loop is green end to end: substrate-kit v1.10.0, `python3
