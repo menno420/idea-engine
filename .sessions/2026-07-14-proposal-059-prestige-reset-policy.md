@@ -1,12 +1,14 @@
 # Session — PROPOSAL 059: prestige reset-policy optimality — is the idle engine's own "optimal-play" greedy reset loop actually optimal at the HEAD fold, and what does the flagged reset-spam cap cost? (GAME-MECHANICS rotation, round 11)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-14T05:07:07Z (Ideas Lab worker slice — draft the
 > round-11 GAME-MECHANICS slot proposal under standing owner ORDER 003/004.
-> Card born in-progress as the designed gate hold; flips complete in this PR's
-> final commit)
+> Card born in-progress as the designed gate hold; flipped complete in this
+> PR's final commit at 2026-07-14T05:22:08Z)
 
-**📊 Model:** [[fill:model]]
+**📊 Model:** fable-family · content-only slice (idea file, card, lane index
+row, outbox append, claim file; no scripts/, no control/status.md or
+control/inbox.md writes; nothing in sim-lab or either cloned game repo)
 
 ## Scope
 
@@ -33,7 +35,7 @@ Deliverables this slice: this card (born-red first commit), the claim file,
 `ideas/superbot-idle/prestige-reset-policy-optimality-2026-07-14.md` + the
 `ideas/superbot-idle/README.md` index row, and the `control/outbox.md`
 PROPOSAL 059 append. Seeds 20261373–376 strictly above the P058 high-water
-20261372. PR: [[fill:pr]]
+20261372. PR #402.
 
 ## Constraints honored
 
@@ -50,8 +52,39 @@ PROPOSAL 059 append. Seeds 20261373–376 strictly above the P058 high-water
 
 ## 💡 Session idea
 
-[[fill:idea]]
+**A committed "optimal" label is a claim with a hidden dependency on the
+multiplier fold it was evaluated in — every engine slice that adds a factor
+to the rate fold silently stales every recorded optimality/pacing label
+built on the old fold, and nothing goes red.** Hit live this slice: the
+achievements slice extended superbot-idle's production fold with persistent
+milestone bonuses, but the committed SIM-001 harness (`tools/simulate.py`,
+the artifact whose S3 docstring carries the "optimal-play" label) folds zero
+milestones — it still runs green, reproduces all its V038 anchors, and
+quietly answers last month's question. The drafting grid shows the drift is
+not cosmetic: at the shipped fold the labeled-optimal policy is beaten by
+7.98% by a one-detour schedule whose entire edge comes from the factor the
+harness omits (the beat inverts to a loss with milestones off). The durable
+pattern for any engine repo: a fold-extension PR should carry a checklist
+item "re-run or re-scope committed policy labels/harnesses against the new
+fold" — the same class as a schema change requiring a consumer sweep, except
+no parser fails to force it, so it has to live in the pre-registration
+discipline itself.
 
 ## ⟲ Previous-session review
 
-[[fill:previous-session review]]
+Previous card (`.sessions/2026-07-14-proposal-058-rubric-robustness.md`, P058
+drafter): a genuinely useful trail. Its rotation restatement ("round 11
+opened at fleet backlogs with P057, venture next") made this slice's slot
+derivation a one-line read, and its Grounding-line byte-format was mirrored
+verbatim here (the CI grounding regex is unforgiving; having a known-green
+example in the newest card saved a red). Its 💡 (live-upstream-fetching
+checkers make every PR hostage to sibling format drift) held this session —
+`check_sections.py` stayed green because the roster didn't regenerate
+mid-slice, which is luck, not a fix; ASK 005 routing the generator-side
+contract is the right escalation. Its recurring observation that the
+seed-sweep recipe lives as oral tradition got confirmed AGAIN: this session
+re-derived the boundary-aware regex from that card's own prose — third
+consecutive card to note this; the recipe is one committed script away from
+never being re-derived. One nit: its card's "three checker legs" phrasing
+and the preflight's actual 10-check list drifted apart — this card names the
+wrapper (`scripts/preflight.py`) instead of a count.
