@@ -1,12 +1,14 @@
 # Session — PROPOSAL 057: the paper lane's BEAT coin — trade P&L cancels exactly out of the committed cycle-window verdict, the null window coin sits ABOVE the fair line, and the count grammar cannot see skill at first-year n (FLEET-BACKLOGS rotation, round 11 opener)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-14T03:23:50Z (Ideas Lab worker slice — draft the
 > FLEET-BACKLOGS rotation round-11 opener under standing owner ORDER 003/004.
-> Card born in-progress as the designed gate hold; flips complete in this PR's
-> final commit once the 💡 slot resolves)
+> Card born in-progress as the designed gate hold; flipped complete in this PR's
+> final commit at 2026-07-14T03:31:58Z once the 💡 slot resolved)
 
-**📊 Model:** [[fill: model-family at flip]]
+**📊 Model:** fable-family · content + outbox proposal only (idea file, card,
+lane index row, outbox append, claim file; no control/status.md or
+control/inbox.md writes; no checker or script changes; nothing in sim-lab)
 
 ## Scope
 
@@ -48,8 +50,27 @@ PROPOSAL 057 append. Seeds 20261365–368 strictly above the P056 high-water
 
 ## 💡 Session idea
 
-[[fill: one genuine idea at flip]]
+**Pre-registered n* rows should pin the ALGORITHM shape, not just the
+numbers: float-scan-then-exact-verify at the found n only.** This session's
+drafting harness timed out (2-minute wall) trying to scan n = 8..∞ for the
+power-≥ 1/2 crossing in exact `fractions.Fraction` arithmetic — binomial
+tail sums over exact rationals grow quadratically in bigint size with n, so
+an exact scan over hundreds of n values is the one place the pipeline's
+"exact Fractions everywhere" reflex is actively hostile. The honest,
+byte-stable recipe (used in P057's spec): scan in floats to LOCATE n*, then
+verify the crossing pair (n* − 1, n*) exactly — two exact evaluations
+instead of hundreds, same certainty, no timeout. Worth folding into the
+sim-lab conventions doc the next time an n*/threshold-crossing row appears,
+BEFORE a verdict session rediscovers the wall mid-run.
 
-## Review of previous session's card
+## ⟲ Previous-session review
 
-[[fill: review remark at flip]]
+Previous card (`.sessions/2026-07-14-proposal-056-inspection-paradox.md`,
+P056 drafter): its 💡 — make the seed sweep band-agnostic and classify hits
+by CONTEXT, not digit count — held up in practice this session: the
+boundary-aware regex `(^|[^0-9])2026[0-9]{4,6}([^0-9]|$)` re-confirmed the
+same three data-not-seed specimens (20261542/20261833/202670087) with zero
+new false positives and caught the true high-water 20261364 first try. One
+gap it left open: the sweep recipe still lives only in claim files and
+cards, re-derived each session — it belongs in a committed one-liner script
+so the trap knowledge stops being oral tradition.
