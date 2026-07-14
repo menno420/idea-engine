@@ -31,6 +31,10 @@ The planted doc set (this router reaches every live doc — keep it that way):
 `docs/question-router.md` · `docs/CAPABILITIES.md` · `docs/ideas/README.md` ·
 `docs/SKILLS.md` · `docs/ROUTINES.md` · `docs/seat-digest.md` (the last three
 planted by the v1.15.0 kit upgrade) ·
+`docs/reading-path.md` (fleet reading path — the standing cross-repo read
+authorization, sibling/truth-file map, and tiered depth; planted by the
+v1.16.0 kit upgrade — read it before burning turns re-discovering what you
+may read) ·
 `docs/audits/2026-07-13-fleet-cleanup-audit.md` (external fleet-wide
 cleanup/audit pass, EAP final night) ·
 `docs/audits/eap-project-audit-2026-07-14.md` (the seat's definitive EAP
