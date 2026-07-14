@@ -236,6 +236,31 @@
   non-lane carve-out (roster-derived sections — no ad-hoc section; flagged in the file's
   placement note), promoted as PROPOSAL 052; origin: drafted this slice under standing
   ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`inspection-paradox-wait-inflation-2026-07-14.md`](inspection-paradox-wait-inflation-2026-07-14.md) — round-10
+  COMPLETELY-UNRELATED-domain rotation head, the round-10 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: renewal theory & random
+  incidence / the inspection (waiting-time) paradox, a TENTH fleet-external domain after
+  P017's social choice, P024's congestion routing, P028's tournament seeding, P032's
+  pattern races, P036's optimal stopping, P040's spatial self-organization, P044's
+  queue-discipline, P048's stochastic ratchets, and P052's occupancy & collection):
+  pre-registered dual-arm sim (Arm A = seedless exact `fractions.Fraction` moment
+  arithmetic, the wait-inflation factor ρ = E[X²]/E[X]² = 1 + CV² and E[W] = E[X²]/(2E[X])
+  over five equal-mean-10 headway schedules CLOCKWORK/JITTER/SPREAD/MEMORYLESS/BUNCHED
+  with CV² ∈ {0, 1/25, 1/10, 9/10, 64/25}; Arm S = seeded renewal-trajectory +
+  uniform-landing MC confirmation, K = 100,000 intervals + N = 200,000 landings per cell
+  via `random.Random(20261361)`, agreement gate ≤ 1/100 relative AND ≤ 4·SE on E[W] and
+  P(W > 10) per cell; seeds 20261361–364) measuring whether the folk rule "average wait =
+  half the average headway" fails in the costly direction — ρ against registered bands
+  (REJECT iff ρ(BUNCHED) ≥ 2 AND ρ ≥ 11/10 in ≥ 3 of 4 stochastic cells AND Arm S
+  confirms, stated first / APPROVE iff ρ ≤ 21/20 at EVERY stochastic cell AND the
+  seed-20261362 stability leg reproduces / anything else = honest null naming the binding
+  axis; INVALID controls gate on the pmf / size-bias / degenerate / monotonicity / hand
+  identities; expected landing DISCLOSED per the closed-form-arm norm — REJECT at the
+  drafter's exact ρ(BUNCHED) = 89/25 = 3.56 with E[W] = 89/5 = 17.8 min exceeding the
+  entire 10-min mean headway, the sim re-derives from scratch) · sim-ready; homed here
+  per the `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc
+  section; flagged in the file's placement note), promoted as PROPOSAL 056; origin:
+  drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`backlog-low-water-signal-tuning-2026-07-13.md`](backlog-low-water-signal-tuning-2026-07-13.md) — fleet-backlogs
   rotation head (inbox ORDER 004 rule 3; harvest source: the websites backlog's
   captured "Backlog low-water signal in the heartbeat" bullet @ `e14bb15`, invented
