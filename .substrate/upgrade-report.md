@@ -1,8 +1,8 @@
-# substrate-kit upgrade report — v1.10.0 → v1.15.0
+# substrate-kit upgrade report — v1.15.0 → v1.16.0
 
-> Generated 2026-07-13 by `bootstrap.py upgrade`. Rollback: `python3 bootstrap.py upgrade --rollback`.
+> Generated 2026-07-14 by `bootstrap.py upgrade`. Rollback: `python3 bootstrap.py upgrade --rollback`.
 
-**Docs:** consumer-edited: 3 · diverged: 4 · template-improved: 4 · unchanged: 13
+**Docs:** consumer-edited: 4 · diverged: 3 · template-improved: 4 · unchanged: 14
 
 | planted doc | class | note |
 |---|---|---|
@@ -18,23 +18,24 @@
 | docs/owner-profile.md | unchanged | template identical across versions |
 | docs/AGENT_ORIENTATION.md | diverged | both the template and the doc moved — manual merge |
 | docs/current-state.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
-| docs/question-router.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
+| docs/question-router.md | unchanged | template identical across versions |
 | docs/CAPABILITIES.md | diverged | both the template and the doc moved — manual merge |
-| docs/SKILLS.md | unchanged | template identical across versions |
-| docs/ROUTINES.md | unchanged | template identical across versions |
+| docs/SKILLS.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
+| docs/ROUTINES.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
+| docs/reading-path.md | unchanged | template identical across versions |
 | docs/ideas/README.md | unchanged | template identical across versions |
 | .session-journal.md | unchanged | template identical across versions |
-| control/README.md | diverged | both the template and the doc moved — manual merge |
+| control/README.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
 | control/inbox.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
-| control/status.md | diverged | both the template and the doc moved — manual merge |
-| control/claims/README.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
+| control/status.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
+| control/claims/README.md | diverged | both the template and the doc moved — manual merge |
 | scripts/env-setup.sh | unchanged | template identical across versions |
-| .claude/CLAUDE.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
+| .claude/CLAUDE.md | unchanged | template identical across versions |
 
 ## ⚠️ Gate carve-outs (host additions the kit-owned regen could not keep)
 
 - carve-out: .github/workflows/substrate-gate.yml — host-added step 'wake preflight (gate↔ritual convergence — scripts/preflight.py is the ONE check list)' in job 'substrate-gate' [carried from the previous upgrade report]
-- carve-out: full pre-regen gate banked at .substrate/backup/substrate-gate.pre-regen-0b32ae07.yml — host additions were NOT carried into the regenerated kit-owned gate; move them into a separate workflow file (e.g. .github/workflows/host-ci.yml) and commit that before shipping this upgrade/adopt PR. [carried from the previous upgrade report]
+- carve-out: full pre-regen gate banked at .substrate/backup/substrate-gate.pre-regen-0c855c92.yml — host additions were NOT carried into the regenerated kit-owned gate; move them into a separate workflow file (e.g. .github/workflows/host-ci.yml) and commit that before shipping this upgrade/adopt PR. [carried from the previous upgrade report]
 - carve-out: .github/workflows/auto-merge-enabler.yml — host-added step 'Skip arming while the PR's own in-diff session card is in-progress' in job 'enable-auto-merge' [carried from the previous upgrade report]
 - carve-out: full pre-regen enabler banked at .substrate/backup/auto-merge-enabler.pre-regen-e3275f45.yml — host additions were NOT carried into the regenerated kit-owned enabler; move them into a separate workflow file (e.g. .github/workflows/host-ci.yml) and commit that before shipping this upgrade/adopt PR. [carried from the previous upgrade report]
 
@@ -58,8 +59,8 @@ This upgrade ships the venue-scoped capability ledger (grounded-skills §4.2): e
 
 - applied: CONSTITUTION.md (template@new, hash re-recorded)
 - applied: docs/collaboration-model.md (template@new, hash re-recorded)
-- applied: docs/question-router.md (template@new, hash re-recorded)
-- applied: .claude/CLAUDE.md (template@new, hash re-recorded)
+- applied: docs/SKILLS.md (template@new, hash re-recorded)
+- applied: docs/ROUTINES.md (template@new, hash re-recorded)
 
 ## Template deltas for diverged docs
 
@@ -68,61 +69,30 @@ This upgrade ships the venue-scoped capability ledger (grounded-skills §4.2): e
 ```diff
 --- docs/AGENT_ORIENTATION.md (template@old, current slots)
 +++ docs/AGENT_ORIENTATION.md (template@new, current slots)
-@@ -7,11 +7,24 @@
- 
- ## Start every session
- 
--1. `.claude/CLAUDE.md` — the working agreement.
--2. `docs/current-state.md` — the living status ledger.
--3. `docs/CAPABILITIES.md` — verified session capabilities & walls (the
--   discovery rule lives there; append what you learn).
--4. This file — task-specific reading routes.
-+**Preflight first — land on origin's HEAD before reading anything else:**
-+
-+```
-+git fetch origin main && git reset --hard origin/main
-+```
-+
-+(or `git checkout -B main origin/main`; substitute your default branch).
-+Then verify: local HEAD (`git rev-parse HEAD`) must equal
-+`git ls-remote origin main`. A warm container clone can lag origin by
-+dozens of commits, and a stale clone reads stale orders and stale state —
-+every orientation read below assumes this step already ran. The hard reset
-+discards uncommitted local changes by design: at session START there should
-+be none; if `git status` shows work you did not author, stop and report it
-+instead of resetting over it.
-+
-+The boot set lives in the working agreement — `.claude/CLAUDE.md` — and its
-+orientation guidance (one list, one home). This file is not boot reading —
-+open it when a task needs a route into the deeper docs.
- 
- ## Binding contracts
- 
-@@ -28,11 +41,20 @@
- `docs/collaboration-model.md` · `docs/helper-policy.md` ·
+@@ -42,8 +42,9 @@
  `docs/repo-navigation-map.md` · `docs/ai-project-workflow.md` ·
  `docs/owner-profile.md` · `docs/current-state.md` · `docs/decisions.md` ·
--`docs/question-router.md` · `docs/CAPABILITIES.md` · `docs/ideas/README.md` — plus the root
-+`docs/question-router.md` · `docs/CAPABILITIES.md` · `docs/SKILLS.md` ·
-+`docs/ROUTINES.md` · `docs/ideas/README.md` — plus the root
- `CONSTITUTION.md` (the working agreement) and `.session-journal.md`.
-+
-+Recurring action? **`docs/SKILLS.md`** — the skill index — names every
-+kit-shipped skill and when to reach for it; check it before improvising a
-+procedure.
-+
-+Arming, deleting, or auditing a scheduled trigger/routine/wake chain?
-+**`docs/ROUTINES.md`** — binding choice, delivery verification,
-+probe-not-record, scheduler-health signatures, pacing — read it before
-+touching the trigger registry.
+ `docs/question-router.md` · `docs/CAPABILITIES.md` · `docs/SKILLS.md` ·
+-`docs/ROUTINES.md` · `docs/ideas/README.md` — plus the root
+-`CONSTITUTION.md` (the working agreement) and `.session-journal.md`.
++`docs/ROUTINES.md` · `docs/reading-path.md` · `docs/ideas/README.md` —
++plus the root `CONSTITUTION.md` (the working agreement) and
++`.session-journal.md`.
  
+ Recurring action? **`docs/SKILLS.md`** — the skill index — names every
+ kit-shipped skill and when to reach for it; check it before improvising a
+@@ -54,6 +55,11 @@
+ probe-not-record, scheduler-health signatures, pacing — read it before
+ touching the trigger registry.
+ 
++Reading or acting across sibling repos in a fleet? **`docs/reading-path.md`**
++— the standing read authorization, the one-command fleet orient, the
++sibling/truth-file map, tiered depth, truth rules — read it before burning
++turns re-discovering what you may read.
++
  ## Verifying any change
  
--```
--python3 bootstrap.py check --strict
--```
-+See the working agreement (`.claude/CLAUDE.md`) and its verify guidance
-+(one home, never two copies).
+ See the working agreement (`.claude/CLAUDE.md`) and its verify guidance
 ```
 
 ### docs/CAPABILITIES.md
@@ -130,260 +100,60 @@ This upgrade ships the venue-scoped capability ledger (grounded-skills §4.2): e
 ```diff
 --- docs/CAPABILITIES.md (template@old, current slots)
 +++ docs/CAPABILITIES.md (template@new, current slots)
-@@ -16,53 +16,97 @@
- hand reminders. This ledger makes capability knowledge durable across
- sessions: one session's discovery is every later session's starting fact.
+@@ -5,7 +5,7 @@
+ > Generated by substrate-kit. What agent sessions in THIS environment can and
+ > cannot do — **verified findings, never assumptions**. Read at session start
+ > (it is in the orientation reading order); append at session close. Fleet
+-> master copy: `menno420/fleet-manager` → `docs/capabilities.md` — sync new
++> master copy: `menno420/fleet-manager` → `docs/CAPABILITIES.md` — sync new
+ > fleet-wide findings there via the manager when cross-repo access allows.
  
-+<!-- substrate-kit:capability-seed BEGIN — kit-owned, refreshed at upgrade. Append your findings BELOW the fence (## Append log), never inside it. -->
-+
-+## Posture decision rule — establish your venue first
-+
-+- **Owner-live session:** assume NO special limitations apply — act and merge
-+  directly (superbot Q-0269).
-+- **Autonomous / routine-fired seat:** pre-route around every known stall
-+  class recorded below; park only on a REAL denial, never preemptively
-+  (superbot Q-0270 boot triad: model · venue · ability envelope).
-+
-+Venue tokens (every entry names where it was verified): `owner-live` ·
-+`autonomous-project` · `routine-fired` · `subagent` · `any`. Capabilities are
-+**venue-scoped, not global** — the same operation can work owner-live, be
-+org-refused on a cross-session binding, and prompt-stall in a plain-started
-+seat while never prompting in a Routine-spawned one (fleet night review,
-+2026-07-12). A flat CAN/CANNOT ledger is wrong somewhere by construction.
-+
- ## THE DISCOVERY RULE
- 
- Before declaring anything impossible, and before assuming a tool or
- credential is missing:
- 
--1. **Check this file** — the capability or wall may already be recorded.
-+1. **Check this file** — the capability or wall may already be recorded for
-+   your venue.
- 2. **Check the environment** — `printenv` / list the available tools BEFORE
-    assuming no credentials exist (provisioned env tokens are routinely
-    forgotten, not absent).
- 3. **Attempt once** — try the operation and capture the **exact** error text;
-    a guessed wall and a verified wall are different facts.
- 4. **Append the finding same session** — capability or wall, dated, with the
--   evidence (exact error, or proof it worked) and the workaround if one was
--   found. An unrecorded discovery is re-paid by every future session.
-+   venue token, the evidence (exact error, or proof it worked) and the
-+   workaround if one was found. An unrecorded discovery is re-paid by every
-+   future session.
-+5. **Staleness — re-verify what you build on**: an entry older than the
-+   staleness window (config `cadence.staleness_days`, default 14) that your
-+   work depends on is a **claim, not a fact** — re-verify it with one cheap
-+   attempt and append the result. Re-verifications APPEND, never edit: a
-+   refuted wall can self-resolve platform-side, and a ledger with no
-+   freshness data is confidently stale — worse than ignorant.
- 
- ## Capabilities — verified working
- 
--- **Media is readable**: a video is never "unviewable" — extract frames
--  (`ffmpeg -i in.mp4 -vf fps=1 frame_%04d.png`) and read the images; same
--  idea for audio (transcribe) and PDFs (render pages). Try the recipe before
--  reporting a format wall.
--- **Provisioned credentials**: the environment often carries tokens/keys as
--  env vars — `printenv` first; a missing-looking credential is usually a
--  missing *look*.
--- **Release cutting despite the tag wall**: `workflow_dispatch` on the
--  release workflow (with a version input) creates the tag in-Actions —
-+- `any` · **Media is readable**: a video is never "unviewable" — extract
-+  frames (`ffmpeg -i in.mp4 -vf fps=1 frame_%04d.png`) and read the images;
-+  same idea for audio (transcribe) and PDFs (render pages). Try the recipe
-+  before reporting a format wall. — LAST-VERIFIED: 2026-07-10
-+- `any` · **Provisioned credentials**: the environment often carries
-+  tokens/keys as env vars — `printenv` first; a missing-looking credential is
-+  usually a missing *look*. — LAST-VERIFIED: 2026-07-10
-+- `any` · **Release cutting despite the tag wall**: `workflow_dispatch` on
-+  the release workflow (with a version input) creates the tag in-Actions —
-   proven repeatedly fleet-wide after direct tag pushes 403'd.
-+  — LAST-VERIFIED: 2026-07-12
- 
- ## Walls — verified blocked (use the workaround; don't rediscover)
- 
--- **Tag push / release create via git**: HTTP 403 from the environment's git
--  proxy → use the workflow_dispatch release path.
--- **Branch deletion**: 403 on every path (git push `:branch` and API) →
--  owner deletes by hand / enables "Automatically delete head branches".
--- **`api.github.com` direct HTTP**: blocked → GitHub access is MCP-tools-only.
--- **Environment / routine / Project creation**: owner-click actions in the
--  console — queue them under `⚑ needs-owner`, never wait silently.
--- **Self-merge classifier**: sessions can be refused merging owner-gated PRs
--  while their other capabilities work — and the boundary differs by session
--  kind (a child session was refused where a coordinator was not). Record
--  which kind of session hit which boundary.
--- **GraphQL API quota**: tight — batch queries and prefer the REST-backed
--  MCP tools for bulk reads.
-+- `any` · **Tag push / release create via git**: HTTP 403 from the
-+  environment's git proxy → use the workflow_dispatch release path.
-+  — LAST-VERIFIED: 2026-07-12
-+- `any` · **Branch deletion**: 403 on every path (git push `:branch` and
-+  API) → owner deletes by hand / enables "Automatically delete head
-+  branches". — LAST-VERIFIED: 2026-07-10
-+- `any` · **`api.github.com` direct HTTP**: blocked → GitHub access is
-+  MCP-tools-only. — LAST-VERIFIED: 2026-07-10
-+- `any` · **Environment / Project creation**: owner-click actions in the
-+  console — queue them as structured owner asks, never wait silently.
-+  Routine/schedule creation is NO LONGER a blanket wall: `create_trigger`
-+  arms routines agent-side (proven 2026-07-11); the console-only knobs
-+  (model class, branch-push, auto-fix PRs) remain owner-only.
-+  — LAST-VERIFIED: 2026-07-11
-+- `subagent` · **Self-merge classifier**: sessions can be refused merging
-+  owner-gated PRs while their other capabilities work — and the boundary
-+  differs by venue (a child session was refused where a coordinator was
-+  not). Record which venue hit which boundary. — LAST-VERIFIED: 2026-07-10
-+- `any` · **GraphQL API quota**: tight — batch queries and prefer the
-+  REST-backed MCP tools for bulk reads. — LAST-VERIFIED: 2026-07-10
-+- `routine-fired` · **Silent prompt-stalls**: a permission prompt in an
-+  unattended seat is a silent stall, and grant boundaries differ by venue —
-+  the same tool call can be pre-granted in a Routine-spawned seat and prompt
-+  in a plain-started one. Pre-route around recorded stall classes; verify
-+  grants per venue, never globally. — LAST-VERIFIED: 2026-07-12
-+
-+<!-- substrate-kit:capability-seed END -->
- 
- ## Append log — newest first
- 
--Format: `- YYYY-MM-DD · capability|wall · finding · evidence · workaround`.
-+Format: `- YYYY-MM-DD · capability|wall · <venue> · finding · evidence · workaround`
-+(venue ∈ `owner-live` · `autonomous-project` · `routine-fired` · `subagent` ·
-+`any`; older five-field lines without a venue token stay valid — read them
-+as venue `any`.)
- 
--(Hand-filled by sessions, per the discovery rule. Seed walls/capabilities
--above came from the fleet's lived 2026-07 findings; local ones go here.)
-+(Hand-filled by sessions, per the discovery rule. Seed rows above are
-+kit-owned — they refresh at upgrade between the fence markers; local
-+findings go here, below the fence.)
+ ## Why this file exists
 ```
 
-### control/README.md
+### control/claims/README.md
 
 ```diff
---- control/README.md (template@old, current slots)
-+++ control/README.md (template@new, current slots)
-@@ -132,6 +132,27 @@
- (`yes` once no UNRENDERED banner/slot remains, live CI runs the gate, and the session loop
- has engaged).
+--- control/claims/README.md (template@old, current slots)
++++ control/claims/README.md (template@new, current slots)
+@@ -37,12 +37,23 @@
+    `check_claims` checker parses both; an unparseable claim is invisible to
+    its duplicate scan.)
+    Grammar source of truth: the bullet's regexes (backticked token + ISO date) are kit-owned constants in the kit's `src/engine/grammar.py` (EAP §6.8) — the SAME module `check_claims` consumes; agreement is pinned by the kit's `tests/test_grammar.py`.
++   **Don't hand-write it** — `bootstrap claim <slug> --scope "<scope>"
++   [--area "<files/area>"] [--order NNN]` renders the bullet from those same
++   constants (round-trip verified, current UTC date last; `--dry-run`
++   previews), so the claim can never be invisible to the duplicate scan.
++   **Serving an inbox ORDER? Pass `--order NNN`** — it renders the
++   structured ` · order NNN` segment the cross-branch overlap scan keys on,
++   and the verb REFUSES to write when another live claim on a different
++   branch already names that order (two branches building one ORDER is the
++   twin-execution waste this guard exists for; `--force` overrides for a
++   deliberate split of one order across branches).
+ 3. **Land the claim on main FAST** (claims are `control/**` traffic — they
+    ride the CI control fast lane), then re-read this directory at HEAD before
+    you build: if both lanes do this, the second claimer always sees the first.
+-4. **Delete your own claim file at session close.** The durable record is the
+-   PR and the living ledger — a claim is a whiteboard note, not an audit
+-   trail.
++4. **Delete your own claim file at session close** — `bootstrap claim
++   <slug> --delete` (it refuses to touch a foreign claim). The durable
++   record is the PR and the living ledger — a claim is a whiteboard note,
++   not an audit trail.
  
-+**Exact grammar or invisible — keep the `kit:` token PLAIN.** The parser accepts a bold label
-+*before* a plain token (`- **kit heartbeat:** kit: v1.2.3 · check: green · engaged: yes` is a
-+live valid shape), but bolding the token itself does NOT parse — the fleet registry then reads
-+the row as "no `kit:` line" and the lane's engaged signal silently vanishes (a live adopter
-+incident, not a hypothetical). The taught negative example:
-+
-+```markdown
-+- **kit:** v1.2.3 · check: green · engaged: yes
-+```
-+
-+← does NOT parse (`KIT_LINE_RE`, kit `src/engine/grammar.py` — the optional bold group cannot
-+contain the `kit:` token). If your heartbeat wants a bold label, put it *before* a plain
-+`kit:` token.
-+
-+**Version truth defers to the generated registry, never to this line.** Heartbeat `kit:`
-+lines are self-reports and chronically lag 1–3 releases behind the tree (the fleet's
-+recurring self-report DRIFT class); the kit repo's generated `docs/adopters.md` —
-+regenerated from each adopter's committed tree — is the fleet's version truth, and your own
-+committed tree (the vendored dist) is yours. Never hand-assert a fleet version spread from
-+heartbeat lines; keep this line in sync as a courtesy signal, not as proof.
-+
- ## ⚑ needs-owner — the OWNER-ACTION item format (quality contract)
+ ## Arbitration + expiry
  
- The owner is the scarcest resource in the program: every ask routed to the owner costs
-@@ -148,6 +169,7 @@
- WHAT: <one plain sentence, zero jargon — the thing the owner does>
- WHERE: <exact click path or URL>
- HOW: <paste-ready text/values where applicable, or "click only">
-+RISK: <one class per manual step — ✅ safe / read-only · ↩️ reversible (say how to undo) · ⚠️ irreversible / destructive>
- WHY-IT-MATTERS: <one sentence, in product terms>
- UNBLOCKS: <what starts moving the moment it's done>
- VERIFIED-NEEDED: <the attempt you made + the exact error/wall proving only the owner can do
-@@ -159,6 +181,69 @@
- never exit-affecting — when a non-`none` ⚑ needs-owner list lacks these fields.
+@@ -56,7 +67,10 @@
  
- Grammar source of truth: the tokens, field lists, and regexes of this format are kit-owned constants in the kit's `src/engine/grammar.py` (EAP §6.8) — the SAME module the `check` enforcers consume, so writer and enforcer cannot drift; agreement is pinned by the kit's `tests/test_grammar.py`.
-+
-+## Owner-assist output standard — every owner-facing output, not just asks
-+
-+The OWNER-ACTION block above covers the *needs-owner ask*; this standard
-+covers ALL output routed to the owner — reports, questions, values to paste,
-+links. The contract in one line: **the owner never derives anything** — an
-+output that requires the owner to parse, derive, or transform anything is a
-+drafting defect, not an owner task.
-+
-+1. **Paste-ready, finished values.** Every value the owner must enter is
-+   computed and printed final — `NAME=value`, the full command, the full
-+   file body — never a recipe for deriving it. When the owner must paste
-+   something, give the exact link to where it goes; a full file goes in ONE
-+   copyable fenced block, directly in chat.
-+2. **Exact destination, always.** Every action names its exact destination:
-+   a deep URL, a console path to the exact field (surface → section →
-+   field, e.g. `Railway → project → service → Variables`), or a repo path +
-+   line. Never a bare "go to settings" — `check` nags that class (advisory).
-+3. **Risk class on every manual step:** ✅ safe / read-only · ↩️ reversible
-+   (say how to undo) · ⚠️ irreversible / destructive. One class per step,
-+   stated on the step (the `RISK:` line in an OWNER-ACTION block).
-+4. **Structured choices, recommendation first.** A decision put to the
-+   owner is options A/B(/C) with a **bolded recommendation** and a one-line
-+   rationale, answerable with one letter — never an ask that requires the
-+   owner to parse, derive, or transform anything.
-+5. **Large outputs: digest + rendered link, never a wall of text.** Default
-+   delivery is a control-plane rendered link plus a 3-line digest in chat;
-+   the fallback — full text in one copyable block directly in chat — applies
-+   where the control plane cannot render the repo yet. Link rules: deep-link
-+   the exact file, never the repo root; the rendered view for things the
-+   owner should *read*, the GitHub blob URL for things the owner should
-+   *edit*; post-merge, link `ref=main`; the control-plane render cache is
-+   180 s — append `&refresh=1` when the owner must see a just-pushed change.
-+
-+Worked example — digest + rendered deep link + a six-field ask carrying its
-+risk class (every rule above in one output):
-+
-+```
-+📄 Adopter-outcomes report — shipped (PR #247, merged b862e9a)
-+
-+Digest: before/after adoption is unmeasurable (9/10 adopters born <20h
-+before their kit-install PR); false-claim audit near-clean (1 confirmed,
-+self-corrected in 6 min); post-adoption time-to-ship baselines recorded.
-+
-+Full report (rendered, phone-readable):
-+https://control-plane-production-abb0.up.railway.app/journal/substrate-kit/file?path=docs/reports/2026-07-11-adopter-outcomes-measurement.md
-+
-+⚑ OWNER-ACTION — set GITHUB_TOKEN on the control-plane service
-+WHAT: paste one variable into Railway so private-repo pages stop degrading.
-+WHERE: railway.app → project `websites` → service `control-plane` →
-+       Variables → New Variable.
-+HOW (paste-ready): name `GITHUB_TOKEN`, value = the fine-grained PAT you
-+       created for the fleet's repos (contents: read). One paste, Save.
-+RISK: ↩️ reversible — delete the variable to undo.
-+WHY-IT-MATTERS: private-repo renders show "not-configured" banners until
-+       this is set.
-+UNBLOCKS: rendered file links + queue items for private repos.
-+VERIFIED-NEEDED: attempted 2026-07-11 — raw fetch of a private path
-+       returns 404 without a token (token-on-raw also verified NOT to
-+       work, so the API fallback is the only private path).
-+```
-+
-+Grammar source of truth: the risk-class tokens, the structured-choice phrases, and the vague-destination scan of this standard are kit-owned constants in the kit's `src/engine/grammar.py` — the SAME module the `check` enforcers AND the `/intake` skill pins consume, so writer, skill, and enforcer cannot drift; agreement is pinned by the kit's `tests/test_owner_assist.py`.
- 
- ## `inbox.md` order format (manager-written, append-only)
- 
-```
-
-### control/status.md
-
-```diff
---- control/status.md (template@old, current slots)
-+++ control/status.md (template@new, current slots)
-@@ -13,3 +13,8 @@
- The `kit:` line is your kit self-report (substrate-coordinator visibility): keep the version in
- sync with your vendored kit on every upgrade, `check:` = your last `check --strict` verdict,
- `engaged:` = the post-adopt engagement gate (yes once `check` reports ENGAGED/green live CI).
-+Keep the `kit:` token PLAIN — the bold-label form `- **kit:** v1.2.3 · check: green · engaged: yes`
-+does NOT parse and the fleet registry reads it as no `kit:` line at all (grammar + the valid
-+bold-label-before-plain-token shape: `control/README.md` § "status.md format"). And this line is
-+a self-report, not version truth — self-reports chronically lag; the kit repo's generated
-+`docs/adopters.md` and your committed tree are the version truth to defer to.
+ `check` warns on: `claims-format` (no parseable bullet), `claims-stale`
+ (older than the ~72h horizon), `claims-duplicate` (two files, one
+-branch/scope token), and `claims-legacy-location` (claims living in a
++branch/scope token), `claims-order-collision` (two live claims on DIFFERENT
++branches naming the same `order NNN` / free-text `ORDER NNN` on the bullet
++— likely duplicate work; confirm one owner), and `claims-legacy-location`
++(claims living in a
+ pre-unification home — `docs/owner/claims/` or root `claims/`; move them
+ here, or pin your deliberate location via `substrate.config.json` →
+ `claims_dir`).
 ```
 
