@@ -189,3 +189,23 @@ do:
   (b) WALKTHROUGH — land docs/eap-closeout-walkthrough-2026-07-14.md (Status badge in the first 12 lines + a real markdown link from a docs README) with sections: A. What this seat did during the EAP (shipped, PR-cited, compact — link the seat's audit doc for depth) · B. Current state + how to run/verify (exact commands) · C. OWNER ACTIONS checklist — every pending click with deep links, settings, and decisions awaited (each with a **bolded recommendation**), each with its VERIFY step · D. a 5-minute verify-it-yourself tour · E. handoff notes (batons, what the next phase needs). Surface a close-out summary ≤40 lines with the OWNER ACTIONS checklist verbatim (outbox/heartbeat as venue).
 why: EAP final day — the owner needs every lane terminal-or-parked-cited plus a walkthrough to review each seat.
 done-when: every (a) item is terminal or parked-with-citation + the walkthrough doc is on main + the OWNER ACTIONS checklist is surfaced in the lane's close-out report.
+
+## ORDER 013 · 2026-07-14T11:28:56Z · status: new
+
+priority: P1
+from: owner — live turn in coordinator chat 2026-07-14 ~09:55Z, landed by coordinator scribe (dispatched worker session)
+executor: this dispatched worker session
+note: same close-out as fm ORDER 012; per the directive, the fm ORDER's list is authoritative for STEP 1 — this landing preserves the owner's verbatim wording.
+do:
+  EAP FINAL CLOSE-OUT (owner directive). Finish, then hand over. This is your seat's last EAP deliverable.
+  STEP 1 — FINISH. Sweep your seat for unfinished-but-completable-today work: unconsumed inbox ORDERs (a final close-out ORDER from the Fleet Manager may be waiting — treat its list as authoritative), night-worklist leftovers, open PRs, red checks, half-done slices. Complete what fits today, one slice per PR with your normal ceremony. What genuinely can't finish gets parked honestly with a cited reason — never silently dropped.
+  STEP 2 — WALKTHROUGH (the deliverable). Land `docs/eap-closeout-walkthrough-2026-07-14.md` (Status badge in the first 12 lines + a real README link) with exactly these sections:
+  * A. What this seat did — the EAP in this repo: shipped features/systems, PR-cited, compact (link your audit doc for depth, don't restate it).
+  * B. Current state — what works right now and HOW TO RUN/VERIFY IT (exact commands, exact URLs); what's in progress and where it's parked.
+  * C. OWNER ACTIONS — everything Menno must personally do, as a checklist: every pending merge click (deep link first), every settings change, every decision awaited (with a bolded recommendation), and for each item the VERIFY step ("after clicking, X should show Y"). Batch it so he can clear the whole list in one sitting.
+  * D. 5-minute tour — the shortest path through this repo's highlights: what to open, in what order, what he'll see.
+  * E. Handoff — what the next session/phase needs to know; where the batons and open threads live.
+  STEP 3 — chat reply: a compact summary (≤40 lines): what you finished today, what's parked and why, the OWNER ACTIONS checklist copied verbatim, links to the walkthrough + audit docs.
+  RULES: TRUTH bar — every claim cited (PR #, path@SHA, dates); owner steps paste-ready (deep link first, blobs paste-ready, one sitting, payoff + verification stated); honest nulls beat filler. Done-when: unfinished work terminal-or-parked-cited + walkthrough landed + owner checklist surfaced in chat.
+why: EAP final day — owner directive requires the seat terminal-or-parked plus a walkthrough.
+done-when: as stated in the directive (mirrors ORDER 012 done-when).
