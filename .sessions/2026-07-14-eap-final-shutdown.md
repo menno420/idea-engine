@@ -1,6 +1,6 @@
 # 2026-07-14 — EAP final shutdown: ORDER 014, dormancy handoff, final heartbeat
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** Claude Fable · 2026-07-14T21:18:33Z (dispatched worker slice —
 > land the owner's EAP FINAL SHUTDOWN directive: ORDER 014 appended to the
 > bus, `docs/HANDOFF.md` revival record, `docs/current-state.md` dormancy
