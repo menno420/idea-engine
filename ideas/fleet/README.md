@@ -434,6 +434,36 @@
   file's placement note), promoted as PROPOSAL 065; origin: drafted this slice under
   standing ORDER 003 (rotation rule per ORDER 004 rule 3) from the committed rollover
   convention's own first execution here (ORDER 010)
+- [`wip-cap-dryness-floor-2026-07-15.md`](wip-cap-dryness-floor-2026-07-15.md) — round-14
+  FLEET-BACKLOGS rotation head, the round-14 OPENER (standing ORDER 003, rotation per
+  ORDER 004 rule 3; harvest source: THIS SEAT'S OWN COMMITTED BUS — the slot's first
+  tap of the seat's own ORDER text and append cadence, disclosed against P065's
+  byte-size tap of the same bus, zero shared fixtures — the owner's committed pair
+  "WIP cap 3, backpressure holds" (ORDER 004, inbox:50) vs "the PROPOSAL→VERDICT
+  pipeline is never dry" (ORDER 003 done-when, inbox:31), with TWO lived DRY events
+  already committed (ORDER 012 "no unverdicted proposal exists", ORDER 014 "pipeline
+  DRY at P063 → V074"), every cadence constant measured from the committed
+  `## PROPOSAL 0NN ·` headers at HEAD dc155cb: burst gaps 1622/2674/2263/1387 s
+  (S_d = 3973/2 s), the one echoed verdict pair S_v = 2246 s, r̂ = 4492/3973):
+  pre-registered fully-deterministic sim (Arm A = seedless exact
+  `fractions.Fraction` truncated-geometric closed forms on the closed 2-station
+  cyclic loop, K ∈ {1, 2, 3, 4, 6, 12} × r ∈ {1/2, 3/4, 1, r̂, r₂, 2}, decision cell
+  (K = 3, r̂); Arm B = independently-written Fraction Gaussian-elimination
+  stationary-solve twin, exact-equal on every number; Arm R = seeded service-shape
+  traces REPORTING-ONLY, seeds 20261610–613, no statistical gate) measuring whether
+  the committed pair coheres — dry fraction D and backpressure fraction B against
+  registered bands (REJECT iff D(3, r̂) ≥ 1/10 AND D(3, r) ≥ 1/20 grid-wide AND
+  D(12, r̂) ≥ 1/40 AND B(3, r̂) ≥ 1/5, stated first / APPROVE iff D ≤ 1/50 AND
+  B ≤ 1/20 / anything else = honest null naming the binding axis; INVALID controls
+  gate on the chain/flow identities, three structure theorems (never-dry
+  impossibility, max(0, 1 − r) frontier, balanced knee), census anchors, hand
+  worlds, swap symmetry, and battery identities; expected landing DISCLOSED per the
+  exact-arm norm — REJECT at the drafter's exact D(3, r̂) = 62712728317/304425042745
+  ≈ 0.206 and B ≈ 0.298, with the deterministic-service exhibit D_det(3, r̂) = 0
+  exactly pinning the tax as variance-born, the sim re-derives from scratch) ·
+  sim-ready; promoted as PROPOSAL 069; origin: drafted this slice under standing
+  ORDER 003 (rotation rule per ORDER 004 rule 3) from the seat's own committed
+  cap/floor order pair
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
