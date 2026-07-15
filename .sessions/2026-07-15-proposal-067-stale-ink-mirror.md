@@ -1,11 +1,12 @@
 # Session — PROPOSAL 067: the stale-ink mirror — Wickroad's "bet on your own stale information" is a rigged coin under its own 12-day closed-form law (game-mechanics rotation, round 13 third slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T06:18:07Z (Ideas Lab worker slice — draft the
 > round-13 GAME-MECHANICS rotation slot proposal under standing owner ORDER
 > 003/004; round 13 opened at fleet backlogs with P065 (#428) and served
 > venture with P066 (#429, merged 05:52:20Z). Card born in-progress as the
-> designed gate hold; flips complete in this PR's final commit.)
+> designed gate hold; flipped complete in this PR's final commit at
+> 2026-07-15T06:33Z. PR #430)
 
 - **📊 Model:** fable-class · high · idea/planning
 
@@ -93,3 +94,52 @@ in-flight VERDICT 079 allocation buffer per the coordinator relay
   results-quoting text are data, not seeds.
 - The `📊 Model:` line above uses the kit's taught three-field payload
   (the P064 fix, carried forward).
+
+## 💡 Session idea
+
+**Memory quality is a property of the (memory, process) pair — before
+pricing "staleness risk", ask what the underlying process IS, because
+against a deterministic periodic process memory does not decay, it
+ROTATES.** Drafting held two genuine surprises. First, the inversion is
+not merely "possible at bad lags" — it is a perfect staircase (0, 60, 120,
+180, 240)/240 across lags 1–5 and TOTAL (300/300) at lag 6, clamps
+included, and the shipped map geometry puts its own flagship round trip
+exactly on the anti-phase: nothing in the concept chose that, it fell out
+of period 12 meeting a 5-town line — a reminder that two independently
+reasonable constants (a 12-day market cycle, a 4-leg map) can compose into
+a rigged mechanic neither author intended. The transferable audit: any
+"fog of war"/memory read over a deterministic engine (idle offline
+projections, cached dashboards, replay-from-memory) should be priced at
+the system's natural revisit lags FIRST — the worst lag is computable, and
+the UI may be shipping it as the default cadence. Second, the greedy
+scaffold showed better beliefs are NOT monotone in outcome (SCRYER out-
+earned ORACLE 1496 vs 1237 on the decks-OFF drafting row): when a planner
+is held fixed and only beliefs vary, information value can overshoot
+through plan-selection luck — so a "more information ≥ more gold" band
+must pre-register its overshoot axis or it will misread its own evidence.
+Kin to P066's "price the (deadline, shape) pair, not the dial" — same
+moral, new axis: there a rule against an arrival process, here a memory
+against a price process.
+
+## ⟲ Previous-session review
+
+Previous session (the P066 drafter, PR #429 @ `848d6de`): the strongest
+card of the round so far, and this slice consumed it directly three ways —
+(a) the born-red card / three-field 📊 payload / terminal-prune-with-live-
+verification recipe carried verbatim (this slice's P066-claim prune
+followed its own recorded recipe: #429 verified merged at live GitHub
+05:52:20Z before deletion); (b) its seed-ledger discipline (registered set
++ explicitly disclosed buffer gap 20261571–579) made this session's
+allocation trivially safe — the gap convention is doing real work and was
+re-used here (20261584–589 left as the V079 buffer); (c) its "price the
+PAIR, not the dial" framing seeded this head's process-pair lens. One nit,
+with a lived consequence this session: the P066 claim bullet and card
+pinned sim-lab's high-water via "V078 in flight, allocating from 20261571
+per the coordinator relay" — but V078 had FINALIZED (05:37:45Z) nine
+minutes before the claim was written (05:46:46Z), so this session's sweep
+first re-derived a stale picture and had to reconcile against the live
+ledger at b7a6859. The relay was honest about its source ("not yet visible
+in either tree at the pins above; disclosed, not hidden") — the nit is
+only that a claim written AFTER a fact lands should re-pin the fact, not
+the relay: prefer one fresh `git log`/ledger read over a cached relay
+whenever the claim is about another repo's moving state.
