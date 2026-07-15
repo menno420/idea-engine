@@ -1,6 +1,6 @@
 # Session — PROPOSAL 072: the pool test is not free — Dorfman batched screening has an exact prevalence wall (p\* = 1 − 3^(−1/3) ≈ 0.3066) above which every batch size loses, and the cautious pair-pool is dominated everywhere (completely-unrelated slot, round 14 closer, group testing)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T09:11:03Z (Ideas Lab worker slice — draft the
 > round-14 COMPLETELY-UNRELATED-domain rotation slot under standing owner ORDER
 > 003/004; round 14 opened at fleet backlogs with P069 (#432), served venture with
@@ -12,7 +12,7 @@
 - **📊 Model:** fable-class · high · idea/planning
 
 *(card born in-progress at 2026-07-15T09:11:03Z as the designed session-gate
-hold; flips complete in this PR's final commit.)*
+hold; flipped complete in this PR's final commit. PR #436.)*
 
 ## Scope
 
@@ -116,3 +116,52 @@ buffer). Arm R reporting-only seeded, aux 20261643 never read.
   n; the ≥ 5% clause holds on the practical grid {2..8} — both registered in
   their honest forms, the n = 64 grid-tail value 1 + 1/64 − (3/5)^64 ≈
   1.015625 named).
+
+## 💡 Session idea
+
+**A drill-down design's entire economics can live in the one term the instinct
+rounds to zero — so audit the "cheap" coordination cost FIRST, because it is
+the threshold.** The Dorfman law's structure lesson generalizes past testing:
+whenever a workflow pays a small per-batch overhead to buy a chance at
+clearing the whole batch (a pool test, an aggregate CI leg, a combined lint
+pass, one review over a stacked diff), the overhead term — here 1/n, the part
+everyone calls "basically free" — is not a correction to the economics, it IS
+the wall: delete it and batching wins everywhere at every failure rate; keep
+it and there is an exact prevalence p\* above which every batch size loses,
+computable by one multiplication. The drafting surprise worth keeping: the
+folk belief's two halves fail in opposite styles — "always saves" fails at a
+THRESHOLD (a wall you can locate exactly), while "small pools are the safe
+hedge" fails EVERYWHERE (an identity with a 1/54 floor — the pair-pool is
+never right at any prevalence, so caution expressed as smaller batches is a
+theorem violation, not a preference). And the degeneracy rider: near
+break-even, batch-of-2 and batch-of-4 tie EXACTLY (2⁴ = 4²), so an A/B test
+there measures structural zero — check the family's algebra for exact ties
+before spending measurements on a comparison the identity already settled.
+
+## ⟲ Previous-session review
+
+Previous session (the P071 drafter, PR #435 @ `e17ebe7`, merged
+2026-07-15T08:55:30Z by github-actions[bot]): a clean game-slot slice whose
+recipe this slice consumed and, in three places, extended — (a) the ceremony
+carried verbatim (born-red card, three-field 📊 payload, terminal prune with
+live merge verification via mcp pull_request_read BEFORE deletion, seed
+ledger with the disclosed gap: its 20261630–633 + gap 20261634–639 made this
+slice's allocation from 20261640 mechanical); (b) its print-discipline hazard
+(exact large-rank rationals exceeding CPython's 4300-digit int-print default)
+was INHERITED as pinned practice even though this head's largest numerator is
+~23 digits — the fixture gates by in-memory Fraction equality first and
+prints second, so the practice survives heads that do not need it; (c) its
+live-verification doctrine (run both exact arms at drafting; V080 lesson) was
+carried and this slice added a MARGIN LEDGER with registered knife-edges (the
+V083 practice P071 cited for its margin disclosures, here extended to a
+clause that attains its floor WITH EQUALITY at a named grid point, and a
+second identity whose margin-0 cell is certified symbolically) — knife-edges
+registered as disclosed structure at drafting rather than left for the
+verdict session to discover. No correctness fault found in P071's landing:
+its PR #435 merge claim, its seed ledger (numerals 20261630–633 in-tree
+exactly where its claim said, nothing ≥ 20261640 anywhere), and its
+newest-PROPOSAL = 071 numbering claim were all re-verified live this session
+and held. One continuity note for the coordinator: P071's card said "round 14
+opened at fleet backlogs with P069 (#432) and served venture with P070
+(#434)" — this slice confirms the rotation arithmetic and closes round 14 at
+the unrelated slot, so round 15 opens at fleet backlogs.
