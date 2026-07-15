@@ -1,6 +1,6 @@
 # Session — PROPOSAL 075: the hint that hides — mineverse's world views treat the OPTIONAL max_depth envelope hint as an unvalidated visibility gate (14 of 80 valid lattice cells render a miner NOWHERE while the same document ranks them #1 on two boards), and the Deep Diver badge's exact-equality law is non-monotone — digging past the hint LOSES it (game slot, round 15, superbot-mineverse)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T11:03:46Z (Ideas Lab worker slice — draft the
 > round-15 GAME-MECHANICS rotation slot under standing owner ORDER 003/004; round
 > 15 opened at fleet backlogs with P073 (#437, merged 2026-07-15T09:59:51Z) and
@@ -15,7 +15,7 @@
 - **📊 Model:** fable-class · high · idea/planning
 
 *(card born in-progress at 2026-07-15T11:03:46Z as the designed session-gate
-hold; flips complete in this PR's final commit.)*
+hold; flipped complete in this PR's final commit. PR #439.)*
 
 ## Scope
 
@@ -108,3 +108,53 @@ never read.
   rows (150%, 300%, falsy-0). One drafting-run hand-fact correction disclosed in
   the idea file (the ghost law's per-band `elif`). Zero hand-derived or scaled
   numerals anywhere in the registered set.
+
+## 💡 Session idea
+
+**When a schema marks a field OPTIONAL and tells consumers to degrade
+gracefully on absence, audit what the consumers do with PRESENCE — an optional
+field that gates rendering can only ever hide, and the mandated fallback path
+becomes strictly SAFER than the informative one.** The mineverse world views
+handle the hint's absence perfectly (schema-bound backstop, pinned by the
+repo's own test) and its presence absolutely (hard band clip, exact-equality
+badge), and no layer — schema, validator, views, frontend — checks the hint
+against the per-miner fields it bounds. The drafting surprise worth keeping:
+the domination theorem is checkable WITHOUT constructing any adversarial
+exporter story — it is a pure monotonicity property of the committed code over
+its own accepted input space (64 comparisons, strict on exactly the (3−m)²
+drop cells), and one of the three repairs (deep_diver `>=`) is provably
+byte-identical to today's behavior, i.e. FREE. Transferable audit, one
+sentence: for every optional envelope field, diff the consumer's
+absence-branch against its presence-branch — if presence can only shrink what
+absence renders, the field is a trust boundary wearing a hint's name. Pattern
+name for the battery: HINT-DOMINATION audit (optional-input monotonicity over
+the accepted lattice).
+
+## ⟲ Previous-session review
+
+Previous session (the P074 drafter, PR #438 @ `c1b97be`, merged
+2026-07-15T10:32:39Z by github-actions[bot]): a clean venture-slot landing
+whose recipe this slice consumed and, in two places, extended — (a) the
+ceremony carried verbatim (born-red card, three-field 📊 payload, terminal
+prune with live merge verification via mcp pull_request_read BEFORE deletion,
+seed ledger with the disclosed gap: its 20261660–663 + gap 20261665–669 and
+its re-confirmed 20261664 DATA-numeral discrimination made this slice's
+allocation from 20261670 mechanical); (b) its advertised-vs-achievable
+pattern ("evaluate every committed sentence at the value the system leaves
+free") transferred across domains — this head evaluates the committed
+honest-listing sentences at the hint values the schema leaves free, the same
+move on a rendering law instead of a price lattice; and its
+anchor-to-a-finalized-sibling practice (P074's five V040 contacts) maps here
+to the byte-identity anchor (the `>=` repair proven identical to committed
+behavior at m_eff = 3 — an exact contact the verdict can re-derive). No
+correctness fault found in P074's landing: its PR #438 merge claim, its seed
+ledger (20261660–663 in-tree exactly where its claim said, nothing ≥ 20261670
+anywhere), its newest-PROPOSAL = 074 numbering, and its round-15 baton ("the
+game-mechanics slot is next per ORDER 004 rule 3") were all re-verified live
+this session and held — this slice consumed that baton. One continuity note
+for the coordinator: round 15 now has fleet backlogs (P073), venture (P074),
+and game mechanics (P075) served; the UNRELATED-domains slot (P076) closes the
+round per ORDER 004 rule 3, and the game slot's source rotation record now
+reads gba r6/r7, superbot r8/r9, mineverse r10, idle r11, games r12, gba r13,
+superbot hub r14, mineverse r15 — by least-recently-drawn, round 16's game tap
+(P079) falls due on SUPERBOT-IDLE (undrawn since round 11).
