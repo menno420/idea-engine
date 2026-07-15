@@ -1,11 +1,11 @@
 # Session — PROPOSAL 066: kill-clock anchor vs owner-gated funnel onset — the T+14 window measures click latency, not viability, once the funnel wires late (venture rotation, round 13 second slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T05:40:25Z (Ideas Lab worker slice — draft the
 > round-13 VENTURE rotation slot proposal under standing owner ORDER 003/004;
 > round 13 opened at fleet backlogs with P065 (#428, merged 05:06:07Z). Card
-> born in-progress as the designed gate hold; flips complete in this PR's
-> final commit.)
+> born in-progress as the designed gate hold; flipped complete in this PR's
+> final commit at 2026-07-15T05:48:41Z. PR #429)
 
 - **📊 Model:** fable-class · high · idea/planning
 
@@ -94,8 +94,50 @@ disclosed, not hidden).
 
 ## 💡 Session idea
 
-(placeholder — filled at card flip, per the born-red gate discipline)
+**A timing rule's soundness is a property of the (deadline, evidence-shape)
+PAIR, never of the deadline alone — and before inventing a repair constant,
+inventory the rule family's OTHER committed constants: the fix is often
+already shipped.** Drafting held two genuine surprises. First, the SPIKE
+column landed the APPROVE clauses EXACTLY (FK flat through τ = 13): the
+"late funnel = broken clock" intuition is not universal — a one-shot channel
+is all-or-nothing under the calendar anchor, and the truncation tax exists
+only for slow-burn evidence shapes, so the incoherence is a property of the
+PAIR (the lane's one wired channel happens to be the slow-burn one, which is
+what makes it bite). The generalization audits deadlines everywhere: a
+deadline is never too short or rightly anchored in itself; it is too short
+FOR an arrival shape, and the same audit at a different shape can vindicate
+it — so price the pair, not the dial. Second, the repair needed ZERO new
+constants: the committed 30-day signal window — shipped as a third clock
+value nobody could place (P050 priced it as a dial setting and found it
+mostly dominated) — turns out to be exactly the cap that makes the
+funnel-anchored window bounded (τ + 14 ≤ 30 ⇔ τ ≤ 16). A constant that
+loses as a DIAL VALUE can win as a BOUND on a different rule — before
+minting new constants for a repair, try recombining the family's committed
+ones: adoption is cheaper (the lane already ratified the number) and the
+repair inherits the original intent. Kin to P065's "decompose the floor by
+mass family" (both are audits that find the answer inside the system's own
+committed structure), different axis: that one found the hidden second
+waste stream; this one found the hidden second USE of a committed constant.
 
 ## ⟲ Previous-session review
 
-(placeholder — filled at card flip)
+Previous session (the P065 drafter, PR #428 @ `85114c5`): exemplary in the
+two ways this slice directly consumed — (a) its review remark on P064
+(state the discrimination RULE, not a specimen list) was applied verbatim
+by this session's seed sweep: the rule "standalone 2026-prefixed numerals
+inside results-quoting text are data, not seeds" classified the fresh
+2026964142-class numerals without any specimen lookup — the sweep was
+self-verifying exactly as that remark promised; and (b) the born-red card
+discipline, the three-field 📊 payload, and the terminal-prune-with-live-
+verification recipe all carried cleanly (this slice inherited the recipe
+for its own P065-claim prune: PR #428 verified merged at live GitHub before
+deletion). One nit, with a lived consequence this session: P065's claim
+FILENAME (`claude-2026-07-15-proposal-065-rollover-stub-saturation.md`)
+does not match its branch flattened per the claims README's own recipe
+(`claude/2026-07-15-proposal-065-outbox-rollover-stub-saturation` →
+the filename drops "outbox-"), so the coordinator's housekeeping relay
+cited the branch-derived name, which does not exist on disk, and this
+session had to reconcile by listing `control/claims/` before pruning. The
+README's flatten-the-branch rule exists precisely so claim filenames are
+derivable without a directory read — worth keeping exact even when
+shortening feels harmless.
