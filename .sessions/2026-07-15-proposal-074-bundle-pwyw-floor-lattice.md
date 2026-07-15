@@ -1,6 +1,6 @@
 # Session — PROPOSAL 074: one field decides the lattice — the queued template-pack publish click leaves the PWYW minimum "owner's choice" with no committed value, and that single unpinned floor is what decides whether the committed Ship-It Bundle triple ($49 kit + $19-suggested PWYW pack vs $59 bundle, "saves $9") is coherent pricing or a $10 strategic surcharge (venture slot, round 15, PRODUCTS half, venture-lab)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T10:23:28Z (Ideas Lab worker slice — draft the
 > round-15 VENTURE rotation slot under standing owner ORDER 003/004; round 15
 > opened at fleet backlogs with P073 (#437, merged 2026-07-15T09:59:51Z by
@@ -12,7 +12,7 @@
 - **📊 Model:** fable-class · high · idea/planning
 
 *(card born in-progress at 2026-07-15T10:23:28Z as the designed session-gate
-hold; flips complete in this PR's final commit.)*
+hold; flipped complete in this PR's final commit. PR #438.)*
 
 ## Scope
 
@@ -123,3 +123,58 @@ in-flight buffer). Arm R reporting-only seeded 20261660/661/662, aux
   bundle-takes of 50,000, exact expectation 2/5; seed 20261661: 15946 of
   20,000, exact expectation 4/5; exact mean outlays 53 and 57). Zero
   hand-derived or scaled numerals anywhere in the registered set.
+
+## 💡 Session idea
+
+**When committed copy cites a saving, ask what price the buyer is REQUIRED
+to pay, not what price the seller suggests — the gap between the two
+readings is exactly the freedom the system left uncommitted, and it can be
+computed before anything ships.** The Ship-It triple LOOKS fully priced:
+V040 ratified the $59 anchor, V039/V041 ruled the PWYW mode questions, the
+lane even wrote its own coherence guard ("inheriting PWYW would let the
+bundle undercut the $49 kit"). But every one of those rulings evaluated the
+pack at its SUGGESTED $19, and the one number nobody committed — the floor
+— is the number the whole lattice turns on: advertised-minus-achievable
+saving is s − f exactly (independent of both other prices, a one-line
+theorem), so the floorless default ships a listing whose "$9 off" sentence
+sits next to a $10 strategic surcharge, while the seller side of the same
+arithmetic quietly nets +$9.51 per bundle-routed buyer. The drafting
+surprise worth keeping: the coherence thresholds for V040's whole anchor
+family come out as clean integers ({10, 15, 19}) with the BANNED anchor's
+threshold landing exactly ON the suggested price — the lattice re-derives
+V040's "$68 ban" from a completely different direction, and five of V040's
+committed numerals reproduce exactly inside this head's fee layer, so the
+two verdicts cross-verify without sharing a line of machinery. The
+transferable check costs one subtraction (claim basis minus achievable
+extreme) and the durable fix costs one field plus two words ("at suggested
+prices"). Pattern name for the battery: ADVERTISED-VS-ACHIEVABLE claim
+arithmetic — audit every committed sentence that evaluates a claim at a
+reference value the system leaves free.
+
+## ⟲ Previous-session review
+
+Previous session (the P073 drafter, PR #437 @ `63c75cf`, merged
+2026-07-15T09:59:51Z by github-actions[bot]): a clean fleet-backlogs opener
+whose recipe this slice consumed and, in three places, extended — (a) the
+ceremony carried verbatim (born-red card, three-field 📊 payload, terminal
+prune with live merge verification via mcp pull_request_read BEFORE
+deletion, seed ledger with the disclosed gap: its 20261650–653 + gap
+20261654–659 made this slice's allocation from 20261660 mechanical); (b)
+its margin-0-contacts-as-thesis practice was carried onto a NEW mechanism
+family (price-lattice dominance rather than windowed admission maxima) with
+the same discipline — the f*(68) = s contact registered as a knife-edge,
+the thin strict ratios (20/19, 10/9) disclosed as such; (c) its
+live-verification doctrine was extended one notch: where P073 ran every
+registered numeral through its drafting script, this slice additionally
+anchored its arithmetic to a FINALIZED sibling verdict's committed numerals
+(five V040 contacts as F1 gates) so the sim cross-verifies an existing
+ruling as a side effect of validating itself. No correctness fault found in
+P073's landing: its PR #437 merge claim, its seed ledger (numerals
+20261650–653 in-tree exactly where its claim said, nothing ≥ 20261660
+anywhere), its newest-PROPOSAL = 073 numbering claim, and its "the venture
+slot is next, PRODUCTS half if the slot keeps its committed rhythm" baton
+were all re-verified live this session and held — this slice consumed that
+baton. One continuity note for the coordinator: round 15 now has fleet
+backlogs (P073) and venture (P074) served; the game-mechanics slot is next
+per ORDER 004 rule 3, and the venture half-alternation's next venture tap
+(P078, round 16) falls due on the BOOKS half.
