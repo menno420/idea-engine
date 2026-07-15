@@ -500,6 +500,49 @@
   scratch) · sim-ready; promoted as PROPOSAL 072; origin: drafted this slice under
   standing ORDER 003 (rotation rule per ORDER 004 rule 3) as the round-14
   unrelated-slot closer
+- [`check-digit-transposition-floor-2026-07-15.md`](check-digit-transposition-floor-2026-07-15.md) — round-15
+  COMPLETELY-UNRELATED-domain rotation head, the round-15 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: algebraic error
+  detection — check-digit design over decimal identifiers (Luhn / weighted mod-10 /
+  ISBN-10 mod-11 / the Damm quasigroup), the folk "any standard check digit catches
+  the typos that matter, and newer standards are stronger" belief priced against
+  three exact structure facts, a FIFTEENTH fleet-external domain after P017's social
+  choice, P024's congestion routing, P028's tournament seeding, P032's pattern races,
+  P036's optimal stopping, P040's spatial self-organization, P044's queue-discipline,
+  P048's stochastic ratchets, P052's occupancy & collection, P056's random incidence,
+  P060's repeated-game reciprocity, P064's information cascades, P068's two-sided
+  matching, and P072's group testing — deliberately NON-adjacent to the last three:
+  no signals or inference (vs P064), no sides or preferences (vs P068), no
+  probability, prevalence, or subset queries (vs P072's stochastic screening economy
+  — this head is deterministic algebra on a single codeword)): pre-registered
+  fully-deterministic sim — Arm A = the COMPLETE 3,628,800-cell quotient-space
+  census (transposition floor = exactly 2 ordered pairs per boundary, excluded from
+  0 by the one-line certificate Στ ≡ 0 ≠ 5 ≡ Σperm mod 10, attained by 46,400
+  quotients with Luhn among them at precisely {09↔90}) + the 16-cell all-singles
+  linear grid ({4 diagonal → 90, 12 off-diagonal → 10} — units mod 10 are all odd,
+  so |a−b| = 5 escapes every linear boundary) + the migration-regression censuses
+  (ISBN-10 mod-11: 0 undetected at EVERY distance; EAN-13 alternating 1,3: 10/90
+  per adjacent boundary + 90/90 at distance 2 = 120 + 990 escape patterns over the
+  full code) + the two priced exits (11th symbol, or the pinned Damm quasigroup
+  table verified rows/columns/diagonal with 0/900 state censuses on the same ten
+  digits); Arm B = independently-written full word-level enumerations at length 4,
+  exact-equal through FOUR typed must-equal contacts (60 = 3×2×10 · 300 = 3×10×10 ·
+  1800 = 2×90×10 · 0 = 0, the ordered-pair multiplicity law asserted directly — the
+  drafter's own first hand derivation got the unordered counts and the enumeration
+  corrected it, disclosed + pre-registered as a NULL axis); Arm R = seeded
+  identifier careers REPORTING-ONLY, seeds 20261680–683 with aux 20261683 never
+  read, no statistical gate) measuring the check-digit folk belief against
+  registered bands (REJECT iff floor = 2 with Luhn optimal AND the ISBN→EAN strict
+  regression AND both exits verified, stated first / APPROVE iff some quotient hits
+  U = 0 or EAN's censuses are clean / anything else = honest null naming the
+  binding axis; INVALID controls gate on model identities, the three theorems,
+  twelve census anchors, three pencil worlds, degeneracy controls, and battery
+  identities; expected landing DISCLOSED per the exact-arm norm — REJECT on all
+  three conjuncts at the drafter's enumerated values, the eleventh-symbol and
+  non-abelian falsifiability worlds both named, the sim re-derives from scratch) ·
+  sim-ready; promoted as PROPOSAL 076; origin: drafted this slice under standing
+  ORDER 003 (rotation rule per ORDER 004 rule 3) as the round-15 unrelated-slot
+  closer
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
