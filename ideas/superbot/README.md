@@ -190,6 +190,22 @@ links both.
 - [`external-cron-trigger-for-routines-2026-07-10.md`](external-cron-trigger-for-routines-2026-07-10.md) — captured · Idea: drive the autonomous cron from an external scheduler (not GitHub `schedule:`) (canonical: superbot `docs/ideas/external-cron-trigger-for-routines-2026-06-14.md` @ `fd638e3`)
 - [`fishing-bait-crafting-2026-07-10.md`](fishing-bait-crafting-2026-07-10.md) — historical(shipped 2026-06-23 in superbot PR #1338) · Idea — Bait crafting from caught fish (close the fishing economy loop) (canonical: superbot `docs/ideas/fishing-bait-crafting-2026-06-22.md` @ `fd638e3`)
 - [`fishing-gear-stats-2026-07-10.md`](fishing-gear-stats-2026-07-10.md) — historical(built 2026-06-27 in superbot PR #1504) · Idea — Fishing-specific gear stats (make loadout presets a real optimisation) (canonical: superbot `docs/ideas/fishing-gear-stats-2026-06-27.md` @ `fd638e3`)
+- [`fishing-trophy-record-quantization-ceiling-2026-07-15.md`](fishing-trophy-record-quantization-ceiling-2026-07-15.md) —
+  sim-ready · game-mechanics: the hub fishing game's shipped trophy-record
+  retention hook ("a cheap long-tail retention goal" — weight.py's own header;
+  "🏅 New personal best!" per the design doc, PR #1351) priced against the
+  committed weight law it rides on — `round(nominal × U(0.65, 1.55), 2)` plus
+  the strict-> PB comparison (fishing_workflow.py:267 @ `f8e2313`) makes every
+  species' record chase a FINITE ladder with a reachable ceiling: the minnow
+  (the modal catch at every committed rod per the exact inverse-size mix) has
+  exactly 17 possible weights, ceiling probability exactly 2/81, an exact
+  lifetime law of ≈ 3.877 celebrations ever, and a ≈ 147.6-cast completion
+  horizon; all 21 species total ≈ 153.38 lifetime PBs against a divergent
+  continuous benchmark, and no committed rod/weather/bait/level knob can add a
+  rung (invariance grounded to the single call site). Pre-registered hermetic
+  exact-census sim (Arm A closed forms, Arm B twin, Arm F committed-roll
+  fidelity, Arm R reporting; seeds 20261630–633), REJECT checked first, the
+  one-character `round(·, 3)` APPROVE world named → PROPOSAL 071
 - [`fleet-manifest-freshness-checker-2026-07-10.md`](fleet-manifest-freshness-checker-2026-07-10.md) — historical(implemented in superbot PR #1923, 2026-07-10) · Fleet-manifest freshness checker (2026-07-10) — implemented as superbot PR #1923, then RETIRED 2026-07-11 (superbot#1974): checker + test deleted per the script's own Q-0105 kill-switch when `docs/eap/fleet-manifest.md` was superseded by the fleet-manager generated roster (fm `docs/roster.md`, phase-2 decision fm PR #59) — the staleness class it policed died structurally; code history in git (canonical: superbot `docs/ideas/fleet-manifest-freshness-checker-2026-07-10.md` @ `fd638e3`; retirement fact @ `58040c6`)
 - [`fleet-structured-output-placeholder-guard-2026-07-10.md`](fleet-structured-output-placeholder-guard-2026-07-10.md) — captured · Idea — reject placeholder values in fleet structured outputs (workflow-layer guard) (canonical: superbot `docs/ideas/fleet-structured-output-placeholder-guard-2026-07-03.md` @ `fd638e3`)
 - [`formatter-tool-set-consistency-checker-2026-07-10.md`](formatter-tool-set-consistency-checker-2026-07-10.md) — captured · Idea — `check_tool_pins` should also assert the formatter tool *set* (not just versions) (canonical: superbot `docs/ideas/formatter-tool-set-consistency-checker-2026-07-06.md` @ `fd638e3`)
