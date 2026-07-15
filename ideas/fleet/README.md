@@ -464,6 +464,42 @@
   sim-ready; promoted as PROPOSAL 069; origin: drafted this slice under standing
   ORDER 003 (rotation rule per ORDER 004 rule 3) from the seat's own committed
   cap/floor order pair
+- [`pooled-screening-prevalence-wall-2026-07-15.md`](pooled-screening-prevalence-wall-2026-07-15.md) — round-14
+  COMPLETELY-UNRELATED-domain rotation head, the round-14 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: screening design /
+  combinatorial group testing — Dorfman two-stage pooled testing, the folk "batching
+  always saves, and small pools are the safe hedge" belief priced against the exact
+  two-stage cost law T(n, p) = 1/n + 1 − (1 − p)^n, a FOURTEENTH fleet-external
+  domain after P017's social choice, P024's congestion routing, P028's tournament
+  seeding, P032's pattern races, P036's optimal stopping, P040's spatial
+  self-organization, P044's queue-discipline, P048's stochastic ratchets, P052's
+  occupancy & collection, P056's random incidence, P060's repeated-game reciprocity,
+  P064's information cascades, and P068's two-sided matching — deliberately
+  NON-adjacent to both P064's observational learning (no signals, no inference, no
+  herd) and P068's matching (no sides, no preferences, no market): a one-shot
+  test-economy design against prevalence): pre-registered fully-deterministic sim
+  (Arm A = seedless exact `fractions.Fraction` cost surface over a 12 × 64 grid +
+  INTEGER-POWER wall certificates (3² > 2³, 3⁴ > 4³, 3⁵ > 5³, 2⁴ = 4²,
+  (n+1)^n < n^(n+1) for n ≥ 3 ⇒ the wall p\* = 1 − 3^(−1/3) ≈ 0.3066 above which
+  EVERY pool size strictly loses) + two exact polynomial dominance identities as
+  theorem gates (T(2,q) − T(3,q) = (q − 2/3)²(q + 1/3) + 1/54 — the pair-pool never
+  optimal, floor attained exactly at q = 2/3; T(2,q) − T(4,q) = (q² − 1/2)² — pools
+  2 and 4 tie exactly at their common break-even, a registered margin-0 knife-edge);
+  Arm B = independently-written outcome-tree twin, exact-equal on every number;
+  Arm R = seeded screening careers REPORTING-ONLY, seeds 20261640–643 with aux
+  20261643 never read, no statistical gate) measuring the batching folk belief
+  against registered bands (REJECT iff the strict wall clause + practical damage
+  ≥ 21/20 at p = 2/5 AND the 1/54 dominance floor AND savings T\* ≤ 1/4 at
+  p = 1/100, stated first / APPROVE iff pooling still helps at p = 2/5 or the pair
+  beats the triple somewhere / anything else = honest null naming the binding
+  axis; INVALID controls gate on model identities, the three theorems, nine census
+  anchors, the p = 1/2 pencil world, degeneracy controls, and battery identities;
+  expected landing DISCLOSED per the exact-arm norm — REJECT with margins ×1.0641 /
+  ×1.00-at-the-named-knife-edge / ×1.2783, the free-pool-test one-term APPROVE
+  world and the p = 3/10 straddle edge both named, the sim re-derives from
+  scratch) · sim-ready; promoted as PROPOSAL 072; origin: drafted this slice under
+  standing ORDER 003 (rotation rule per ORDER 004 rule 3) as the round-14
+  unrelated-slot closer
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
