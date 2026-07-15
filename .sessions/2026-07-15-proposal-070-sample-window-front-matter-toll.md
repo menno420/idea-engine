@@ -1,13 +1,14 @@
 # Session — PROPOSAL 070: the sample is a budget, not a preview — front matter pays an exact exponential toll inside the 10% window, and the committed short formats sit on or under the cliff (venture rotation, round 14, books half)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T08:07:29Z (Ideas Lab worker slice — draft the
 > round-14 VENTURE rotation slot, BOOKS half, under standing owner ORDER 003/004;
 > round 14 opened at fleet backlogs with P069 (#432, merged 2026-07-15T07:44:03Z),
 > so the venture slot is next per ORDER 004 rule 3, and the slot's own
 > half-alternation (…P054 books → P058 products → P062 books → P066 products)
 > puts round 14 on the BOOKS half. Card born in-progress as the designed
-> session-gate hold; flips complete in this PR's final commit.)
+> session-gate hold; flipped complete in this PR's final commit at
+> 2026-07-15T08:14:39Z. PR #434.)
 
 - **📊 Model:** fable-class · high · idea/planning
 
@@ -95,8 +96,55 @@ the disclosed in-flight buffer). Arm R reporting-only, aux 20261623 never read.
 
 ## 💡 Session idea
 
-[[fill: at completion]]
+**A shared window turns "order" into "spend": whenever a fixed-fraction budget
+is counted from byte one, the sequence of what you put first is a priced
+decision, not a formatting taste.** The lane committed manuscripts, formats,
+prices, keywords, even an owner-attention order — but the assembly order of
+front matter never got priced because it doesn't LOOK like a decision: nothing
+is bought, nothing is scheduled, it's "just how books open". The arithmetic
+says otherwise, and in three registers at once: within the window every front
+unit is a multiplicative q-factor (an exponential wearing an additive costume);
+at the window's edge the cost changes TYPE — from a slope to a zero — and the
+committed catalog turns out to live mostly at the edge (the 15-spread pin one
+page over the threshold, the 12-spread body under it beyond rescue, the serial
+episode zeroed by the very front matter the omnibus shrugs off); and the S\*
+law converts the whole thing into a format-time gate (each front page = nine
+pages of minimum viable book at the 10% window). Drafting held one genuine
+surprise, found only by running the exact object: the serial format is
+STRUCTURALLY more front-matter-fragile than the omnibus — same story, three
+times the front-matter exposure, a third the budget each — which lands
+directly on the funnel the pricing verdicts just priced: a free first episode
+whose 4-screen sample is all title pages converts at exactly zero, at any
+price. The transferable audit: hunt for other fixed-fraction windows counted
+from byte one (a PR description's fold, a listing's above-the-fold blurb, a
+sample chapter, a store's first-N-seconds preview) — anywhere one exists, some
+"mere convention" upstream of the fold is silently spending it, and T1/T2/T3
+price that convention without asking anyone's permission.
 
 ## ⟲ Previous-session review
 
-[[fill: at completion]]
+Previous session (the P069 drafter, PR #432 @ `10533ae`, merged
+2026-07-15T07:44:03Z): a clean round-14 opener whose recipe this slice
+consumed and, in two places, sharpened — (a) the ceremony carried verbatim
+(born-red card, three-field 📊 payload, terminal prune with live merge
+verification via mcp pull_request_read BEFORE deletion, seed ledger with an
+explicitly disclosed gap: its 20261610–613 + gap 20261604–609 made this
+slice's allocation from 20261620 mechanical); (b) its "run the exact object
+at drafting" doctrine was followed — both arms ran live here (twin-arm
+mismatches 0; S\* formula vs scan 0), so every disclosed rational (8000/6859,
+130321/160000, 29/38 pages, the 3-of-4 cliff census) is a reproduction
+target, not an estimate; (c) its self-referential harvest (the seat's own
+bus) was the right call for the fleet-backlogs slot but is NOT a habit to
+inherit — this slice deliberately returned to fleet-external committed
+artifacts (venture-lab manuscripts @ 520bdfc), keeping the rotation's
+harvest surfaces disjoint; (d) one gap found and healed here rather than in
+P069: its card's grammar notes covered inbox/outbox/session gates but never
+recorded WHERE the recommendation-line requirement is enforced — this
+slice's born-red check run pinned it (check_ideas: probe-report battery +
+exactly one recommendation line in the IDEA file, not the outbox) and the
+finding is now on this card for the next drafter. No correctness fault
+found in P069's exact census; its D(3, r̂) headline was not re-derived here
+(different machinery), but its seed-ledger and PR-verification claims were
+both re-verified live this session and held (PR #432 merged 07:44:03Z,
+merged_by github-actions[bot]; numerals 20261610–613 present in-tree exactly
+where its claim said).
