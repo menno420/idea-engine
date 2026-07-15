@@ -83,13 +83,15 @@ the disclosed in-flight buffer). Arm R reporting-only, aux 20261623 never read.
   numerators in results-quoting text — data, not seeds); allocation starts at
   20261620, strictly above the registered sets and the disclosed gap
   20261614–619.
-- One grammar note, decide-and-flag: the coordinator's slice spec asks for a
-  closing `**Recommendation: sim-ready**` line on the outbox block; the
-  committed corpus (P001–P069, live + both archives) has zero such lines —
-  blocks end at `depends:` with sim-readiness carried by the header's
-  `status: sim-ready`. Landed BOTH-compatible: the block keeps the corpus
-  grammar and adds exactly one closing recommendation line; flagged here for
-  the coordinator.
+- One grammar note, decide-and-flag: the `**Recommendation: sim-ready**`
+  closing line's enforced home is the IDEA FILE's probe report — the
+  check_ideas leg requires the 8-question battery + exactly one
+  recommendation line there (verified by running the check: the born-red run
+  flagged "0 recommendation lines (need exactly 1)" until the battery
+  landed). The committed outbox corpus (P001–P069) ends blocks at `depends:`
+  with zero recommendation lines; this block ALSO carries one closing
+  recommendation line per the coordinator's slice spec — additive,
+  grammar-clean locally, flagged here for the coordinator.
 
 ## 💡 Session idea
 
