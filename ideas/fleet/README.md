@@ -261,6 +261,36 @@
   per the `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc
   section; flagged in the file's placement note), promoted as PROPOSAL 056; origin:
   drafted this slice under standing ORDER 003 (rotation rule per ORDER 004 rule 3)
+- [`cascade-independence-quota-2026-07-15.md`](cascade-independence-quota-2026-07-15.md) — round-12
+  COMPLETELY-UNRELATED-domain rotation head, the round-12 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: sequential observational
+  learning / information cascades — the BHW mechanism priced against a mandated
+  blind-first independence quota, a TWELFTH fleet-external domain after P017's social
+  choice, P024's congestion routing, P028's tournament seeding, P032's pattern races,
+  P036's optimal stopping, P040's spatial self-organization, P044's queue-discipline,
+  P048's stochastic ratchets, P052's occupancy & collection, P056's random incidence,
+  and P060's repeated-game reciprocity; flags the EAP walkthrough §E "round 13 opens at
+  fleet-backlogs" baton miscount — the committed spacing-4 slot arithmetic puts P064
+  here): pre-registered fully-deterministic sim (Arm A = seedless exact
+  `fractions.Fraction` absorbing-walk DP over the revealed-lead states with a
+  Binomial(k, p) quota initial condition, p ∈ {11/20, 7/10, 4/5, 9/10} × N ∈ {25, 100,
+  400} × quota k ∈ {0..min(N, 120)} + the p = 1/2 degeneracy and p = 1 anchors; Arm B =
+  independently-written backward-recursion twin, exact-equal on every number, plus a
+  2^12 exhaustive path census at N = 12; Arm R = seeded traces REPORTING-ONLY, seeds
+  20261563–566, no statistical gate) measuring whether the folk claim "more visible
+  history never hurts — the crowd self-corrects" survives its own herding tax —
+  decision-cell (p = 7/10, N = 100) gain of the optimal blind-first quota against
+  registered bands (REJECT iff G ≥ 6 correct actions AND k\* ≥ 5 AND e(k\*) ≤ e(0)/2,
+  stated first / APPROVE iff G ≤ 2 AND k\* ≤ 2 / anything else = honest null naming the
+  binding axis; INVALID controls gate on the Bayes-identity, three structure theorems
+  (quota-null, parity, knife-edge), closed-form-anchor, hand-world, degeneracy, and
+  battery identities; expected landing DISCLOSED per the closed-form-arm norm — REJECT
+  at the drafter's exact G ≈ 8.6513 with k\* = 15 (odd at every computed cell) and
+  e(0) = 9/58 vs e(15) ≈ 0.0332, the sim re-derives from scratch) · sim-ready; homed
+  here per the `check_sections.py` non-lane carve-out (roster-derived sections — no
+  ad-hoc section; flagged in the file's placement note), promoted as PROPOSAL 064;
+  origin: drafted this slice under standing ORDER 003 (rotation rule per ORDER 004
+  rule 3)
 - [`noisy-reciprocity-tft-collapse-2026-07-14.md`](noisy-reciprocity-tft-collapse-2026-07-14.md) — round-11
   COMPLETELY-UNRELATED-domain rotation head, the round-11 closer (standing ORDER 003
   continuous pipeline, rotation per ORDER 004 rule 3; domain: repeated games & the
