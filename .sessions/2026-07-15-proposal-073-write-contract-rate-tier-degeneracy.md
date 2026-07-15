@@ -1,6 +1,6 @@
 # Session — PROPOSAL 073: one knob printed twice — the mineverse write contract's two-tier rate limit (burst 10/10 s, sustained 60/min) has equal average rates, so the sustained tier is dead ink under every uniform limiter discipline while the burst tier alone over-admits 7/6 under fixed windows (fleet-backlogs slot, round 15 opener, superbot-mineverse)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T09:49:49Z (Ideas Lab worker slice — draft the
 > round-15 FLEET-BACKLOGS rotation slot opener under standing owner ORDER
 > 003/004; round 14 closed fully served (fleet backlogs P069 #432, venture P070
@@ -12,7 +12,7 @@
 - **📊 Model:** fable-class · high · idea/planning
 
 *(card born in-progress at 2026-07-15T09:49:49Z as the designed session-gate
-hold; flips complete in this PR's final commit.)*
+hold; flipped complete in this PR's final commit. PR #437.)*
 
 ## Scope
 
@@ -126,4 +126,54 @@ coordinator relay (20261640–643 are P072/V085's registered set; the gap
   Retry-After client: exactly 3600 admits in 3600 s). Zero hand-derived or
   scaled numerals anywhere in the registered set.
 
-*(💡 and ⟲ land with the complete-flip in this PR's final commit.)*
+## 💡 Session idea
+
+**When a spec ships two constants for the same budget, divide before you
+read: equal averages mean one knob printed twice — and which failure you
+get (a dead sentence or a broken promise) is decided by a word the spec
+never wrote.** The write contract's pair (10/10 s, 60/min) LOOKS like a
+burst dial plus a sustained dial, but 10/10 = 60/60, and at equal average
+rates the arithmetic leaves no room for both sentences to work: under every
+uniform limiter discipline the second tier provably never fires (three
+exact contacts: 60 = S, 60 = S, bucket floor 50), while an executor that
+implements only the first sentence under fixed windows or a token bucket —
+the two most common real implementations — silently over-admits 7/6 or
+23/20 of what the second sentence promised. The drafting surprise worth
+keeping: the two failure modes are mutually exclusive and jointly
+exhaustive over the standard disciplines, so the pair is not "redundant but
+harmless" — it is a fork whose branch is chosen by an implementation detail
+the contract never names. The transferable check costs one multiplication
+(B·T vs S·w) and the durable fix costs one sentence plus two witness-
+schedule fixtures (70-in-60, 20-in-2 s) that make the discipline
+conformance-testable instead of prose. And the governor rider: the shim's
+Retry-After formula already self-paces an obedient client to exactly the
+sustained rate — the pair's one working part is the header, not the second
+tier.
+
+## ⟲ Previous-session review
+
+Previous session (the P072 drafter, PR #436 @ `412f132`, merged
+2026-07-15T09:19:39Z by github-actions[bot]): a clean unrelated-slot closer
+whose recipe this slice consumed and, in three places, extended — (a) the
+ceremony carried verbatim (born-red card, three-field 📊 payload, terminal
+prune with live merge verification via mcp pull_request_read BEFORE
+deletion, seed ledger with the disclosed gap: its 20261640–643 + gap
+20261644–649 made this slice's allocation from 20261650 mechanical); (b)
+its margin-ledger practice (registered knife-edges disclosed at drafting —
+P072's ×1.00 R2 floor and T3 true zero) was carried and EXTENDED to a head
+whose margin-0 cells are the THESIS rather than incidental structure (the
+committed constants sitting exactly on the degeneracy surface is the
+finding — three contacts registered as such); (c) its live-verification
+doctrine was tightened one notch per the V084 lesson it postdates: where
+P072 ran its theorems live, this slice ran EVERY registered numeral through
+a single drafting script (scratchpad `draft_p073.py`) including the band
+margins and the Arm-R previews, so no numeral anywhere in the registered
+set is hand-derived or scaled. No correctness fault found in P072's
+landing: its PR #436 merge claim, its seed ledger (numerals 20261640–643
+in-tree exactly where its claim said, nothing ≥ 20261650 anywhere), its
+newest-PROPOSAL = 072 numbering claim, and its "round 15 opens at fleet
+backlogs" baton were all re-verified live this session and held — this
+slice consumed that baton. One continuity note for the coordinator: round
+15 is now OPEN at fleet backlogs with P073; the venture slot is next per
+ORDER 004 rule 3, and the venture half-alternation (P070 was BOOKS) puts
+round 15 on the PRODUCTS half if the slot keeps its committed rhythm.
