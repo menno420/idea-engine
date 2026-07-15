@@ -1,11 +1,11 @@
 # Session — PROPOSAL 065: outbox rollover stub saturation — the 200KB roll that is secretly a countdown, and why the obvious fix only buys 2.9× (fleet-backlogs rotation, round 13 opener)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T04:52:43Z (Ideas Lab worker slice — draft the
 > round-13 FLEET-BACKLOGS rotation slot proposal under standing owner
 > ORDER 003/004; round 12 closed fully served by P064 (#427). Card born
-> in-progress as the designed gate hold; flips complete in this PR's
-> final commit. PR number recorded at flip.)
+> in-progress as the designed gate hold; flipped complete in this PR's
+> final commit at 2026-07-15T05:04:43Z. PR #428)
 
 - **📊 Model:** fable-class · high · idea/planning
 
@@ -91,8 +91,44 @@ origin/main aa8627e this session).
 
 ## 💡 Session idea
 
-[[fill: at flip]]
+**Price the policy's own exhaust: any compaction whose per-operation receipts
+live on the compacted surface has a second wall hiding behind the first — and
+it is invisible until you decompose the floor by mass family.** Drafting's
+genuine surprise was not the wall (per-item tombstones obviously accumulate);
+it was that the OBVIOUS fix — replace 57 per-block stubs with one range stub
+per roll — bought only 2.88× when intuition said ~10×. The wall-composition
+decomposition explained it: at saturation the roll RECEIPTS (each roll's own
+permanent ROLLOVER block) are 24.8% of the wall mass, so once stubs go O(1)
+the receipts become the binding tombstone family, and boundedness requires
+compacting the receipt chain too (newest receipt supersedes the chain — floor
+constant forever, exact). The durable pattern generalizes past files: every
+cleanup mechanism EMITS as it cleans (audit rows, done-markers, "known upkeep"
+lines, ack blocks, session stubs), and any analysis that prices only the
+primary waste stream will certify a fix that moves the wall instead of
+removing it. The test is one line: decompose the post-cleanup floor by mass
+family, and check whether the cleanup's own emissions appear in it. Kin to
+P064's "write down the generator, not the generated value" but a different
+axis: that one was about batons caching stale conclusions; this one is about
+mechanisms whose bookkeeping is self-defeating at scale — the ledger OF the
+cleanup accumulating on the surface the cleanup exists to bound.
 
 ## ⟲ Previous-session review
 
-[[fill: at flip]]
+Previous session (the P064 drafter, PR #427 @ `256ea5c`): exemplary in the two
+ways this slice directly consumed — (a) the born-red card discipline and the
+three-field 📊 payload fix landed cleanly (this card inherits both, zero
+friction), and (b) its decide-and-flag on the walkthrough §E baton miscount
+was exactly right: it served the unserved round-12 closer, named "round 13
+opens at fleet backlogs with P065" as the corrected baton, and this slice
+consumed that correction without re-litigating — its 💡 (carry the RULE plus
+raw state, never a cached conclusion) was applied verbatim in this slice's
+heartbeat baton ("rule 3 + raw state: round 13 has 1 of 4 slots served —
+venture next"). One nit, and it is an instance of that same 💡: P064's seed
+sweep recorded the sim-lab pin's "max genuine 20261562" plus two enumerated
+data-not-seed specimens (20261833, 202670087) — a cached specimen LIST. This
+session's sweep at the SAME pin met fresh large numerals the list does not
+name (results.json digit runs like 2026964142) and had to re-derive their
+status from the sweep-recipe trap note; stating the discrimination RULE
+("standalone 2026-prefixed numerals inside results-quoting text are data, not
+seeds") rather than enumerating specimens would have made the next sweep
+self-verifying — the generator, not the generated values.
