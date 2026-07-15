@@ -224,3 +224,10 @@ do: shut the Ideas Lab seat down for good, in this order:
 why: owner ordered the seat's final shutdown on 2026-07-14 — the EAP is closed (walkthrough PR #420 @ d6abdfe, audit PR #413 @ 8162d1e) and the seat's pipeline ended dry; the seat goes dormant until the owner revives it.
 done-when: PR #424 merged with ORDER 014 on the bus, control/status.md reading SEAT DORMANT (owner order 2026-07-14), and docs/HANDOFF.md + the docs/current-state.md dormancy section on main; then — post-merge, coordinator-owned, outside this PR — the failsafe trigger deleted with absence verified to exhaustion.
 provenance: owner live turn in coordinator chat 2026-07-14 (EAP final shutdown directive); coordinator session_0146BSTEg76Sx9TSEZndRMkX dispatch; landed by the finishing session as a coordinator-restatement (marked above), per seat doctrine "an owner turn is the top ORDER" (ORDER 003/004/009 precedent).
+
+## ORDER 015 · 2026-07-15T03:37:08Z · status: new
+priority: P2
+do: EAP EXTENDED through 2026-07-21 (Anthropic mail, Diana Liu, 2026-07-14T23:07:44Z — 'Claude Code Projects EAP: Extending to Tues 7/21'; metadata reference only). The 2026-07-14 dormancy orders are superseded pending the owner's per-project reboot review — do NOT re-arm routines yet; wait for the owner's per-seat go (the v3.6 reboot prompt IS that go). New features to test during the extension: overview panel, add_repo, Artifact tool (coming), coordinator-comms improvements (coming). fleet-manager and websites are the fleet's source-of-truth homes; see fm docs/pre-reboot-review-2026-07-15.md.
+why: the seat's dormancy record predates the extension; without this note a rebooted session would treat dormancy as current
+done-when: seat acknowledges on its first rebooted wake
+provenance: relayed by the Fleet Manager coordinator on live owner directives, 2026-07-15
