@@ -1,6 +1,6 @@
 # Session — PROPOSAL 071: the personal best is a finite resource — the committed 2-decimal weight grid caps every species' trophy ladder, the modal catch's chase completes in ~148 casts, and no committed rod/weather/bait knob can extend it (game rotation, round 14, superbot hub fishing)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T08:46:47Z (Ideas Lab worker slice — draft the
 > round-14 GAME-MECHANICS rotation slot under standing owner ORDER 003/004;
 > round 14 opened at fleet backlogs with P069 (#432) and served venture with
@@ -12,6 +12,9 @@
 > carve-out.)
 
 - **📊 Model:** fable-class · high · idea/planning
+
+*(card born in-progress at 2026-07-15T08:46:47Z as the designed session-gate
+hold; flipped complete in this PR's final commit. PR #435.)*
 
 ## Scope
 
@@ -101,9 +104,51 @@ the disclosed in-flight buffer). Arms F/R reporting/fidelity seeded, aux
 
 ## 💡 Session idea
 
-*(placeholder — filled at the complete-flip; the born-red hold is exactly
-this line per the session gate)* [[fill:session-idea]]
+**Rounding is a game-design decision wearing a storage costume: any "new
+best" celebration over a discretized metric is a finite, front-loaded,
+silently-expiring resource — and the expiry date is computable in closed
+form.** The hub committed a retention hook whose entire value proposition is
+open-endedness ("long-tail", "worth chasing") and, two lines away, the
+arithmetic that closes it: `round(·, 2)` + strict `>` turns the record
+process from the immortal distribution-free 1/t law into a ladder with
+Σ pₖ/P(X ≥ vₖ) total rungs-in-expectation — and the interaction lands
+HARDEST exactly where the committed catch mix concentrates play (the modal
+species has the shortest ladder, and no committed knob can lengthen any
+ladder because the whole progression surface was routed around the weight
+law). The drafting surprise, found only by running the exact object: the
+damage is not "fewer records eventually" but a TYPE change — 3.877 lifetime
+celebrations for the flagship species is not a slower tail, it is no tail —
+while the fix menu splits three ways with exact prices (a decade of grid
+buys ln 10 of chase; un-quantizing the COMPARISON alone restores 1/t exactly
+at zero display cost; or ship the ceiling as completionist content). The
+transferable audit: grep any fleet surface for a celebration keyed on
+strict-> over a rounded value (fastest-time ticks, whole-coin wins, any
+quantized leaderboard) — each one has a computable day its celebration stops
+firing forever, and nobody wrote that day down.
 
 ## ⟲ Previous-session review
 
-*(placeholder — filled at the complete-flip)* [[fill:previous-session-review]]
+Previous session (the P070 drafter, PR #434 @ `d165876`, merged
+2026-07-15T08:16:04Z): a clean venture-slot slice whose recipe this slice
+consumed and, in three places, extended — (a) the ceremony carried verbatim
+(born-red card, three-field 📊 payload, terminal prune with live merge
+verification via mcp pull_request_read BEFORE deletion, seed ledger with the
+disclosed gap: its 20261620–623 + gap 20261624–629 made this slice's
+allocation from 20261630 mechanical); (b) its recommendation-line finding
+was APPLIED as recorded — the `**Recommendation: sim-ready**` line lives in
+the idea file's probe report (the check_ideas-enforced home its card
+pinned), and this slice did NOT replicate its outbox-block recommendation
+line (that was P070's own slice-spec addition, flagged additive on its card;
+the P001–P069 corpus norm ends at `depends:` — followed here, noted for the
+coordinator); (c) its live-verification doctrine was sharpened one step: on
+top of running both exact arms at drafting (twin agreement on every
+registered rational), this slice also imported the ACTUAL committed module
+and checked the exact model's support against the shipped float code — the
+fidelity row P070's all-analytic head had no analogue for; (d) one hazard
+P070 never hit was found and disclosed here (exact large-rank rationals
+exceed CPython's 4300-digit int-print default — print discipline now pinned
+in the fixture, so the verdict session cannot trip it). No correctness
+fault found in P070's landing; its PR #434 merge claim and seed ledger were
+both re-verified live this session and held (merged 08:16:04Z by
+github-actions[bot]; numerals 20261620–623 in-tree exactly where its claim
+said, nothing ≥ 20261630 anywhere).
