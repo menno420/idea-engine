@@ -291,6 +291,38 @@
   ad-hoc section; flagged in the file's placement note), promoted as PROPOSAL 064;
   origin: drafted this slice under standing ORDER 003 (rotation rule per ORDER 004
   rule 3)
+- [`deferred-acceptance-proposer-advantage-2026-07-15.md`](deferred-acceptance-proposer-advantage-2026-07-15.md) — round-13
+  COMPLETELY-UNRELATED-domain rotation head, the round-13 closer (standing ORDER 003
+  continuous pipeline, rotation per ORDER 004 rule 3; domain: two-sided matching / the
+  Gale–Shapley deferred-acceptance mechanism — the folk "stability pins the outcome,
+  which side proposes is a tie-break" belief priced against the market-size-born
+  ordinal advantage the proposing side captures, a THIRTEENTH fleet-external domain
+  after P017's social choice, P024's congestion routing, P028's tournament seeding,
+  P032's pattern races, P036's optimal stopping, P040's spatial self-organization,
+  P044's queue-discipline, P048's stochastic ratchets, P052's occupancy & collection,
+  P056's random incidence, P060's repeated-game reciprocity, and P064's information
+  cascades — deliberately NON-adjacent to P064's observational-learning domain: no
+  signals, no sequential inference, a one-shot cooperative mechanism): pre-registered
+  fully-deterministic sim (Arm A = seedless EXHAUSTIVE exact-`fractions.Fraction`
+  census at n = 1, 2, 3 (46,656 profiles at the n = 3 decision cell) computing the
+  side-gap Δ, multiplicity f, conditional gaps, and the strategy-proofness-asymmetry
+  counts; Arm B = independently-written enumerate-then-take-lattice-extremes twin,
+  exact-equal on every number, plus the 16-profile n = 2 hand census; Arm R = seeded
+  n = 4/5/6 growth traces REPORTING-ONLY, seeds 20261600–603, no statistical gate)
+  measuring whether the folk claim "a stable matching is a stable matching, side is a
+  tie-break" survives its own lattice — decision-cell (n = 3) side-advantage against
+  registered bands (REJECT iff Δ ≥ 1/5 AND f ≥ 1/5 AND M_prop = 0 with M_recv ≥ 1/100,
+  stated first / APPROVE iff Δ ≤ 1/20 AND f ≤ 1/20 / anything else = honest null naming
+  the binding axis; INVALID controls gate on the GS/stability identities, three
+  structure theorems (polarization, gap-localization, strategy-proofness asymmetry),
+  census anchors, hand-world, common-preference degeneracy, and battery identities;
+  expected landing DISCLOSED per the exact-arm norm — REJECT at the drafter's exact
+  Δ = 7/27 with f = 131/486, the gap living ENTIRELY off the singleton set
+  (Δ | unique = 0 exactly, Δ | multi = 126/131) and M_recv = 1/54 vs M_prop = 0, the
+  sim re-derives from scratch) · sim-ready; homed here per the `check_sections.py`
+  non-lane carve-out (roster-derived sections — no ad-hoc section; flagged in the
+  file's placement note), promoted as PROPOSAL 068; origin: drafted this slice under
+  standing ORDER 003 (rotation rule per ORDER 004 rule 3)
 - [`noisy-reciprocity-tft-collapse-2026-07-14.md`](noisy-reciprocity-tft-collapse-2026-07-14.md) — round-11
   COMPLETELY-UNRELATED-domain rotation head, the round-11 closer (standing ORDER 003
   continuous pipeline, rotation per ORDER 004 rule 3; domain: repeated games & the
