@@ -7,6 +7,20 @@ link below. Claim this section (`control/claims/`) before working it.
 
 ## Index
 
+- [`event-fold-visibility-floor-2026-07-15.md`](event-fold-visibility-floor-2026-07-15.md) —
+  sim-ready · fleet-backlogs: the timed-events scoping doc's two committed
+  sentences — the piecewise-exact seventh-factor fold (§ 2, one floor per
+  generator-second, graduation identity) and the "visibly richer … in the
+  exact T6 proportion" promise (§ 1a) — proven JOINTLY UNSATISFIABLE on the
+  committed lattice @ lane `884aeae`: the canonical tier-1 start cell (every
+  pack ships `base_rate: 1`) pays ZERO extra for every event multiplier below
+  ×2 (99/99 dead, first paying pct exactly 200), a +10% window is delivered
+  as +0% or +100% but never +10% (jackpot exactly 20/11), and the three
+  repairs (V038's min-delta floor / milli-granularity save-v3 migration /
+  rate-floor R\*=20 with deviation ≤ 1/22) each break a different committed
+  sentence — priced BEFORE the doc's step-2 build slice re-registers shapes;
+  PROPOSAL 077 in `control/outbox.md` (ORDER 003 fleet-backlogs rotation,
+  round 16 opener)
 - [`idle-economy-sim-kernel-2026-07-11.md`](idle-economy-sim-kernel-2026-07-11.md) —
   sim-ready · product: the §6 kernel, probed (battery v0, single-pass) with the
   verify-first read run FIRST — sim-lab's live intake @ `f70fbea` carries NO SIM-001
