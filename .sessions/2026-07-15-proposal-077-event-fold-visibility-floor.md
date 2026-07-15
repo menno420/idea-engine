@@ -1,6 +1,6 @@
 # Session — PROPOSAL 077: the festival the engine cannot show — superbot-idle's timed-events design commits a piecewise-exact event fold AND a "visibly richer in the exact T6 proportion" promise that exact integer arithmetic makes jointly unsatisfiable: the canonical tier-1 start cell pays ZERO extra for every event multiplier below ×2 (99/99 dead E values, first paying E exactly 200), a +10% window quantizes to +0% or +100% (jackpot 20/11), and each of the three repairs breaks a different committed sentence (fleet-backlogs slot, round 16 OPENER, superbot-idle)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T23:05:44Z (Ideas Lab worker slice — draft the
 > round-16 FLEET-BACKLOGS rotation slot opener under standing owner ORDER
 > 003/004; round 15 fully served: fleet P073 (#437), venture P074 (#438), game
@@ -11,7 +11,7 @@
 - **📊 Model:** fable-class · high · idea/planning
 
 *(card born in-progress at 2026-07-15T23:05:44Z as the designed session-gate
-hold; flips complete in this PR's final commit.)*
+hold; flipped complete in this PR's final commit. PR #442.)*
 
 ## Scope
 
@@ -131,8 +131,67 @@ fixture line (the V089 lesson).
 
 ## 💡 Session idea
 
-*(placeholder — written at flip; the card is born red exactly here)*
+**When a design doc commits an invariant AND a promise in the same breath,
+price their CONJUNCTION before either ships — the cheapest counterexample to
+a system is often two of its own sentences multiplied together.** The
+timed-events doc is unusually careful: its exactness argument is correct
+(T5 confirmed it), its candidate analysis is honest, its § 3 determinism
+constraints are right. The defect is not in any sentence — it is in the AND.
+The piecewise-exact fold forces the delivered bonus to be an integer
+staircase step; the proportionality promise requires that step to scale;
+on the committed rate-1 start state the step is zero for the entire sane
+band. Neither sentence can see this alone: the collision only exists at the
+conjunction, and it costs one multiplication to find (smallest pre-floor
+product × the percent's fraction vs the fold denominator — 10^8 × 0.5 <
+10^10). The drafting surprise worth keeping: the OVER-pay side fell out of
+the same theorem uninvited — the staircase that pays a +10% promise as +0%
+on one cell pays it as +100% one milestone away (exactly 20/11), so the
+repair debate is not "make it pay more" but "choose which committed sentence
+to amend", and pricing all three repair arms inside the same fixture turned
+a bug report into a decision table. Transferable audit, one sentence: for
+every percent-shaped promise that passes through a single integer floor,
+compute floor-step ÷ promised-delta at the smallest committed operating
+point — if it exceeds 1, the promise is a staircase and the doc should say
+so before a player reads it. Pattern name for the battery: CONJUNCTION
+PRICING (multiply the invariant against the promise at the worst committed
+cell).
 
 ## ⟲ Previous-session review
 
-*(placeholder — written at flip)*
+Previous session (the P076 drafter, PR #440 @ `828b18e`, merged
+2026-07-15T11:37:34Z by github-actions[bot]): reviewed with a distinctive
+wrinkle — that drafter was KILLED by a container restart AFTER its flip
+commit pushed, and its PR still landed clean, which is itself evidence the
+born-red ceremony works: every landing-critical action (card flip, push,
+PR-ready) had already executed in-order, the enabler workflow armed
+auto-merge server-side with nobody home, and nothing about the merge needed
+the drafter alive. Verified live this session: PR #440 merged at
+2026-07-15T11:37:34Z (mcp pull_request_read, merged_by github-actions[bot]),
+its seed ledger holds (20261680–683 in-tree exactly where its claim said;
+nothing ≥ 20261690 anywhere before this slice), its numbering baton held
+(newest PROPOSAL = 076, zero collisions at 077), and its round-15-close
+baton ("round 16 opens at the fleet-backlogs slot with P077") was consumed
+by this slice as written. No correctness fault found in P076's landing; the
+one operational note it could not write for itself: its terminal
+prune (this session's) had to be someone else's first act, and the card's
+"next free block 20261690 if the in-flight-buffer convention holds" line
+made that mechanical — a good argument for always writing the
+next-session-facing ledger lines BEFORE the flip, since the flip may be the
+last thing a session ever does. Ceremony carried verbatim from P073–P076
+(born-red card, three-field 📊 payload, terminal prune only after live merge
+verification, seed ledger with the disclosed gap); extensions this slice:
+the WALLED-source disclosure (pokemon-mod-lab probed once, exact errors
+captured — the first fleet-slot draw where the untapped-source preference
+hit a genuine wall and the ledger says so), and the consumed-drop
+disclosure (two prior sessions' reasons for NOT drafting this head quoted
+and answered in the Dedup — a stronger freshness argument than absence of
+overlap). Continuity notes for the coordinator: round 16 is now OPEN with
+the fleet slot served (P077, this PR) — venture (P078) is next per ORDER
+004 rule 3, then game (P079, batoned to superbot-idle live mechanics —
+UNCHANGED by this slice: this tap was the unbuilt timed-events scoping doc,
+not a game-balance surface), then unrelated (P080, must argue non-adjacency
+against at least matching / group testing / error detection); the outbox is
+199,843 B post-append — the NEXT append almost certainly triggers the 200KB
+roll, budget for it; seed high-water after this PR: 20261693 (P077's
+registered set 20261690–693), next free block 20261700 if the
+in-flight-buffer convention holds (gap 20261694–699 to disclose).
