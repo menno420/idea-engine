@@ -372,6 +372,36 @@
   sim-ready; promoted as PROPOSAL 049; origin: drafted this slice under ORDER 003 +
   ORDER 004 rule 3 from the curious-research backlog harvest (ORDER 004 rule 4
   untouched — nothing builds makerbench)
+- [`outbox-rollover-stub-saturation-2026-07-15.md`](outbox-rollover-stub-saturation-2026-07-15.md) — round-13
+  FLEET-BACKLOGS rotation head, the round-13 OPENER (standing ORDER 003, rotation per
+  ORDER 004 rule 3; harvest source: the fleet-manager's outbox rollover convention —
+  the slot's SECOND tap of that repo after P037's review-queue threshold, disclosed,
+  zero shared fixtures — quoted verbatim in THIS repo's own `control/outbox.md`
+  ROLLOVER 001 block ("200KB threshold · terminal-blocks-only · dated archive files ·
+  mandatory pointer stubs · content-stable numbering") with every model constant
+  measured from the live bus file at HEAD 256ea5c: 57 stubs mean 529.9 B, full blocks
+  mean 16,212 B, receipt 1,002 B): pre-registered fully-deterministic sim (Arm A =
+  seedless exact integer recurrence over the {T × s × b × W × policy} grid — committed
+  per-block stubs vs range stub vs receipt-compacting range stub; Arm B =
+  independently-written literal byte-ledger twin, exact-equal on every number; Arm R =
+  seeded block-size-mix traces REPORTING-ONLY, seeds 20261567–570, no statistical
+  gate) measuring whether the folk claim "a threshold-triggered archive roll keeps the
+  live file bounded" survives its own tombstone arithmetic — decision-cell saturation
+  wall against registered bands (REJECT iff N\* ≤ 300 AND ≥ 8 thrash rolls at
+  spacing ≤ 2 AND the range-stub fix ≤ 4× while the receipt-compacting policy holds a
+  constant floor over 100,000 appends, stated first / APPROVE iff N\* ≥ 500 with all
+  first-20 spacings ≥ 4 / anything else = honest null naming the binding axis; INVALID
+  controls gate on the floor-law/timing-invariance, receipt-free-invariance
+  (N\* = ceil((T − H0)/s) = 386, b-independent), compact-boundedness (floor 34,030
+  exact), closed-form-anchor, hand-world, degeneracy, and battery identities; expected
+  landing DISCLOSED per the closed-form-arm norm — REJECT at the drafter's exact
+  N\* = 233 with collapse at roll 34, wall composition 59.4% stubs / 24.8% roll
+  receipts / 15.5% pending window, and the obvious range-stub fix at only 2.88×, the
+  sim re-derives from scratch) · sim-ready; homed here per the `check_sections.py`
+  non-lane carve-out (roster-derived sections — no ad-hoc section; flagged in the
+  file's placement note), promoted as PROPOSAL 065; origin: drafted this slice under
+  standing ORDER 003 (rotation rule per ORDER 004 rule 3) from the committed rollover
+  convention's own first execution here (ORDER 010)
 - [`verdict-registry-2026-07-11.md`](verdict-registry-2026-07-11.md) — hermetic
   `## Sim verdict` note lint against a pinned field set + PROPOSAL↔VERDICT cross checked
   vs the local outbox (registry FILE judged overkill — the notes + the local outbox ARE
