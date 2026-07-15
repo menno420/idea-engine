@@ -458,3 +458,13 @@ across two runs, the pre-registered rule applied in the registered order.
 Feasibility: the full grid is 3 × 3 × 6 × 3 ≈ 162 cells of bignum
 exponentiation plus a 100,000-episode reporting trace — seconds to a minute,
 pure CPython, no dependencies.
+
+**Recommendation: sim-ready** — every constant pinned here, the decision
+rule registered REJECT-first before any code, every registered identity
+recomputed exactly at drafting (the V065 lesson), zero stochastic gates
+(joint pass probability 1 exactly for a correct implementation — the
+P059–P065 no-stochastic-gate precedent, the V067 lesson honored by
+construction), seeds 20261580–583 above both verified high-waters
+(20261570 tree / 20261566 sim-lab) with the 20261571–579 V078 buffer
+disclosed, fully hermetic at verdict time; the honest next step is the
+sim itself.
