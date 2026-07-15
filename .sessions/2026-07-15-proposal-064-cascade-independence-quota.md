@@ -1,12 +1,12 @@
 # Session — PROPOSAL 064: cascade independence quota — the crowd that stops learning after ~3½ moves, and whether a mandated blind-first panel beats full observational transparency (COMPLETELY-UNRELATED rotation, round 12 closer)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T04:27:22Z (Ideas Lab worker slice — draft the
 > round-12 COMPLETELY-UNRELATED rotation slot proposal under standing owner
 > ORDER 003/004, resuming the pipeline after the ORDER 015 EAP extension
 > (extended through 2026-07-21; seat reactivated via PR #426). Card born
-> in-progress as the designed gate hold; flips complete in this PR's final
-> commit)
+> in-progress as the designed gate hold; flipped complete in this PR's
+> final commit at 2026-07-15T04:35:28Z. PR #427)
 
 - **📊 Model:** fable-class · high · idea/planning
 
@@ -47,8 +47,8 @@ collection P052, random incidence P056, repeated games/reciprocity P060).
 Deliverables this slice: this card (born-red first commit), the claim file,
 `ideas/fleet/cascade-independence-quota-2026-07-15.md` + the
 `ideas/fleet/README.md` index row, and the `control/outbox.md` PROPOSAL 064
-append. Seeds 20261563–566 strictly above the fleet high-water 20261562
-(V074 registration).
+append (block timestamp 2026-07-15T04:33:17Z). Seeds 20261563–566 strictly
+above the fleet high-water 20261562 (V074 registration). PR #427.
 
 ## Constraints honored
 
