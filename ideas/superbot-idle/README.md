@@ -7,6 +7,24 @@ link below. Claim this section (`control/claims/`) before working it.
 
 ## Index
 
+- [`owned-track-launch-flag-dial-2026-07-16.md`](owned-track-launch-flag-dial-2026-07-16.md) —
+  sim-ready · game-mechanics (rotation slot, round 16): the owned milestone
+  track, priced on the SHIPPED runtime surface (`tools/play.py` + the live
+  engine @ lane `884aeae`) — with no generator purchase verb the metric
+  "TOTAL generators owned" is a session CONSTANT (flag × roster, invariant
+  at 216/216 enumerated cells across the whole dispatch surface, prestige
+  re-grant a fixed point), so every owned rung is a birth freebie or
+  unreachable forever (flip law exactly ceil(threshold/n): 5/50/500 on every
+  2-gen pack, four margin-0 contacts), all 54 skinned slots on the shipped
+  catalog render 🔒 1/10 or 🔒 2/10 immovably, the launch flag whose own
+  docstring commits "touches no economy constant" dials a permanent
+  +5%..+15% global production step (floor-gated: egg-farm s=10..19 earns a
+  rung that pays ZERO; 3,000 → 3,450 at s=500), and a theme-gate-passing
+  10-vs-9-generator roster back door buys +5% (210/s vs 180/s) that the
+  theme-balance neutrality pin cannot see — V017's conditional-future
+  unreachability finding and V070's "a multi-generator world re-opens the
+  owned rungs" guard both consumed; PROPOSAL 079 in `control/outbox.md`
+  (ORDER 003 game rotation, round 16 third serve)
 - [`event-fold-visibility-floor-2026-07-15.md`](event-fold-visibility-floor-2026-07-15.md) —
   sim-ready · fleet-backlogs: the timed-events scoping doc's two committed
   sentences — the piecewise-exact seventh-factor fold (§ 2, one floor per
