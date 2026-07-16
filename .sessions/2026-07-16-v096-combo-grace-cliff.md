@@ -1,6 +1,7 @@
 # Session — v096 pipeline: VERDICT 096 (P083, combo grace-budget cliff) via sim-lab → outbox V096 mirror + heartbeat + card flip
 
-> **Status:** `in-progress`
+> **Status:** `complete`
+> 📊 Model: opus-class · high · simulation/verification
 > **Model/time:** opus-class · high · simulation/verification · 2026-07-16 (a
 > dispatched session for the coordinator seat — the verify half of PROPOSAL
 > 083: run P083 (the round-17 GAME-MECHANICS slot — the combo/streak
@@ -79,8 +80,49 @@ last commit.
 
 ## 💡 Session idea
 
-(filled at flip)
+**Genuine (this session):** A STANDING/CONTINUOUS ORDER THAT SPAWNS SEQUENTIAL
+SLICES NEEDS SLICE-KEYED WORK CLAIMS, NOT ORDER-KEYED ONES. This slice's verify
+claim (`control/claims/2026-07-16-v096-combo-grace-cliff.md`) tripped
+`claims-order-collision` against the still-terminal P083 DRAFTING claim
+(`…p083-round17-game-mechanics.md`) — both name standing ORDER 003 (the
+continuous pipeline), and the checker's heuristic treats one order as one
+claimant, so it reads a legitimate draft-then-verify handoff as duplicate work.
+For a one-shot order that reading is right; for a STANDING order that emits many
+sequential work slices (draft P083 → verify P083 → draft P084 → …) two slices
+are almost always in flight at once, and the collision fires on every clean
+pipeline turn. The durable fix: a work claim for a continuous/standing order
+should key its collision identity on the SLICE (the proposal/verdict number or
+the draft-vs-verify phase), not the bare order id — so `verify-P083` and
+`draft-P083` are distinguishable claimants of ORDER 003, and the warning fires
+only on a TRUE duplicate (two `verify-P083` claims). Concretely, the checker
+could extract `ORDER NNN` PLUS the nearest proposal/verdict token from the claim
+body and collide on the pair. Dedup: V095's card 💡 was doctrine-vs-classifier
+CAPABILITIES rows; V094's was the claims-lifecycle rule-4 tension (delete-at-
+close vs prune-by-successor — about WHEN a claim dies); the P083 card's was the
+O(1) rotation ledger; the P082 card's was drafting-side. None covers the
+collision heuristic's GRANULARITY for continuous orders — this is about WHICH
+claims count as the same claimant, orthogonal to rule-4's lifecycle question.
+Grepped `.sessions/` at b97e97d for "order-collision"/"slice-keyed" — only the
+checker's own advisory text, no card states this rule.
 
 ## ⟲ Previous-session review
 
-(filled at flip)
+P083 drafting session (PR #453, merged @ main `8143cee`; verifier-count
+follow-up #454 @ `b97e97d`): clean handoff, verified in use this session — the
+sim-ready P083 block and the idea file carried every registered numeral the
+verdict needed (the steady break-step map {∞,11,6,4,1}, the loss map {10,5,3},
+both repair maps, both closed-form contacts C1/C2, and the Arm-R seed set
+20261726–729 with both preview censuses and both class-stream digests), so the
+sim-lab side re-derived the whole battery from the idea file with a single
+independently-shaped automaton and reproduced the disclosed 35/35 exactly, zero
+back-reference to the drafting scratchpad `draft_p083.py` (which is a scratchpad,
+never committed). #454's correction — bumping the disclosed verifier count to
+35/35 — was confirmed in use: the independent sim also lands at exactly 35 self-
+checks, so the corrected count is the true one. One gap the verify slice hit and
+disclosed (see the sim-lab card's 💡, not repeated here): the P083 registration
+pinned the Arm-R digest VALUES but not the digest's TOKEN ENCODING, so the verify
+side had to reverse-derive the first-character encoding (SURVIVE/SILENT-BREAK →
+'S') — the digest reproduced exactly once the encoding was found, with the census
+counts carrying the S/S split the digest collapses. Nothing was left pending for
+this mirror slice to resolve; the drafting baton ("simulate P083 → V096, disclosed
+REJECT") was executable exactly as written and executed here.
