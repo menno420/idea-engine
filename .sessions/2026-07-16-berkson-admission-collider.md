@@ -1,9 +1,9 @@
 # Session — PROPOSAL 088: round-18 UNRELATED-domain closer (Berkson admission-collider anticorrelation trap — selection induces a spurious quality tradeoff)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **📊 Model:** opus-class · high · idea/planning
 >
-> *(card born in-progress at 2026-07-16T20:39:26Z as the designed session-gate HOLD — the born-red FIRST commit. This card STAYS in-progress at push: the drafting session hands off BEFORE the deliberate complete-flip, so the born-red HOLD holds substrate-gate red ON PURPOSE — that is the expected state, not a failure.)*
+> *(card born in-progress at 2026-07-16T20:39:26Z as the designed session-gate HOLD — the born-red FIRST commit; flips complete in this PR's final commit at 2026-07-16T20:51:35Z after the drafting work lands — P088 authored, PR #464, → V101 pending.)*
 
 ## Scope / objective
 
@@ -27,7 +27,7 @@ Dose-response makes it measurable: the collider anticorrelation strengthens mono
 
 ## Constraints honored
 
-Born-red session-gate HOLD (this card STAYS in-progress — the drafting seat hands off before the deliberate complete-flip); append-only outbox (one `## PROPOSAL 088` block); TRUTH bar (the two Normal(0,1) axes, n=2000, seeds, three stringency levels are disclosed as stipulated pinned constants, not estimated); the P084 free-follow-up consumed (the collider/downward direction P084 flagged, now its own head with its own fixtures); guard-fires.jsonl never staged (`git checkout` before each commit); GitHub exclusively via MCP tools; files staged explicitly, never `git add -A`/`.`; timestamps real `date -u`; model recorded family-level only.
+Born-red session-gate HOLD (this card flips complete only in the final commit); append-only outbox (one `## PROPOSAL 088` block); TRUTH bar (the two Normal(0,1) axes, n=2000, seeds, three stringency levels are disclosed as stipulated pinned constants, not estimated); the P084 free-follow-up consumed (the collider/downward direction P084 flagged, now its own head with its own fixtures); guard-fires.jsonl never staged (`git checkout` before each commit); GitHub exclusively via MCP tools; files staged explicitly, never `git add -A`/`.`; timestamps real `date -u`; model recorded family-level only.
 
 ## ⟲ Previous-session review
 
