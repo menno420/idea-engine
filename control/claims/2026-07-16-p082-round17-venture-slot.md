@@ -1,0 +1,3 @@
+# Claim — P082 round-17 venture slot (owner-gate recognition cliff)
+
+- `claude/p082-round17-venture-slot` · **PROPOSAL 082 drafting — round-17 VENTURE rotation slot (products half)** — the owner-gate parser recognition cliff (venture-lab `scripts/derive_owner_queue.py` + the $19 OCQK `ocq.py`, harvested @ venture-lab `95e1846`); expected files: `ideas/venture-lab/owner-gate-recognition-cliff-2026-07-16.md`, `control/outbox.md` (PROPOSAL 082 append), `ideas/venture-lab/README.md` index row, `control/claims/README.md` one-line lifecycle fix (⚑ self-initiated), `control/status.md`, `.sessions/2026-07-16-p082-round17-venture-slot.md` · 2026-07-16

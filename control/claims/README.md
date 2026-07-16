@@ -92,3 +92,11 @@ over unchanged:
 - Pre-resolved at seed (blueprint §1): kit adoption, `.substrate/`,
   `control/`, and the section tree were seeded in one pass by the dispatch
   copilot (2026-07-10) — no claim races on shared ground remain from birth.
+- **Claim lifecycle, practiced (2026-07-16 clarification — resolves the rule-4
+  tension the V094 card's 💡 flagged):** in this repo a claim rides its
+  session's work PR and STAYS on main at close; the SUCCESSOR prunes it after
+  verifying that PR terminal (merged/closed) live — the v093 → P081 → V094
+  heartbeat-baton lifecycle. Rule 4's delete-at-close applies only when the
+  claim would otherwise outlive its purpose with no successor ordered to
+  prune; deleting in the same PR that added it nets the claim to zero on main
+  and erases the early in-flight signal this directory exists to provide.
