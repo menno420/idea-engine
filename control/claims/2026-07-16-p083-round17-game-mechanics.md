@@ -1,0 +1,3 @@
+# Claim — P083 round-17 game-mechanics slot (2026-07-16)
+
+- `claude/p083-game-mechanics` · **draft PROPOSAL 083** — the standing ORDER 003 deliberate-rotation round-17 GAME-MECHANICS slot (ORDER 004 rule 3; round 17 opened at fleet backlogs with P081, venture served with P082, so game mechanics is next): the combo/streak grace-budget cliff, homed in `ideas/superbot-games/` · expected files: `ideas/superbot-games/combo-grace-budget-cliff-2026-07-16.md`, `control/outbox.md` (PROPOSAL 083 append), `ideas/superbot-games/README.md` (index row), `ideas/ROTATION.md` + index link, `.sessions/2026-07-16-p083-round17-game-mechanics.md` (card), `control/status.md` (heartbeat), `control/claims/2026-07-16-p083-round17-game-mechanics.md` (this claim) · 2026-07-16
