@@ -1,15 +1,16 @@
 # Session — v099 pipeline: VERDICT 099 (P086, series read-through concentrate-vs-spread saturation crossover) via sim-lab → outbox V099 fan-in mirror + heartbeat + claim.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus 4 family · high effort · verdict-mirror task-class
 > **Model/time:** Claude Opus 4 family · high · verdict-mirror · 2026-07-16 (a dispatched session for the coordinator seat — the verify half / fan-in mirror of PROPOSAL 086: the sim runs sim-lab-side on sim-lab PR #171.)
 
-*(card born in-progress as the designed session-gate hold; the flip to
-`complete` is the deliberate LAST step, owner-reviewed before flip. Task-class
-verdict-mirror: this session's core work is verifying the sim-lab verdict landing
-and mirroring the finalized ACCEPT record — the sim itself runs sim-lab-side on
-sim-lab's own PR #171 (`sims/verdict-099-series-readthrough-saturation-crossover/`);
-this repo edits only itself, Q-0260.)*
+*(card born in-progress as the designed session-gate hold; FLIPPED to
+`complete` as the deliberate LAST step after coordinator/owner review — this is
+the release-landing commit. Task-class verdict-mirror: this session's core work
+is verifying the sim-lab verdict landing and mirroring the finalized ACCEPT
+record — the sim itself runs sim-lab-side on sim-lab's own PR #171
+(`sims/verdict-099-series-readthrough-saturation-crossover/`); this repo edits
+only itself, Q-0260.)*
 
 ## Objective
 
@@ -29,8 +30,9 @@ Run the V099 pipeline under standing owner ORDER 003/004 with the EAP frame
    proposal blocks never edited), heartbeat re-stamped on `control/status.md`
    (heartbeat-last discipline; seed baton: P086 SEEDLESS, next free block stays
    20261730), the mirror claim `control/claims/2026-07-16-v099-readthrough-mirror.md`
-   carried, terminal-claim prunes per the status baton, and this card's flip as
-   the deliberate last step (owner review precedes the flip).
+   carried, terminal-claim prunes per the status baton, and this card's flip to
+   `complete` as the deliberate last step (done — coordinator/owner review
+   preceded the flip).
 
 ## What happened
 
@@ -86,7 +88,8 @@ fixtures.json sha256
 diff + sha256). sim-lab PR #171 (head `b0dd79b5`, base main `5d8a45ef`), sim dir
 `sims/verdict-099-series-readthrough-saturation-crossover/`. This branch: claim +
 born-red card (this FIRST commit) → outbox fan-in + heartbeat + prunes → card
-flip = the deliberate last commit after owner review.
+flip to `complete` = the deliberate last commit (done, after coordinator/owner
+review — the release-landing commit).
 
 ## Constraints honored
 
