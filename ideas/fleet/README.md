@@ -591,3 +591,46 @@
   sim re-derives from scratch) · sim-ready; promoted as PROPOSAL 080; origin:
   drafted this slice under standing ORDER 003 (deliberate lane rotation, rule 3)
   as the round-16 unrelated-slot closer
+- [`simpsons-paradox-aggregation-reversal-2026-07-16.md`](simpsons-paradox-aggregation-reversal-2026-07-16.md) — round-17
+  COMPLETELY-UNRELATED-domain rotation head, the round-17 CLOSER (standing ORDER 003
+  continuous pipeline, deliberate lane rotation rule 3; domain: STATISTICS / CAUSAL
+  INFERENCE — Simpson's (the aggregation/reversal) paradox, the exact reversal of a
+  pooled point estimate under a confounded stratum allocation, the folk "a treatment
+  better in EVERY subgroup is better overall" belief priced where it exactly breaks, a
+  SEVENTEENTH fleet-external domain after P017's social choice, P024's congestion
+  routing, P028's tournament seeding, P032's pattern races, P036's optimal stopping,
+  P040's spatial self-organization, P044's queue-discipline, P048's stochastic ratchets,
+  P052's occupancy & collection, P056's random incidence, P060's repeated-game
+  reciprocity, P064's information cascades, P068's two-sided matching, P072's group
+  testing, P076's algebraic error detection, and P080's correlation design under shared
+  randomness — deliberately NON-adjacent to the last three: no permutation cycle or
+  joint-vs-marginal probability and no shared random source (vs P080 — here nothing is
+  random, the object is a deterministic pooled RATE), no codes or check maps (vs P076),
+  no prevalence prior or pooled tests (vs P072). Domain-switch note (decide-and-flag):
+  the dispatch spec named IRV/social-choice (already P017) and the inspection paradox
+  (already P056), both hard duplicates, so this slice serves the fresh seventeenth
+  domain: pre-registered fully-exact SEEDLESS sim — Arm A = the canonical Charig et al.
+  (1986) kidney-stone table (A·S=81/87, A·L=192/263 → pooled 273/350=39/50=0.780;
+  B·S=234/270, B·L=55/80 → pooled 289/350≈0.826): A wins BOTH strata yet loses the pool
+  by 16/350 (the reversal) + the pivot (A loads the hard stratum 263/350 vs B 80/350; A
+  under B's size-mix wins the pool ≈0.885 — the reversal lives in the ALLOCATION) + the
+  cliff (pooled_A(x) strictly decreasing, single crossing of 289/350 at x*=184, real
+  table x=263 past it) + the priced repair (standardization to the pooled marginal
+  357/343/700 restores std_A=634983/762700≈0.833 > std_B=6231/8000≈0.779, weight-invariant
+  over four mixes by collapsibility, at the price of one RECORDED covariate); Arm B =
+  independently-written raw-integer-count / integer-bisection / common-denominator twin,
+  exact-equal through THREE typed must-equal contacts (C1 pooled winner, C2 cliff x*=184,
+  C3 standardized pair); NO Arm R, NO seed (fully deterministic, next free block stays
+  20261730) measuring the aggregation folk belief against registered bands (REJECT iff
+  the reversal AND the pivot AND the single cliff AND the priced standardization repair,
+  stated first / APPROVE iff a uniform stratum ordering always survives aggregation —
+  arithmetically excluded by the single exhibited reversal / anything else = honest null
+  naming the binding axis; INVALID controls gate on the model / structure / anchor /
+  pencil / degeneracy identities; expected landing DISCLOSED per the exact-arm norm —
+  REJECT on all four conjuncts at the drafter's enumerated values (draft_p084.py, 25/25
+  PASS, exit 0), the estimand-weight / model-arithmetic / witness-scope falsifiability
+  worlds all named, the sim re-derives from scratch) · sim-ready; homed here per the
+  `check_sections.py` non-lane carve-out (roster-derived sections — no ad-hoc section;
+  flagged in the file's placement note), promoted as PROPOSAL 084; origin: drafted this
+  slice under standing ORDER 003 (deliberate lane rotation, rule 3) as the round-17
+  unrelated-slot closer
