@@ -1,6 +1,6 @@
 # Session — PROPOSAL 079: the milestone that cannot move — under superbot-idle's SHIPPED runtime the owned track's metric is a session CONSTANT (total owned = start-flag × roster size, invariant at all 216 enumerated cells across the entire command surface), every owned rung is a birth freebie or unreachable forever (flip thresholds exactly ceil(threshold/n): 5/50/500 on every two-generator pack), all 54 skinned owned slots on the shipped catalog render 🔒 1/10 or 🔒 2/10 immovably, and the launch flag whose own docstring commits "touches no economy constant" is the track's only in-game lever — a permanent +5%..+15% global production dial, with a theme-gate-passing 10-vs-9-generator roster back door (game slot, round 16, superbot-idle LIVE mechanics)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-16T00:35:20Z (Ideas Lab worker slice — draft the
 > round-16 GAME rotation slot under standing owner ORDER 003/004; round 16
 > opened at fleet backlogs with P077 (#442) and served venture with P078
@@ -17,7 +17,15 @@
 - **📊 Model:** fable-class · high · idea/planning
 
 *(card born in-progress at 2026-07-16T00:35:20Z as the designed session-gate
-hold; flips complete in this PR's final commit.)*
+hold. The authoring session ended before performing its own flip — the 3
+commits landed in one push at 00:45:40Z and the session never saw its gate
+result (substrate-gate FAILED at head 4acf63f, run 29462325581, the designed
+card HOLD). Flipped complete at 2026-07-16T01:36:32Z by the SUCCESSOR session
+(branch `claude/2026-07-16-v092-pipeline`), which read the failing run's log,
+confirmed the sole finding was `[session-card-hold]` on this card, and
+completed the close-out sections below from the branch's own commits and
+diff — no predecessor work is invented; everything above this note is the
+predecessor's own text, untouched.)*
 
 ## Scope
 
@@ -152,3 +160,52 @@ registered as a fixture line (the V089/V090 lesson).
   1,392/1,395/1,415, boundaries 12,874/12,779/13,179; aux 20261713 never
   read). Zero hand-derived or scaled numerals anywhere in the registered
   set.
+
+## 💡 Session idea
+
+**Arm-then-die is a stall, not a landing: when auto-merge is pre-armed and
+the gate is a born-red card HOLD, the flip commit IS the landing action —
+push-everything-then-flip must be one uninterrupted sequence, or the PR
+parks itself in a state (armed + permanently red) that no amount of waiting
+resolves.** This card's own fate is the evidence: the drafter pushed all 3
+commits in one shot at 00:45:40Z with auto-merge already armed by the
+enabler, the born-red HOLD fired exactly as designed at run 29462325581,
+and the session ended before flipping — leaving a PR whose auto-merge could
+never fire because the only red was the card the dead session alone was
+expected to flip. The coordinator close-out (#445) had to convert the
+parked line into a successor work item, and this successor session
+(`claude/2026-07-16-v092-pipeline`) performed the flip a full 51 minutes
+after the push. Transferable audit, one sentence: a session whose PR gates
+on its own close-out artifact must treat the flip as part of the push
+protocol (flip within the same working window, verify the gate went green
+before ending), and every heartbeat that parks such a PR must name the flip
+as the successor's FIRST action — which #445's heartbeat did, and which
+made this rescue mechanical. *(Written by the successor session at flip
+time; deduped against the #445 card's idea — that one is about recording
+live conclusions in heartbeats, this one is about the atomicity of the
+push+flip sequence that would have made the heartbeat line unnecessary.)*
+
+## ⟲ Previous-session review
+
+*(Written by the successor session, branch `claude/2026-07-16-v092-pipeline`,
+at flip time 2026-07-16T01:36:32Z — the authoring session died before
+writing its own review; everything here is derived from the branch's 3
+commits (f549a97, ab58ceb, 4acf63f — 7 files, +669/−3) and live GitHub, not
+from memory of work the predecessor did not record.)*
+
+Previous session per this card's own header: the **P078 drafter** (PR #443,
+venture slot) — the predecessor's first commit already recorded its live
+verification (merged 2026-07-16T00:04:35Z by github-actions[bot]) and its
+commit ab58ceb pruned the P078 claim after that verification, consuming both
+P078 batons exactly as written (seeds allocated 20261710–713 from the P078
+card's next-free-block line with the disclosed gap 20261704–709; game slot
+per ORDER 004 rule 3). Review of THIS branch's own landing by the successor:
+the deliverables are complete and internally consistent — the born-red card,
+the claim file (pruned P078's in the same commit), the idea file (485 lines)
+with its README index row, and the PROPOSAL 079 outbox append (7 lines,
+append-only, on the freshly-rolled live outbox) all present in the diff; the
+one fault was terminal, not substantive: the session ended between push and
+flip (see the 💡 above), leaving the designed HOLD as a permanent stall that
+#445 parked and this successor cleared. No content defect found in the P079
+payload itself; VERDICT 092 (sim-lab) remains the successor pipeline's next
+step after this flip lands.
