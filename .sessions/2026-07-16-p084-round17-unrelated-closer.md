@@ -1,7 +1,7 @@
 # Session — P084 round-17 unrelated-domain CLOSER slot: PROPOSAL 084 (Simpson's-paradox aggregation-reversal trap, statistics/causal-inference tap) + heartbeat
 
-> **Status:** `in-progress`
-> **Model/time:** opus-class · 2026-07-16T15:17:03Z → [[fill: flip ISO]] (Ideas Lab
+> **Status:** `complete`
+> **Model/time:** opus-class · 2026-07-16T15:17:03Z → 2026-07-16T15:31:23Z (Ideas Lab
 > worker slice — consume the VERDICT-096 close-out heartbeat's top baton at HEAD
 > `b119a62`: draft PROPOSAL 084, the standing ORDER 003 deliberate-rotation
 > round-17 COMPLETELY-UNRELATED-domain CLOSER slot (round 17 opened at fleet
@@ -11,7 +11,7 @@
 - **📊 Model:** opus-class · high · idea/planning
 
 *(card born in-progress at 2026-07-16T15:17:03Z as the designed session-gate
-hold; flipped complete in this PR's final commit at [[fill: flip ISO]], after the
+hold; flipped complete in this PR's final commit at 2026-07-16T15:31:23Z, after the
 pipeline work landed. Task-class idea/planning: this session's core work is
 drafting PROPOSAL 084; VERDICT 097 is deliberately the successor's first slice.)*
 
@@ -89,7 +89,7 @@ frame:
    both confirmed hard duplicates firsthand (`rg` sweeps + reading both files);
    Simpson's paradox confirmed tree-wide clean; the switch is disclosed in the
    idea file's Dedup, this card's Scope, and the report.
-4. **Close-out — DONE (this branch, PR [[fill: PR#]]).** Heartbeat overwritten in
+4. **Close-out — DONE (this branch, PR #456).** Heartbeat overwritten in
    the standing grammar: wakes line carried verbatim (failsafe cron
    trig_01FYrWqjWeGVUTLg51arsHFr LIVE, owner rebind pending — no trigger
    touched); ASK 005/006 re-verified `status: new` and carried unchanged;
@@ -140,11 +140,15 @@ token + the advisory in one PR; the controlled vocabulary seeds from P080's
 hand-enumerated fifteen + this head's seventeenth.
 *(Deduped against recent cards: the P083 card's 💡 is the drafter/sim
 `model.py` constant-transcription seam; the P082 card's is the O(1) rotation
-LEDGER (round bookkeeping — WHICH slot-type is next); the V096 card's is [[fill:
-confirm]] the mirror-quote discipline. THIS idea is the ADJACENT-but-distinct
-gap: not "which slot-type is next" (P082's round ledger) but "has this DOMAIN
-been used before" — a coverage/dedup tripwire the round ledger does not provide,
-surfaced by this session's own double-collision.)*
+LEDGER (round bookkeeping — WHICH slot-type is next); the V096 card's is
+slice-keyed work claims (the `claims-order-collision` heuristic's GRANULARITY —
+WHICH claims count as the same claimant for a continuous order). THIS idea is
+adjacent to all three but distinct: not "which slot-type is next" (P082's round
+ledger), not "which claims are the same claimant" (V096's collision granularity),
+but "has this DOMAIN been used before" — a domain-coverage/dedup tripwire on the
+`ideas/fleet/` unrelated heads that no round ledger and no claim heuristic
+provides, surfaced by this session's own double-collision on two already-spent
+domains.)*
 
 ## ⟲ Previous-session review
 
