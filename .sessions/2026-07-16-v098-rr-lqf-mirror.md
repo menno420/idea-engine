@@ -1,6 +1,6 @@
 # Session — v098 pipeline: VERDICT 098 (P085, RR-vs-LQF domain-rotation starvation cliff) via sim-lab → outbox V098 mirror + heartbeat + card flip.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-class · high · review/verify
 > **Model/time:** opus-class · high · review/verify · 2026-07-16 (a dispatched session for the coordinator seat — the verify half / fan-in mirror of PROPOSAL 085: the sim ran sim-lab-side on sim-lab PR #170.)
 
