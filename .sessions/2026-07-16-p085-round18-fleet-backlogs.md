@@ -1,9 +1,9 @@
 # Session — PROPOSAL 085: round-18 fleet-backlogs opener
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **📊 Model:** opus-class · high · idea/planning
 >
-> *(card born in-progress at 2026-07-16T16:32:07Z as the designed session-gate hold; flipped complete in this PR's final commit at T_FLIP.)*
+> *(card born in-progress at 2026-07-16T16:32:07Z as the designed session-gate hold; flipped complete in this PR's final commit at 2026-07-16T16:36:01Z.)*
 
 ## Scope / objective
 Draft + land PROPOSAL 085 — the round-18 fleet-backlogs OPENER (standing ORDER 003 · rotation per ORDER 004 rule 3) → sim-lab VERDICT 098 (+13 offset). One genuinely new idea, deduped against P001–P084.
