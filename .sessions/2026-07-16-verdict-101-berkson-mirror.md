@@ -1,6 +1,6 @@
 # Session — v101 pipeline: VERDICT 101 (P088, Berkson admission-collider anticorrelation trap — a disjunctive selection gate induces a spurious novelty–rigor tradeoff) via sim-lab → outbox V101 fan-in mirror + heartbeat + claim.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-class · high effort · verdict-mirror task-class
 > **Model/time:** opus-class · high · verdict-mirror · 2026-07-16 (a dispatched session for the coordinator seat — the verify half / fan-in mirror of PROPOSAL 088: the sim runs sim-lab-side on sim-lab PR #173.)
 
