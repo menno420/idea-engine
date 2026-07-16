@@ -10,8 +10,8 @@
 > **Target:** sim-lab (verification target menno420/sim-lab per the Q-0264
 > pipeline; routing is the manager's per Q-0260, this repo never edits sim-lab
 > files).
-> **Grounding:** https://github.com/menno420/idea-engine@748bd58 · the pipeline HEAD
-> at drafting. This is a fleet-OPS queueing head, NOT fleet-external: the phenomenon
+> **Grounding:** https://github.com/menno420/idea-engine@748bd58 · fetched 2026-07-16T22:39:57Z
+> (the pipeline HEAD at drafting). This is a fleet-OPS queueing head, NOT fleet-external: the phenomenon
 > is a direct model of how the fleet provisions capacity across its own concurrent
 > work lanes (the {fleet, venture, game, unrelated} lanes carry DIFFERENT task-cost
 > variances — a research-spike lane is heavy-tailed, a mechanical-refactor lane is
