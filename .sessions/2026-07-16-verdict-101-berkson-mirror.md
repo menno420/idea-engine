@@ -101,6 +101,46 @@ commit.
 - GitHub exclusively via MCP tools; files staged explicitly, never
   `git add -A`/`.`; guard-fires.jsonl left uncommitted.
 
-<!-- TODO(flip): ⟲ Previous-session review — fill on the completion commit (the P088 → sim-lab #173 landing slice) when the card flips to `complete`. -->
+## ⟲ Previous-session review
 
-<!-- TODO(flip): 💡 Session idea — fill on the completion commit; carry the family-level `📊 Model:` footer line at flip. -->
+Reviewed the P088 authoring slice (idea-engine PR #464, `claude/p088-berkson-admission-collider`,
+card `.sessions/2026-07-16-berkson-admission-collider.md`, now `complete`/terminal):
+PROPOSAL 088 drafted the round-18 COMPLETELY-UNRELATED-domain closer cleanly — the
+Berkson admission-collider trap, taken as the FREE follow-up P084's (Simpson's) own
+"Follow-ups named, none in scope" line explicitly flagged (the DOWNWARD/collider
+direction — the same algebra, opposite causal hazard). Its landing discipline was
+intact: born-red session-gate HOLD, append-only outbox (one PROPOSAL 088 block),
+SEEDLESS baton (block 20261730 untouched), heartbeat-last, this-repo-only edits
+(Q-0260). The standout was the DISCLOSED R4 finite-sample-envelope correction — the
+single-gate control's pooled mean sits inside the null band (|−0.0135| ≤ 0.03) but its
+3σ envelope pokes past 0.03 on an exactly-zero quantity, so R4 was registered on the
+pooled-MEAN reading with the DECISIVE clause the 43σ separation from ρ_OR, not the
+stricter ≥3σ-inside reading (which is R1's) — an honest scope call made BEFORE
+registering, the P084/P085 calibrate-against-the-world discipline working as designed.
+This verdict slice inherits that registration and confirms it: the sim-lab
+re-derivation reproduced ρ_full, the OR-collider dose-response, the single-gate zero,
+and the thresholds from scratch → APPROVE, first-failing gate None. The +13 P→V offset
+held (P088 → V101, the twenty-fifth row), and the pipeline stays non-dry into round 19.
+
+## 💡 **Session idea**
+
+The Berkson head PROVES a disjunctive collider manufactures a *negative* admitted-cohort
+correlation — but P084 (Simpson's confounder) and P088 (Berkson collider) are now a
+MATCHED OPPOSITE-HAZARD PAIR sharing the same stdlib Monte-Carlo machinery, and the fleet
+has no way to tell WHICH hazard a given observed anticorrelation is. A concrete,
+contained follow-on (round-19-openable, no new sibling repo surface): a **collider-vs-confounder
+discriminator** — one seeded fixture that, given a cohort showing corr(X,Y) < 0, runs BOTH
+diagnostics and reports which mechanism is live: (a) the Berkson test — re-measure the
+correlation in the UNSELECTED population and under a single-axis gate (if it vanishes, the
+negative corr is selection/collider, P088's repair); (b) the Simpson test — stratify by the
+candidate confounder and check whether every stratum agrees on a sign the pooled rate flips
+(if so it is back-door confounding, P084's repair). The discriminator's OUTPUT is the audit
+question made mechanical: "is this a collider you should stop conditioning on, or a
+confounder you should start adjusting for?" — because the two repairs are OPPOSITE (collider:
+do NOT condition; confounder: DO adjust), guessing wrong makes the bias worse. A second,
+lighter probe also falls out at mirror time: a **Berkson repair-audit** check-side helper that,
+for any fleet retrospective asserting an X-vs-Y tradeoff "among our shipped/accepted work",
+flags the claim UNLESS it also cites the unselected-population (or single-axis-gate)
+correlation — the mechanical form of R4's own falsifier, applied to prose.
+
+> **Model/task:** opus-class · high · verdict-mirror task-class.
