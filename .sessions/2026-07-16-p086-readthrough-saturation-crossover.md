@@ -1,9 +1,9 @@
 # Session — PROPOSAL 086: round-18 venture slot (series read-through concentrate-vs-spread saturation crossover)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **📊 Model:** opus-class · high · idea/planning
 >
-> *(card born in-progress at 2026-07-16T17:45:09Z as the designed session-gate HOLD — the born-red first commit; flips complete in this PR's final commit after the drafting work lands.)*
+> *(card born in-progress at 2026-07-16T17:45:09Z as the designed session-gate HOLD — the born-red first commit; flipped complete in this PR's final commit at 2026-07-16T17:50:17Z after the drafting work landed.)*
 
 ## Scope / objective
 Draft + land PROPOSAL 086 — the round-18 VENTURE slot (standing ORDER 003 · rotation per ORDER 004 rule 3; round-18 opener P085 was the fleet-backlogs opener, venture is next in the rule-3 rotation) → sim-lab VERDICT 099 (+13 offset). One genuinely new idea, deduped against P001–P085.
