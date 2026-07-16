@@ -1,7 +1,7 @@
 # Session — P083 round-17 game-mechanics slot: PROPOSAL 083 (combo/streak grace-budget cliff, superbot-games tap) + ROTATION.md seed + heartbeat
 
-> **Status:** `in-progress`
-> **Model/time:** opus-class · 2026-07-16T14:20:17Z → [[fill: flip time]] (Ideas Lab
+> **Status:** `complete`
+> **Model/time:** opus-class · 2026-07-16T14:20:17Z → 2026-07-16T14:34:38Z (Ideas Lab
 > worker slice — consume the VERDICT-095 close-out heartbeat's top baton at HEAD
 > `96a9f22`: draft PROPOSAL 083, the standing ORDER 003 deliberate-rotation
 > round-17 GAME-MECHANICS slot (round 17 opened at fleet backlogs with P081,
@@ -11,8 +11,8 @@
 - **📊 Model:** opus-class · high · idea/planning
 
 *(card born in-progress at 2026-07-16T14:20:17Z as the designed session-gate
-hold; flips complete in this PR's final commit at [[fill: flip time]], after the
-pipeline work lands. Task-class idea/planning: this session's core work is
+hold; flipped complete in this PR's final commit at 2026-07-16T14:34:38Z, after
+the pipeline work landed. Task-class idea/planning: this session's core work is
 drafting PROPOSAL 083; VERDICT 096 is deliberately the successor's first slice.)*
 
 ## Scope
@@ -80,12 +80,20 @@ frame:
 2. **Claim — DONE.** This session's claim landed and STAYS at close for the
    successor to prune (the practiced prune-by-successor lifecycle — the P082
    claim was pruned by the V095 session after PR #450 verified merged).
-3. **⚑ Self-initiated: ROTATION.md — [[fill: landed | deferred]].** Seeded the
-   O(1) rotation ledger the P082 card's 💡 flagged, populated rounds 16–17 from
-   the outbox chain (round 16 opener P077 → P078 venture / P079 game / P080
-   unrelated; round 17 opener P081 → P082 venture-products / P083 game-mechanics
-   = THIS), linked from a reachable index. [[fill: gate result note]]
-4. **Close-out — DONE (this branch, PR [[fill: PR number]]).** Heartbeat
+3. **⚑ Self-initiated: ROTATION.md — DEFERRED (to keep the gate green).** Built
+   and tested the O(1) rotation ledger the P082 card's 💡 flagged (populated
+   rounds 16–17 from the outbox chain; linked from the root README), but
+   REVERTED it: `check_ideas` grammar-scans EVERY `ideas/**/*.md` for a
+   `<slug>-YYYY-MM-DD.md` filename AND a `> **State:**` line, which a top-level
+   rotation LEDGER cannot satisfy — `ideas/ROTATION.md` produced 2 violations
+   (FILENAME + STATE) that red `check --strict` via `scripts/preflight.py`
+   (exit 1). Per the pre-authorized fallback the PROPOSAL is the must-land and
+   the ledger is bonus, so the slice is deferred with a decide-and-flag: the
+   reachable home is `docs/ROTATION.md` (outside the ideas-grammar scan, inside
+   the docs badge taxonomy — `living-ledger`), flagged in the heartbeat for a
+   future session. The rotation table itself is fully worked out in this card's
+   Results (rounds 16–17) for that session to lift verbatim.
+4. **Close-out — DONE (this branch, PR #453).** Heartbeat
    overwritten in the standing grammar: wakes line carried verbatim (failsafe
    cron trig_01FYrWqjWeGVUTLg51arsHFr LIVE, owner rebind pending — no trigger
    touched); ASK 005/006 re-verified `status: new` and carried unchanged;
@@ -144,7 +152,7 @@ drafter/sim constant-transcription seam.)*
 ## ⟲ Previous-session review
 
 Reviewed: the VERDICT-095 close-out session (PR #451, merged @ main 96a9f22,
-card `.sessions/2026-07-16-verdict-095-owner-gate-cliff.md` and the coordinator
+card `.sessions/2026-07-16-v095-owner-gate-cliff.md` and the coordinator
 close-out heartbeat). Its baton was fully consumable as written: the
 game-mechanics slot call (round-17, next after P082's venture), the seed baton
 (next free 20261726 — confirmed by this session's read: P082's registered set
