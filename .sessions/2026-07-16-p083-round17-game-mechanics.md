@@ -63,8 +63,10 @@ frame:
    a per-action-forgiving grace window (any action ≤ G=3 late "safe forever")
    actually hides one SHARED grace budget (B0=10) whose cumulative depletion
    breaks the streak at a history-determined step. Every registered numeral
-   produced live by `draft_p083.py` (scratchpad, stdlib-only): **31/31 checks
-   PASS, exit 0** — R1 the folk belief falsified (ℓ∈{1,2,3} break at finite
+   produced live by `draft_p083.py` (scratchpad, stdlib-only): **35/35 checks
+   PASS, exit 0** (31 deterministic gate checks + 4 reporting-only Arm-R
+   sentinels; byte-identical across two process runs) — R1 the folk belief
+   falsified (ℓ∈{1,2,3} break at finite
    steps 11/6/4, only ℓ=0 survives), R2 the cliff at break_step = floor(B0/ℓ)+1
    sim==closed-form exact, R3 the forgiveness inversion (loss = break_step−1 =
    {10,5,3}, strictly DECREASING in ℓ — the smallest lateness ℓ=1 rides longest
