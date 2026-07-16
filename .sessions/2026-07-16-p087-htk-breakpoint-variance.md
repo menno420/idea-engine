@@ -1,9 +1,9 @@
 # Session — PROPOSAL 087: round-18 game-mechanics slot (hits-to-kill breakpoint-variance comb — consistency beats raw power)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **📊 Model:** opus-class · high · idea/planning
 >
-> *(card born in-progress at 2026-07-16T18:59:30Z as the designed session-gate HOLD — the born-red first commit; flips complete in this PR's final commit at {{TS_FLIP}} after the drafting work lands.)*
+> *(card born in-progress at 2026-07-16T18:59:30Z as the designed session-gate HOLD — the born-red first commit; flips complete in this PR's final commit at 2026-07-16T19:37:10Z after the drafting work lands.)*
 
 ## Scope / objective
 Draft + land PROPOSAL 087 — the round-18 GAME-MECHANICS slot (standing ORDER 003 · rotation per ORDER 004 rule 3: round-18 opener P085 = fleet-backlogs, P086 = venture, so game is next) → sim-lab VERDICT 100 (+13 offset). One genuinely new idea, deduped against P001–P086 and the full ideas/ game lanes.
