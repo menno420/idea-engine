@@ -1,6 +1,6 @@
 # Session — v097 pipeline: VERDICT 097 (P084, Simpson's-paradox aggregation-reversal trap) via sim-lab → outbox V097 mirror + heartbeat + card flip
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-class · high · simulation/verification
 > **Model/time:** opus-class · high · simulation/verification · 2026-07-16 (a
 > dispatched session for the coordinator seat — the verify half of PROPOSAL
