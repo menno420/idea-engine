@@ -1,6 +1,6 @@
 # Session — PROPOSAL 078: the blanket that halves at the border — venture-lab's catalog-wide impulse-price rejection ("70% of $3.99 beats 35% of $0.99 at any plausible volume ratio", stamped on 26 vetting packets AND taught as transferable procedure by the sellable AI-novella-production kit) rests on a break-even bar that is exactly TWICE the price ratio (266/33 ≈ 8.06 — the sentence is right where it was born), the KDP royalty function it rides halves EXACTLY at the $2.99 border with a forbidden band exactly as wide as its own lower edge, and the catalog's own committed series geometry collapses the bar: ≤ 2 on the complete 3-book Night Kiln series, ≈ 1.29 at the packet's own committed 36-book Peridale comp (venture slot, round 16, BOOKS half, venture-lab)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **Model/time:** fable · 2026-07-15T23:42:17Z (Ideas Lab worker slice — draft the
 > round-16 VENTURE rotation slot, BOOKS half, under standing owner ORDER
 > 003/004; round 16 opened at fleet backlogs with P077 (#442, merged
@@ -14,7 +14,7 @@
 - **📊 Model:** fable-class · high · idea/planning
 
 *(card born in-progress at 2026-07-15T23:42:17Z as the designed session-gate
-hold; flips complete in this PR's final commit.)*
+hold; flipped complete in this PR's final commit. PR #443.)*
 
 ## Scope
 
@@ -133,6 +133,64 @@ registered as a fixture line (the V089 lesson).
   20261703 never read). Zero hand-derived or scaled numerals anywhere in the
   registered set.
 
-[[fill: 💡 session idea — written at flip]]
+## 💡 Session idea
 
-[[fill: ⟲ previous-session review — written at flip]]
+**Price the undefined quantifier: when a committed sentence does its arguing
+with a word ("any plausible volume ratio"), the exact value of that word is a
+free theorem — compute it before the sentence becomes boilerplate.** The
+catalog's impulse-price rejection is locally excellent reasoning: the tier
+arithmetic is real, the direction is right, and standalone the bar lands at
+an honestly implausible ~8×. The defect entered through PROPAGATION, not
+logic: a per-title argument was stamped as a 26-packet checkbox and then
+SOLD as genre-independent procedure, and nobody ever computed the one number
+the justifying word gestured at. Computing it cost one division and revealed
+a law (break-even = tier-ratio × price-ratio, exactly) that makes the bar
+auditable for every future price pair at a glance. The drafting surprise
+worth keeping: the REPAIR was already committed in the same tree — the
+Marmalade packet's fork sentence ("3+ books → real ⚑ owner decision") is
+word-for-word the scope qualifier the blanket needs, written once, deferred
+("flagged for then, not now") while the tree itself grew the 3-book series
+that makes "then" now. Transferable audit, one sentence: for every committed
+rule justified by an unquantified plausibility word, compute the word's
+exact threshold at the committed constants AND check whether the repo
+already contains its own repair sentence — promote, don't invent. Pattern
+name for the battery: QUANTIFIER PRICING (the boilerplate-scope corollary of
+P077's conjunction pricing — there two sentences multiplied; here one
+sentence propagated past its own scope).
+
+## ⟲ Previous-session review
+
+Previous session (the P077 drafter, PR #442 @ `8aa71ba`, merged
+2026-07-15T23:14:34Z by github-actions[bot]): reviewed and verified live
+this session — PR #442 merged with merged_by github-actions[bot] (mcp
+pull_request_read), its seed ledger holds exactly (20261690–693 in-tree
+where its claim said; the only "20261700" in-tree is its own next-free-block
+ledger line), its numbering baton held (newest PROPOSAL = 077, zero
+collisions at 078), and both of its forward batons were consumed as written:
+the slot baton ("venture (P078) is next") drove this slice's slot/half
+derivation, and the rollover warning ("the outbox is 199,843 B post-append —
+the NEXT append almost certainly triggers the roll, budget for it") was
+EXACT — this slice's 5,731 B append landed at 205,574 B and ROLLOVER 003
+executed in this PR. No correctness fault found in P077's landing. Its
+practice of writing the next-session-facing ledger lines BEFORE the flip
+(seed block, roll warning) made this slice mechanical — carried forward
+below. Ceremony carried verbatim from P073–P077 (born-red card, three-field
+📊 payload, terminal prune only after live merge verification, seed ledger
+with the disclosed gap); extension this slice: the CALENDAR-BOUNDARY roll —
+ROLLOVER 003 was the first roll whose execution day differed from its
+append's day, and the convention has a genuine unhandled corner worth the
+manager's eye (decide-and-flag, not an ASK): a SECOND same-UTC-day roll has
+no compliant path — "dated archive files" + each archive's own "never
+append here" header + one-file-per-date jointly exclude it; this roll dodged
+the corner by executing after the UTC day flip (append 23:49:54Z, roll
+2026-07-16), disclosed in the receipt. Continuity notes for the coordinator:
+round 16 is now fleet P077 ✓ + venture P078 (this PR) — game (P079) is next
+per ORDER 004 rule 3, still batoned to superbot-idle LIVE mechanics per the
+P076 card (P077's fleet tap deliberately took the unbuilt scoping doc and
+left that baton intact), then unrelated (P080, must argue non-adjacency
+against at least matching / group testing / error detection); the outbox is
+freshly rolled (ROLLOVER 003 receipt chained after 002; live file well under
+the threshold with headroom for many appends — the next roll is far off);
+seed high-water after this PR: 20261703 (P078's registered set 20261700–703),
+next free block 20261710 if the in-flight-buffer convention holds (gap
+20261704–709 to disclose).
