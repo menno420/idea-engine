@@ -549,3 +549,45 @@
   the registry; sim-lab grammar half routed via the manager) · park(built-here —
   SIM-VERDICT category in `scripts/check_ideas.py`, probed + built in the same PR);
   origin: V005 fan-in card 💡, armed by V006's ruling-field drift (PR #121)
+- [`cycle-following-coupling-lever-2026-07-16.md`](cycle-following-coupling-lever-2026-07-16.md) — round-16
+  COMPLETELY-UNRELATED-domain rotation head, the round-16 closer (standing ORDER 003
+  continuous pipeline, deliberate lane rotation rule 3; domain: correlation design
+  under shared randomness — the joint-vs-marginal gap of success events coupled
+  through one random permutation's cycle skeleton (coordinated search / the
+  cycle-following pointer strategy), the folk "marginals multiply into the joint;
+  a strategy that moves no marginal cannot move the group" belief priced where it
+  exactly breaks, a SIXTEENTH fleet-external domain after P017's social choice,
+  P024's congestion routing, P028's tournament seeding, P032's pattern races,
+  P036's optimal stopping, P040's spatial self-organization, P044's
+  queue-discipline, P048's stochastic ratchets, P052's occupancy & collection,
+  P056's random incidence, P060's repeated-game reciprocity, P064's information
+  cascades, P068's two-sided matching, P072's group testing, and P076's algebraic
+  error detection — deliberately NON-adjacent to the last three: no sides or
+  preferences (vs P068), no prevalence prior or pooled tests (vs P072), no codes
+  or check algebra (vs P076 — permutations there are pinned CHECK MAPS, here the
+  random OBJECT)): pre-registered exact sim — Arm A = the harmonic law
+  (joint pointer success = 1 − Σ_{k=b+1}^{m} 1/k exactly for b ≥ n; headline
+  P₅₀ ≈ 0.3118278207 vs the independent pole exactly 2⁻¹⁰⁰ — a 3.953 × 10²⁹ lift —
+  and the same-set pole exactly 0) + marginal invariance (a fixed element's cycle
+  length is uniform, so every player stays exactly at b/m — the lift is pure
+  dependence) + failure concentration (E[# failing | joint failure] = 50/T₅₀ ≈
+  72.6562 of 100) + the certified 1 − ln 2 floor (gap ≈ 0.0049750) + the
+  adversary/repair pair (relabeling is a conjugation NO-OP, {720, 0, 720}; the
+  one-sided remap π∘σ restores exactly 276/720 against every pinned arrangement);
+  Arm B = independently-written brute enumerations (m ∈ {4, 6, 8}: censuses
+  10/276/14,736) + the cycle-type partition census (1,285,920 = 10!·893/2520),
+  exact-equal through FOUR typed must-equal contacts incl. the below-budget
+  inclusion-exclusion corrections (632,736 = 560,160 + 10!/50 · 5,916 = naive +
+  8!/32 — the harmonic shortcut is genuinely FALSE below b = n, registered as its
+  own live NULL axis); Arm R = seeded episode traces REPORTING-ONLY, seeds
+  20261714–717 with aux 20261717 never read, 99N draw-count sentinel, no
+  statistical gate) measuring the independence folk belief against registered
+  bands (REJECT iff lever AND marginal invariance AND concentration/floor AND
+  both repair censuses, stated first / APPROVE iff the pointer census equals the
+  2⁻ᵐ product census or a marginal moves off b/m / anything else = honest null
+  naming the binding axis; expected landing DISCLOSED per the exact-arm norm —
+  REJECT on all four conjuncts at the drafter's enumerated values, the
+  marginal-mover / composition / shortcut falsifiability worlds all named, the
+  sim re-derives from scratch) · sim-ready; promoted as PROPOSAL 080; origin:
+  drafted this slice under standing ORDER 003 (deliberate lane rotation, rule 3)
+  as the round-16 unrelated-slot closer
