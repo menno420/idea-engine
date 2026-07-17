@@ -1,6 +1,6 @@
 # Session — PROPOSAL 090: big-pond badge-starvation inversion (round-19 venture slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **📊 Model:** opus-4.8 · high · idea/planning
 
 (Card born in-progress as the designed session-gate HOLD — the born-red FIRST commit; flips to `complete` in this PR's final commit, after the heartbeat, releasing the landing workflow.)
