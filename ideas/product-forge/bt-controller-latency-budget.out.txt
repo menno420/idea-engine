@@ -1,0 +1,41 @@
+==============================================================================
+END-TO-END INPUT-LATENCY BUDGET - phone-as-Bluetooth-controller
+Illustrative DETERMINISTIC budget (no RNG, no wall-clock). NOT a measured
+sim-lab VERDICT. Recommend on-device measurement before quoting a number.
+==============================================================================
+
+FIXED COMPONENTS (shared across transports)   min /  typ /  max  (ms)
+------------------------------------------------------------------------------
+  touch sampling                     0.0 /   4.2 /   8.3   120 Hz sampling, 0..full-period (A1)
+  app + HID report assembly          0.5 /   1.0 /   2.0   app wake + HID report assembly, DISCLOSED ASSUMPTION (A2)
+  receiver input stack + render      8.3 /  16.7 /  33.3   receiver stack+render: 120Hz 1f / 60Hz 1f / 60Hz 2f (A4)
+
+TRANSPORT STAGE                               min /  typ /  max  (ms)
+------------------------------------------------------------------------------
+  Classic BT HID                    10.0 /  21.0 /  32.0   ~10-32 ms polling band (A3, order-of-mag)
+  BLE HID (HOGP)                     7.5 /  15.0 /  30.0   7.5 ms min conn interval, 1..4 intervals (A3)
+
+END-TO-END TOTAL per transport (touch + assembly + transport + render)
+------------------------------------------------------------------------------
+  transport                min     typ     max   (ms)
+  Classic BT HID          18.8    42.9    75.6
+  BLE HID (HOGP)          16.3    36.9    73.6
+
+CLASSIFICATION  (PASS = worst-case fits | MARGINAL = window inside range |
+                 FAIL = even best case overruns)
+  cols: media=no hard window  casual~100ms  action~50ms  compet.~16ms
+------------------------------------------------------------------------------
+  transport                  media      casual      action     compet.
+  Classic BT HID              PASS        PASS    MARGINAL        FAIL
+  BLE HID (HOGP)              PASS        PASS    MARGINAL        FAIL
+
+WINDOWS: media/remote = no hard window; casual ~100 ms; action ~50 ms;
+         competitive/frame-perfect ~16 ms (one 60 Hz frame).
+
+VERDICT LINES:
+  Classic BT HID: total 18.8/42.9/75.6 ms  ->  media / remote=PASS, casual gaming=PASS, action gaming=MARGINAL, competitive/frame-perfect=FAIL
+  BLE HID (HOGP): total 16.3/36.9/73.6 ms  ->  media / remote=PASS, casual gaming=PASS, action gaming=MARGINAL, competitive/frame-perfect=FAIL
+
+Both transports: comfortable for media/remote and casual play, MARGINAL for
+action gaming, and FAIL the ~16 ms competitive/frame-perfect budget. Measure
+on real hardware before making any latency claim.

@@ -243,3 +243,10 @@ do:
   3. Hygiene: accurate control/status.md heartbeats; every PR settled or carrying a named blocker; all work committed before session end; records clear enough for a fresh seat to resume from the repo alone.
 why: records the owner's live overnight directive so a fresh seat (owner recreating projects tomorrow) picks up the autonomous-run mandate from the repo alone; verbatim wording was declined by the content classifier for relay, so this labeled summary carries it with a provenance pointer.
 done-when: directive on main in control/inbox.md at a free ORDER number with provenance; by morning the seat has landed backlog work or produced a review-ready menu of planning docs.
+
+## ORDER 017 · 2026-07-17T12:19:47Z · status: new
+priority: normal
+source: owner, live in the coordinator seat, 2026-07-17
+do: Research the viability of, and plan, an app that turns a phone into a Bluetooth controller for other phones / tablets / devices — customizable buttons and layouts, optionally using hardware (volume / sound) buttons as input; assess viability, simulate what is sensibly simulable, and produce a veto-ready plan.
+why: Owner idea intake for the generate→verify loop; the owner wants a grounded viability read (Android vs iOS) and an MVP + slice plan before any build.
+done-when: A cited research + veto-ready PLAN doc lands under ideas/ (viability verdict, recommended MVP, slice list with effort + risk + reversibility, the iOS wall + fallbacks, open questions); a latency-budget model is included if it adds honest signal; the heartbeat records that the owner plan awaits owner review.
