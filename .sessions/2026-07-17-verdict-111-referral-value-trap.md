@@ -1,6 +1,6 @@
 # VERDICT 111 mirror — the referral-bonus value trap: the profit-optimal per-referral bonus b*=4.5 is strictly interior AND strictly below the virality-maximizing bonus b_viral=8.0, so tuning for maximum viral coefficient strictly overspends (P098, +13) — APPROVE
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · verdict-mirror
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat.
@@ -24,9 +24,9 @@ APPROVE — all three pre-registered gates pass in order R1→R2→R3, verdict n
 Derived pinned-world anchors (SEED=20260717, S=1000, K=3, q_max=0.25, b0=2.0, M=10.0, N=2000, grid [0.0..8.0] step 0.1): b*=4.5 (R0=0.670951), b_viral=8.0 (R0=0.736263). Subcritical throughout (K·q_max=0.75<1).
 
 ## ⟲ Previous-session review
-[[fill: one-line review of the close-out session #488 — added at flip]]
+The close-out session #488 (coordinator close-out heartbeat, main 04774f8) parked the seat cleanly with a next-2 baton that named sim-lab VERDICT 111 for P098 (+13) as the successor's FIRST pull — this session executes exactly that pull, so the baton handoff was accurate and complete; its recorded routine anomaly (the predecessor failsafe cron hard-deleted by an unknown actor after its 15:34Z fire) is carried forward as a fact, and the replacement failsafe/pacemaker routines have since been re-relayed and re-verified by the coordinator (ids in this heartbeat).
 
 ## 💡 Session idea
-[[fill: one genuine new session idea — added at flip]]
+The value trap is WORST exactly where founders are most tempted by it. The overspend at b_viral is amplified by 1/(1−R0), and R0 rises with the bonus — so as a product's referral loop approaches criticality (K·q_max → 1), the profit penalty of "tune for maximum virality" does not just persist, it DIVERGES. This session's world was pinned safely subcritical (K·q_max=0.75) and the penalty was already ≈27%; the natural round-22+ follow-up proposal is a near-criticality sweep that holds the model fixed and pushes K·q_max ∈ {0.75, 0.85, 0.92, 0.96} toward 1, pre-registering the prediction that the profit gap Π̄(b*)−Π̄(b_viral) scales like 1/(1−R0(b_viral)) — i.e. the most "viral" (near-critical) products are precisely the ones where chasing virality is most ruinous, a self-amplifying mistake. Distinct from P098's abstract "value-trap template" card idea: this is one concrete, seed-pinnable, ≥3σ-gateable scaling claim, and it directly exercises the "subcritical cap" boundary that P098 disclosed but did not measure.
 
-[[fill: bottom 📊 Model line — added at flip]]
+📊 Model: opus-4.8 · high · verdict-mirror
