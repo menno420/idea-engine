@@ -1,6 +1,6 @@
 # VERDICT 115 mirror — the growth cash-trough trap: two subscription ventures with IDENTICAL positive per-customer unit economics (LTV=100 > CAC=60) differ ONLY in acquisition growth rate g, and because CAC is paid UPFRONT while margin accrues over the customer's lifetime, the FASTER grower has a strictly DEEPER cumulative-cash trough and higher ruin probability for equal starting capital — above g_crit=CAC·s/(CAC−m)=1.08 per-period cash flow is PERMANENTLY negative despite every customer being profitable, so "positive LTV/CAC, scale hard" is a ruin trap driven by cash TIMING, not unit economics (P102, +13) — APPROVE
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · low · review/verify
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the outbox mirror + heartbeat are written.
