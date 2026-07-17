@@ -1,6 +1,6 @@
 # VERDICT 109 mirror — friendship-paradox epidemic sensors: watch a random FRIEND to see the epidemic wave first; the head-start equals the degree variance Var[k]/E[k] (P096, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: claude-opus-4-8 · effort high · task-class verdict-mirror
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat.
