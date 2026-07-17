@@ -1,7 +1,7 @@
 # Session — v102 pipeline: VERDICT 102 (P089, variance-blind provisioning trap — mean-based M/G/1 lane provisioning under-serves high-variance lanes) via sim-lab → outbox V102 fan-in mirror + heartbeat + claim.
 
-> **Status:** `in-progress`
-> 📊 Model: opus-4.8 · high effort · verdict-mirror task-class
+> **Status:** `complete`
+> 📊 Model: opus-4.8 · high · review/verify
 > **Model/time:** opus-4.8 · high · verdict-mirror · 2026-07-17 (a dispatched session for the coordinator seat — the verify half / fan-in mirror of PROPOSAL 089: the sim runs sim-lab-side on sim-lab PR #175.)
 
 *(card born in-progress as the designed session-gate HOLD — the born-red first
