@@ -3,7 +3,8 @@
 > **State:** sim-ready
 > **Class:** UNRELATED-domain (round-22 closer) · information theory / mathematical finance — growth-optimal capital allocation (Kelly 1956) · fleet-external pure-mechanism head
 > **Target:** sim-lab (VERDICT 113, +13 offset)
-> **Grounding:** https://github.com/menno420/idea-engine@a8c10e3 · fetched 2026-07-17T22:00:41Z · J. L. Kelly Jr., "A New Interpretation of Information Rate," Bell System Technical Journal 35 (1956) 917–926 (the log-optimal / geometric-growth criterion)
+> **Grounding:** https://github.com/menno420/idea-engine@a8c10e3 · fetched 2026-07-17T22:00:41Z
+> **Source basis:** J. L. Kelly Jr., "A New Interpretation of Information Rate," Bell System Technical Journal 35 (1956) 917–926 — the log-optimal / geometric-growth criterion (standard textbook result; no external repo fetched).
 > **Verifier (firsthand):** committed stdlib-only reference sim `ideas/fleet/kelly_overbet_ruin.py` (random, math, json, hashlib) — dry-sim exit 0, all gates PASS, results-dict sha256 d6e489de…75ad65a5 (see Verifier + Dry-sim below).
 
 ## The phenomenon (one line)
