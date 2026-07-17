@@ -1,6 +1,6 @@
 # VERDICT 114 mirror — winner's curse in a common-value task auction: N=8 agents each see an unbiased noisy signal s_i=V+U(−1,1) of a task's common value and the highest bid wins, so the winner is the most upward-biased estimator and naive own-signal commitment earns NEGATIVE expected profit (mean −0.778), cured by shading every bid by the order-statistic bias w·(N−1)/(N+1)=0.778 (break-even −0.00025) (P101, +13) — APPROVE
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · low · review/verify
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the outbox mirror + heartbeat are written.
