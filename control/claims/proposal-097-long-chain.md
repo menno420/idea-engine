@@ -1,0 +1,4 @@
+# CLAIM — PROPOSAL 097 (round-22 fleet-opener authoring slot)
+
+- `claude/proposal-097-long-chain` (idea-engine) · **scope** — round-22 FLEET-opener PROPOSAL 097 (long-chain process flexibility; one secondary category per lane wired as a single ring recovers ~95% of the full-flexibility throughput gap, beating buddy-pairs ~2.3× on the same 2-skill budget); drafts the idea + fans it to sim-lab (P097 → V110, +13); files: ideas/fleet/long-chain-flexibility-2026-07-17.md, control/outbox.md (PROPOSAL 097 block), control/claims/ (this claim), control/status.md (heartbeat), .sessions/2026-07-17-proposal-097-long-chain.md card · 2026-07-17
+- Prunes in this slice: control/claims/verdict-109-friendship-paradox.md — terminal; idea-engine PR #484 (VERDICT 109 mirror) MERGED, verified at live GitHub 2026-07-17 (merged_by github-actions[bot], merged_at 2026-07-17T14:15:45Z). Leaves control/claims/bt-controller-plan.md alone (sibling slice, owner-review parked).

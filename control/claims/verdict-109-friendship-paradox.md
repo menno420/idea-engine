@@ -1,4 +1,0 @@
-# CLAIM — VERDICT 109 (round-21 unrelated-closer verify/mirror slot)
-
-- `claude/verdict-109-mirror` (idea-engine) · **scope** — round-21 VERDICT 109 mirror/fan-in of the sim-lab-finalized verdict verifying idea-engine PROPOSAL 096 (friendship-paradox epidemic sensors; P096 → V109, +13); files: idea-engine control/outbox.md (VERDICT 109 mirror block), control/status.md (heartbeat), .sessions/2026-07-17-verdict-109-mirror.md card + this claim · 2026-07-17
-- Prunes in this slice: control/claims/friendship-paradox-sensor.md — terminal; idea-engine PR #483 (PROPOSAL 096 authoring) MERGED, verified at live GitHub 2026-07-17. control/claims/verdict-108-rubber-band-controller.md — terminal; idea-engine PR #480 + sim-lab VERDICT 108 PR #181 BOTH MERGED, P095 → V108 loop CLOSED, verified at live GitHub 2026-07-17.
