@@ -1,19 +1,21 @@
 # idea-engine — coordinator status (heartbeat)
 
-updated: 2026-07-17T15:47:53Z · seat: PROPOSAL 098 DRAFTED + FANNED (round-22 venture slot)
-model: opus-4.8 · high · proposal-draft
+updated: 2026-07-17T16:13Z · seat: SESSION CLOSED (owner session-ender, ~16:10Z) — close-out heartbeat
+model: opus-4.8 · high · close-out
 
-phase: ACTIVE — EAP extended through 2026-07-21 (ORDER 015); ORDER 016 autonomous-run backlog live. Round-22 rotation fleet→venture: FLEET opener P097 CLOSED (→ V110 APPROVE, idea-engine #486 / sim-lab #183); VENTURE slot P098 "the referral-bonus value trap" DRAFTED, fanned to sim-lab, awaits VERDICT 111 (+13).
+phase: ACTIVE — EAP extended through 2026-07-21 (ORDER 015); ORDER 016 autonomous-run backlog live. Coordinator seat ended by owner session-ender 2026-07-17 ~16:10Z; successor seat boots per registry.
 
-proposal: proposal high-water = P098; verdict high-water = V110. P098 sim-ready — all 3 dry-sim gates PASS ≥3σ (R1 anchor |z|=1.16σ, R2 interior 757.29σ/62.75σ, R3 value-trap 335.89σ; results sha256 5438482c…436786); outbox block appended; awaiting sim-lab VERDICT 111.
+routines: pacemaker send_later chain CLOSED — last pending one-shot trig_017HmdpfcVQAo2cbb4vQMogd deleted; zero pending one-shots remain (verified via full list_triggers pagination). Failsafe bridge: prior cron trig_01KPMLtWuAc2FaYNzuSSukgH found hard-deleted from the account by an unknown actor after its 15:34Z fire (anomaly, recorded); replacement armed and verified — trig_01DQu7LbHvP8ZqC31douQTAe "Ideas Lab failsafe wake", cron 30 1-23/2 * * *, bound to the coordinator session, next fire 2026-07-17T17:36Z. Successor boot rebinds-then-deletes per doctrine (docs/ROUTINES.md).
 
-loop: Round-22 VENTURE slot P098 DRAFTED (idea ideas/venture-lab/referral-bonus-value-trap-2026-07-17.md + reference verifier; PR #487). next pull: sim-lab VERDICT 111 for P098 (+13); then round-22 game slot P099 (rotation fleet→venture→game→unrelated).
+proposal: proposal high-water = P098; verdict high-water = V110. P083–P098 drafted and merged; V096–V110 verdicted (V098 REJECT, all others APPROVE). Round-22 progress: P097↔V110 complete, P098 merged (#487) — VERDICT-111 (+13) is the next pull; then PROPOSAL-099 (game slot).
 
-orders: 001–014 closed · 015 acked, consumed · 016 (owner overnight autonomous-run) ACTIVE (this backlog) · 017 (phone-as-Bluetooth-controller plan) captured, awaits owner review (PR #481).
+loop: no PRs open by the seat; all seat PRs terminal (idea-engine #453–#487 and sim-lab #168–#183 merged on green). next pull: sim-lab VERDICT 111 for P098 (+13); then round-22 game slot PROPOSAL-099 (rotation fleet→venture→game→unrelated).
 
-⚑ needs-owner: ORDER 017 phone-as-Bluetooth-controller plan awaits owner review (ideas/product-forge/bt-controller-plan-2026-07-17.md, PR #481).
+orders: 001–014 closed · 015 acked, consumed · 016 (owner overnight autonomous-run) ACTIVE · 017 (phone-as-Bluetooth-controller plan) captured, awaits owner review (PR #481).
+
+⚑ needs-owner: ORDER-010(c) sim-lab kit upgrade v1.15.0→v1.18.0 awaits owner in-session authorization · BT-controller plan (ORDER 017, PR #481) awaits owner review (ideas/product-forge/bt-controller-plan-2026-07-17.md) · ASK-005/006 await the fleet manager.
 
 kit: v1.17.0
 blockers: none.
 
-notes: Baton next-3 — (1) sim-lab VERDICT 111 for P098 (offset +13) is the successor sim-lab slice; (2) BT-controller plan (ORDER 017, PR #481) awaits owner review — leave it; (3) sim-lab ORDER-010(c) kit upgrade parked on owner authorization + ASK-005/006 watch. Failsafe wake routine id trig_01KPMLtWuAc2FaYNzuSSukgH (recorded routine fact). Pruned terminal claims proposal-097-long-chain / verdict-110-long-chain (P097 → V110 merged #486/#183, verified live).
+notes: Baton next-2 — (1) sim-lab VERDICT 111 for P098 (offset +13) is the successor's first pull; (2) PROPOSAL-099 round-22 game slot. Failsafe wake routine id trig_01DQu7LbHvP8ZqC31douQTAe (recorded routine fact; predecessor trig_01KPMLtWuAc2FaYNzuSSukgH hard-deleted by unknown actor post-15:34Z fire — anomaly on record).
