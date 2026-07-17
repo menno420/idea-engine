@@ -107,6 +107,49 @@ Format: `- YYYY-MM-DD · capability|wall · finding · evidence · workaround`.
 (Hand-filled by sessions, per the discovery rule. Seed walls/capabilities
 above came from the fleet's lived 2026-07 findings; local ones go here.)
 
+### 2026-07-17 — GitHub REST/GraphQL fully disabled for a routine-fired successor seat (`pinned-research` env)
+
+The "Ideas Lab failsafe wake" cron (`trig_01DQu7LbHvP8ZqC31douQTAe`) fired
+into a coordinator successor seat this window (prior coordinator session
+ended via owner session-ender ~16:10Z, PR #488). The successor's environment
+(`pinned-research`) carries no static repo sources — both `idea-engine` and
+`sim-lab` were added ad hoc via `add_repo` this session. `git clone`/`git
+push` over the session's per-repo smart-HTTP proxy (`127.0.0.1:41729`) work
+fine — the successor used this path to push a fully-verified VERDICT 111
+sim to a `sim-lab` branch (`verdict-111-referral-bonus-value-trap`, all 3
+pre-registered gates PASS, twin gate-evaluators agree, 9/9 self-checks,
+byte-identical double run — see `sim-lab` `docs/CAPABILITIES.md` 2026-07-17
+append for the full sim-side write-up).
+
+But the ENTIRE GitHub REST/GraphQL surface came back disabled for this
+seat — not just PR-merge authority (the pre-existing venue-gated wall
+above), PR-*creation* and even read-only Contents-API GETs. Three
+independent methods, all reproduced verbatim this session: (1) `gh pr
+create` → HTTP 403, "This GraphQL query (RepositoryInfo, sent by gh pr
+create/view (repo info preamble)) is not enabled for this session — only
+the pinned set of PR-review operations is served. Use REST via `gh api
+repos/{owner}/{repo}/...` instead."; (2) `gh api repos/.../pulls` (POST) →
+HTTP 403, "GitHub access is not enabled for this session. An org admin must
+connect the Claude GitHub App for this organization."; (3) plain `curl
+-H "Authorization: Bearer $GH_TOKEN"` against both `POST .../pulls` and
+`GET .../contents/control/status.md` → the identical "GitHub access is not
+enabled for this session" message. A bare `GET https://api.github.com/user`
+with the SAME token succeeded (returned the `menno420` identity), so the
+token is valid and some thin read path is allowed — every write path, and
+even the Contents-API read, is refused.
+
+**Net effect:** this seat could verify and simulate and push branches, but
+could not open a PR for ANY of it — not the VERDICT 111 sim, not this
+capability finding, not a heartbeat update to `control/status.md`. Both are
+sitting on pushed-but-PR-less branches (`sim-lab` branch above; this
+finding + a drafted heartbeat is on `idea-engine` branch
+`heartbeat-2026-07-17-successor-boot`) for the next `owner-live` (or
+otherwise differently-provisioned) venue to open. No workaround found —
+this is a strictly worse instance of the existing "grant boundaries differ
+by venue" wall (below), since it now blocks PR *creation*, not just merge.
+Filed as an ⚑ owner-attention item; the routine's PushNotification carries
+this to the owner directly rather than waiting silently.
+
 ### 2026-07-16 — auto-mode-classifier denials (Ideas Lab seat, since 2026-07-15)
 
 The Claude Code auto-mode permission classifier denied several actions this window; recorded here per the discovery rule (exact errors captured; the attempt-and-capture was already performed by the acting sessions). **Attribution:** items 1–3 are the coordinator session's first-hand transcript quotes, relayed verbatim to this session by the coordinator; items 4–6 are the working sessions' own reports (PR/session cited). Every item found a same-turn working route **except item 1** (the coordinator-chat wake rebind), which stays parked by design — the prior-generation failsafe cron (`Ideas Lab failsafe wake`, `trig_01FYrWqjWeGVUTLg51arsHFr`, `30 1-23/2 * * *`) remains live and covers it. Venue/phrasing-dependent, like the existing self-merge classifier note.
