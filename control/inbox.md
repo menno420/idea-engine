@@ -250,3 +250,13 @@ source: owner, live in the coordinator seat, 2026-07-17
 do: Research the viability of, and plan, an app that turns a phone into a Bluetooth controller for other phones / tablets / devices — customizable buttons and layouts, optionally using hardware (volume / sound) buttons as input; assess viability, simulate what is sensibly simulable, and produce a veto-ready plan.
 why: Owner idea intake for the generate→verify loop; the owner wants a grounded viability read (Android vs iOS) and an MVP + slice plan before any build.
 done-when: A cited research + veto-ready PLAN doc lands under ideas/ (viability verdict, recommended MVP, slice list with effort + risk + reversibility, the iOS wall + fallbacks, open questions); a latency-budget model is included if it adds honest signal; the heartbeat records that the owner plan awaits owner review.
+
+## ORDER 018 · 2026-07-17T22:56:05Z · status: new
+priority: high
+provenance: owner live in Ideas Lab coordinator chat, 2026-07-17T~22:44Z
+source: owner — live turn in the coordinator chat, landed verbatim by this dispatched work-slice (the owner's wording is quoted below, not restated).
+do:
+  Continue working through the night on the generate→verify loop. Owner verbatim: "The old project is deleted/archived, you are the fresh one and the stale triggers can be deleted, keep your own failsave routines, I want you to continue working tonight, create and finalize/simulate as many ideas as you can, I will be going to sleep now and review in the morning, thank you"
+  Operationally: (1) the old/archived project's stale triggers may be deleted; keep this seat's own failsafe routines armed (per docs/ROUTINES.md — record before delete). (2) Run the proposal→verdict loop continuously overnight — draft ideas, commit stdlib verifiers, fan to sim-lab, land each slice on green, one change per small PR — creating and finalizing/simulating as many ideas as fit before the owner's morning review.
+why: owner's live overnight directive — the fresh seat is to run the generate→verify loop autonomously through the night and have review-ready work landed by morning; captured verbatim (not a classifier-declined summary like ORDER 016) so a fresh seat resumes the mandate from the repo alone.
+done-when: the overnight loop runs continuously (proposal→verdict slices landing on green) until the owner's morning review; by morning the seat has landed a batch of finalized/simulated ideas for owner review.
