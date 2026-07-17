@@ -1,6 +1,6 @@
 # VERDICT 113 mirror — Kelly overbet ruin: on a favorable repeated fractional bet (p=0.6) the growth-optimal stake f*=2p−1=0.20 is strictly INTERIOR and the naive double-Kelly overbet f=0.40 has NEGATIVE time-average growth (the typical gambler ruins while the ensemble average balloons) (P100, +13) — APPROVE
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · low · verdict-mirror
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the outbox mirror + heartbeat are written.
