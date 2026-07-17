@@ -3,7 +3,7 @@
 > **State:** sim-ready
 > **Class:** superbot-games · shop economics · optimal-stopping / accept-threshold design
 > **Target:** sim-lab (VERDICT 112, +13 offset)
-> **Grounding:** https://github.com/menno420/idea-engine · pinned world below · dry-sim SEED=20260717
+> **Grounding:** https://github.com/menno420/idea-engine@397502c · fetched 2026-07-17T20:18:16Z
 > **Verifier (firsthand):** committed stdlib-only reference sim `ideas/superbot-games/shop_reroll_ruin.py` (random, math, json, hashlib) — dry-sim exit 0, all gates PASS, results-dict sha256 7d7d7ad8…c662622b (see Verifier + Dry-sim below).
 
 ## The phenomenon (one line)
@@ -82,3 +82,16 @@ Distinct from the nearby game priors:
 
 ## Model basis (declared model-dependence — the P024 discipline)
 The interior optimum and the tau* < 0.95 ordering are robust to the specific constants but DO depend on structural assumptions: (a) there is a per-reroll cost C>0; (b) item powers are iid within a roll and the kept value is best-of-K (quality concentrated near 1, CDF x^K); (c) the horizon is effectively unbounded (R_MAX only guards termination; tau<1 ⇒ acceptance is almost sure). If rerolls were free (C=0), or item power did not saturate, or the pool were shallow/degenerate, the interior optimum can move toward the endpoints. The claim is scoped: under the (very common) per-reroll-cost + best-of-K shop regime, greedy near-perfect rerolling overspends — demonstrated on the pinned constants, mechanism-explained, not asserted as a universal law.
+
+## Probe report (v0, 2026-07-17)
+
+**1. What is this really?** An optimal-stopping claim wearing a shop skin: with K=3 iid item powers ~ U(0,1) kept as best-of-K, a per-reroll cost C=0.05, and net utility U(tau)=E[M|M≥tau]−C·E[rerolls], the utility-maximizing accept-threshold tau*≈0.80 is strictly interior, and greedy near-perfect rerolling (tau=0.95) is strictly worse net-value.
+**2. What would make it false?** If U(tau) were monotone in tau (no interior peak), or if tau* coincided with/exceeded the greedy bar 0.95 (no value trap), or if the simulated E[rerolls] at tau* failed to reproduce the geometric anchor tau*^K/(1−tau*^K). Any of G1/G2/G3 failing → REJECT.
+**3. Simplest version that still bites?** SEED=20260717, K=3, C=0.05, N=100000; four policies {tau*=0.80, tau=0, tau=0.95, tau=0.99}; each episode draws best-of-K and rerolls while M<tau (cap R_MAX=500), scoring U=M−C·rerolls.
+**4. What is the counterintuitive core?** Because you keep the best-of-K each roll, the top of the quality distribution is cheap to reach and expensive to exceed (CDF x^K concentrates M near 1), while E[rerolls]=tau^K/(1−tau^K) diverges as tau→1 — so chasing the last sliver of item power is exactly where reroll cost overtakes quality gain. "Reroll for near-perfect" overspends: U(0.95)=0.676 vs U(tau*)=0.855.
+**5. Where could I be fooling myself?** Near tau=1 the reroll count and its variance blow up (tau=0.99 gives U=−0.632), which could inflate SEs and wash out separations; the pinned tau=0.95/0.99 comparison policies and N=100000 keep the gate sigmas far above 3σ. The result is model-dependent: it needs a per-reroll cost C>0, iid best-of-K draws, and an effectively unbounded horizon.
+**6. What is the honest calibration?** Dry-sim margins at SEED=20260717: G1 value-trap z=167.96σ, G2 interior z=153.35σ (vs tau=0) / 282.75σ (vs tau=0.99), G3 anchor |z|=0.06σ (match) — all clear the ≥3σ bar; exit 0; results-dict sha256 7d7d7ad8…c662622b. tau*=0.80, U(tau*)=0.854837 vs analytic 0.854918.
+**7. What decision does it change?** Set the shop accept-threshold (or the reroll-AI's stopping bar) by the utility curve U(tau)=E[M|M≥tau]−C·E[rerolls] — measure C and pool depth K, solve for tau*, and cap the incentive there rather than chasing near-perfect items; or price the reroll so the player's greedy bar coincides with tau*.
+**8. How will we know it worked?** The committed stdlib verifier reproduces E_sim[rerolls] ≈ tau*^K/(1−tau*^K) within 3σ and all three gates hold at their thresholds under SEED=20260717, with the results-dict sha256 matching 7d7d7ad8…c662622b.
+
+**Recommendation: sim-ready**
