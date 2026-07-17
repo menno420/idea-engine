@@ -1,6 +1,6 @@
 # Session — PROPOSAL 091: pity-timer anticipation-collapse retention cliff (round-20 game slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > **📊 Model:** opus-4.8 · high · idea/planning
 
 (Card born in-progress as the designed session-gate HOLD — the born-red FIRST commit; the Status badge flips to `complete` in this PR's final commit, after the heartbeat, releasing the landing workflow.)
