@@ -1,15 +1,19 @@
-# idea-engine · status
-wakes: failsafe cron "Ideas Lab failsafe wake" trig_01KPMLtWuAc2FaYNzuSSukgH (cron `30 1-23/2 * * *`, owned by the coordinator seat) STAYS ARMED as the dead-man bridge; NOT re-armed by this seat (ORDER 015 no-re-arm still live). Neutral per-seat fact — the wake chain is COORDINATOR-MANAGED (this session armed, deleted, audited, re-attempted NO trigger per docs/ROUTINES.md).
-updated: 2026-07-17T15:23:00Z · seat: VERDICT 110 APPROVE LANDED — sim-lab's independent verifier confirmed PROPOSAL 097 "the long chain" (P097 → V110, +13, round-22 fleet-opener); all 4 gates PASS in order R1→R2→R3→R4 (R1 recovery 0.945998 +53.82σ, R2 gap 0.099183 +300.62σ, R3 topology gap 0.052797 +210.97σ, R4 band-min 0.915477 +13.89σ; sd=0.50 boundary 0.853668 reproduced, non-gating); mirror fanned to fleet-manager (Q-0264) in control/outbox.md. Both PRs terminal: sim-lab #183 merged (head 5eb983f); idea-engine mirror PR #486 (this slice, born-red until card flips complete). results.json sha256 206e30a0…80695 · model: opus-4.8 · high · verdict-mirror
-phase: round-22 opens at the FLEET slot (ORDER 004 rotation restarts at fleet). P097 "the long chain" — give each of K=12 specialized lanes exactly ONE secondary category (a fixed 2-skills/lane budget); wired as a single long chain (lane i also covers cat i+1, closing the loop) the fleet recovers ~95% of the FULLFLEX−DEDICATED throughput gap — nearly all of full flexibility — while the SAME budget wired as disjoint buddy-pairs recovers only ~41% (topology, not amount). Pinned world K=12 categories/12 lanes, lane capacity 1.0, per-category demand max(0,N(1.0,0.35)) i.i.d., served = Edmonds-Karp max-flow, N_REPS=20000, SEED=20260717; results-dict sha256 505321acb9ec94075a8f027ea1df27f50db84fcf31df56ea3a9586cf2f8c94ab. Disclosed boundary: at sd=0.50 recovery falls to 0.8537 (claim bounded to CV ≤ 0.40). Harvest source: Simchi-Levi & Wei 2012 Operations Research (INFORMS) + Jordan & Graves 1995 (secondary), fetched 2026-07-17. Fanned to sim-lab as VERDICT 110.
-proposal: proposal high-water = P097; verdict high-water = V110. P097 → V110 CLOSED (APPROVE mirrored). The outbox carries no outstanding unverdicted proposal; round-22 venture slot P098 awaits draft.
-verify: python3 bootstrap.py check --strict → RED by design on the claude/verdict-110-long-chain-mirror branch (born-red session-card HOLD until the card flips complete); model-line-class + owner-action warnings are advisory, non-exit-affecting.
-open: VERDICT 110 mirror PR #486 (claude/verdict-110-long-chain-mirror) — READY, born-red until the session card flips complete (this slice). ORDER 017 bt-controller plan PR #481 (claude/bt-controller-plan) — awaits owner review (sibling session's slice; leave alone).
-loop: pipeline NON-DRY per ORDER 003. Round-21 rotation COMPLETE (fleet P093→V106, venture P094→V107, game P095→V108, unrelated P096→V109 all closed). Round-22 FLEET opener CLOSED: P097 "the long chain" DRAFTED + fanned + VERDICTED APPROVE (P097 → V110, +13). Next baton: (1) round-22 venture-slot PROPOSAL 098 awaits draft (next pull); (2) BT-controller plan PR #481 awaits owner review (sibling slice); (3) ORDER-010(c) kit upgrade parked on owner authorization + watch ASK-005/006 (await fleet manager). ASK 005 and ASK 006 still await the fleet manager.
-orders: 001–014 closed · 015 acked, consumed · 016 (owner overnight autonomous-run) ACTIVE (this backlog) · 017 (owner phone-as-Bluetooth-controller idea intake) plan captured, awaits owner review. Standing ORDER 003 pipeline is the active baton. ORDER 015 no-re-arm still live. Cross-seat awareness: ORDER-010(c) kit upgrade v1.18.0 vs on-disk v1.17.0 PARKED on owner authorization.
-routines: none owned/re-armed by this seat; coordinator failsafe cron trig_01KPMLtWuAc2FaYNzuSSukgH STAYS ARMED (coordinator-managed, no re-arm).
-kit: v1.17.0
-claims: verdict-110-long-chain claim active (control/claims/verdict-110-long-chain.md, this slice — rides mirror PR #486). proposal-097-long-chain claim (control/claims/proposal-097-long-chain.md) now terminal — P097 authored + VERDICTED (V110); leave in place unless a later slice prunes it. bt-controller-plan claim active (control/claims/bt-controller-plan.md, sibling slice — leave alone).
-blockers: none.
+# idea-engine — coordinator status (heartbeat)
+
+updated: 2026-07-17T15:47:53Z · seat: PROPOSAL 098 DRAFTED + FANNED (round-22 venture slot)
+model: opus-4.8 · high · proposal-draft
+
+phase: ACTIVE — EAP extended through 2026-07-21 (ORDER 015); ORDER 016 autonomous-run backlog live. Round-22 rotation fleet→venture: FLEET opener P097 CLOSED (→ V110 APPROVE, idea-engine #486 / sim-lab #183); VENTURE slot P098 "the referral-bonus value trap" DRAFTED, fanned to sim-lab, awaits VERDICT 111 (+13).
+
+proposal: proposal high-water = P098; verdict high-water = V110. P098 sim-ready — all 3 dry-sim gates PASS ≥3σ (R1 anchor |z|=1.16σ, R2 interior 757.29σ/62.75σ, R3 value-trap 335.89σ; results sha256 5438482c…436786); outbox block appended; awaiting sim-lab VERDICT 111.
+
+loop: Round-22 VENTURE slot P098 DRAFTED (idea ideas/venture-lab/referral-bonus-value-trap-2026-07-17.md + reference verifier; PR #487). next pull: sim-lab VERDICT 111 for P098 (+13); then round-22 game slot P099 (rotation fleet→venture→game→unrelated).
+
+orders: 001–014 closed · 015 acked, consumed · 016 (owner overnight autonomous-run) ACTIVE (this backlog) · 017 (phone-as-Bluetooth-controller plan) captured, awaits owner review (PR #481).
+
 ⚑ needs-owner: ORDER 017 phone-as-Bluetooth-controller plan awaits owner review (ideas/product-forge/bt-controller-plan-2026-07-17.md, PR #481).
-notes: Next baton: (1) round-22 venture-slot PROPOSAL 098 awaits draft (next pull); (2) BT-controller plan PR #481 awaits owner review (sibling slice — leave alone); (3) ORDER-010(c) kit upgrade v1.18.0 vs on-disk v1.17.0 PARKED on owner authorization + watch ASK-005/006 (await fleet manager). Round-22 next proposal slot after the closed fleet opener = venture opener (P098). Failsafe cron trig_01KPMLtWuAc2FaYNzuSSukgH STAYS ARMED (coordinator-managed, no re-arm).
+
+kit: v1.17.0
+blockers: none.
+
+notes: Baton next-3 — (1) sim-lab VERDICT 111 for P098 (offset +13) is the successor sim-lab slice; (2) BT-controller plan (ORDER 017, PR #481) awaits owner review — leave it; (3) sim-lab ORDER-010(c) kit upgrade parked on owner authorization + ASK-005/006 watch. Failsafe wake routine id trig_01KPMLtWuAc2FaYNzuSSukgH (recorded routine fact). Pruned terminal claims proposal-097-long-chain / verdict-110-long-chain (P097 → V110 merged #486/#183, verified live).
