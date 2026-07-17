@@ -1,0 +1,3 @@
+# CLAIM — proposal-100-kelly-overbet-ruin (round-22 UNRELATED-slot closer, P100 → V113, +13)
+
+- `claude/proposal-100-kelly-overbet-ruin` · **scope** — round-22 UNRELATED-domain closer PROPOSAL 100 (Kelly overbet ruin — information theory / mathematical finance growth-optimal capital allocation, fleet-external pure-mechanism head): idea doc + committed stdlib verifier + dry-sim + outbox entry + heartbeat. VERDICT 113 (P100 → V113, +13) excluded — separate future slice; files: `ideas/fleet/kelly-overbet-ruin-2026-07-17.md` + `ideas/fleet/kelly_overbet_ruin.py` + `control/{outbox,status}.md` + `.sessions/2026-07-17-kelly-overbet-ruin.md` + this claim · `2026-07-17`
