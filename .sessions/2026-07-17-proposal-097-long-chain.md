@@ -1,6 +1,6 @@
 # PROPOSAL 097 — the long chain: one secondary skill per lane, wired as a single ring, ≈ fully cross-trained lanes (round-22 fleet opener, P097 → V110, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · idea/planning
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the installed merge-on-green workflow to land the PR.
