@@ -1,6 +1,6 @@
 # PROPOSAL 093 — metastable retry-storm collapse: aggressive lane-retries make an agent fleet bistable, so a brief load blip permanently collapses throughput (round-21 fleet opener, P093 → V106, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · proposal-draft
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
