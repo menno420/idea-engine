@@ -1,4 +1,0 @@
-# CLAIM — VERDICT 108 (round-21 game verify slot)
-
-- `claude/verdict-108-rubber-band-controller` (sim-lab) + `claude/verdict-108-rubber-band-controller-mirror` (idea-engine) · scope — round-21 VERDICT 108 verifying idea-engine PROPOSAL 095 (catch-up rubber-band as a proportional feedback controller; P095 → V108, +13); files: sim-lab sims/verdict-108-rubber-band-controller/*, sim-lab control/outbox.md (INTAKE+VERDICT 108) + control/status.md + .sessions card; idea-engine control/outbox.md (VERDICT 108 mirror) + control/status.md (heartbeat) + this claim · 2026-07-17
-- Prunes in this slice: control/claims/proposal-095-rubber-band-controller-instability.md — terminal; idea-engine PR #480 merged + sim-lab VERDICT 108 finalized via PR #181 (merged), P095 → V108 loop CLOSED; verified MERGED at live GitHub 2026-07-17.
