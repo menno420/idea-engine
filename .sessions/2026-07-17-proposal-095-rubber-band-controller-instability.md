@@ -1,6 +1,6 @@
 # PROPOSAL 095 — the catch-up rubber-band is a feedback controller, not a fairness dial: a boost proportional to the leader's gap has an INTERIOR-optimal strength, going unstable past the exact discrete-control stability boundary where outcomes decouple from skill (round-21 game slot, P095 → V108, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · proposal-draft
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
