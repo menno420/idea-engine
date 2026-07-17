@@ -1,6 +1,6 @@
 # PROPOSAL 096 — friendship-paradox epidemic sensors: watch a random FRIEND, not a random person, and you see the wave first — the head-start equals the degree variance Var[k]/E[k] (round-21 UNRELATED-domain closer, P096 → V109, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: claude-opus-4-8 · effort high · task-class proposal-draft
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
