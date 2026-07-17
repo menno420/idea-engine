@@ -61,16 +61,6 @@ The shared "interior optimum" shape with P094 is acknowledged; the novel content
 ## Model basis (declared model-dependence — the P024 discipline)
 The interior optimum and the b* < b_viral ordering are robust to the specific constants but DO depend on structural assumptions: (a) the bonus is paid per successful referral (not a flat one-time cost); (b) conversion saturates in the bonus (concave q(b)); (c) the process is subcritical (R0<1) so E[T]=S/(1−m) is finite. If the bonus were a fixed cost independent of referral volume, or q(b) were linear/convex, the b* < b_viral gap can shrink or vanish. The claim is scoped: under the (very common) per-referral-bonus + saturating-response regime, virality-maximization overspends — demonstrated on the pinned constants, mechanism-explained, not asserted as a universal law.
 
-## Probe report (v0, 2026-07-17)
-1. **Setup.** Subcritical Galton–Watson referral cascade; pinned world above; SEED=20260717; N=2000 cohorts/level; committed stdlib-only verifier, exit 0.
-2. **Anchor (analytic).** E[T]=S/(1−m); at b*=4.5, m=0.670951 → E[T]=3039.057, Π(b*)=21214.815. At b_viral=8.0, m=0.736263 → E[T]=3791.660, Π=15583.320. Π(0)=10000.000, Π(6.0)=19920.776. Π single-peaked on the grid; max m=0.736263 < 1 (subcritical); b*=4.5 strictly interior.
-3. **R1 (anchor match).** E_sim[T] at b* = 3035.927 (SE 2.6884) vs analytic 3039.057 → |z|=1.16σ < 3 → PASS.
-4. **R2 (interior optimum).** Π̄(b*)=21197.596 (SE 14.7864). vs Π̄(0)=10000.000: diff 11197.596, z=757.29σ. vs Π̄(B_HI=6.0)=19932.238 (SE 13.7105): diff 1265.358, z=62.75σ. Both ≥3σ → PASS.
-5. **R3 (value trap headline).** Π̄(b*)=21197.596 vs Π̄(b_viral=8.0)=15575.369 (SE 7.8439): diff 5622.227, z=335.89σ ≥3σ → PASS.
-6. **All gates PASS** (exit 0). Results-dict sha256 = 5438482c51479370e2a80aef0a01d3fe7f5617dcc1d30a622c9e74e1c8436786.
-7. **Correction disclosed.** During calibration the near-critical cap (K·q_max≈0.9) was rejected: at m≈0.9 the cohort-total variance ∝ 1/(1−m)³ blows the SE up at high-bonus levels, making R3 noisy. Pinned q_max=0.25 (K·q_max=0.75) keeps tails controlled while preserving the interior peak. Disclosed so the verifier reproduces the exact subcritical regime; no gate thresholds were moved.
-8. **Reproduction.** `python3 referral_value_trap.py` → prints the table above, writes referral_value_trap_results.json, exit 0. Deterministic under SEED.
-
 ## Gate power + margin ledger
 | Gate | Type | Threshold | Observed | Margin | Verdict |
 |---|---|---|---|---|---|
@@ -78,5 +68,16 @@ The interior optimum and the b* < b_viral ordering are robust to the specific co
 | R2a interior vs b=0 | separation ≥3σ | ≥3σ | z=757.29σ | 754.3σ | PASS |
 | R2b interior vs b_hi | separation ≥3σ | ≥3σ | z=62.75σ | 59.75σ | PASS |
 | R3 value trap vs b_viral | separation ≥3σ | ≥3σ | z=335.89σ | 332.9σ | PASS |
+
+## Probe report (v0, 2026-07-17)
+
+**1. What is this really?** A referral-economics claim: under a subcritical Galton–Watson referral cascade with saturating conversion q(b)=q_max·(1−e^(−b/b0)) and a bonus paid per successful referral, profit peaks at an interior bonus b*=4.5 whose viral coefficient R0=0.671 is strictly below the R0-maximizing bonus b_viral=8.0 (R0=0.736).
+**2. What would make it false?** If Π(b) were monotone in b (no interior peak), or if b* coincided with or exceeded b_viral (no value trap), or if the branching anchor E[T]=S/(1−m) failed to reproduce in simulation. Any of R1/R2/R3 failing → REJECT.
+**3. Simplest version that still bites?** SEED=20260717, S=1000, K=3, q_max=0.25, b0=2.0, M=10.0, N=2000; four bonus levels {0, b*=4.5, B_HI=6.0, b_viral=8.0}; Binomial(K,q(b)) offspring, generation-by-generation to extinction.
+**4. What is the counterintuitive core?** The same 1/(1−R0) amplifier that makes virality feel free is what makes the last increment of R0 ruinously expensive — you pay the bonus to every one of the exploding referred population, so ~27% of profit is destroyed at the virality-max setting (Π 21214.815 → 15583.320 analytic).
+**5. Where could I be fooling myself?** Near-critical variance blow-up (Var[T] ∝ 1/(1−m)³) at high bonus inflates the SE and can wash out R3; the pinned q_max=0.25 (K·q_max=0.75) keeps tails controlled. The result is model-dependent: it needs a per-referral bonus, concave q(b), and subcriticality (R0<1).
+**6. What is the honest calibration?** Dry-sim margins at SEED=20260717: R1 branching-anchor |z|=1.16σ (match), R2 interior z=757.29σ/62.75σ, R3 value-trap z=335.89σ — all clear the ≥3σ bar; exit 0; results-dict sha256 5438482c…436786. Correction disclosed: near-critical cap rejected for variance control (no thresholds moved).
+**7. What decision does it change?** Set the referral bonus by the profit curve Π(b)=S(M−b·m(b))/(1−m(b)), not by the R0 curve — measure q_max, b0, M, solve for b*, and cap the incentive there rather than chasing maximum virality.
+**8. How will we know it worked?** The committed stdlib verifier reproduces E_sim[T] ≈ S/(1−m(b*)) within 3σ and all three gates hold at their thresholds under SEED=20260717, with the results-dict sha256 matching 5438482c…436786.
 
 **Recommendation: sim-ready**
