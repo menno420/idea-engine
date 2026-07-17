@@ -1,6 +1,6 @@
 # Session — bt-controller-plan (ORDER 017 owner idea intake)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · research
 >
 > *(card born in-progress as the designed session-gate HOLD — the born-red FIRST commit; flips to complete in this PR's final commit after the research + veto-ready plan lands.)*
