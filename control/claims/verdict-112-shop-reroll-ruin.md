@@ -1,0 +1,3 @@
+# Claim — VERDICT 112 (round-22 game slot, P099 → V112, +13)
+
+- `claude/verdict-112-shop-reroll-ruin` (sim-lab work branch; idea-engine mirror rides `claude/verdict-112-mirror`) · **scope** — the full VERDICT 112 slice: sim-lab reproduces idea-engine PROPOSAL 099's committed stdlib verifier (shop-reroll ruin value trap, superbot-games) VERBATIM under SEED=20260717, then mirrors the ruling back; files: sim-lab `sims/verdict-112-shop-reroll-ruin/` + `control/{outbox,status}.md` + `.sessions/` card, idea-engine `control/{outbox,status}.md` (V112 mirror block + heartbeat) + `.sessions/2026-07-17-verdict-112-mirror.md` + this claim · `2026-07-17`
