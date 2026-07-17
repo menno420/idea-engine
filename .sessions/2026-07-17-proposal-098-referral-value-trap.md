@@ -1,6 +1,6 @@
 # PROPOSAL 098 — the referral-bonus value trap (round-22 venture slot, P098 → V111, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · proposal-draft
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
