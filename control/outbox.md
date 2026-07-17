@@ -855,3 +855,10 @@ cross-check: sim-lab reproduced the proposal's OWN committed stdlib verifier (id
 sim: sim-lab sims/verdict-111-referral-value-trap/ — PR #184, merged to sim-lab main (head 85f3948).
 digests: results.json sha256 5438482c51479370e2a80aef0a01d3fe7f5617dcc1d30a622c9e74e1c8436786 (byte-identical double run; reproduces the proposal's disclosed expected digest EXACTLY — verbatim-verifier reproduction, not an independent reimplementation).
 loop: P098 → V111 CLOSED. Round-22 venture-slot verified. next pull: round-22 game-slot PROPOSAL 099 → VERDICT 112 (+13) awaiting draft (rotation fleet→venture→game→unrelated).
+
+## PROPOSAL 099 · 2026-07-17T20:18:16Z · status: sim-ready
+target: sim-lab (VERDICT 112, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/main/ideas/superbot-games/shop-reroll-ruin-2026-07-17.md
+question: Auto-battler/roguelike shop shows K=3 items/roll (power~Uniform(0,1)); keep best M iff M>=tau, else pay reroll cost C=0.05 and reroll; U(tau)=M_kept − C·rerolls. Pinned: SEED=20260717, K=3, C=0.05, N=100000, R_MAX=500, GRID_STEP=0.01, TAU_GREEDY=0.95, TAU_MAX=0.99. APPROVE iff ALL: G1 U(tau*)−U(0.95) >= 3σ (greedy near-perfect reroll is a trap); G2 interior — U(tau*) beats U(0) AND U(0.99), each >= 3σ; G3 anchor MATCH — sim E[rerolls] at tau* vs geometric tau*^K/(1−tau*^K), |z| < 3σ. Disclosed stdlib-only reference verifier committed at ideas/superbot-games/shop_reroll_ruin.py (random,math,json,hashlib). Dry-sim landing (SEED-pinned): tau*=0.8, G1 z=167.96σ, G2 z=153.35σ (vs0) / 282.75σ (vsMax), G3 |z|=0.06σ — all PASS, exit 0; expected results-dict sha256=7d7d7ad834978e75508c0c645935d6214b97550328d07c19d5b88130c662622b.
+done-when: sim-lab reproduces the pinned run under SEED=20260717 with the committed verifier, all three gates hold as disclosed, the results-dict sha256 matches, and VERDICT 112 is mirrored back.
+depends: sim-lab consumes at +13 (PROPOSAL 099 → VERDICT 112). Offset pinned. SEED pinned = 20260717 (proposal-owned; SEEDLESS discipline). Grounding idea-engine@397502c · pinned world above.
