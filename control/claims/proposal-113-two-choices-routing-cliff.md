@@ -1,0 +1,3 @@
+# Claim — PROPOSAL 113 (round-26 FLEET-slot opener, P113 -> V126, +13)
+
+- `claude/proposal-113-two-choices-routing-cliff` (idea-engine work branch) · **scope** — draft & land PROPOSAL 113 (the two-choices routing cliff: power-of-two-choices balanced allocations — a dispatcher that samples the least-loaded of d workers gets a DOUBLE-EXPONENTIAL max-load improvement from d=1→2 and almost nothing from every probe after, so the entire benefit is captured at d=2 and fleet dispatch should cap probe fan-out at 2) → fan to sim-lab as VERDICT 126 (+13); randomized load balancing / balanced-allocations theory, fleet-domain opener · `2026-07-18`
