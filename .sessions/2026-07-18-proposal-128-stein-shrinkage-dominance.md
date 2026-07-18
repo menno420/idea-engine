@@ -1,7 +1,7 @@
 # PROPOSAL 128 — Stein's paradox / James-Stein shrinkage dominance (round-29 UNRELATED slot, P128 → V141, +13)
 
-> **Status:** `in-progress`
-> 📊 Model: opus-4.8 · high · idea/planning
+> **Status:** `complete`
+> 📊 Model: Claude Opus · high · idea/planning
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat + sibling union, releasing the landing workflow.
 
