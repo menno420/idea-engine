@@ -1,6 +1,6 @@
 # PROPOSAL 148 — The Will Rogers phenomenon (stage migration): reclassifying members across a group boundary can raise the mean of BOTH groups at once while the population mean is EXACTLY unchanged and no member's value changes — moving a member x from the higher-mean group HIGH into the lower-mean group LOW where LOW_mean < x < HIGH_mean sheds a below-its-mean member from HIGH and adds an above-its-mean member to LOW, so both subgroup means rise on a pooled population that is only RELABELLED; "every subgroup improved" and "the population improved" are DIFFERENT claims that coincide only when group membership is fixed (round-34 UNRELATED slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card is the session's FIRST content commit (alongside the claim) and is born `in-progress` to hold the `substrate-gate` RED so the PR cannot merge before the deliberate `complete` flip. Flipping to `complete` (the deliberate LAST commit, after the verifier + idea doc + outbox P148 block + heartbeat) releases the merge-on-green backstop. The flip is taken once the verifier is committed, the digest `79b7443f3c993d830de4cd9d63c2ce826111e45ec426c3fd8bf17a8c33306470` reproduces EXACTLY across a deterministic double-run, the PROPOSAL 148 outbox block + heartbeat are written, and `python3 bootstrap.py check --strict` is green apart from this born-red card HOLD itself. A red gate AFTER the flip is a real defect, not the HOLD.
