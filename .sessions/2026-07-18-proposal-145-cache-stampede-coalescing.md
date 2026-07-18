@@ -1,9 +1,9 @@
 # PROPOSAL 145 — Cache-stampede / request-coalescing herd law: caching a HOT key does not reduce its worst-case origin recompute load, it CONCENTRATES it into a herd of size Poisson(λT) that grows LINEARLY with request rate (a hotter key stampedes harder) — and request coalescing (single-flight) collapses that herd to exactly 1, INDEPENDENT of rate, while a longer TTL does nothing to herd size (round-34 FLEET slot opener)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
-Born-red HOLD: this card is the session's FIRST content commit (after the claim) and is born `in-progress` to hold the `substrate-gate` RED so the PR cannot merge before the deliberate `complete` flip. The flip to `complete` is the LAST step, taken once the verifier is committed, the digest reproduced EXACTLY across a deterministic double-run, the PROPOSAL 145 outbox block + heartbeat are written, and `python3 bootstrap.py check --strict` is green apart from this born-red card HOLD itself (the only exit-affecting red; every other finding is a never-exit-affecting advisory). A red gate AFTER the flip is a real defect, not the HOLD.
+Born-red HOLD released: this card was the session's FIRST content commit (after the claim) and was born `in-progress` to hold the `substrate-gate` RED so the PR could not merge before the deliberate `complete` flip. Flipping to `complete` here (the deliberate LAST commit, after the verifier + idea doc + outbox P145 block + heartbeat) releases the merge-on-green backstop. This flip was taken once the verifier was committed, the digest 81929730f04afec22fcacffd0d44d81609c6d2d2e395dd0803ec77ee29f19422 reproduced EXACTLY across a deterministic double-run, the PROPOSAL 145 outbox block + heartbeat were written, and `python3 bootstrap.py check --strict` was green apart from this born-red card HOLD itself (the only exit-affecting red; every other finding is a never-exit-affecting advisory). A red gate AFTER the flip is a real defect, not the HOLD.
 
 ## Objective
 
