@@ -1,6 +1,6 @@
 # PROPOSAL 123 — the hard-close snipe clearing leak (round-28 GAME slot, P123 → V136, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus · high · idea/planning
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
