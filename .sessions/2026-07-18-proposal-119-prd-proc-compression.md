@@ -1,6 +1,7 @@
 # PROPOSAL 119 — Pseudo-Random Distribution (PRD) proc-rate compression (round-27 GAME slot, P119 → V132, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
+> 📊 Model: Claude Opus 4.8 · high effort · proposal-drafting
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
 
