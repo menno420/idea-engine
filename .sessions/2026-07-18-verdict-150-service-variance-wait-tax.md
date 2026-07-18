@@ -2,7 +2,7 @@
 
 Mirror of PROPOSAL 137 (round-32 FLEET slot OPENER, P137 → V150, +13): for an M/G/1 FIFO queue the Pollaczek–Khinchine mean-value law gives mean queue wait W_q = (ρ/(1−ρ))·E[S]·(1+C²)/2, where C²=Var(S)/E[S]² is the squared coefficient of variation of SERVICE time, so at FIXED utilization ρ=0.8 and FIXED mean service E[S]=1.0 the wait depends ONLY on service-time variance: W_q = 2.0 (M/D/1, C²=0) / 4.0 (M/M/1, C²=1) / 10.0 (M/H2/1, C²=4) — a 1:2:5 (5×) spread at the same load and the same average job, invisible to any utilization/throughput dashboard because the (1+C²)/2 tax is a multiplicative factor capacity math never sees. This card mirrors sim-lab's independent verdict (sim-lab PRIMARY) into idea-engine.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · review/verify
 
 Born red by design: this card lands `in-progress` in the branch's first commit, holding the substrate-gate HOLD red until sim-lab byte-identical reproduction is proven and audited (merge-on-green, zero agent merge calls). The LAST commit flips it to `complete`, clearing the HOLD.
@@ -34,9 +34,9 @@ Reproduce the committed P137 verifier `ideas/fleet/service_variance_wait_tax.py`
 - **G2** exponential M/M/1 (C²=1): grand-mean 3.987717 vs P-K anchor 4.0 → z=−0.934 (se 0.013144), |z| < 3σ → **PASS** — DOUBLE the deterministic wait at the SAME ρ and E[S], from service variance alone.
 - **G3** hyperexponential M/H2/1 (C²=4): grand-mean 9.921619 vs P-K anchor 10.0 → z=−1.838 (se 0.042648), |z| < 3σ → **PASS** — 5× the deterministic wait, completing the 1:2:5 variance-only spread.
 
-## Outcome
+## Outcome — APPROVE (exact reproduction)
 
-Ruling + card flip deferred to the deliberate LAST commit (born-red HOLD). sim-lab PRIMARY reproduction executed + landed; the flip to `complete` that releases merge-on-green is the final step.
+sim-lab PRIMARY reproduced the committed verifier byte-identical under SEED=20260717 (`diff` exit 0, file sha256 `945c0af9bc496522f1b03935afa975a89386a58ab76a246c870a3a2cc6c97974`, git blob `c13e49f78abac8ff39dd62514e37a97413c18624`, 174 lines / 5592 bytes), whole-dict compact-canonical results sha256 = `ab44d56a22c24f83c4a2048af56dc3dbdbf462d3aa9990bd19c64426891e4307`, exactly matching the disclosed digest, reproduced identically across cross-invocation A/B (stdout diff exit 0) AND an in-process double-run (`run()` ×2, compact-hashed, both == disclosed). All three ≥3σ /se gates PASS in order G1→G2→G3 with the disclosed z-values (G1 M/D/1 grand-mean 2.002221 z=+0.496, G2 M/M/1 3.987717 z=−0.934, G3 M/H2/1 9.921619 z=−1.838), all_pass=true, exit 0, first-failing gate None. Anchors reproduced: W_q = 2.0 / 4.0 / 10.0 at C²=0/1/4 (the exact 1:2:5 spread at fixed ρ=0.8, E[S]=1.0); H2 balanced-means p1=0.8872983346207417, branch means 0.5635083268962916 / 4.436491673103709 (mean 1.0, C²=4 exactly). sim-lab PR #224 (branch claude/verdict-150-service-variance-wait-tax) MERGED on sim-lab main @`8c9af134c5ecb515d833dc6cfe30d3a9a00865cf` (head @a9cdb0ff, merged_at 2026-07-18T15:32:40Z) via merge-on-green after the born-red card flip; probe report `sims/verdict-150-service-variance-wait-tax/probe-report.md`. The claim holds: for an M/G/1 FIFO queue, at fixed utilization and fixed mean service the queue wait scales with (1+C²)/2 — service variance alone quintuples the wait, invisible to any utilization dashboard. **APPROVE.**
 
 ## ⟲ Previous-session review
 
