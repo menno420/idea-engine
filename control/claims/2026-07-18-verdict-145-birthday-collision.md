@@ -1,3 +1,0 @@
-# CLAIM — verdict-145-birthday-collision (P132 → V145, +13)
-
-- `claude/verdict-145-birthday-collision` · scope — VERDICT 145 for PROPOSAL 132 the birthday-collision √N scaling law: byte-identical reproduction of ideas/fleet/birthday_collision_sqrt_n.py under SEED=20260717 in sim-lab sims/verdict-145-birthday-collision/ + verdict card + heartbeat, then idea-engine mirror (outbox V145 block + heartbeat + card). files: sim-lab {sims/verdict-145-birthday-collision/*, .sessions/2026-07-18-verdict-145-birthday-collision.md, control/status.md} + idea-engine {control/outbox.md, control/status.md, .sessions/2026-07-18-verdict-145-birthday-collision.md, this claim} · 2026-07-18
