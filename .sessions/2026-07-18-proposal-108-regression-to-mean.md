@@ -1,7 +1,7 @@
 # PROPOSAL 108 — regression-to-the-mean selection illusion (round-24 UNRELATED slot, P108 → V121, +13)
 
-> **Status:** `in-progress`
-> 📊 Model: Claude Opus 4.x · high · proposal-drafting
+> **Status:** `complete`
+> 📊 Model: Claude Opus 4.x · high · idea/planning
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
 
