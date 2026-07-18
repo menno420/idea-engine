@@ -1,6 +1,6 @@
 # PROPOSAL 134 — cohort-blended LTV understatement (round-31 VENTURE slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus · high · idea/planning
 
 born-red HOLD: this card lands `in-progress` on the FIRST commit so the substrate-gate stays red until the slice is done; it flips to `complete` as the deliberate LAST commit, which releases the landing workflow. The gate red on this PR is the HOLD, not a defect.
