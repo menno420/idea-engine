@@ -1,6 +1,6 @@
 # Claims prune — sweep terminal control/claims/ backlog (ORDER 018 hygiene slice)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · review/verify
 
 Born red by design: this card lands `in-progress` in the branch's FIRST commit, holding the substrate-gate born-red HOLD red while the prune is executed and audited. The LAST commit flips it to `complete`, clearing the HOLD. The diff is control-only (`control/claims/**`) plus this card — no ideas/, no heartbeat, no inbox/outbox.
@@ -26,3 +26,6 @@ Prior session on origin/main landed the latest verdict mirror (V154) — APPROVE
 
 ## 💡 Session idea
 The `claims-duplicate` advisory keys on the bare ISO **date** token, so every claim that lands on a single day collapses into one "same-lane" collision even though branch and scope differ — the warning count tracks daily throughput, not real contention. A cheap kit refinement: have the duplicate scan key on the full claim bullet (branch token or ISO8601 timestamp) rather than the date-only prefix, so it flags genuine same-branch collisions and stays quiet on distinct same-day claims. Until then, successor-prune-on-terminal (this slice) is the standing remedy — a recurring hygiene lane worth a scheduled sweep.
+
+## Outcome — pruned (76 terminal claims removed)
+Executed `git rm` of all 76 verified-terminal claim files; `control/claims/` now holds `README.md` only. `python3 bootstrap.py check --strict` → all checks passed; the claims advisory warnings (claims-format + claims-duplicate) are cleared (residual advisories named here are pre-existing and out of scope: `owner-action-fields` on `control/status.md`, `seat-digest-stale` on `docs/seat-digest.md`). PR #587. This flip is the card's LAST commit, clearing the born-red HOLD so the auto-merge-enabler lands on green.
