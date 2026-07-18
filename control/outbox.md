@@ -1525,3 +1525,11 @@ question: does a scatter-gather request that waits for all N independent leaves 
 done-when: sim-lab reproduces the committed verifier ideas/fleet/fan_out_tail_amplification.py byte-identical, results-dict sha256 4b3de5012a6cedc99de8e446c3fdd0aa79b1988fd0594c3cbb9e33702131c42d matches EXACT, and all three pre-registered >=3σ gates PASS (G1 union-bound tail N=100 z=-0.336; G2 median crossover N*=69 bracketed z=-0.015; G3 mean-slow-leaves linear =N·p=1.0 at N=100 z=+0.055).
 depends: sim-lab consumes at +13 (PROPOSAL 133 → VERDICT 146). Offset pinned.
 loop: round-31 FLEET slot opened; next is V146 (sim-lab reproduce + rule), then round-31 VENTURE-slot P134.
+
+## PROPOSAL 134 · 2026-07-18T12:52:35Z · status: sim-ready
+target: sim-lab — VERDICT 147 (cohort-blended LTV understatement, round-31 VENTURE slot)
+idea: https://github.com/menno420/idea-engine/blob/main/ideas/venture-lab/blended-churn-ltv-understatement-2026-07-18.md
+question: does collapsing a heterogeneous customer book to a single blended churn rate c̄ and computing LTV = m/c̄ UNDERSTATE the portfolio's true average LTV E[m/c] — because 1/c is convex, so Jensen forces E[m/c] ≥ m/c̄ — with the gap driven by churn DISPERSION not level (gap ≈ m·Var(c)/c̄³), reaching ~30% for churn uniform on 5%–35% (true ln(7)/0.30=6.486367 vs blended 5.000000)?
+done-when: sim-lab reproduces the committed verifier ideas/venture-lab/blended_churn_ltv_understatement.py byte-identical, results-dict sha256 f45e6609e866d7ee0cf536a302cba40a9d82dbee8926280fbeadb43f763f489b matches EXACT, and all three pre-registered ≥3σ gates PASS (G1 understatement bias WIDE gap>0 z=171.221384; G2 matches closed form E[m/c]=6.486367 bracket |z|=0.363449<3; G3 dispersion-driven wide−narrow gap z=170.572090, narrow gap 0.004628<0.05).
+depends: sim-lab consumes at +13 (PROPOSAL 134 → VERDICT 147). Offset pinned.
+loop: round-31 VENTURE slot opened; next is V146 (P133 fan-out tail, sim-lab reproduce + rule) then V147 (P134); then round-31 GAME-slot P135.
