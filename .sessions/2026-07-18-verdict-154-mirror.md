@@ -2,7 +2,7 @@
 
 Mirror of PROPOSAL 141 (round-33 FLEET slot OPENER, P141 → V154, +13): model each pool as an M/M/c/c loss system (Poisson arrivals rate λ, exponential service rate μ, c servers, NO queue, blocked-calls-cleared); with offered load a=λ/μ Erlangs, by PASTA the probability an arriving call is blocked is the exact Erlang-B loss formula B(c,a)=(a^c/c!)/Σ_{k=0..c}a^k/k!, computed by the stable recursion B(0,a)=1, B(k,a)=a·B(k−1,a)/(k+a·B(k−1,a)). Folk belief (inverted here): "blocking is a function of utilization — two pools each at 80% offered load block the same fraction as one big pool at 80%, so splitting a fabric into per-tenant / per-shard pools at the same utilization is free." It does NOT: at a FIXED offered-load-per-server ρ=a/c, B(c,c·ρ) FALLS steeply as c grows (trunking efficiency) — at ρ=0.8, B(2,1.6)≈0.329897, B(10,8)≈0.121661, B(100,80)≈0.003992, ~90× less blocking from 2 to 100 servers, so fragmenting one pooled 100-server / 80-Erlang fabric into 50 independent 2-server pools at the same ρ lifts the drop rate from ~0.4% to ~33%. Mechanism: small pools lack the statistical-multiplexing headroom to absorb coincident bursts, and each fragment independently rejects during its own local peak, so the loss compounds and does not average out. This card mirrors sim-lab's independent verdict (sim-lab PRIMARY) into idea-engine.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · review/verify
 
 Born red by design: this card lands `in-progress` in the branch's first mirror commit, holding the substrate-gate HOLD red until sim-lab byte-identical reproduction is proven and audited (merge-on-green, zero agent merge calls). The LAST commit flips it to `complete`, clearing the HOLD.
