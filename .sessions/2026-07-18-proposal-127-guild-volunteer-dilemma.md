@@ -1,9 +1,9 @@
 # PROPOSAL 127 — guild-contribution free-riding / the volunteer's dilemma (round-29 GAME slot, P127 → V140, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · idea/planning
 
-Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat + sibling union, releasing the landing workflow.
+Born in-progress as this session's first commit (born-red HOLD); flipped to complete as the deliberate last step after the heartbeat + sibling union, releasing the landing workflow.
 
 ## Objective
 Draft and land the round-29 GAME-slot proposal (P127): one genuinely new, counterintuitive, stdlib-simulable game-domain pure-mechanism head, distinct from the prior game heads P099 (shop-reroll-ruin), P103 (streak-shield regression), P107 (energy-cap overflow), P111 (matchmaking win-rate mirage), P115 (compounding-reward inequality), P119 (PRD proc-rate compression), P123 (snipe clearing leak), P091 (gacha pity), P095 (rubber-band controller). Domain: game public-goods economics — guild-contribution free-riding, the volunteer's dilemma: a collective reward provided iff ≥1 member pays a private cost, whose symmetric Nash equilibrium makes the probability NOBODY volunteers RISE with group size (the bystander effect from rational play). With pre-registered ≥3σ /se gates, a bystander-existence headline, a fixed-rate sign-flip control, and the exact equilibrium closed-form anchor. Fanned to sim-lab as VERDICT 140 (+13). This slice does NOT write the verdict.
