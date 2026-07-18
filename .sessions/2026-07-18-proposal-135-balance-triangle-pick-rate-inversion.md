@@ -1,9 +1,9 @@
 # PROPOSAL 135 — balance-triangle pick-rate inversion (round-31 GAME slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
-Born-red HOLD: this card holds the PR red from its first commit until the slice is complete and verified; flipping to `complete` (the deliberate LAST step) releases the landing workflow.
+Born-red HOLD released: this card held the PR red from its first commit until the slice was complete and verified; flipping to `complete` here releases the landing workflow.
 
 ## Objective
 
@@ -19,16 +19,19 @@ Draft and land round-31 GAME-slot PROPOSAL 135 — the balance-triangle pick-rat
 
 ## What happened
 
-[[fill: synced HEAD, claim, branch, PR number, gate results, sha256, heartbeat — completed at flip]]
+Synced to origin/main HEAD 787483a (VERDICT 147 mirror landed; round-31 verdict side non-contiguous with V146 for P133 still pending). Deduped a first pick (coupon-collector completion wall) and DROPPED it — coupon-collector is already a card (`ideas/fleet/coupon-collector-tail-2026-07-14.md`, and P132 explicitly deduped against it) — pivoting to a genuinely fresh mechanism. Claimed P135, branched `claude/proposal-135-balance-triangle-pick-rate-inversion`, opened PR #572 READY on the born-red card. Committed the stdlib verifier; the dry run passed all three gates (G1 equilibrium/indifference max|z|=1.314, G2 inversion R-vs-uniform +0.06721 z_exist=+120.37 matching anchor (a−c)/3=0.066667 z_anchor=+0.975, G3 placebo symmetric-triangle exploitability 0.0 exactly z=+0.594), byte-identical across two runs, exit 0, results-dict sha256 92de2d5454c34f274869bc83d302682909b376380c16e60b6afcb12756424a4b. Authored the game-lane card, appended the outbox PROPOSAL 135 block (+13 → V148, offset cited from the P134 → V147 predecessor row + the status baton), updated the heartbeat (proposal high-water P134 → P135; baton → V148 for P135 then round-31 UNRELATED-slot P136; routines line unchanged coordinator-bound), then flipped this card to release the landing workflow. `python3 bootstrap.py check --strict` before the flip failed only on the designed born-red HOLD (all claims/owner-action/seat-digest warnings are "never exit-affecting").
 
 ## ⟲ Previous-session review
 
-[[fill: previous-session review — completed at flip]]
+The round-31 VENTURE slot (P134 blended-churn LTV understatement, PR #570; V147 mirror @c6bf5e5b) landed clean on the whole-dict / no-self-field / stdout-only digest posture and the +13 offset held unbroken (P133→V146 pending, P134→V147 landed). This slice inherits that posture verbatim and continues the rotation into the round-31 GAME slot (fleet→venture→game). No regressions observed; the born-red HOLD behaved exactly as designed — the substrate session gate stayed red until the flip, and the only exit-affecting check finding was that designed hold.
 
 ## 💡 Session idea
 
-[[fill: session idea — completed at flip]]
+Pick rate is a lagging, self-referential balance signal: because equilibrium usage of a unit tracks the margin of a matchup it is not even in (x*∝(b,a,c)), a "buff the under-played unit" patch pushes usage around the beat-cycle to that unit's counter, not to the unit itself. Candidate follow-up: a "margin-matrix balance dashboard" card that reads a roster's pairwise win margins and reports the *predicted* equilibrium pick rates x*∝(inverse margins) versus observed usage, flagging when a proposed buff will land its usage effect one step around the cycle — pairing this equilibrium identity with the matchmaking-winrate-mirage (P111) into a single "usage-is-not-balance" playbook.
 
 ## GROUNDING
 
-[[fill: verifier blob url + results-dict sha256 + external reference + HEAD at start + PR — completed at flip]]
+- Verifier (firsthand, ground truth): https://github.com/menno420/idea-engine/blob/main/ideas/superbot-games/balance_triangle_pick_rate_inversion.py — results-dict sha256 92de2d5454c34f274869bc83d302682909b376380c16e60b6afcb12756424a4b, SEED=20260717, three ≥3σ gates PASS, deterministic double-run, exit 0.
+- Idea card: https://github.com/menno420/idea-engine/blob/main/ideas/superbot-games/balance-triangle-pick-rate-inversion-2026-07-18.md
+- External reference (reachable): Rock paper scissors — Wikipedia, https://en.wikipedia.org/wiki/Rock_paper_scissors (weighted/unbalanced variants shift the optimal mix off uniform 1/3) — verified reachable 2026-07-18; anchor von Neumann (1928) minimax + skew-symmetric matrix-game value 0 (Gale, Kuhn & Tucker 1950).
+- Grounding commit: https://github.com/menno420/idea-engine@787483a · HEAD at start 787483aadad5671441a82e7bb7518f12d56784fb. PR: #572.
