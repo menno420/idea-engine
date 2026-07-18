@@ -1,6 +1,6 @@
 # PROPOSAL 106 — retention-survivorship mirage (round-24 VENTURE slot, P106 → V119, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · idea/planning
 
 Born in-progress as this session's first commit (born-red HOLD); to be flipped to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
