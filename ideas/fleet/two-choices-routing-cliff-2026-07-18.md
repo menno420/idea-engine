@@ -3,7 +3,7 @@
 > **State:** sim-ready
 > **Class:** fleet-domain (round-26 opener) · randomized load balancing / balanced-allocations theory · PROPOSAL 113
 > **Target:** sim-lab (VERDICT 126, +13 offset)
-> **Grounding:** github menno420/idea-engine@bb5e9ea · fetched 2026-07-18T03:40:54Z
+> **Grounding:** https://github.com/menno420/idea-engine@bb5e9ea · fetched 2026-07-18T03:40:54Z
 > **Source basis:** Azar, Broder, Karlin & Upfal, "Balanced Allocations", SIAM J. Comput. 29(1):180-200, 1999 (STOC 1994); Mitzenmacher, "The Power of Two Choices in Randomized Load Balancing", IEEE TPDS 12(10), 2001; Mitzenmacher & Upfal, *Probability and Computing* (2nd ed.), Ch. 17. Standard textbook result; no external repo fetched.
 > **Verifier (firsthand):** committed stdlib-only `ideas/fleet/two_choices_routing_cliff.py`, SEED=20260717, results-dict sha256 `068e23f599c9ccf9a4bcbf31d705a9760ee05091172f6432ea1c3df69d62b685` (deterministic double-run, exit 0).
 
@@ -116,15 +116,16 @@ The result is a theorem about the greedy balls-into-bins process with uniform sa
 ## Dedup
 Distinct from every prior fleet head. P093 (metastable retry-storm collapse) is load-*feedback* bistability, not routing choice. `wip-cap-dryness-floor` is a CONWIP throughput cap, not per-task probe count. P109 (correlated-fleet variance floor) is error *aggregation*, not queue balance. P105 (delegation loop collapse) is vote delegation. No prior head models the probe-count vs max-load tradeoff.
 
-## Probe report (v0)
-1. **Real or a small-n artifact?** Real — it is the ABKU theorem; larger n *sharpens* the cliff (the gap is double-exponential in n). The sim uses n=20000 to show it at fleet-realistic scale.
-2. **Could the cliff be a seed fluke?** No — 120 independent trials, paired per-trial differences, ≥3σ gates.
-3. **Why m=n?** The classic balanced-allocations regime and the cleanest statement; heavily-loaded (m≫n) only widens the d=1 vs d=2 gap.
-4. **Does d=3 ever beat d=2 meaningfully?** By a fraction of a slot for any realistic n; G3 bounds the entire post-2 gain below two slots.
-5. **Ties?** Broken by first-sampled (deterministic) — a standard convention; random tie-breaking shifts constants negligibly.
-6. **Is this just "diminishing returns"?** It is diminishing returns *with a cliff*: the first step is double-exponential, the rest are vanishing constants — the shape, not merely the monotonicity, is the result.
-7. **What breaks it?** Strongly correlated sampling (always probing the same workers) or adversarial load signals; disclosed as model-dependence.
-8. **Actionable?** Yes — set fleet dispatch probe fan-out to exactly 2; reinvest the saved coordination budget in load-signal freshness.
+## Probe report (v0, 2026-07-18)
+**1. Real or a small-n artifact?** Real — it is the ABKU theorem; larger n *sharpens* the cliff (the gap is double-exponential in n). The sim uses n=20000 to show it at fleet-realistic scale.
+**2. Could the cliff be a seed fluke?** No — 120 independent trials, paired per-trial differences, ≥3σ gates on the /se margin.
+**3. Why m=n?** The classic balanced-allocations regime and the cleanest statement; heavily-loaded (m≫n) only widens the d=1 vs d=2 gap.
+**4. Does d=3 ever beat d=2 meaningfully?** By a fraction of a slot for any realistic n; G3 bounds the entire post-2 gain below two slots.
+**5. Ties?** Broken by first-sampled (deterministic) — a standard convention; random tie-breaking shifts constants negligibly.
+**6. Is this just "diminishing returns"?** It is diminishing returns *with a cliff*: the first step is double-exponential, the rest are vanishing constants — the shape, not merely the monotonicity, is the result.
+**7. What breaks it?** Strongly correlated sampling (always probing the same workers) or adversarial load signals; disclosed as model-dependence.
+**8. Actionable?** Yes — set fleet dispatch probe fan-out to exactly 2; reinvest the saved coordination budget in load-signal freshness.
 
-## Recommendation: **sim-ready**
 Ship to sim-lab for VERDICT 126 (P113 → V126, +13). One counterintuitive result (returns collapse at d=2, not gradually), one textbook anchor (ABKU), three ≥3σ gates, a deterministic committed verifier.
+
+**Recommendation: sim-ready**
