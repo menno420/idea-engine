@@ -1,9 +1,9 @@
 # PROPOSAL 126 — partner-channel margin stacking (round-29 VENTURE slot, P126 → V139, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · idea/planning
 
-Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat + sibling union, releasing the landing workflow.
+Born in-progress as this session's first commit (born-red HOLD); flipped to complete as the deliberate last step after the heartbeat + sibling union, releasing the landing workflow.
 
 ## Objective
 Draft and land the round-29 VENTURE-slot proposal (P126): one genuinely new, counterintuitive, stdlib-simulable venture-domain pure-mechanism head, distinct from the prior venture heads P098 (referral-bonus value trap), P102 (growth cash-trough trap), P106 (retention-survivorship mirage), P110 (discount-depth breakeven trap), P114 (freemium support-cost inversion), P118 (sales-ramp capacity drag), P122 (NRR composition mirage). Domain: go-to-market / channel economics — partner-channel margin stacking (double marginalization): two independent firms marking up in series drive the retail price above the vertically-integrated monopoly price and shrink the combined channel pie below the integrated profit. With pre-registered ≥3σ /se gates, a price-inflation headline, a deadweight profit-destruction control, and a double-marginalization anchor (3/4 profit, 1/2 quantity). Fanned to sim-lab as VERDICT 139 (+13). This slice does NOT write the verdict.
