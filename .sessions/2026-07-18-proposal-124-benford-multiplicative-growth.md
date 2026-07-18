@@ -1,9 +1,9 @@
 # PROPOSAL 124 — Benford's law from multiplicative growth (round-28 UNRELATED slot, P124 → V137, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: opus-4.8 · high · idea/planning
 
-Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
+Born in-progress as this session's first commit (born-red HOLD); flipped to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
 
 ## Objective
 Draft and land the round-28 UNRELATED-slot closer (P124): one genuinely new, counterintuitive, stdlib-simulable pure-mechanism head OUTSIDE the fleet/venture/game domains and distinct from the prior unrelated closers P100 (Kelly overbet / information theory), P104 (epidemic overshoot / epidemiology), P108 (regression to the mean / statistics), P112 (series-system MTBF collapse / reliability engineering), P116 (arcsine lead illusion / stochastic processes), P120 (German-tank MVUE / statistical estimation theory). Domain: number theory / statistics — the leading-digit law (Benford's law) EMERGING from multiplicative growth. With pre-registered ≥3σ /se gates: an existence gate (Benford-heavy, not uniform), a dose-response/emergence gate (fit improves with multiplicative steps), and a specificity gate (additive growth is NOT Benford), plus a closed-form Benford anchor cross-check. Fanned to sim-lab as VERDICT 137 (+13). This slice does NOT write the verdict.
