@@ -1,9 +1,9 @@
 # PROPOSAL 132 — the birthday-collision √N scaling law (round-30 UNRELATED slot, P132 → V145, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
-Born in-progress as this session's first commit (born-red HOLD); to be flipped to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
+Born in-progress as this session's first commit (born-red HOLD); flipped to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
 
 ## Objective
 Draft and land the round-30 UNRELATED-slot closer (P132): one genuinely new, counterintuitive, stdlib-simulable pure-mechanism head OUTSIDE the fleet/venture/game domains and distinct from every prior unrelated closer P100 (Kelly overbet / information theory), P104 (epidemic overshoot / SIR), P108 (regression to the mean / conditional-mean shrinkage), P112 (series-system MTBF / reliability), P116 (arcsine lead illusion / sojourn distribution), P120 (German-tank MVUE / point estimation), P124 (Benford / leading-digit law), P128 (Stein / estimator admissibility). Domain: probability / combinatorics — the birthday problem's √N collision scaling law. With pre-registered ≥3σ /se gates. Fanned to sim-lab as VERDICT 145 (+13). This slice does NOT write the verdict.
