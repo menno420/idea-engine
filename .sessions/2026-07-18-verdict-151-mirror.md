@@ -2,7 +2,7 @@
 
 Mirror of PROPOSAL 138 (round-32 VENTURE slot, P138 → V151, +13): under usage-based (consumption) pricing a firm's monthly revenue R = Σ Uᵢ is a sum over N independent accounts, so the law-of-large-numbers folk model says revenue smooths and the coefficient of variation falls like CV_account/√N. It does NOT under heterogeneous account SIZES: independent-but-unequal accounts add in variance weighted by size², so CV(R) = CV_account·√HHI where HHI = Σwᵢ² (wᵢ = mᵢ/Σm) is the Herfindahl concentration index and N_eff = 1/HHI is the EFFECTIVE account count, NOT N. With Zipf sizes mᵢ = 1/i (i=1..400) and CV_account=0.5, a 400-account book has N_eff ≈ 26.28 — revenue is 3.90× more volatile than the naive CV_account/√N predicts, forced by Cauchy–Schwarz (HHI ≥ 1/N): size concentration, not customer count, sets the variance floor. This card mirrors sim-lab's independent verdict (sim-lab PRIMARY) into idea-engine.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · review/verify
 
 Born red by design: this card landed `in-progress` in the branch's first commit, holding the substrate-gate HOLD red until sim-lab byte-identical reproduction was proven and audited (merge-on-green, zero agent merge calls). The LAST commit flips it to `complete`, clearing the HOLD.
