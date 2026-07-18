@@ -2,7 +2,7 @@
 
 Mirror of PROPOSAL 139 (round-32 GAME slot, P139 → V152, +13): in a co-op raid each ADDED member contributes nominal single-target DPS but also imposes COORDINATION OVERHEAD, so the realized total raid DPS at roster size N is DPS(N) = (Σ_{i=1..N} base_i) · uptime(N) · (1 − collision_loss(N)) with uptime(N) = max(FLOOR, 1 − c·(N−1)) and 1 − collision_loss(N) = (1 − q)^(N−1). The nominal sum grows LINEARLY in N while the two overhead factors decay, so their product is single-peaked and maximizes at a roster size N* strictly INTERIOR to [1, NMAX] — a smaller premade out-DPSes a full stack and "stack more bodies" is negative-EV past N*. With NMAX=8, base_i ~ Gamma(K=4, θ=25) (mean 100, CoV 0.5), c=0.06, FLOOR=0.35, q=0.07 the mean-model peaks at N*=6 with DPS(6)=292.189115 > DPS(8)=279.189204 — the game-lane instance of the Ringelmann effect. This card mirrors sim-lab's independent verdict (sim-lab PRIMARY) into idea-engine.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · review/verify
 
 Born red by design: this card lands `in-progress` in the branch's first mirror commit, holding the substrate-gate HOLD red until sim-lab byte-identical reproduction is proven and audited (merge-on-green, zero agent merge calls). The LAST commit flips it to `complete`, clearing the HOLD.
