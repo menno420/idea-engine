@@ -2,7 +2,7 @@
 
 Mirror of PROPOSAL 136 (round-31 UNRELATED slot, P136 → V149, +13): does a "99%-accurate" positive test result mean ~99% chance of disease? It does NOT. By Bayes the posterior of one positive is PPV=(sens·prev)/(sens·prev+(1−spec)(1−prev)) — a function of the BASE RATE, not the accuracy; the folk intuition confuses the forward conditional sens=P(positive|disease) with its converse (base-rate neglect / the false-positive paradox / the prosecutor's fallacy). At sens=spec=0.99 the posterior is EXACTLY 0.5 at prevalence 1% (the knife-edge prev*=1−q) and COLLAPSES to ~9.0% (0.0901639) at prevalence 0.1%, because true positives (∝prev) are swamped by false positives (∝1−prev). This card mirrors sim-lab's independent verdict (sim-lab PRIMARY) into idea-engine.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · review/verify
 
 Born red by design: this card landed `in-progress` in the branch's first commit, holding the substrate-gate HOLD red until sim-lab byte-identical reproduction was proven and audited (merge-on-green, zero agent merge calls). The LAST commit flips it to `complete`, clearing the HOLD.
@@ -32,9 +32,9 @@ Reproduce the committed P136 verifier `ideas/fleet/base_rate_ppv_collapse.py` by
 - **G2** positive-rate: empirical positive-rate(prev=0.01)=0.019856 vs exact anchor 0.019800 → z=+0.563, |z| < 3σ → **PASS** — the firing rate is the Bayes denominator; the tallies form the right object.
 - **G3** collapse deepens: empirical PPV(prev=0.001)=0.092466 vs exact anchor 0.0901639 → z=+1.188, |z| < 3σ → **PASS** — the posterior collapses FURTHER as prevalence falls (0.5→~0.09), the base-rate mechanism made quantitative.
 
-## Outcome
+## Outcome — APPROVE (exact reproduction)
 
-Pending sim-lab reproduction — filled on the flip to `complete`. Expected APPROVE (exact reproduction): results-dict sha256 `89c4bd02969e51bfed210680af0d73869f93fde23149f1cc238ba77b895faac8`, all three ≥3σ gates PASS in order.
+sim-lab PRIMARY reproduced the committed verifier byte-identical under SEED=20260717 (`diff` exit 0, file sha256 `aae78a6a7db0380f77c8793c71d476b5d5a45a52b5e9d421ad7195f4fb1c2694`, git blob `9aef51ad`, 209 lines), whole-dict compact-canonical results sha256 = `89c4bd02969e51bfed210680af0d73869f93fde23149f1cc238ba77b895faac8`, exactly matching the disclosed digest, reproduced identically across cross-invocation A/B (stdout diff exit 0). All three ≥3σ gates PASS in order G1→G2→G3 with the disclosed z-values (G1 z=−0.898, G2 z=+0.563, G3 z=+1.188), all_pass=true, exit 0. Scenario A (prev=0.01): TP=19766 FP=19945 n_pos=39711 emp_ppv=0.497746 posrate=0.019856; scenario B (prev=0.001): TP=2019 FP=19816 n_pos=21835 emp_ppv=0.092466. sim-lab PR #222 (branch claude/verdict-149-ppv-collapse) MERGED on sim-lab main @29c343e2f88fecf7d97ee1cb848c0a7d191d960a (head @bbdd27f9, merged_at 2026-07-18T14:34:50Z) via merge-on-green after the born-red card flip; probe report `sims/verdict-149-ppv-collapse/probe-report.md`. The claim holds: by Bayes the posterior of one positive is PPV=(sens·prev)/(sens·prev+(1−spec)(1−prev)) — a function of the BASE RATE, not the accuracy — so a 99%-accurate positive is EXACTLY a coin flip at 1% prevalence and collapses to ~9.0% at 0.1%. **APPROVE.**
 
 ## ⟲ Previous-session review
 
