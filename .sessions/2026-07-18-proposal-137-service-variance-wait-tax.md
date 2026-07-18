@@ -1,9 +1,9 @@
 # PROPOSAL 137 — service-variance wait tax (round-32 FLEET slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
-Born-red HOLD: this card lands `in-progress` in the branch's first commit, holding the substrate-gate red so the PR cannot merge before the deliberate flip. The LAST commit flips it to `complete`, releasing the landing workflow.
+Born-red HOLD released: this card held the PR red from its first commit until the slice was complete and verified; flipping to `complete` here releases the landing workflow.
 
 ## Objective
 
@@ -18,9 +18,9 @@ Draft and land round-32 FLEET-slot PROPOSAL 137 — the service-variance wait ta
 - Outbox PROPOSAL 137 block appended once per grammar (+13 offset → V150); did NOT write the verdict.
 - Deduped against ideas/ + full outbox history — distinct from P089 variance-blind-provisioning-trap (SLA-violation rate + capacity-provisioning correction) and from inspection-paradox / correlated-fleet-variance-floor / checkout-pooling.
 
-## What happened (in progress)
+## What happened
 
-Synced to origin/main HEAD 8c7d2b5 (round-31 CLOSED on both sides: proposals P133–P136, verdicts V146–V149). Re-scanned control/claims/ and open PRs for a competing P137 — none (the only open PR is #527, VERDICT 126; the "137" hits are VERDICT 137 for P124 forward-references). Claimed P137, branched `claude/proposal-137-service-variance-wait-tax`, opening this PR READY on the born-red card. Verifier + card + outbox + heartbeat land in subsequent commits; this section and the Status flip are finalized last.
+Synced to origin/main HEAD 8c7d2b5 (round-31 CLOSED on both sides: proposals P133–P136, verdicts V146–V149; origin/main stayed at 8c7d2b5 through the whole slice — no sibling merge needed). Re-scanned control/claims/ and open PRs for a competing P137 — none (the only open PR is #527, VERDICT 126; the "137" hits are VERDICT 137 for P124 forward-references). Claimed P137, branched `claude/proposal-137-service-variance-wait-tax`, opened PR #577 READY on the born-red card (commit afe25ad). Committed the stdlib verifier + idea card + outbox P137 block (commit d8ac8d1): the real dry run passed all three ordered ≥3σ /se gates (G1 M/D/1 W_q measured 2.002221 vs exact 2.0 z=+0.496, G2 M/M/1 3.987717 vs 4.0 z=−0.934, G3 M/H2/1 9.921619 vs 10.0 z=−1.838), byte-identical across two runs, exit 0, results-dict sha256 ab44d56a22c24f83c4a2048af56dc3dbdbf462d3aa9990bd19c64426891e4307 (WHOLE-DICT / NO-SELF-FIELD / STDOUT-ONLY posture). Authored the fleet-lane card (dedup draws the line vs P089 variance-blind-provisioning-trap: LAW vs the (1+CV²) capacity FIX), appended the outbox PROPOSAL 137 block (+13 → V150, offset cited from the predecessor P136 → V149 row + the status baton), updated the heartbeat (proposal high-water P136 → P137, verdict high-water held at V149, round-32 opens at the FLEET slot; baton → V150 for P137 then round-32 venture-slot P138; routines line unchanged coordinator-bound; commit e225995), then flipped this card to release the landing workflow. `python3 bootstrap.py check --strict` before the flip failed only on the designed born-red HOLD (claims-duplicate / owner-action / seat-digest advisories are never exit-affecting; preflight check_ideas --outbox passes once the outbox block names the card).
 
 ## ⟲ Previous-session review
 
@@ -35,4 +35,4 @@ The service-variance wait tax (P137, the pure P-K queue-WAIT law) and P089's var
 - Verifier (firsthand, ground truth): https://github.com/menno420/idea-engine/blob/main/ideas/fleet/service_variance_wait_tax.py — results-dict sha256 ab44d56a22c24f83c4a2048af56dc3dbdbf462d3aa9990bd19c64426891e4307, SEED=20260717, N_JOBS=600000, WARMUP=150000, REPLICATIONS=30.
 - Idea card: https://github.com/menno420/idea-engine/blob/main/ideas/fleet/service-variance-wait-tax-2026-07-18.md
 - External reference (reachable): Pollaczek–Khinchine mean-value formula — Kleinrock, Queueing Systems Vol.1 (1975) §5.6; https://en.wikipedia.org/wiki/Pollaczek%E2%80%93Khinchine_formula (M/G/1 mean queue wait explicitly depends on service-time variance) — verified reachable 2026-07-18.
-- Grounding commit: https://github.com/menno420/idea-engine@8c7d2b5 · HEAD at start 8c7d2b5d333e97b35b85d754fb64c143c0fdfc37 · fetched 2026-07-18T15:07:28Z. PR: (opened this session).
+- Grounding commit: https://github.com/menno420/idea-engine@8c7d2b5 · HEAD at start 8c7d2b5d333e97b35b85d754fb64c143c0fdfc37 · fetched 2026-07-18T15:07:28Z. PR: #577.
