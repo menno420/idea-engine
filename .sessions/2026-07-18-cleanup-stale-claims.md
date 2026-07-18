@@ -1,0 +1,35 @@
+# CLEANUP — prune the 8-file same-date 2026-07-18 verdict-advisory claim set from control/claims/, each verified terminal (its mirror PR merged to origin/main) at live GitHub before deletion
+
+> **Status:** `in-progress`
+> 📊 Model: opus-4.8 · high · review/verify
+
+Born in-progress as this session's FIRST commit (born-red HOLD); it holds `substrate-gate` red until the prune lands and the close-out is written — the flip to `complete` is the deliberate LAST step, not part of this opening commit.
+
+## GROUNDING
+Verified at HEAD and at LIVE GitHub, not assumed. Branch `claude/cleanup-stale-claims` off origin/main HEAD `1cd9fe4cd5e392a81988e169f4e0cf4d8cb1a1ad` (VERDICT 123 mirror, #520). `python3 bootstrap.py check --strict` at HEAD emits a `claims-duplicate` advisory: the work-claim date `2026-07-18` is declared by 8 files under `control/claims/` — the verdict-advisory set for V116–V123 (`verdict-116-streak-shield.md`, `2026-07-18-verdict-117-epidemic-overshoot.md`, `2026-07-18-verdict-118-delegation-loop-collapse.md`, `2026-07-18-verdict-119-retention-survivorship-mirage.md`, `2026-07-18-verdict-120-energy-cap-overflow.md`, `verdict-121-regression-to-mean.md`, `verdict-122-correlated-fleet-variance-floor.md`, `verdict-123-discount-breakeven-trap.md`). Each is a "claim before build" advisory whose named branch/PR was checked at live GitHub: `git ls-remote origin` confirmed every branch still exists (a merged PR does not auto-delete its branch, so branch presence is NOT liveness), and `list_pull_requests` (state=all) returned for each a PR that is `state: closed` with a **non-null `merged_at`** — the authoritative merged signal — every one of which also appears as a merge commit in `git log origin/main` (PRs #502, #504, #507, #508, #511, #515, #516, #520). All 8 are therefore verifiably TERMINAL (merged); none is possibly-live. Deleting them is the tiebreak-loser stand-down the per-file claim convention prescribes once a claim's work has merged. Out of scope by instruction: the separate 4-file `2026-07-17` duplicate set (V112/113/114/115) and all `proposal-*` claims are left untouched.
+
+## Audit table — each of the 8, verified terminal at live GitHub before deletion
+| # | Claim file | Referenced branch (idea-engine) | PR | Live GH state | Decision |
+|---|---|---|---|---|---|
+| 1 | `verdict-116-streak-shield.md` | `claude/verdict-116-mirror` | #502 | closed, merged_at 2026-07-18T00:17:04Z; in origin/main @8eb7ff4 | **DELETE** — merged/terminal |
+| 2 | `2026-07-18-verdict-117-epidemic-overshoot.md` | `claude/verdict-117-epidemic-overshoot` | #504 | closed, merged_at 2026-07-18T00:33:19Z; in origin/main @b9b4f54 | **DELETE** — merged/terminal |
+| 3 | `2026-07-18-verdict-118-delegation-loop-collapse.md` | `claude/verdict-118-delegation-loop-collapse` | #507 | closed, merged_at 2026-07-18T01:08:24Z; in origin/main @085201c | **DELETE** — merged/terminal |
+| 4 | `2026-07-18-verdict-119-retention-survivorship-mirage.md` | `claude/verdict-119-retention-survivorship-mirage` | #508 | closed, merged_at 2026-07-18T01:08:58Z; in origin/main @7e04e58 | **DELETE** — merged/terminal |
+| 5 | `2026-07-18-verdict-120-energy-cap-overflow.md` | `claude/verdict-120-energy-cap-overflow` | #511 | closed, merged_at 2026-07-18T01:53:40Z; in origin/main @2e6a18d | **DELETE** — merged/terminal |
+| 6 | `verdict-121-regression-to-mean.md` | `claude/verdict-121-regression-to-mean` | #515 | closed, merged_at 2026-07-18T02:15:14Z; in origin/main @fed624c | **DELETE** — merged/terminal |
+| 7 | `verdict-122-correlated-fleet-variance-floor.md` | `claude/verdict-122-correlated-fleet-variance-floor` | #516 | closed, merged_at 2026-07-18T02:27:36Z; in origin/main @ab3d00a | **DELETE** — merged/terminal |
+| 8 | `verdict-123-discount-breakeven-trap.md` | `claude/verdict-123-discount-depth-breakeven` | #520 | closed, merged_at 2026-07-18T02:53:37Z; in origin/main @1cd9fe4 | **DELETE** — merged/terminal |
+
+All 8 are verifiably merged (terminal) at live GitHub, so none qualifies for the conservative KEEP (there is no possibly-live branch with no terminal PR, and the <72h youth clause protects a claim only when it has NO merged/closed PR — every one here does). Zero KEEP, 8 DELETE.
+
+## Objective
+`git rm` the 8 verified-terminal verdict-advisory claim files, leaving the `2026-07-17` set and all `proposal-*` claims untouched, and confirm the `2026-07-18` `claims-duplicate` advisory clears and `python3 bootstrap.py check --strict` exits 0.
+
+## What happened
+All 8 files were removed with `git rm` after each was confirmed merged at live GitHub (closed PR with non-null `merged_at`, corroborated by a merge commit in `git log origin/main`). Post-prune the `control/claims/2026-07-18` `claims-duplicate` advisory is gone and `python3 bootstrap.py check --strict` exits 0. No proposal claim, the `2026-07-17` verdict set, `README.md`, `bt-controller-plan.md`, or any non-claim path was touched.
+
+## ⟲ Previous-session review
+The prior loop landed the VERDICT 123 mirror (P110 → V123) via PR #520 @ `1cd9fe4`; its own card explicitly deferred this work — "Stale work claims under control/claims/ (verdict-116…123) are the successor's to prune once their PRs are terminal." This session executes exactly that pull, having first VERIFIED terminality at live GitHub rather than assuming it from the card note (the card's claim is a pointer, re-verified here: 8/8 mirror PRs merged, each also present as a merge commit in origin/main). The claim-vs-verified distinction mattered — branch existence via `git ls-remote` was NOT treated as liveness, since GitHub leaves a merged PR's head branch in place; the decisive signal was each PR's non-null `merged_at`. Guard recipe for the next session: when auditing `control/claims/` staleness, the terminal test is the PR's `merged_at`/state at live GitHub (or a `#NNN` merge commit in `git log origin/main`), never branch presence — and when uncertain, KEEP (conservatism wins); the still-open `2026-07-17` 4-file duplicate set (V112/113/114/115) was left for a separately-scoped prune.
+
+## 💡 Session idea
+The `claims-duplicate` advisory fires on same-DATE collision, but the real signal it is proxying is "this claim's work has merged, so the claim is stale" — a date collision is only a noisy correlate (two live claims opened the same day are a genuine collision; eight merged ones are just un-swept litter). A sharper, self-clearing gate would resolve each claim's branch/PR against live GitHub (or the local `origin/main` merge-commit log) and flag a claim as terminal-and-prunable the moment its PR merges, independent of date — turning the periodic manual audit performed here into a gate-time computation. It also composes with the fast-lane control-only claim convention: a claim landed ahead of its mirror (as V119/V123 were via fast-lane claim PRs) could carry a machine-readable `PR: #NNN` field the gate reads back, so "claim before build" and "prune after merge" close the same loop without a human re-deriving terminality from prose scope lines.
