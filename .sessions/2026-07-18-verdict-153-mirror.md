@@ -2,7 +2,7 @@
 
 Mirror of PROPOSAL 140 (round-32 UNRELATED slot CLOSER, P140 → V153, +13): for a fixed-stake ±1 random walk with per-step win probability p (q=1−p) starting at i between absorbing barriers 0 and N, the probability of reaching the target N before ruin at 0 is P=(1−(q/p)^i)/(1−(q/p)^N) for p≠0.5 (and i/N for the fair game p=0.5). Folk belief (inverted here): "the house edge is tiny — a ~1.5% edge only shaves a percent or two off my chances, the penalty scales LINEARLY with the edge." It does NOT: the reach probability collapses EXPONENTIALLY in the target distance N through the barrier ratio (q/p)^N — from a symmetric fair start (i=100, N=200) worth P=0.5, applying only a 1.5% edge (p=0.485) drops the reach probability to the exact closed form 0.00246818502 (~0.002510 observed), a ~200× collapse, NOT the ~1.5% a linear-in-the-edge intuition predicts. First-step analysis Pᵢ=p·Pᵢ₊₁+q·Pᵢ₋₁ with P₀=0, P_N=1 solves to the geometric form; with r=q/p>1 the symmetric-start reach P=1/(1+r^{N/2})~1/(1+e^{ε·N}) is governed by the product ε·N — the per-round disadvantages MULTIPLY through the barrier ratio, they do not add. The classical two-barrier first-passage law (Feller, An Introduction to Probability Theory Vol.1 §XIV). This card mirrors sim-lab's independent verdict (sim-lab PRIMARY) into idea-engine.
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · review/verify
 
 Born red by design: this card lands `in-progress` in the branch's first mirror commit, holding the substrate-gate HOLD red until sim-lab byte-identical reproduction is proven and audited (merge-on-green, zero agent merge calls). The LAST commit flips it to `complete`, clearing the HOLD.
