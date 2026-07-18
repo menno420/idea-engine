@@ -1,3 +1,0 @@
-# CLAIM — verdict-147-cohort-blended-ltv-understatement (P134 → V147, +13)
-
-- `claude/verdict-147-cohort-ltv-understatement` · scope — VERDICT 147 for PROPOSAL 134 cohort-blended LTV understatement (round-31 VENTURE slot): byte-identical reproduction of ideas/venture-lab/blended_churn_ltv_understatement.py under SEED=20260717 in sim-lab sims/verdict-147-cohort-ltv-understatement/ + verdict card + heartbeat, then idea-engine mirror (outbox V147 block + heartbeat + card). files: sim-lab {sims/verdict-147-cohort-ltv-understatement/*, .sessions/2026-07-18-verdict-147-cohort-ltv-understatement.md, control/status.md} + idea-engine {control/outbox.md, control/status.md, .sessions/2026-07-18-verdict-147-cohort-ltv-understatement.md, this claim} · 2026-07-18
