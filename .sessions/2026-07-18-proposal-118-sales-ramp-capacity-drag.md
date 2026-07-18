@@ -1,6 +1,6 @@
 # PROPOSAL 118 — the sales-ramp capacity drag (round-27 VENTURE slot, P118 → V131, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus 4.x · high · proposal-draft
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
