@@ -3,7 +3,8 @@
 > **State:** sim-ready
 > **Class:** fleet (unrelated / cross-cutting) · probability theory / stochastic processes · the Lévy–Feller first arcsine law (sojourn time of a fair random walk)
 > **Target:** sim-lab (VERDICT 129, +13 offset)
-> **Grounding:** https://en.wikipedia.org/wiki/Arcsine_laws_(Wiener_process) (Lévy's first arcsine law — proportion of time positive is arcsine-distributed; verified reachable 2026-07-18) · repo idea-engine@eb76189 · fetched 2026-07-18T04:41Z
+> **Grounding:** https://github.com/menno420/idea-engine@eb76189 · fetched 2026-07-18T04:41:12Z
+> **Reference (external, reachable):** https://en.wikipedia.org/wiki/Arcsine_laws_(Wiener_process) — Lévy's first arcsine law (the proportion of time a fair walk / Brownian motion spends positive is arcsine-distributed, CDF (2/π)arcsin√x); verified reachable 2026-07-18.
 > **Verifier (firsthand):** committed stdlib-only reference sim `ideas/fleet/arcsine_lead_illusion.py` (random, math, json, hashlib) — dry-sim exit 0, all gates PASS, results-dict sha256 4865158a…d16a7b52 (see Verifier + Dry-sim below).
 
 ## The phenomenon (one line)
