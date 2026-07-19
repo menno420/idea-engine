@@ -1,6 +1,6 @@
 # PROPOSAL 165 — preventive maintenance of a memoryless component is pure waste: age replacement holds the unplanned-failure rate at exactly λ while raising cost rate (round-39 FLEET slot, P165 -> V178, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block + heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
