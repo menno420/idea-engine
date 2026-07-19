@@ -1,6 +1,6 @@
 # PROPOSAL 163 — mana-screw: deck size (not land ratio) dominates opening-hand consistency via hypergeometric finite-population correction
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · proposal authoring
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-38's GAME-slot PROPOSAL 163: a fresh, counterintuitive, quantifiabl
 **4. Crossover, not the claim: the effect generalizes to any "hit a threshold of a card type" opening-hand question (combo pieces, colored sources). Disclosed as a crossover, not asserted as the verified claim?** — to be disclosed as a crossover; the verified claim is the deck-size variance dominance under the hypergeometric opening-hand model.
 
 ## Outcome
-Placeholder — work in progress. Verifier `ideas/superbot-games/mana_screw_deck_size.py` and doc not yet committed. Gates unrun, results-dict digest not yet produced, outbox block not yet appended, high-water not yet advanced. This card lands born-red to hold the gate; the Outcome fills in on the completing commit.
+Shipped. Verifier `ideas/superbot-games/mana_screw_deck_size.py` passes three ordered gates: G1 (deck B off-curve > deck A at matched 40% land fraction) z=+16.80; G2 (measured variance ratio vs closed-form hypergeometric finite-population correction) z=−0.10, |z|<3 match; G3 (robustness under the shifted p=0.30 distribution) z=+16.45; all_pass=true. Results-dict sha256 = `1280ae6278b508f00d3737841768181288e7ed31f12a443d5982b5f03b898e33`, byte-identical across two cross-invocation runs. Proposal doc `ideas/superbot-games/mana-screw-deck-size-2026-07-19.md` landed (grounding: Wikipedia "Hypergeometric distribution", verified HTTP 200). Outbox PROPOSAL 163 block appended (target VERDICT 176, +13). Claim released.
 
 ## ⟲ Previous-session review
 Round-38 VENTURE slot (P162 option-pool shuffle → V175, +13) landed clean on three ≥3σ gates with a whole-dict digest and a shifted-distribution robustness gate; that verifier discipline — an exact invariance/insensitivity claim plus a distribution-shift robustness gate — carries forward here into the GAME slot P163 (mana-screw deck-size dominance).
