@@ -26,7 +26,7 @@ Show that adding jitter to monitoring / health-check poll intervals — a standa
 - all_pass = G1 ∧ G2 ∧ G3.
 
 ## GROUNDING (verified live)
-_Filled by the authoring step: url@<pin> — renewal theory inspection paradox / forward-recurrence residual life E[R]=E[X²]/(2E[X])._
+https://en.wikipedia.org/wiki/Renewal_theory@9c02ed0 — renewal theory inspection paradox / forward-recurrence residual life E[R]=E[X²]/(2E[X]); verified reachable 2026-07-19 via WebFetch (documents the bus-waiting-time inspection paradox and its size-biased-sampling resolution).
 
 ## Probe questions
 **1. Does the (1+CV²) inflation persist when poll intervals are negatively autocorrelated (a jittered-but-scheduled cadence) rather than iid renewal draws?**
@@ -39,7 +39,7 @@ _Filled by the authoring step: url@<pin> — renewal theory inspection paradox /
 **8. Does the same size-biased sampling inflate the mean AGE of the last successful poll (staleness) symmetrically with the forward residual?**
 
 ## Outcome
-_Filled after the verifier runs cross-invocation: results-dict sha256, G1/G2/G3 z-scores, all_pass._
+results-dict sha256 = d9a789f57e4db6eaf5ab8c0b3b4f227b85c25f8ed7e989d7821d69a4878f2999; all_pass = true; G1 z=355.431716, G2 z_contrast=341.660906, G3 z=451.526684; mean residuals det≈50 / exp≈100 / h2≈164.
 
 ## ⟲ Previous-session review
 Round-44 closed with P188 (population momentum, UNRELATED slot → V201, +13). The rotation is fleet → venture → game → unrelated; this card opens round-45 in the FLEET slot (P189 → V202). Sibling V201 (population-momentum verdict) and its mirror run concurrently — outbox/heartbeat concurrency is expected, so rebase-and-union before each push.
