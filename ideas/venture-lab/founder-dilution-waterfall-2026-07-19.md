@@ -1,0 +1,93 @@
+# A term sheet with a HIGHER headline pre-money valuation but a PARTICIPATING preferred carrying a liquidation MULTIPLE pays founders LESS at exit than a LOWER-valuation term sheet with clean 1x NON-PARTICIPATING terms — across a strict MAJORITY of realistic exit outcomes and at the typical (median) exit — because the participation drag (a fixed multiple off the top, then the investor ALSO shares the remainder pro-rata) dominates the founder-friendly effect of the smaller investor ownership fraction the higher valuation buys, everywhere below an analytic crossover exit of $200M; founders who "just take the higher valuation" optimise the one number on the term sheet that is nearly irrelevant to their realised proceeds
+
+> **State:** sim-ready
+> **Class:** venture-lab · startup finance / cap-table & exit economics · liquidation-preference waterfall (participating multiple vs headline valuation)
+> **Slot:** round-35 venture
+> **Target:** sim-lab (VERDICT 163, +13 offset)
+> **Grounding:** https://github.com/menno420/idea-engine/blob/ed22c62f259264149568ec798ffbaa7b330ca642/ideas/venture-lab/founder_dilution_waterfall.py@2bb413badfe75bdbed32298179a9340cd43ee348 · fetched 2026-07-19T01:57:53Z
+> **Reference (external, reachable):** https://en.wikipedia.org/wiki/Liquidation_preference (liquidation preference — participating vs non-participating preferred and the liquidation MULTIPLE; the exit waterfall paying preferred before common; verified reachable 2026-07-19 via WebFetch) + https://en.wikipedia.org/wiki/Preferred_stock (participating preferred: preference off the top THEN pro-rata participation in the remainder; verified reachable 2026-07-19 via WebFetch) + https://en.wikipedia.org/wiki/Log-normal_distribution (the heavy-tailed exit-value distribution used for the Monte-Carlo exit draws; verified reachable 2026-07-19 via WebFetch)
+> **Harvest source (firsthand):** venture / startup-financing practice — the standard Series-A term-sheet trade a founder faces: a higher headline pre-money valuation offered ALONGSIDE a participating preferred with a 2x liquidation preference, versus a lower valuation with clean 1x non-participating terms, and the "always take the higher valuation" folk rule that reads the headline number and ignores the waterfall.
+
+## The phenomenon (one line)
+Between two term sheets raising the same money for the same company, the one with the higher headline pre-money valuation but a participating preferred carrying a liquidation multiple leaves founders with LESS at exit across ~80% of realistic outcomes and at the median exit — the participation drag beats the lower dilution the higher valuation buys everywhere below a $200M analytic crossover, and only extreme moonshots reverse it.
+
+## The folk belief
+"A higher pre-money valuation is unambiguously better for founders: same cash in, less dilution, a bigger slice kept. Between two offers that raise the same amount, take the higher valuation — the liquidation-preference fine print (participating vs non-participating, 1x vs 2x) is lawyer detail that only bites in a fire sale, not in a real outcome." The valuation is treated as THE founder-value number and the waterfall terms as second-order.
+
+## The mechanism (reasoned to its fuller form — Q-0254 duty)
+A priced round gives the investor PREFERRED stock that sits ahead of the founders' COMMON in the exit waterfall. Two features of that preferred, not the headline valuation, set what the founder actually keeps:
+
+1. **The liquidation multiple M and the participation flag.** At an exit value X the preferred takes its liquidation preference `M · RAISE` first. If it is NON-PARTICIPATING, the investor takes the GREATER of that preference or its as-converted common share `f · X` (it must choose — preference OR common), so founders (common) receive `X − max(M·RAISE, f·X)`. If it is PARTICIPATING, the investor takes the preference off the top AND THEN also shares pro-rata in the remainder, so founders receive `(1 − f) · (X − M·RAISE)` — the investor is paid twice (preference, then participation).
+2. **The investor ownership fraction f = RAISE / (pre + RAISE).** A HIGHER pre-money valuation buys the same cash for a SMALLER f, which HELPS founders on the pro-rata leg. This is the only place the headline valuation enters the founder payoff — and it is a second-order lever next to the participation multiple.
+
+Now put the two offers head to head. Both raise RAISE = 10 for the same company:
+- **Offer A — lower valuation, clean terms:** pre = 30 → post 40, `f_A = 0.25`; 1x NON-PARTICIPATING. Founder(X) = `X − max(10, 0.25·X)`.
+- **Offer B — higher valuation, stacked terms:** pre = 50 → post 60, `f_B = 1/6 ≈ 0.1667`; 2x PARTICIPATING (uncapped). Founder(X) = `(1 − 1/6)·(X − 20) = 0.8333·(X − 20)` for X > 20.
+
+Set them equal in the region where A's investor has converted to common (X > 40, so Founder_A = 0.75·X): `0.75·X = 0.8333·(X − 20)` ⟹ `16.667 = 0.08333·X` ⟹ **X\* = 200**. Below $200M exit Offer A pays founders strictly MORE; above it Offer B does. The intuition: B's participation multiple skims a fixed `M·RAISE` off the top plus a share of the rest — a drag that is large relative to a modest exit and negligible relative to a moonshot; B's only founder-friendly edge, the smaller f, matters only when X is huge. Since realistic venture exits sit overwhelmingly below $200M, the higher-valuation sheet is the WORSE founder outcome in the body of the distribution and wins only in the tail.
+
+The trap: the founder compares the two HEADLINE valuations (50 vs 30), "takes the higher one," and books a WORSE typical and (usually) expected outcome — because the number they optimised is nearly orthogonal to the waterfall that actually pays them.
+
+## Pinned world (committed constants — sim-lab must reproduce exactly)
+- SEED = 20260717 — fleet-pinned; one `random.Random(SEED)`, single stream, Dist A drawn before Dist B.
+- RAISE = 10.0 ($M), identical across both sheets. Offer A: PRE_A = 30.0, MULT_A = 1.0, non-participating → f_A = 0.25. Offer B: PRE_B = 50.0, MULT_B = 2.0, participating (uncapped) → f_B = 1/6 ≈ 0.166667.
+- X_CROSS = 200.0 ($M) — the analytic founder-proceeds crossover (below it A > B).
+- Exit value X ~ LogNormal (in $M). Dist A (primary): median MED_A = 80.0, log-sigma SIG_A = 1.0. Dist B (robustness, heavier upside — the case MOST favourable to Offer B): median MED_B = 120.0, log-sigma SIG_B = 1.3.
+- M_TRIALS = 20000 exit draws per distribution; SIGMA = 3.0 (all gates).
+- Founder payouts: non-participating `X − min(X, max(pref, f·X))`; participating `(1−f)·max(0, X−pref)` — both floored at zero, preference capped at X.
+
+## Pre-registered gates (evaluation order G1 → G2 → G3; APPROVE iff ALL hold)
+Each gate is a one-sample z on the /se convention `z = (mean − H0) / (stdev/sqrt(n))`.
+- **G1 — MAJORITY-INVERSION (the cross-sectional head).** Fraction of exit draws with founder_A > founder_B exceeds 0.5, one-sided z ≥ 3σ against H0 = 0.5. Observed win_rate = 0.7983 (Dist A), **z = +105.128721** — founders keep more under the LOWER-valuation clean sheet in ~80% of exits.
+- **G2 — TYPICAL-OUTCOME GAP (the magnitude head, tail-robust).** Conditional on a non-moonshot exit (X < X\* = 200 — the 81.53% of draws below the crossover), the paired proceeds gap founder_A − founder_B > 0, one-sided z ≥ 3σ. Observed gap_mean = +8.787216 ($M) on frac_below = 0.8153, **z = +300.536834** — at realistic exits founders net ≈ $8.8M MORE under Offer A.
+- **G3 — DISTRIBUTION ROBUSTNESS (the artifact-not-calibration head).** Under a SECOND, heavier-tailed exit distribution (Dist B: median 120, sigma 1.3 — MORE moonshots, the calibration most favourable to the high-valuation sheet), BOTH effects survive ≥3σ: win_rate = 0.62305 (**z = +35.907274**) and below-crossover gap_mean = +8.22916 (**z = +234.981636**). The majority-inversion and typical-gap are not artifacts of the primary exit calibration.
+
+## Pre-registered decision rule
+APPROVE (sim-ready → APPROVE) iff G1 ∧ G2 ∧ G3 all hold on the byte-identical committed verifier at SEED = 20260717, the results-dict sha256 matches EXACT, and the double-run is deterministic (exit 0 both times). Any gate miss (G1 win_rate ≤ 0.5 or z < 3; G2 gap ≤ 0 or z < 3; G3 either Dist-B effect below 3σ or wrong sign), digest mismatch, or non-determinism → REJECT.
+
+## Disclosed verifier (the sim-lab spec)
+Committed at `ideas/venture-lab/founder_dilution_waterfall.py`, stdlib only (`hashlib, json, math, random`). Digest posture: **WHOLE-DICT / NO-SELF-FIELD / STDOUT-ONLY** — the results dict carries NO `results_sha256` field; the sha256 is taken over the COMPACT canonical serialization (`json.dumps(results, sort_keys=True, separators=(",",":"))`), while stdout prints the PRETTY `indent=2` form (the P127+ TWIST). Every float in the results dict is rounded to 6 decimals; no on-disk JSON is written; an in-process double-run asserts byte-identity. Determinism: one `random.Random(SEED)`, single stream, Dist A drawn before Dist B, fixed trial order, no wall-clock.
+Expected results-dict sha256 (this pinned world) = `bf4042bdc18bf2c5ff3d1530a97ad2a7ead43038407f095ff2b5304df4f3b7c1`.
+
+## Why it matters (venture)
+Founders (and the "just take the higher valuation" advice they hear) optimise the headline pre-money number, but that number is nearly orthogonal to realised founder proceeds — the liquidation-preference waterfall (participation flag × multiple) is what pays them. This result quantifies the trade: a 2x participating preferred at a 67%-higher valuation (50 vs 30 pre) still leaves founders worse off in ~80% of exits and by ≈$8.8M at the typical exit, reversing only above a $200M moonshot. The transferable rule (Q-0264): price a term sheet on the WATERFALL, not the headline — compute founder proceeds across an exit distribution, not at a single dreamed valuation; treat a participating multiple as a large, first-order haircut and a headline-valuation bump as a small, tail-only credit; and be suspicious of any "we raised at a higher valuation" bundled with participation or a >1x preference. It reframes negotiation: trade headline valuation DOWN for clean 1x non-participating terms whenever the exit is not a near-certain moonshot — the opposite of the reflex.
+
+## Dedup
+Distinct from every prior venture-lab head — all of which are operating-metric / growth / revenue results; NONE touch the cap table or the exit waterfall:
+- **referral-value-trap / growth-cash-trough / discount-breakeven / freemium-support-cost-inversion / sales-ramp-capacity-drag / partner-channel-margin-stacking / annual-prepay-financing-trap** — unit-economics, cash-timing, margin, or pricing identities on the OPERATING business.
+- **retention-survivorship-mirage / nrr-composition-mirage / blended-churn-ltv / cohort-blended-LTV** — cohort point-estimate biases on retention/revenue/LTV.
+- **usage-based-billing-variance-shock** — metered-revenue variance (CV ~ 1/HHI).
+- **pipeline-coverage-concentration-risk** / **quota-attainment-cliff-bunching (P146, the nearest venture relative)** — sales-ops: coverage-ratio sufficiency and comp-cliff deal-timing. P146 is about SALES bookings re-timed around a comp kink; THIS head is about the EXIT waterfall paying founders vs investors under different preferred terms — a different actor (founder vs rep), object (cap-table payout vs bookings timing), and mechanism (liquidation-preference multiple vs convex comp kink). No quota, no bookings, no comp plan.
+- This is the FIRST cap-table / exit-economics / liquidation-preference head in the venture lane — the object (founder-vs-investor exit waterfall under participating-multiple vs headline-valuation) is touched by none of the above.
+
+## Model basis (declared model-dependence — the P024 discipline)
+- **The tail crossover is real and disclosed, not hidden.** Above X\* = 200 Offer B pays founders MORE (its smaller ownership fraction f_B < f_A finally dominates the participation drag). The head is therefore explicitly NOT "B is always worse" — it is "B is worse across the realistic body and the typical exit," which is exactly what G1 (majority) and G2 (below-crossover) test, while the full-distribution MEAN can flip: under the heavier-tailed Dist B the raw mean founder proceeds favour B (mean_founder_A = 207.803124 vs mean_founder_B = 215.568532) even though the win-rate and below-crossover gap still favour A. The result is honestly a BODY-vs-TAIL claim; the moonshot exception is X\*-quantified, not swept under the rug. (Under primary Dist A even the raw mean favours A — 99.309912 vs 95.116126 — and the median favours A decisively, 60.243238 vs 50.270264.)
+- **Uncapped participation.** Offer B's participation is uncapped; a common 3x cap would BLUNT the drag at high exits, moving the crossover and only WEAKENING B's tail win — so the uncapped choice is the one most GENEROUS to Offer B in the tail, making the below-crossover founder-A advantage a conservative statement.
+- **Single preferred round, all-common founders, no option pool.** The waterfall models one preferred round vs founder common with no employee option pool or stacked multi-round preferences. A real multi-round stack with senior preferences would only DEEPEN the participation drag on common; the single-round pinning is the conservative, cleanest form. An option pool would dilute founders EQUALLY under both sheets, leaving the A-vs-B comparison unchanged in sign.
+- **Log-normal exit calibration.** The magnitudes (win_rate ~0.80, gap ~$8.8M) are specific to the pinned medians/sigmas; the SIGNS and the "higher-valuation-with-participation is a founder trap below the crossover" conclusion are general to any realistic (right-skewed, mostly-sub-$200M) exit distribution, confirmed by G3's second calibration. The crossover X\* = 200 is exact given the pinned f_A, f_B, and 2x preference; a different multiple or valuation gap moves it but not the qualitative body-vs-tail structure.
+
+## Gate power + margin ledger
+| Gate | Type | Threshold | Observed z | Margin | Verdict |
+|------|------|-----------|-----------|--------|---------|
+| G1 MAJORITY-INVERSION (win-rate) | one-sided binomial | z ≥ 3σ, win_rate > 0.5 | z = +105.128721 (win 0.7983) | 102.129 | PASS |
+| G2 TYPICAL-OUTCOME GAP (X < X\*) | one-sided paired | z ≥ 3σ, gap > 0 | z = +300.536834 (gap +8.787216, frac 0.8153) | 297.537 | PASS |
+| G3 DISTRIBUTION ROBUSTNESS (Dist B) | Dist-B ≥3σ both legs | win_z, gap_z ≥ 3σ | win_z = +35.907274; gap_z = +234.981636 | 32.907 / 231.982 | PASS |
+
+## Probe report (v0, self-adversarial)
+**1. Isn't this rigged — you just picked a 2x participating preferred to lose?** The terms are the point, not a rig: a 2x participating preferred at a HIGHER valuation (50 vs 30 pre) is a real, common Series-A structure, and the folk rule under test is "take the higher valuation." The result is that the higher-valuation sheet loses in the body DESPITE its lower dilution — precisely because participation + multiple is a first-order haircut. The crossover X\*=200 and the honest tail-win (probe 3) show it is not a blanket "B is bad"; it is a quantified body-vs-tail claim.
+
+**2. Does the win-rate just reflect the log-normal median you chose?** No — G3 re-runs under a heavier-tailed distribution (median 120, sigma 1.3, MORE moonshots) chosen to FAVOUR Offer B, and the majority-inversion still holds at 0.62305 (z=+35.907274) with the below-crossover gap still +8.22916 (z=+234.981636). The win-rate falls as the tail fattens (0.7983 → 0.62305), exactly as the mechanism predicts, but stays a clear majority. The signs are calibration-general.
+
+**3. Where does Offer B actually win, and do you disclose it?** Above X\*=200 ($M exit), disclosed in the Model basis and pinned as a constant. B's smaller ownership fraction (1/6 vs 1/4) dominates the participation drag once the exit is large enough that the fixed 2x preference is negligible. Under the heavier Dist B the raw full-distribution MEAN even flips to B (207.803124 vs 215.568532) — reported as a descriptive field, not hidden. The head is a body/typical-exit claim (G1 majority + G2 below-crossover + median A 60.243238 > B 50.270264), not a universal one.
+
+**4. Is the "typical-outcome gap" gate just conditioning on the region where A wins by construction?** It conditions on X < X\* = 200, the analytic crossover — a threshold derived from the payoff functions, not chosen to make A win. That 81.53% of draws fall below it is a fact about realistic exits, not a gate cheat: the gate asks "conditional on a non-moonshot exit, how much more do founders keep under A?" and answers +$8.787216M at z=+300.54. Reporting frac_below_cross alongside makes the conditioning explicit and falsifiable.
+
+**5. Non-participating vs participating — is the payoff math right?** Non-participating (Offer A): the investor takes the GREATER of its 1x preference (10) or its as-converted common (0.25·X), never both — `founder = X − max(10, 0.25X)`, converting to common above X=40. Participating (Offer B): the investor takes its 2x preference (20) off the top AND participates for f_B of the remainder — `founder = (1−1/6)(X−20)` for X>20. These are the textbook waterfall formulas; the crossover solves `0.75X = 0.8333(X−20)` → X=200 exactly.
+
+**6. Does an option pool or multi-round stack change the sign?** No. An option pool dilutes founders EQUALLY under both sheets (not part of the A-vs-B difference), so it cancels in the comparison. A multi-round preference stack with senior preferences would only DEEPEN the participation drag on common, strengthening A's below-crossover advantage. The single-round, no-pool pinning is the conservative, cleanest form; richer cap tables move magnitudes, not the sign.
+
+**7. Is 20000 trials enough, and is it deterministic?** Yes — the z-margins are enormous (G1 102σ over threshold, G2 298σ, G3 33/232σ), far beyond any Monte-Carlo noise at M=20000; the digest bf4042bd… reproduces byte-identically across an in-process double-run assertion and a fresh re-invocation (exit 0 both), one random.Random(SEED) single stream, floats rounded 6dp, no on-disk JSON.
+
+**8. Why is the raw full-distribution mean not the headline gate?** Because a right-skewed exit distribution's mean is dominated by a few moonshots — exactly the region where B wins — so the raw mean is tail-driven and calibration-fragile (favours A under Dist A, B under Dist B). The founder-facing question is "what happens at a TYPICAL exit," which the median (A 60.243238 > B 50.270264) and the majority win-rate answer robustly; the gates target the typical outcome, and the tail flip is disclosed rather than gated on.
+
+**Recommendation: sim-ready**
