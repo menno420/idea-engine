@@ -1,6 +1,6 @@
 # PROPOSAL 171 — the Colonel Blotto evenness trap: in a symmetric resource-allocation contest with equal budgets, spreading your budget EVENLY across every battlefield is a losing strategy — a lopsided allocator that CONCEDES a minority of fields and OVERLOADS the rest wins the majority of battlefields against a uniform splitter, and keeps winning the majority even while spending up to nearly HALF LESS budget (round-40 GAME slot, P171 -> V184, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -33,7 +33,7 @@ Colonel Blotto game (Borel 1921; Roberson 2006): two players simultaneously dist
 **8. What does the verdict session check?** Reproduce the verifier byte-for-byte under SEED=20260717, match the results-dict sha256 exactly, and confirm G1/G2/G3 with all_pass=true, first_failing_gate=null, exit 0.
 
 ## Outcome
-TBD — filled at the flip-to-complete commit once the verifier has been run cross-invocation and the results-dict sha256 is pinned.
+Verifier + doc authored; gates G1 (evenness-beaten, equal-budget concede-overload mean battlefield share 0.537637 vs the 0.5 null, z=25.27061) / G2 (concede-arithmetic identity, 0 mismatches over 14421 checks, deficit frontier B8:0.37 / B20:0.44 / B40:0.47 -> 1/2) / G3 (heterogeneous-value 40%-deficit value-targeted share 0.788032 > baseline 0.537637, z=112.524168) pass at the z_gate=3.0 bar; deficit-demo confirms the challenger wins the field majority (share 0.553794, z=40.335299) while spending 40% LESS; results-dict sha256 05afdeffd9f44721fd6e71ee4595a024541b99976176bd30449b043c1755be63 disclosed in the doc; outbox PROPOSAL 171 appended sim-ready, proposal high-water advanced P170 -> P171; claim released. (Status flipped to complete as the final commit.)
 
 ## ⟲ Previous-session review
 Round-40 opened at the FLEET slot (P169 sqrt-safety-staffing -> V182) and advanced through the VENTURE slot (P170 term-sheet winner's curse). This slice advances the rotation to the GAME slot per the fleet -> venture -> game -> unrelated order; offset held at +13 (P171 -> V184). No regressions to prior high-waters (union-max).
