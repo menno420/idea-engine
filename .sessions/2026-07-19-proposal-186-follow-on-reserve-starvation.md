@@ -1,9 +1,9 @@
 # PROPOSAL 186 — Follow-on reserve starvation: under a power-law portfolio, holding back ~half the fund to defend pro-rata in the winners beats spray-and-pray (round-44 VENTURE slot, P186 → V199, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 
-**Born-red HOLD.** This card lands on the FIRST commit with `Status: in-progress`, holding the substrate-gate red while the verifier is authored and proven. The final commit flips it to `complete`, releasing merge-on-green. Gate-red before the flip is the born-red exception, not a defect.
+**Born-red HOLD — cleared.** This card landed on the FIRST commit with `Status: in-progress`, holding the substrate-gate red while the verifier was authored and proven. This flip to `complete` releases that HOLD (merge-on-green); the PR is no longer held red. The earlier gate-red was the born-red exception, not a defect.
 
 ## Objective
 Show, with a deterministic stdlib Monte-Carlo over a power-law venture portfolio, that a fund which RESERVES ~half its committed capital for pro-rata follow-ons in its eventual winners earns a strictly higher fund MOIC than a "spray-and-pray" fund that deploys the same capital entirely into initial checks (more names, zero reserves). The driver is convexity: outcomes are power-law, so nearly all return comes from a handful of winners; each un-defended follow-on round dilutes the fund's ownership in exactly those winners, and because the winners carry the whole return, the dilution tax lands disproportionately on the MOIC. Under-reserving does not "diversify away" risk — it starves the only positions that matter, capping the fund's upside.
@@ -42,12 +42,13 @@ Follow-on reserves / pro-rata defense in venture: a fund holds back a large frac
 **8.** Are the pre-registered gates here identical to the gates the verifier ships?
 
 ## Outcome
-Pending — born-red HOLD. Verifier `ideas/venture-lab/follow_on_reserve_starvation.py` + doc `ideas/venture-lab/follow-on-reserve-starvation-2026-07-19.md` to be authored next; this section is filled with the measured results-dict sha256, per-gate numbers, and the PR number on the flip to `complete`.
-- Results-dict sha256: `<pending>`
-- G1 reserves-beat-spray: `<pending>`
-- G2 winner-concentration: `<pending>`
-- G3 robust (steeper tail): `<pending>`
-- all_pass = `<pending>`
+Measured — all gates PASS, born-red HOLD cleared. Verifier `ideas/venture-lab/follow_on_reserve_starvation.py` + doc `ideas/venture-lab/follow-on-reserve-starvation-2026-07-19.md` authored and proven; outbox PROPOSAL 186 block appended (target sim-lab VERDICT 199, P186 → V199, +13). Base run: spray mean fund MOIC 3.836963x vs reserve 4.268874x (mean ΔMOIC +0.431911).
+- Results-dict sha256: `b917778d026e7beea3aff07e8e6b8f6afad7b8df099f39a2773214f79ec2950f` (byte-identical across two cross-invocation runs)
+- G1 reserves-beat-spray: mean ΔMOIC +0.431911, z=20.933485 (≥3σ, PASS)
+- G2 winner-concentration: top-decile edge share 0.823121 (≥0.75, PASS)
+- G3 robust (steeper tail α=1.4): mean ΔMOIC +1.323610, z=15.911868, top-decile share 0.874894 (PASS)
+- all_pass = `true`
+- Grounding: https://www.goingvc.com/post/follow-on-in-venture-capital resolved HTTP 200.
 - Targets sim-lab VERDICT 199 (P186 → V199, +13).
 
 ## ⟲ Previous-session review
