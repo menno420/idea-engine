@@ -155,14 +155,14 @@ Drop rates are almost always communicated as a rate ("1%") or an implied mean ("
 The head is an exact property of the geometric/exponential law and holds for *any* constant-p i.i.d. roll — the SIGN (median < mean, mean-percentile > 0.5) and the scale-free ratios are not modelling choices. Declared model-dependence: (1) the finite-rate correction — at p=0.01 the exact mean-percentile is 0.633968, not the p→0 limit 0.632121; G2 gates the MC against the **exact finite-p** closed form and reports the limit only as the asymptote. (2) The MC sample median of a discrete law sits a hair above the integer exact_median (ties), which is why the measured ratio 0.6941 exceeds 69/100 — still inside the 0.05 ceiling. (3) Constant-p only: PRD, pity, bad-luck-protection, and diminishing/increasing drop rates break the geometric assumption and are out of scope (named as the cures, not tested here).
 
 ## Probe report (v0, self-adversarial)
-**1.** Is the median really below the mean, or MC noise? — Exact: mean 1/p=100, median ⌈ln2/−ln0.99⌉=69. G1 measures gap (mean−median)/mean=0.3059 at z=+369.7 vs null 0; not noise.
-**2.** Is "63rd percentile" cherry-picked at p=0.01? — No; it is the p→0 limit 1−1/e and is gated against the exact finite-p value 0.633968 (relerr 0.000272), and re-confirmed at p=0.005 (0.632729). Scale-free.
-**3.** Could a different draw method change the result? — The inverse-CDF map is the standard geometric sampler; the claim is distributional, not sampler-specific. Determinism is asserted across a double-run (identical digests).
-**4.** Is this just the exponential-distribution fact dressed up? — It is the discrete geometric, which limits to the exponential; the exponential's CDF-at-the-mean = 1−1/e is the continuous shadow of G2. Disclosed as the anchor, not hidden.
-**5.** Does the tail claim (e⁻³) get gated? — Not gated (kept to two head gates + one robustness gate for a clean ≥3σ story); it is stated as a limit and is directly checkable from the same draws. Named as a caveat, not a verified gate.
-**6.** Memorylessness / "due" — is that the claim? — No; it is disclosed as a crossover. The verified head is the median/mean/percentile skew.
-**7.** Overlap with the PRD/pity heads? — Explicit dedup: those are the cures that break constant-p; this is the untreated law. No shared gate or number.
-**8.** What would falsify it? — A reproduction where median ≥ mean, or the mean-percentile ≤ 0.5, or the ratios drift with p beyond the ceiling. None occur; all three gates pass at ≥3σ across two rates.
+**1. Is the median really below the mean, or MC noise?** — Exact: mean 1/p=100, median ⌈ln2/−ln0.99⌉=69. G1 measures gap (mean−median)/mean=0.3059 at z=+369.7 vs null 0; not noise.
+**2. Is "63rd percentile" cherry-picked at p=0.01?** — No; it is the p→0 limit 1−1/e and is gated against the exact finite-p value 0.633968 (relerr 0.000272), and re-confirmed at p=0.005 (0.632729). Scale-free.
+**3. Could a different draw method change the result?** — The inverse-CDF map is the standard geometric sampler; the claim is distributional, not sampler-specific. Determinism is asserted across a double-run (identical digests).
+**4. Is this just the exponential-distribution fact dressed up?** — It is the discrete geometric, which limits to the exponential; the exponential's CDF-at-the-mean = 1−1/e is the continuous shadow of G2. Disclosed as the anchor, not hidden.
+**5. Does the tail claim (e⁻³) get gated?** — Not gated (kept to two head gates + one robustness gate for a clean ≥3σ story); it is stated as a limit and is directly checkable from the same draws. Named as a caveat, not a verified gate.
+**6. Memorylessness / "due" — is that the claim?** — No; it is disclosed as a crossover. The verified head is the median/mean/percentile skew.
+**7. Overlap with the PRD/pity heads?** — Explicit dedup: those are the cures that break constant-p; this is the untreated law. No shared gate or number.
+**8. What would falsify it?** — A reproduction where median ≥ mean, or the mean-percentile ≤ 0.5, or the ratios drift with p beyond the ceiling. None occur; all three gates pass at ≥3σ across two rates.
 
 ## One-line design fix
 Publish the median grind (~0.693/p) and the unlucky-tail count (~3/p, where ~5% still sit) alongside the drop rate — or ramp p (PRD) / add a pity cap to pull the median and mean together.

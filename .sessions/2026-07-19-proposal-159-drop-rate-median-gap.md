@@ -1,6 +1,6 @@
 # PROPOSAL 159 — drop-rate median gap: the "expected N kills" loot anchor is the ~63rd percentile and the typical grind is ~69% of it (P159 → V172, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-37's GAME-slot PROPOSAL 159: a fresh, counterintuitive, quantifiabl
 **4.** Crossover, not the claim: the memoryless "due after k misses is a fallacy" reading and the PRD/pity engineered cures. Are they disclosed as crossovers, not asserted as the head? — disclosed as crossovers; the verified head is the geometric mean/median/percentile skew (PRD and pity are the deliberate cures for exactly this skew — a dedup contrast, not this claim).
 
 ## Outcome
-Pending the born-red flip — filled from the committed verifier's dry-sim at the final commit.
+Verifier `ideas/superbot-games/drop_rate_median_gap.py` + doc `ideas/superbot-games/drop-rate-median-gap-2026-07-19.md` committed on branch claude/proposal-159-drop-rate-median-gap (PR #627). Three z-gates PASS in order — G1 median-below-mean gap_mean=0.305865 z=+369.741566 (ratio 0.694135 vs exact 0.69, relerr 0.005993), G2 mean-is-majority-percentile frac_le_mean=0.634140 z=+761.720583 (exact 0.633968; → 1−1/e ≈ 0.632121), G3 scale-free robustness at p′=0.005 z_skew=+802.499080 / z_majority=+706.081134 (ratio 0.693966, frac 0.632729 vs exact 0.633042); all_pass=true, first_failing_gate=null, exit 0. results-dict sha256 `ff22cf37b81fb96bb36a1aeb1a4484479d31e1232b637efb0faf297bb852fb19` reproduced byte-identical across an in-process + cross-invocation double-run. Headline: at a 1% drop the mean is 100 kills, the median 69, and 63.4% finish by kill 100 — the "expected" count is the ~63rd percentile. Outbox PROPOSAL 159 block appended (status: sim-ready, P159 → V172, +13); proposal high-water → P159; claim released.
 
 ## ⟲ Previous-session review
 Round-37 opened at the FLEET slot (P157 bullwhip → V170) and its VENTURE slot (P158 marketplace take-rate → V171); both landed on three ≥3σ gates with the whole-dict digest and a shifted-distribution robustness gate. That verifier discipline — exact closed-form gates, scale-free/robustness gate, honest crossover disclosure — carries forward here into the round-37 GAME slot P159 → V172 (+13).
