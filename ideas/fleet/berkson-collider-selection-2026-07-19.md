@@ -98,14 +98,14 @@ Assumes independent, roughly equal-variance traits and selection monotone in the
 | (non-gated) deepening | tight vs loose r, z | -0.796923 vs -0.52506, z=110.99 | — | trends to -1 |
 
 ## Probe report (v0, self-adversarial)
-1. **Sum-only, or any monotone score?** Any selection monotone in a score to which both traits contribute positively induces the collider coupling; the sum is the cleanest case. A score using only X would not couple them. Gates pin the additive sum; the generality is noted, not gated.
-2. **Finite-sample bias?** No — the population r over the same N is -0.000017 (G2), so the negativity is not a small-sample Pearson artifact; it appears only after conditioning.
-3. **Positive population correlation?** Disclosed in Model basis: a large enough positive Corr(X,Y) offsets the truncation term and the induced sign weakens or flips. The pinned world is independent; that is the honest scope.
-4. **Top-k vs threshold?** Top-k with continuous marginals is a random threshold on S; the two agree in expectation. Top-k is pinned for determinism.
-5. **Non-normality — sign or magnitude?** Only magnitude: uniform (-0.49835) is shallower, exponential (-0.738422) deeper than gaussian (-0.710835); all strictly negative (G3). The sign is distribution-free.
-6. **Deepening monotonic?** Tight 2% (-0.796923) < top 10% (-0.710835) < loose 40% (-0.52506), z=110.99 on the tight-loose difference; monotone toward the r -> -1 limit.
-7. **Which real decisions?** Case-control epidemiology (Berkson's original), admissions and hiring composites, any "quality index" gate. Reported, not gated.
-8. **Closest prior head / distinctness?** Friendship paradox (a selection bias, but a marginal-mean shift, not a pairwise-correlation flip); see Dedup.
+**1. Sum-only, or any monotone score?** Any selection monotone in a score to which both traits contribute positively induces the collider coupling; the sum is the cleanest case. A score using only X would not couple them. Gates pin the additive sum; the generality is noted, not gated.
+**2. Finite-sample bias?** No — the population r over the same N is -0.000017 (G2), so the negativity is not a small-sample Pearson artifact; it appears only after conditioning.
+**3. Positive population correlation?** Disclosed in Model basis: a large enough positive Corr(X,Y) offsets the truncation term and the induced sign weakens or flips. The pinned world is independent; that is the honest scope.
+**4. Top-k vs threshold?** Top-k with continuous marginals is a random threshold on S; the two agree in expectation. Top-k is pinned for determinism.
+**5. Non-normality — sign or magnitude?** Only magnitude: uniform (-0.49835) is shallower, exponential (-0.738422) deeper than gaussian (-0.710835); all strictly negative (G3). The sign is distribution-free.
+**6. Deepening monotonic?** Tight 2% (-0.796923) < top 10% (-0.710835) < loose 40% (-0.52506), z=110.99 on the tight-loose difference; monotone toward the r -> -1 limit.
+**7. Which real decisions?** Case-control epidemiology (Berkson's original), admissions and hiring composites, any "quality index" gate. Reported, not gated.
+**8. Closest prior head / distinctness?** Friendship paradox (a selection bias, but a marginal-mean shift, not a pairwise-correlation flip); see Dedup.
 
 ## One-line design fix
 When you must read a correlation inside a selected group, condition-correct: recover the population correlation from the selected correlation and the known selection fraction, or measure the traits on an unselected holdout — never trust a within-elite correlation at face value.
