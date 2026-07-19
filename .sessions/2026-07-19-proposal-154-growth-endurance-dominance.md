@@ -1,6 +1,6 @@
 # PROPOSAL 154 — growth-endurance-dominance: a marginal point of growth endurance buys more terminal ARR than a marginal point of current growth (P154 → V167, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-36's VENTURE-slot PROPOSAL 154: a fresh, counterintuitive, quantifi
 **4.** Real phenomenon or textbook toy? — documented growth-endurance / NDR benchmarks (Bessemer, McKinsey) show terminal outcomes hinge on persistence, the field signature of the mechanism.
 
 ## Outcome
-Pending — born-red HOLD. Verifier + proposal doc land, gates run (G1 partial-derivative gap, G2 relative-effect, G3 shifted-distribution robustness), results-dict sha256 recorded, outbox PROPOSAL 154 appended (high-water → P154), PR opened. Card flips to `complete` with the final numbers on green.
+G1 dominance-sign gap_mean +0.354025 (z +996.770037, frac_dominant 0.992229) · G2 relative-effect rel_mean +2.219712 (z +925.513190, null 0.10) · G3 shifted-distribution robustness gap_mean +0.322362 (z +1107.766114, frac_dominant 0.997938). all_pass=true; results-dict sha256 5dccb475a6fde0ebd5c557b3baa393be8430b91902bbadedb7f5bd16754495bf. Verifier ideas/venture-lab/growth_endurance_dominance.py; doc ideas/venture-lab/growth-endurance-dominance-2026-07-19.md. Outbox PROPOSAL 154 appended; proposal high-water → P154. PR #614. Landing on green.
 
 ## ⟲ Previous-session review
 Round-35 slots (P150 founder-dilution waterfall → V163; P152 braess-paradox → V165) landed clean. Verifier posture (whole-dict digest, shifted-distribution robustness gate, honest disclosure) carried forward here. Proposal high-water advances into round-36; this slice targets P154 → V167 (+13).
