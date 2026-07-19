@@ -1,6 +1,6 @@
 # PROPOSAL 172 — Berkson's collider paradox: selecting on a sum manufactures a negative correlation between independent traits (P172 -> V185, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 ## Objective
@@ -13,7 +13,7 @@ Author round-40 UNRELATED-slot PROPOSAL 172 and land it green. Head: among a top
 - +13 offset: P172 -> VERDICT 185.
 
 ## GROUNDING (verified at HEAD)
-Berkson's paradox (Berkson 1946): conditioning on a collider (here, admission by a composite threshold) induces a spurious association between otherwise-independent causes. Reachability + revision pin recorded in the proposal doc's Grounding line.
+Berkson's paradox (Berkson 1946): conditioning on a collider (here, admission by a composite threshold) induces a spurious association between otherwise-independent causes. Wikipedia "Berkson's paradox" reachable this session (oldid 1340658864, content pin 359b1430d077f98bbae0254c000e85772ed846a6); revision pin recorded in the proposal doc's Grounding line.
 
 ## Pre-registered Gate-plan (APPROVE iff ALL hold, in order G1 -> G2 -> G3; z_gate=3.0)
 - **G1 — selected elite is negatively correlated.** With gaussian independent traits, the top-10%-by-sum selected set has mean Pearson r < 0 at >= 3 sigma.
@@ -32,7 +32,12 @@ Non-gated evidence: deepening — tighter selection (top-2%) is more negative th
 8. What is the closest prior lane head, and how is this distinct?
 
 ## Outcome
-_pending verifier run — filled before flip._
+Verifier `ideas/fleet/berkson_collider_selection.py` — exit 0, all_pass=true, byte-identical double-run, Results-JSON sha256 `42a47b8890316dd5d9da056f1598ad4e3b7472678ffb0e4d3a62c25cadc19e0b`.
+- **G1** gaussian top-10% selected mean r = -0.710835, z = 459.110893 — PASS.
+- **G2** full-population r = -0.000017 (~0); selected-minus-population = -0.710818, z = 454.654805 — PASS (selection-induced, not generative).
+- **G3** uniform r = -0.49835 (z = 305.311106) and exponential r = -0.738422 (z = 531.488409), both < 0 — PASS.
+- Non-gated deepening: tight top-2% r = -0.796923 < loose top-40% r = -0.52506, z = 110.99457, trending to r -> -1.
+all_pass=true, first_failing_gate=null. Appended outbox PROPOSAL 172 (status: sim-ready); proposal high-water P171 -> P172; claim released; consumed by sim-lab VERDICT 185 (+13).
 
 ## ⟲ Previous-session review
 P171 (Blotto evenness trap, GAME slot) landed via merge-on-green with the whole-dict/no-self-field/stdout-only verifier posture and a closed-form identity gate. This card mirrors that posture and keeps the +13 offset and round-rotation intact (UNRELATED after GAME).
