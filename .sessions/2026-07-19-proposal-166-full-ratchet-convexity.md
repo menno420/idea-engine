@@ -1,6 +1,6 @@
 # PROPOSAL 166 — full-ratchet anti-dilution turns a linear down-round into a convex transfer of ownership from founders to the ratcheted investor (round-39 VENTURE slot, P166 -> V179, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block + heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -28,7 +28,7 @@ Full-ratchet vs broad-based weighted-average anti-dilution: on a down round a fu
 **8. What does the verdict session check?** Reproduce the verifier byte-for-byte under SEED=20260717, match the results-dict sha256 exactly, and confirm G1/G2/G3 z-margins with all_pass=true, exit 0.
 
 ## Outcome
-(pending — flips to complete as the final commit.)
+Verifier + doc authored; gates G1 (FR>WA founder loss, z=155.71) / G2 (transfer convexity, z=83.28) / G3 (shifted: z=203.90 and z=106.65) pass at >=3 sigma; results-dict sha256 c6c1278f5acb6cc59992e7d4300e69edfc713bef0168cd9571e85c4677c18b59 disclosed in the doc; outbox PROPOSAL 166 appended sim-ready, proposal high-water advanced P165 to P166; claim released. (Status flipped to complete as the final commit.)
 
 ## ⟲ Previous-session review
 P165 (memoryless-PM-waste, round-39 FLEET, sim-ready -> V178 pending) opened round-39 at the FLEET slot. This slice advances the rotation to the VENTURE slot per the fleet -> venture -> game -> unrelated order; offset held at +13 (P166 -> V179). No regressions to prior high-waters (union-max).
