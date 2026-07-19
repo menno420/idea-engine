@@ -25,7 +25,7 @@ Author round-38's GAME-slot PROPOSAL 163: a fresh, counterintuitive, quantifiabl
 **4. Crossover, not the claim: the effect generalizes to any "hit a threshold of a card type" opening-hand question (combo pieces, colored sources). Disclosed as a crossover, not asserted as the verified claim?** — to be disclosed as a crossover; the verified claim is the deck-size variance dominance under the hypergeometric opening-hand model.
 
 ## Outcome
-Placeholder — work in progress. Verifier `ideas/game-lab/mana_screw_deck_size.py` and doc not yet committed. Gates unrun, results-dict digest not yet produced, outbox block not yet appended, high-water not yet advanced. This card lands born-red to hold the gate; the Outcome fills in on the completing commit.
+Placeholder — work in progress. Verifier `ideas/superbot-games/mana_screw_deck_size.py` and doc not yet committed. Gates unrun, results-dict digest not yet produced, outbox block not yet appended, high-water not yet advanced. This card lands born-red to hold the gate; the Outcome fills in on the completing commit.
 
 ## ⟲ Previous-session review
 Round-38 VENTURE slot (P162 option-pool shuffle → V175, +13) landed clean on three ≥3σ gates with a whole-dict digest and a shifted-distribution robustness gate; that verifier discipline — an exact invariance/insensitivity claim plus a distribution-shift robustness gate — carries forward here into the GAME slot P163 (mana-screw deck-size dominance).
