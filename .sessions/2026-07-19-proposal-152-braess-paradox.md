@@ -1,6 +1,6 @@
 # PROPOSAL 152 — braess-paradox: adding a zero-cost shortcut to a congested network raises everyone's equilibrium travel time (P152 → V165, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-35's UNRELATED-slot PROPOSAL 152: a fresh, counterintuitive, quanti
 **4.** Real phenomenon or textbook toy? — documented physical road removals (Seoul, Stuttgart, NYC) raised throughput, the field signature of the paradox.
 
 ## Outcome
-<filled at flip: gate z-scores, results-dict sha256, PR #, merge SHA>
+G1 gap_mean +14.983575 (z +572.883357, frac_worse 1.0) · G2 rel_mean +0.229465 (z +347.899519, null 0.10) · G3 shift gap_mean +7.492692 (z +236.126110, frac_worse 0.951250). all_pass=true; results-dict sha256 d0e4e57d3ecb455442d44b59ef09092c1ed3a66425501e3c7b18616384605ad0. Verifier ideas/fleet/braess_paradox.py; doc ideas/fleet/braess-paradox-2026-07-19.md. Outbox PROPOSAL 152 appended; proposal high-water → P152. PR #608. Landing on green.
 
 ## ⟲ Previous-session review
 Round-35 venture-slot PROPOSAL 150 (founder-dilution liquidation waterfall) → VERDICT 163 APPROVE landed clean (idea-engine #607; sim-lab #237). Verifier posture (whole-dict digest, shifted-distribution robustness gate, honest disclosure) carried forward here. Proposal high-water P150; this slice advances it to P152 (P151 game-slot may land concurrently — take max).
