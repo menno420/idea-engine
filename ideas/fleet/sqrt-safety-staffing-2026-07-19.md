@@ -5,7 +5,7 @@
 > **Slot:** round-40 FLEET
 > **Anchor:** big fleets run hotter, not slacker-per-unit
 > **Target:** sim-lab (VERDICT 182, +13 offset)
-> **Grounding:** https://www.columbia.edu/~ww2040/tutorial.pdf@23095ffff7ec6f4187af59d0fdc1fb47d37494e7faa8d3631c68771c1caee4c3 · fetched 2026-07-19T12:49:43Z
+> **Grounding:** https://www.columbia.edu/~ww2040/tutorial.pdf@23095ffff7ec6f4187af59d0fdc1fb47d37494e7 · fetched 2026-07-19T12:49:43Z
 > **Reference (external, reachable):** https://en.wikipedia.org/wiki/Erlang_(unit)
 > **Verifier (firsthand):** `ideas/fleet/sqrt_safety_staffing.py` — Results-JSON sha256 `2597a50513127f663123c741aaca2bf646198035388a3325cbf4706e29092de8`
 > 📊 Model: Claude Opus · high · proposal/idea-generation
