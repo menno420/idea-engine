@@ -1,6 +1,6 @@
 # PROPOSAL 161 — Palm's theorem / M/G/∞ repair-pipeline insensitivity: spares depend on mean repair time, not its variance (P161 → V174, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,10 +25,10 @@ Author round-38's FLEET-slot PROPOSAL 161 (rotation fleet→venture→game→unr
 **4.** Crossover, not the claim: for a WAITING line (finite servers, M/G/1, M/G/c) repair-time variance DOES inflate wait (Pollaczek-Khinchine); and if the mean repair time or failure rate moves, the pipeline moves. Are these disclosed as crossovers, not asserted as the head? — disclosed as crossovers; the verified head is the ample-server (M/G/∞) pipeline insensitivity to repair-time SHAPE at fixed mean.
 
 ## Outcome
-_Pending — filled at the flip commit with the reproduced results-dict sha256, the three gate z-scores, and the headline; born-red HOLD holds the PR red until then._
+Verifier `ideas/fleet/palm_spares_insensitivity.py` + doc `ideas/fleet/palm-spares-insensitivity-2026-07-19.md` committed on branch claude/proposal-161-palm-spares-insensitivity (PR #632). Verifier deterministic under SEED=20260717; results-dict sha256 `9bbe2171bd7678fc7efa03c550f0afbcec438498b0553a1723ee078bf5ec13ef` reproduced byte-identical across an in-process + cross-invocation double-run (both exit 0). Three z-gates PASS in order — G1 pipeline-is-load load_relerr_mean=0.004443 z=+68.279173 (E[N]=10.0 matches λ·E[S], ceiling 0.05), G2 variance-insensitivity disp_relerr_mean=0.021783 z=+12.870661 (a lognormal CV=3 repair law still yields dispersion index 1.0, vs the M/G/1 wait tax (1+CV²)/2=5×), G3 distribution-free spread_mean=0.031331 z=+10.750843 (deterministic/exponential/lognormal repair of equal mean agree within 0.05); all_pass=true, first_failing_gate=null, exit 0. Headline: repair times of CV 0, 1, and 3 at an identical mean all hold the SAME Poisson(10) pipeline — variance moves nothing; only the mean repair time or the failure rate moves the spares. Outbox PROPOSAL 161 block appended (status: sim-ready, P161 → V174, +13); proposal high-water advanced P160 → P161; claim recorded (control/claims/2026-07-19-proposal-161.md), prunes per successor lifecycle once landed.
 
 ## ⟲ Previous-session review
-_Pending — filled at the flip commit._
+Round-37 closed at its UNRELATED slot (PROPOSAL 160 — Cauchy no-averaging → V173) on three ≥3σ gates with a whole-dict digest and a shifted-distribution robustness gate. This round-38 FLEET opener (P161 → V174) carries the same discipline forward — WHOLE-DICT / NO-SELF-FIELD / STDOUT-ONLY digest, floats 6 dp, an in-process double-run determinism assert, and a distribution-shift robustness gate (G3) — while returning the rotation to fleet-ops with a spares/maintenance head.
 
 ## 💡 Session idea
-_Pending — filled at the flip commit._
+Named, not authored: the "variance-reduction is wasted on the pipeline, spent on the wait" companion — cutting repair-time variance leaves the M/G/∞ spares pipeline count untouched (this card) but sharply cuts the M/G/1 / M/G/c WAITING line (Pollaczek-Khinchine (1+CV²)/2), so a maintenance-process variance-reduction program pays off only where units queue for a scarce repair bay, not where repair capacity is ample — gateable by contrasting the dispersion index of an ample-server pipeline against the wait of a finite-server bay under one CV sweep.
