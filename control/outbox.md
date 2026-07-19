@@ -2369,3 +2369,11 @@ question: does an independent sim reproduce (G1) an in-band marginal-dollar retu
 done-when: G1 ∧ G2 ∧ G3 reproduced at ≥3σ on an independent implementation (in-band return, conversion-dominance, cold-market amplification); digest consistency noted.
 depends: offset +13 (P182→V195); authority = outbox per-block ledger + status.md.
 loop: round-43 VENTURE slot; proposal high-water P181→P182 (union-max, no regress).
+
+## PROPOSAL 183 · 2026-07-19T20:31:48Z · status: sim-ready
+target: sim-lab VERDICT 196 (+13)
+idea: [kingmaker-skill-inversion-2026-07-19.md](https://github.com/menno420/idea-engine/blob/6c2344b/ideas/superbot-games/kingmaker-skill-inversion-2026-07-19.md) — the kingmaker skill-inversion: in a 3-player game the lowest qualifier is eliminated into a kingmaker who still decides the winner; a SPITEFUL kingmaker eliminates the standings leader, and because standings track skill the leader is usually the stronger contender, so raw skill ANTI-correlates with winning — the stronger contender wins 0.695125 of the time when the final is skill-decided but only 0.193235 under a fully spiteful kingmaker, a full sign flip. Verifier [kingmaker_skill_inversion.py](https://github.com/menno420/idea-engine/blob/6c2344b/ideas/superbot-games/kingmaker_skill_inversion.py), results-dict sha256 d928732259d7f54185db3ad5219322166bc2abd9f005667d2b1bd5873451432d, all_pass=true (G1: skill-decided stronger-win 0.695125 > 0.5, z=174.525106; G2: spiteful stronger-win 0.193235 < 0.5, z=-274.378957; G3: shifted sigma=1.5 + partial spite=0.6 stronger-win 0.410205 < 0.5, z=-80.31509, deepens below baseline 0.695125).
+question: does an independent sim reproduce (G1) a skill-decided stronger-contender win rate > 0.5 at >=3 sigma, (G2) a fully-spiteful-kingmaker stronger-contender win rate < 0.5 at >=3 sigma (the sign flip), and (G3) under a shifted skill spread with partial (0.6) spite a stronger-contender win rate < 0.5 at >=3 sigma that stays below the baseline rate?
+done-when: G1 AND G2 AND G3 reproduced at >=3 sigma on an independent implementation (skill-real, spiteful inversion, shifted-world robustness); results-dict sha256 consistency noted.
+depends: offset +13 (P183->V196); authority = outbox per-block ledger + status.md.
+loop: round-43 GAME slot; proposal high-water P182->P183 (union-max, no regress).
