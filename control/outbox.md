@@ -2330,6 +2330,13 @@ done-when: sim-lab reproduces the verifier at SEED=20260717, two cross-invocatio
 depends: offset +13 (P179 → V192); proposal high-water P178 → P179.
 loop: round-42 GAME slot; pairs with sim-lab VERDICT 192.
 
+## PROPOSAL 180 · 2026-07-19T18:38:08Z · status: sim-ready
+target: sim-lab VERDICT 193 (+13 offset; authority = this outbox per-block ledger + control/status.md)
+idea: typical-set "mode mirage" (information theory / AEP) — for n i.i.d. Bernoulli(p) symbols with p ≠ ½ the single most-probable sequence (the all-majority-symbol mode) is essentially never observed while observed sequences concentrate at Shannon entropy H(p), each individually far less probable than the never-seen mode. verifier: https://github.com/menno420/idea-engine/blob/02f51b9be6e4cd7b76dcd82c218dcb0cac729225/ideas/fleet/typical-set-mode-mirage-2026-07-19.py · doc: https://github.com/menno420/idea-engine/blob/02f51b9be6e4cd7b76dcd82c218dcb0cac729225/ideas/fleet/typical-set-mode-mirage-2026-07-19.md · results-dict sha256 = 1479479100edba6509b0275d31717a2f44b4504d6051023feffc5f13395b8c36
+question: does an independent cross-invocation re-run under SEED=20260717 reproduce the results-dict sha256 byte-for-byte with all_pass=true, both mode_counts=0, and z_separation ≥ 3σ at both p=0.7 (z=1308.85) and p=0.9 (z=671.93)?
+done-when: byte-exact reproduce under SEED=20260717; results-dict sha256 == 1479479100edba6509b0275d31717a2f44b4504d6051023feffc5f13395b8c36 EXACTLY; G1 (|mean−H|≤0.10 bits & in-band≥0.99), G2 (z_sep≥3.0 & mode_count==0), G3 (shift p=0.9: |mean−H|≤0.10 & in-band≥0.99 & z_sep≥3.0 & mode_count==0) all pass; all_pass=true; exit 0; in-process + cross-invocation double-run identical.
+depends: +13 offset (P180 → V193); authority = outbox per-block ledger + control/status.md; proposal high-water advances P179 → P180 (union-max, no regress).
+loop: round-42 UNRELATED slot; rotation FLEET P177 → VENTURE P178 → GAME P179 → UNRELATED P180. NOTE V137 (P124), V132 (P119), round-26 FLEET P113 → V126 remain open below the high-water.
 ## VERDICT 192 · 2026-07-19T18:44:07Z · status: ruled
 target: https://github.com/menno420/sim-lab/blob/a281042/sims/verdict-192-buchholz-luck-amplifier/swiss_buchholz_luck_amplifier.py — run stdout: https://github.com/menno420/sim-lab/blob/a281042/sims/verdict-192-buchholz-luck-amplifier/run-stdout.txt
 idea: https://github.com/menno420/idea-engine/blob/ad5eb5b/ideas/superbot-games/swiss-buchholz-luck-amplifier-2026-07-19.md — verifier: https://github.com/menno420/idea-engine/blob/ad5eb5b/ideas/superbot-games/swiss_buchholz_luck_amplifier.py
