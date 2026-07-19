@@ -1,6 +1,6 @@
 # Session — PROPOSAL 182 · pay-to-play cramdown cliff (round-43 VENTURE slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 **BORN-RED HOLD.** This card lands first as `in-progress` on the opening commit to hold the PR red under the substrate-gate; it flips to `complete` on the final commit (after the verifier is green, the proposal doc is written, and the outbox block is appended), which clears the hold and releases the landing workflow.
@@ -30,7 +30,7 @@ Shifted config: cold market — lognormal (median $11M, sigma=1.20), fatter left
 
 ## GROUNDING (verified at HEAD)
 
-Pay-to-play / cramdown is a real, documented down-round provision: a non-participating preferred holder's shares convert to common (losing the liquidation preference and anti-dilution). External reference verified live at authoring time (see the proposal doc front-matter Reference line for the pinned URL). Origin HEAD at branch cut: `cf06fddb`.
+Pay-to-play / cramdown is a real, documented down-round provision: a non-participating preferred holder's shares convert to common (losing the liquidation preference and anti-dilution). External reference verified live at authoring time (see the proposal doc front-matter Reference line for the pinned URL). Origin HEAD at branch cut: `fa704ff`.
 
 ## Probe questions
 
@@ -45,12 +45,18 @@ Pay-to-play / cramdown is a real, documented down-round provision: a non-partici
 
 ## Outcome
 
-`(filled at flip)`
+Verifier green and deterministic (in-process double-run identical; identical across a fresh invocation). all_pass=true. results-dict sha256 `ed8a081bb104683d1ee8c0c2ec9b90e2a1212100495d9d44b5e484016a75b243`.
+
+- G1 (marginal-dollar return, in-band): mean 2.674407 ≥ 2.0, z=308.09 — PASS.
+- G2 (conversion, not dilution): conv/dil 2.362501 ≥ 1.5, z=848.32 — PASS.
+- G3 (cold-market amplification): danger-band probability 0.42401 → 0.601695, z=112.42; cold conv/dil 2.516596 ≥ 1.5 — PASS.
+
+Grounding: Fenwick, "What is a 'Pay-to-Play' Financing?" (HTTP 200) — documents non-participating preferred converting to common at 1:1. Content commit `ad3034a`; branch cut from origin/main `fa704ff`. Appended outbox PROPOSAL 182 (sim-ready) targeting sim-lab VERDICT 195 (+13); proposal high-water P181→P182. PR #682.
 
 ## ⟲ Previous-session review
 
-`(filled at flip)`
+PROPOSAL 181 (Bloom optimal-k FPR floor, round-43 FLEET slot) shipped sim-ready with a U-shaped gate and an explicit past-optimum penalty gate rather than a bare dominance test. Pattern kept here: this proposal pins an explicit magnitude gate (conv/dil ≥ 1.5) instead of a sign test, giving the verdict a concrete number to reproduce.
 
 ## 💡 Session idea
 
-`(filled at flip)`
+The pay-to-play cliff and `full-ratchet-convexity` are two faces of one object: discontinuities a down round inflicts on a specific class. A future proposal could unify them as "down-round convexity" — one verifier ranking which anti-dilution/participation provision destroys the most common-holder value per dollar of down-round, yielding a provision-priority list for founders to negotiate.
