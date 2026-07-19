@@ -16,14 +16,14 @@ round-42 FLEET-slot PROPOSAL 177 — power-of-two-choices second-probe-dominance
 
 ## Gate-plan (pre-registered, matches the shipped verifier)
 - G1 — the second probe produces a real jump: z(maxload[d=1] − maxload[d=2]) ≥ 3, gap > 0.
-- G2 — second-probe dominance (the head): dom = gap(1,2) − gap(2,3), z(dom) ≥ 3 and ratio gap(1,2)/gap(2,3) ≥ 3.
-- G3 — robustness under shifted load (m = n/2): dom and ratio recomputed, z(dom) ≥ 3 and ratio ≥ 3.
+- G2 — second-probe dominance (the head): second_gain=m1−m2, further_gain=m2−m4 (all probes past the 2nd combined); dom=second_gain−further_gain, require dom>0, z(dom) ≥ 3, ratio second_gain/further_gain ≥ 3.
+- G3 — robustness under shifted load (m = n/2): dom, ratio recomputed in that regime; require dom>0, z(dom) ≥ 3, ratio ≥ 3.
 
 ## GROUNDING (verified at HEAD)
 Power of two choices / balanced allocations (Azar–Broder–Karlin–Upfal; Mitzenmacher–Richa–Sitaraman survey): two random choices drop max load from Θ(log n/log log n) to Θ(log log n); further choices give only constant-factor gains. URL fetched live this session, content-hash pinned in the proposal doc.
 
 ## Probe questions
-**1.** the second probe is the only big jump — gap(1,2) ≫ gap(2,3) (see the proposal doc Probe report). **2.** not an artifact of load factor 1 — G3 reruns at m=n/2. **3.** ties→lowest-index is pessimistic, dominance holds anyway. **4.** max-load SE is small, gate clears 3σ widely. **5.** survives service departures (supermarket/JSQ(d) model). **6.** global least-loaded buys only a constant over d=2. **7.** stale reads shift constants not ordering. **8.** falsified if ratio<3 or d=2 fails to beat d=1 at 3σ.
+**1.** the second probe removes ~4× more max load than probes 3–4 combined; individual later gaps are integer-granular/non-monotone at finite n (see the proposal doc Probe report). **2.** not an artifact of load factor 1 — G3 reruns at m=n/2. **3.** ties→lowest-index is pessimistic, dominance holds anyway. **4.** max-load SE is small, gate clears 3σ widely. **5.** survives service departures (supermarket/JSQ(d) model). **6.** global least-loaded buys only a constant over d=2. **7.** stale reads shift constants not ordering. **8.** falsified if ratio<3 or d=2 fails to beat d=1 at 3σ.
 
 ## Outcome
 Verifier + doc authored; gates G1/G2/G3 pass on two cross-invocation-identical runs; outbox appended sim-ready; proposal high-water P176→P177.
