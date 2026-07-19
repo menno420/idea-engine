@@ -1,6 +1,6 @@
 # PROPOSAL 168 — Condorcet's paradox: rational voters, an irrational majority
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · proposal/idea-generation
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -37,7 +37,7 @@ Author PROPOSAL 168 (round-39 UNRELATED slot) — a stdlib verifier + proposal d
 **8. What breaks the effect?** Single-peaked / spatial preferences (Black's theorem) collapse the cycle rate toward zero; disclosed as a non-gated crossover, not claimed as robustness.
 
 ## Outcome
-Pending flip — verifier + doc land next, card flips to complete last (born-red HOLD).
+Landed. Verifier ships all four gates and passes deterministically (in-process double-run byte-identical): G1 head z_vs_zero=61.46; G2a |z_vs_documented|=0.44 (<3, measured m=3 rate 0.086275 vs documented 0.0869); G2b monotone step-z 19.39/11.95/18.63 (each >=3); G3 robustness under the Plackett-Luce tilt z_vs_zero=21.33. Results-JSON sha256 70de2ab46cf482130fa35b051f579d72215efa757dfcf7b5f60e56d85fc08fbe. Grounding Condorcet_paradox@1360635422 resolved live HTTP 200 and documents the cyclic-majority mechanism and the ~8.7% impartial-culture rate. PR #651.
 
 ## ⟲ Previous-session review
 P167 (MMR/Elo rating deflation, round-39 GAME, sim-ready -> V180) cleanly separated the two point flows: G2's churn-ledger identity nails |residual| to 0.0, proving the drift is 100% churn and 0% game outcome — a genuinely load-bearing mechanism anchor rather than a decorative extra gate. The independent-stream framing for baseline vs. shifted worlds (G3) was honest about conservativeness. Nit: the z-values are enormous (z=-78, z=-131), which reads more like an over-powered N than a delicate effect — a smaller sample would still clear 3 sigma and leave the demonstration less brittle-looking.
