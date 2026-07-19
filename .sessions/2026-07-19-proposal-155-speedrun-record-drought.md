@@ -1,6 +1,6 @@
 # PROPOSAL 155 — speedrun-record-drought: lifetime record count follows the harmonic number, so records slow logarithmically and distribution-free (P155 → V168, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-36's GAME-slot PROPOSAL 155: a fresh, counterintuitive, quantifiabl
 **4.** Real phenomenon or textbook toy? — documented record theory plus speedrun record attrition; the log-cadence is observed wherever i.i.d. attempts chase a running best.
 
 ## Outcome
-Landing on green — verifier + doc committed; gate z-scores, results-dict sha256, and PR number recorded on the complete-flip commit. Verifier ideas/superbot-games/speedrun_record_drought.py; doc ideas/superbot-games/speedrun-record-drought-2026-07-19.md.
+G1 harmonic-law mean_count_N2 9.773000 vs H_N2 9.787606 (z −0.325727) · G2 log-slowdown z_linear +11381.841906 (observed 9.773 far below linear-null 520.15) & z_ratio −0.981196 (observed ratio 1.878881 vs H_N2/H_N1 1.886812; headline ×100 attempts → ~1.886812× records) · G3 distribution-free pareto(2.5) mean_count_N2 9.730000 vs H_N2 9.787606 (z −1.285293). all_pass=true; results-dict sha256 fa31d28495ab63c8ff9f1c502031da475bfa334c918fb29173fab26e8e489f26; cross-invocation output byte-identical, exit 0. Verifier ideas/superbot-games/speedrun_record_drought.py; doc ideas/superbot-games/speedrun-record-drought-2026-07-19.md. Outbox PROPOSAL 155 block appended (→ VERDICT 168, +13); proposal high-water → P155; claim released. PR #617. Landed on green.
 
 ## ⟲ Previous-session review
 Round-36 FLEET-slot P153 (Kleinrock conservation law → V166) and VENTURE-slot P154 (growth-endurance dominance → V167) landed clean. Verifier posture (whole-dict digest, distribution robustness gate, honest disclosure) carried forward here. This slice fills round-36's GAME slot: P155 → V168 (+13); the rotation's UNRELATED slot (P156) follows.
