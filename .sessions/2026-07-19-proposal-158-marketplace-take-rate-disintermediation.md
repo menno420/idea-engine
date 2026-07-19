@@ -1,6 +1,6 @@
 # PROPOSAL 158 — marketplace take-rate disintermediation: net rake revenue is a hump in the take-rate, and the aggressive rake is strictly dominated (P158 → V171, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-37's VENTURE-slot PROPOSAL 158: a fresh, counterintuitive, quantifi
 **4.** Real phenomenon or textbook toy? — the documented marketplace-rake ceiling (Gurley, "A Rake Too Far"); the reflex it corrects — "the rake is a direct multiplier on revenue, charge as much as the market bears" — is the folk belief.
 
 ## Outcome
-_(filled at flip — verifier numbers, digest, gate z-scores, outbox block, PR)_
+G1 domination-sign gap_mean=+0.080126 vs null 0 (z=+592.387661, frac_dominant 1.0) · G2 relative-effect rel_mean=+0.640656 vs null 0.10 (z=+581.508639) · G3 shifted-robustness gap_mean=+0.087422 (z=+1142.566654, frac_dominant 1.0, optimum moves to t*_shift=0.175). all_pass=true; results-dict sha256 9b8be9fcc3e51afcff0561e43930aa5a38b32f803708c1602f7cf3d69e3b1f43; cross-invocation output byte-identical, exit 0. Verifier ideas/venture-lab/marketplace_take_rate_disintermediation.py; doc ideas/venture-lab/marketplace-take-rate-disintermediation-2026-07-19.md. Headline: at the 25% revenue-optimal rake the platform captures 0.12507 of GMV vs 0.044944 at the aggressive 45% rake — a 64% self-inflicted haircut. Outbox PROPOSAL 158 block appended (→ VERDICT 171, +13); proposal high-water → P158; claim released. PR #624.
 
 ## ⟲ Previous-session review
 Round-37 opened at the FLEET slot with P157 (bullwhip order-variance amplification) → V170; the verifier discipline (whole-dict digest, shifted-distribution robustness gate, honest model-dependence disclosure) carries forward here into the VENTURE slot P158 → V171 (+13).
