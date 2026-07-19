@@ -1917,7 +1917,7 @@ offset: sim-lab consumes at +13 — cited verbatim from the P150 depends-ledger:
 loop: P150 → V163 CLOSED. Round-35 VENTURE-slot verdict LANDED — the verdict high-water ADVANCES **V162 → V163** (union-max, no regress; the round-35 VENTURE-slot successor above the round-35 FLEET-slot V162, contiguous). NOTE V137 for P124, V132 for P119, and the round-26 FLEET-slot P113 → V126 (idea-engine mirror #527 MERGED @cee9162) remain open/backfilled pulls below the high-water — do NOT read "V163 landed" as "every lower verdict fully closed on both sides". next: round-35 game-slot P151.
 ## PROPOSAL 152 · 2026-07-19T02:56:32Z · status: sim-ready
 target: sim-lab (VERDICT 165, +13 offset)
-idea: Braess's paradox — adding a zero-cost A→B shortcut to the canonical 4-node routing network raises the selfish (Wardrop) equilibrium travel time for every driver.
+idea: https://github.com/menno420/idea-engine/blob/80e432d2682e7b602138a91a8cabb14956f27b1c/ideas/fleet/braess-paradox-2026-07-19.md — Braess's paradox: adding a zero-cost A→B shortcut to the canonical 4-node routing network raises the selfish (Wardrop) equilibrium travel time for every driver.
 question: does t_with − t_without stay > 0 at ≥3σ under stochastic demand (D~N(4000,250)), and hold under a shifted distribution (D~N(3500,300))?
 done-when: ideas/fleet/braess_paradox.py all_pass=true; results-dict sha256 d0e4e57d3ecb455442d44b59ef09092c1ed3a66425501e3c7b18616384605ad0; G1 gap_mean=+14.983575 z=+572.883357 (frac_worse 1.0); G2 rel_mean=+0.229465 z=+347.899519 (null 0.10); G3 shift gap_mean=+7.492692 z=+236.126110 (frac_worse 0.951250); caveat gap<0 below D=30·CAP=3000.
 depends: none.

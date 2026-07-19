@@ -4,7 +4,7 @@
 > **Class:** counterintuitive-equilibrium / everyday-systems (unrelated slot)
 > **Slot:** round-35 unrelated
 > **Target:** sim-lab (VERDICT 165, +13 offset)
-> **Grounding:** https://github.com/menno420/idea-engine/blob/80e432d2682e7b602138a91a8cabb14956f27b1c/control/outbox.md @ ae852cc89f270fbf1e3e5ec8822d5d0a2043bb37 (VERDICT 163 mirror = current tail; proposal high-water P150, +13 offset)
+> **Grounding:** https://github.com/menno420/idea-engine/blob/80e432d2682e7b602138a91a8cabb14956f27b1c/control/outbox.md@ae852cc89f270fbf1e3e5ec8822d5d0a2043bb37 · fetched 2026-07-19T02:56:32Z
 > **Reference (external, reachable):** Wikipedia "Braess's paradox" — https://en.wikipedia.org/wiki/Braess%27s_paradox (verified reachable via WebFetch); original: D. Braess (1968), "Über ein Paradoxon aus der Verkehrsplanung"; field cases: Seoul Cheonggyecheon expressway removal (2003), Stuttgart, New York 42nd Street.
 > **Harvest source (firsthand):** ideas/fleet/braess_paradox.py + its recorded double-run (this branch).
 
