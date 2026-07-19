@@ -1,6 +1,6 @@
 # PROPOSAL 174 — the IRR speed trap: a venture fund's IRR is not monotone in dollars returned to LPs — a lower-MOIC fund that distributes faster out-IRRs a higher-MOIC fund, and a subscription line inflates IRR while LPs get fewer dollars (P174 → V187, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-41's VENTURE-slot PROPOSAL 174 (rotation fleet→venture→game→u
 **4.** Crossover, not the claim: the same time-value logic drives the annual-prepay implied-APR trap (P130) and any duration-vs-magnitude ranking (NPV-vs-IRR). Disclosed as a crossover, not asserted as the head? — disclosed; the verified head is the IRR speed trap for venture funds (rank-inversion on IRR + subscription-line inflation), scoped to unshaded MOIC-vs-IRR comparison.
 
 ## Outcome
-_(placeholder — filled at flip: verifier gate z-scores, results-dict sha256, PR number, merge SHA.)_
+Shipped. Verifier `ideas/venture-lab/irr_speed_trap.py` passes three ordered z-gates: G1 speed-premium mean IRR gap 0.147747 z=+789.30361 (inversion fraction 0.99506 — the fast-low-MOIC fund out-IRRs the slow-high-MOIC fund despite returning strictly less money); G2 subscription-line artifact delta-IRR mean +0.013764 z=+756.063137 while delta-MOIC mean −0.146102 z=−1093.342507 (higher reported IRR, fewer LP dollars); G3 staged-distribution robustness mean IRR gap 0.032235 z=+251.423783 (bisection-solved, inversion fraction 0.8858); all_pass=true, first_failing_gate=null, exit 0. results-dict sha256 `552e98a09fd8f8c069156ab40d35dca2049671702e5e11f8d40a52fba3f2736f` reproduced byte-identical across an in-process + cross-invocation double-run. Grounding: Wikipedia "Internal rate of return" verified live HTTP 200 this session. Outbox PROPOSAL 174 block appended (status: sim-ready, P174 -> V187, +13); proposal high-water take-max advanced P173 -> P174; claim released. PR #664.
 
 ## ⟲ Previous-session review
 Round-40 closed at its UNRELATED slot (Berkson collider → V185) and round-41 opened at FLEET (decorrelated jitter backoff P173 → V186); both held the three-≥3σ-gate discipline with a whole-dict digest and a distribution-shift robustness gate. This round-41 VENTURE slot (P174 → V187) carries the same posture forward — WHOLE-DICT / NO-SELF-FIELD / STDOUT-ONLY digest, floats 6 dp, an in-process double-run determinism assert, and a staged-distribution robustness gate (G3) — returning the rotation to venture with a fund-economics / performance-metric head.
