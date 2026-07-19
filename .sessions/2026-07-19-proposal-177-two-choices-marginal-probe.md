@@ -1,6 +1,6 @@
 # PROPOSAL 177 — the second probe does all the work: one extra choice (d=1→d=2) collapses max dispatch load exponentially, every probe past the second buys only a vanishing constant (round-42 FLEET slot, P177 -> V190, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block + heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
