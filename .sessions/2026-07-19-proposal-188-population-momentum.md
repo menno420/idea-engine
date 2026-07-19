@@ -1,9 +1,9 @@
 # PROPOSAL 188 — Population momentum: replacement fertility still grows a population (round-44 UNRELATED slot, P188 → V201, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 
-**Born-red HOLD.** This card lands born-red on the first in-progress commit to hold the PR red; it flips to `complete` only after the verifier reproduces byte-identical and the gate battery passes green. The HOLD is the sole legitimate red — every other gate red is a real defect.
+**Born-red HOLD (cleared).** This card landed born-red as `in-progress` to hold the PR red on the first commit; it flips to `complete` here, after the verifier reproduced byte-identical and the gate battery passed green. The HOLD was the sole legitimate red — every other gate red is a real defect.
 
 ## Objective
 
@@ -33,24 +33,39 @@ Show, with a stdlib-only deterministic verifier, that a population whose fertili
 - **G3 — robustness under a shifted vital-rate distribution.** Under the delayed-childbearing fertility shape, momentum from the growth-regime structure still satisfies z3 = (mean_M_shift − 1)/SE ≥ 3.0.
 - all_pass = G1 ∧ G2 ∧ G3.
 
-## GROUNDING (to be verified live before flip)
+## GROUNDING (verified live)
 
-Keyfitz, N. (1971), "On the momentum of population growth"; reference article: Population momentum (Wikipedia). Verified reachable at flip; specific head — growth continues after replacement fertility because of the young age structure — quoted verbatim in the doc.
+[Population momentum — Wikipedia](https://en.wikipedia.org/wiki/Population_momentum) — verified reachable 2026-07-19 via WebFetch: "Population momentum explains why a population will continue to grow even if the fertility rate declines... a current increase in fertility rates causes an increase in the number of women of childbearing age roughly twenty-to-forty years later." Documents the specific head (continued growth after fertility reaches replacement, via age structure). Historical origin conventionally Keyfitz (1971), Demography 8(1):71–80 — not cited on the Wikipedia page, so that attribution is unverified from this source.
 
 ## Probe questions
 
-**1.** Is the growth a coding artifact of the Leslie convention, or a real renewal-equation consequence of NRR = 1 giving intrinsic rate zero?
-**2.** Would a seed change or a different N0 flip the sign of the effect?
-**3.** What is the simplest version that still bites — does the null contrast (G2) isolate age structure as the cause?
-**4.** How large is the momentum for this pinned world, and does it match the Keyfitz direction (M > 1)?
-**5.** Where could I be fooling myself — is NRR truly 1.000000 post-switch, or is residual fertility hiding?
-**6.** Does the effect survive a shifted childbearing schedule (G3)?
-**7.** What decision does it change for anyone modelling a fertility transition to replacement?
-**8.** How will we know it worked — byte-identical digest, all_pass = true, gates in order?
+**1. Is the growth a coding artifact of the Leslie convention, or a real renewal-equation consequence of NRR = 1 giving intrinsic rate zero?** Real — λ = 1 exactly at NRR = 1 (Euler–Lotka); the growth is the transient of a young structure relaxing to stationary, shown RNG-free by M_det = 1.291976.
+
+**2. Would a seed change or a different N0 flip the sign of the effect?** No — direction is deterministic; z ≈ 1250 above the null. Larger N0 only tightens SE.
+
+**3. What is the simplest version that still bites — does the null contrast (G2) isolate age structure as the cause?** Yes — fertility held at replacement, only the starting structure varies; young grows 29%, stationary stays flat (1.000409).
+
+**4. How large is the momentum for this pinned world, and does it match the Keyfitz direction (M > 1)?** M ≈ 1.292; direction matches Keyfitz and the Wikipedia worked example.
+
+**5. Where could I be fooling myself — is NRR truly 1.000000 post-switch, or is residual fertility hiding?** nrr_repl_check = 1.000000; no residual surplus — the growth is age structure.
+
+**6. Does the effect survive a shifted childbearing schedule (G3)?** Yes — delayed childbearing still gives M = 1.219339 at z ≈ 1116.
+
+**7. What decision does it change for anyone modelling a fertility transition to replacement?** It warns against reading a per-unit equilibrium as an aggregate one: the aggregate overshoots for ~a generation while built-up structure drains.
+
+**8. How will we know it worked — byte-identical digest, all_pass = true, gates in order?** Yes — sha256 fb74854… byte-identical across fresh runs, all_pass = true, G1 → G2 → G3 in order.
 
 ## Outcome
 
-_Pending — filled at flip with results-dict sha256, per-gate z-stats, deterministic momentum M_det, and all_pass._
+Verifier `ideas/fleet/population_momentum.py` reproduced byte-identical across two fresh invocations. results-dict sha256 = `fb74854ebd92a08fe48770136cf4e5645b47176394d1b04a70c2a0cc6ef36f33`; all_pass = true.
+
+- deterministic_momentum M_det = 1.291976 (ultimate size 29.2% above the switch level).
+- nrr_repl_check = 1.000000 (post-switch fertility is exact replacement).
+- G1 momentum: mean_M = 1.291456, SE = 0.000234, z = 1246.791124 → PASS.
+- G2 null contrast: mean_M_null = 1.000409 (inside the 0.02 band), z_contrast = 949.016224, z_null = 2.059462 → PASS.
+- G3 robustness (shifted): mean_M_shift = 1.219339, SE = 0.000197, z = 1115.580283 → PASS.
+
+Shipped to sim-lab for VERDICT 201 (P188 → V201, +13). Outbox entry appended `status: sim-ready`; proposal high-water advanced P187 → P188.
 
 ## ⟲ Previous-session review
 
