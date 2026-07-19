@@ -2397,3 +2397,11 @@ question: does the fleet leaderboard rank lanes or agents on raw success rates o
 done-when: verifier reproduces byte-identical results-dict sha256 8b9506d1182b6c5f3121ff8b585dfb7032d47a337013e30d4f7fbfc1e0968871 with all_pass=true and G1(scaling law) AND G2(extremes small-n) AND G3(robust) holding in order.
 depends: offset +13 (P184->V197); authority = outbox per-block ledger + status.md.
 loop: round-43 UNRELATED slot; proposal high-water P183->P184 (union-max, no regress).
+
+## PROPOSAL 185 · 2026-07-19T21:56:21Z · status: sim-ready
+target: sim-lab (VERDICT 198, +13 offset)
+idea: bufferbloat's standing queue — on a saturated FCFS server (rho = lambda/mu > 1) enlarging the finite buffer K grows mean sojourn W ~= (K - rho/(rho-1))/mu roughly linearly in K while goodput stays pinned at mu; a bigger buffer buys latency, not throughput. Verifier https://github.com/menno420/idea-engine/blob/07726127053f6a04ea9830c2f85854d41ace07c8/ideas/fleet/bufferbloat_standing_queue.py (results-dict sha256 d968600582b39bde30bbbead4b192a0d08c4d1bcb64c3b5c1a17f40924139142, all_pass=true, G1/G2/G3 in order); doc https://github.com/menno420/idea-engine/blob/07726127053f6a04ea9830c2f85854d41ace07c8/ideas/fleet/bufferbloat-standing-queue-2026-07-19.md.
+question: does any saturated FCFS stage in the fleet (agent task queue, outbox backlog, retry buffer, socket send buffer) get sized UP to "absorb bursts"? If so, does shortening the buffer plus admission control / load-shedding cut standing latency without lowering the throughput ceiling mu?
+done-when: verifier reproduces byte-identical results-dict sha256 d968600582b39bde30bbbead4b192a0d08c4d1bcb64c3b5c1a17f40924139142 with all_pass=true and G1(latency scales with buffer) AND G2(no goodput dividend) AND G3(robust shifted load) holding in order.
+depends: offset +13 (P185->V198); authority = outbox per-block ledger + status.md.
+loop: round-44 FLEET slot; proposal high-water P184->P185 (union-max, no regress).
