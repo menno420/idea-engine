@@ -4,7 +4,7 @@
 > **Class:** superbot-games · game-economy jackpot / gamble-feature pricing · St. Petersburg paradox under a bounded bankroll (decision theory / lottery microeconomics)
 > **Anchor:** St. Petersburg paradox — a fair-coin doubling lottery has divergent (infinite) expected value, yet a finite banker/bankroll truncates the divergent tail so the fair entry price is finite and grows only with the LOGARITHM of the cap (Bernoulli 1738; Menger's bounded resolution)
 > **Target:** sim-lab (VERDICT 164, +13 offset)
-> **Grounding:** [St. Petersburg paradox — Wikipedia, permanent revision 1359513006](https://en.wikipedia.org/w/index.php?title=St._Petersburg_paradox&oldid=1359513006) · fetched 2026-07-19T02:41:04Z
+> **Grounding:** https://github.com/menno420/idea-engine@80e432d2682e7b602138a91a8cabb14956f27b1c · fetched 2026-07-19T03:00:36Z
 > **Reference (external, reachable):** [St. Petersburg paradox — Wikipedia](https://en.wikipedia.org/wiki/St._Petersburg_paradox) — verified reachable 2026-07-19 via WebFetch ("If the casino has finite resources, the game must end once those resources are exhausted"; with a finite bankroll the fair entry becomes proportional to the logarithm of the banker's resources — a millionaire banker makes the fair entry only about $20, not infinite)
 > **Verifier (firsthand):** `ideas/superbot-games/st_petersburg_cap_collapse.py` · results-dict sha256 `e1919f49d20df0b50121864b8e35f78be0637e4eeb812799e9f0d8af535ef078`
 > 📊 Model: Claude Opus · high · idea/planning
