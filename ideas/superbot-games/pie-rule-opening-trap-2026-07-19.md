@@ -161,21 +161,21 @@ All gates clear z_gate by two orders of magnitude at N=200000; the head is not m
 
 ## Probe report (v0, self-adversarial)
 
-**1.** *Is `min(f, 1−f)` really optimal responder play?* Yes by construction: the responder faces a position worth `f` to the mover and picks the side worth less to the mover, i.e. `min(f, 1−f)`. A weaker responder only raises the mover's realized rate, which weakens the trap — so G2 models the trap at its genuine (optimal-swap) strength.
+**1. Is `min(f, 1-f)` really the optimal responder value under the swap rule?** Yes by construction: the responder faces a position worth `f` to the mover and picks the side worth less to the mover, i.e. `min(f, 1-f)`. A weaker responder only raises the mover's realized rate, which weakens the trap -- so G2 models the trap at its genuine (optimal-swap) strength.
 
-**2.** *Is the effect an artifact of the specific f-values?* No. G3 re-runs on a different catalogue `[0.50,0.65,0.78,0.88,0.95]` and the ordering (balanced ≫ strong under the rule) holds by ≥3σ. The direction holds for any catalogue containing an `f > 0.5`.
+**2. Is the effect an artifact of the specific f-values?** No. G3 re-runs on a different catalogue `[0.50,0.65,0.78,0.88,0.95]` and the ordering (balanced beats strong under the rule) holds by >=3 sigma. The direction holds for any catalogue containing an `f > 0.5`.
 
-**3.** *Does it collide with Penney's game?* No — Penney is intransitive sequence choice; this is a side-selection fold. Disclosed in Dedup.
+**3. Does it collide with Penney's game or another prior head?** No -- Penney is intransitive sequence choice; this is a side-selection fold. Disclosed in Dedup, and distinct from the tournament-seeding and rating-system heads.
 
-**4.** *Is the grounding source specific to the head?* The Wikipedia "Pie rule" article documents the swap mechanic and notes the first player is motivated to make a move that is not too strong — i.e. the balanced-opening incentive that is the head. Grounding pinned at content hash `681de3e5…` / oldid 1200819498, HTTP 200.
+**4. Does the grounding source document the specific head, not just the mechanic?** The Wikipedia "Pie rule" article documents the swap mechanic and notes the first player is motivated to make a move that is not too strong -- the balanced-opening incentive that is the head. Grounding pinned at content hash `681de3e5...` / oldid 1200819498, HTTP 200.
 
-**5.** *Could a real game's `f(o)` be coarse so no near-0.5 opening exists?* Then the mover picks the catalogue member closest to 0.5 and realized rate is `min(f*, 1−f*)` — still ≤ 0.5 and still maximized at the most-balanced available opening. The prescription (pick the most balanced opening) is unchanged; only the achievable fairness floor moves.
+**5. What if a real game's `f(o)` is coarse so no near-0.5 opening exists?** Then the mover picks the catalogue member closest to 0.5 and the realized rate is `min(f*, 1-f*)` -- still <= 0.5 and still maximized at the most-balanced available opening. The prescription (pick the most balanced opening) is unchanged; only the achievable fairness floor moves.
 
-**6.** *Is Bernoulli independence realistic?* Games are modeled as independent given the opening's `f`; correlation across games would change variance (hence z) but not the mean rates the gates test. At N=200000 the z-margins (~124–199x) absorb large variance inflation.
+**6. Is the Bernoulli-independence assumption doing hidden work?** No. Games are modeled as independent given the opening's `f`; correlation across games would change variance (hence z) but not the mean rates the gates test. At N=200000 the z-margins (~124-199x) absorb large variance inflation.
 
-**7.** *Is `all_pass` gameable by construction?* The three gates test three different directions (edge>0.5, trap<0.5, gap>0 on a distinct catalogue); no single degenerate parameter satisfies all three trivially. A verdict session reproduces the digest to confirm the exact constants.
+**7. Is `all_pass` gameable by a single degenerate parameter?** No. The three gates test three different directions (edge>0.5, trap<0.5, gap>0 on a distinct catalogue); no single degenerate setting satisfies all three trivially. A verdict session reproduces the exact digest to confirm the constants.
 
-**8.** *Crossovers with economics/auction lanes?* The pie rule is a fair-division primitive ("I cut, you choose"); the incentive to make a balanced cut is the same fold. That crossover strengthens the grounding, but the head is scoped to game openings and disclosed here.
+**8. How will a verdict session know it reproduced the head?** It re-runs the stdlib verifier under SEED=20260717 and confirms `all_pass=true`, `first_failing_gate=null`, and the results-dict sha256 equals `72950442cc7509423256f28470c2281c9f79de3b601611b9feb931d083e8cb08` byte-for-byte; any gate fail or digest mismatch is a REJECT.
 
 ## One-line design fix
 
