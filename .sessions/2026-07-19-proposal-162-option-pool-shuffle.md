@@ -1,6 +1,6 @@
 # PROPOSAL 162 — the option-pool shuffle: a pre-money option pool dilutes founders alone, leaving the investor's post-money stake invariant to pool size (P162 → V175, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-38's VENTURE-slot PROPOSAL 162: a fresh, counterintuitive, quantifi
 **4.** Crossover, not the claim: a "who bears the dilution" reading generalizes to any pre-round carve-out (advisor pools, warrant coverage). Is it disclosed as a crossover, not asserted as the verified claim? — disclosed as a crossover; the verified claim is the option-pool-shuffle invariance under the standard priced-round cap-table model.
 
 ## Outcome
-Pending flip — filled at the final commit.
+Verifier `ideas/venture-lab/option_pool_shuffle.py` + doc `ideas/venture-lab/option-pool-shuffle-2026-07-19.md` committed at `81c591f`. Three z-gates PASS in order — G1 investor-fraction invariance z=+194.139005 (prorata_minus_shuffle_change_mean=-0.0283, shuffle_change_absmean=0.0), G2 founders→investor transfer = q·t z=+260.109119 (transfer_mean=0.04526 = predicted, relerr_mean=0.0), G3 robust under the shifted mega-round distribution z=+246.501756 (prorata_minus_shuffle_change_mean=-0.024062); all_pass=true, first_failing_gate=null. results-dict sha256 `f588004512fce81ea824be9fec0c95a3ba2f3e2a8ec03af5867b526bbcb5b4b5` reproduced byte-identical across an in-process + cross-invocation double-run. Grounding verified live HTTP 200 this session (venturehacks.com/option-pool-shuffle). Outbox PROPOSAL 162 block appended (status: sim-ready, P162 → V175, +13); proposal high-water take-max advanced P161 → P162. PR #633.
 
 ## ⟲ Previous-session review
 Round-38 FLEET opener (P161 Palm's theorem / M/G/∞ spares insensitivity → V174) landed clean on three ≥3σ gates with the whole-dict digest and shifted-distribution robustness posture; that verifier discipline — invariance framed as an exact insensitivity claim plus a distribution-shift robustness gate — carries forward here into the venture slot P162 → V175 (+13).
