@@ -1,9 +1,9 @@
 # PROPOSAL 175 — pie-rule opening trap: the strongest opening becomes the worst move under the swap rule (P175 → V188, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
-**Born-red HOLD.** This card lands first as `in-progress` to hold the substrate-gate red while the proposal is authored and the verifier is proven; it flips to `complete` as the final commit.
+**Born-red HOLD (cleared).** This card landed first as `in-progress` to hold the substrate-gate red while the proposal was authored and the verifier proven; this final commit flips it to `complete`, releasing merge-on-green.
 
 ## Objective
 
@@ -13,19 +13,19 @@ Author PROPOSAL 175 (round-41 GAME slot): a fresh, counterintuitive, quantifiabl
 
 - Stdlib-only verifier; SEED=20260717 pinned; in-process double-run determinism assert.
 - Digest posture WHOLE-DICT / NO-SELF-FIELD / STDOUT-ONLY (compact-canonical sha256, pretty stdout dump).
-- Pre-registered ordered gates G1 → G2 → G3 at z_gate = 3.0; the gate plan below matches the verifier's shipped gates.
+- Pre-registered ordered gates G1 → G2 → G3 at z_gate = 3.0; the gate plan matches the shipped verifier.
 - Grounding URL verified reachable (HTTP 200) and documents the specific head.
 - Timestamps from `date -u`.
 
 ## GROUNDING (verified at HEAD)
 
-Pie rule / swap rule (Hex and other first-player-advantage games): the second player may, in lieu of a reply, swap sides — so the first player is incentivized to make a balanced opening rather than a strong one. Reference pinned in the proposal doc's Grounding line.
+Pie rule / swap rule (Hex and other first-player-advantage games): the second player may, in lieu of a reply, swap sides — so the first player is incentivized to make a balanced opening rather than a strong one. Grounding pinned in the proposal doc: https://en.wikipedia.org/wiki/Pie_rule (HTTP 200, oldid 1200819498, content hash 681de3e5…).
 
 ## Gate plan (pre-registered — matches the shipped verifier)
 
-- **G1** — first-move edge exists without the rule: greedy-strongest opening, no pie rule, win rate > 0.5 by ≥3σ vs 0.5.
-- **G2** — the trap: greedy-strongest opening UNDER the pie rule yields realized first-mover win rate < 0.5 by ≥3σ (the responder swaps into the strong opening).
-- **G3** — robustness (shifted opening distribution): balanced play (f≈0.5) strictly dominates naive-strong play by ≥3σ, and the balanced realized rate is within 2 percentage points of a fair 0.5.
+- **G1** — first-move edge exists without the rule: greedy-strongest opening, no pie rule, win rate 0.900505 (z=598.381968) > 0.5 by ≥3σ.
+- **G2** — the trap: greedy-strongest opening UNDER the pie rule yields realized first-mover win rate 0.10111 (z=−591.72081) < 0.5 by ≥3σ.
+- **G3** — robustness (shifted opening distribution): balanced play (0.50116) beats naive-strong (0.04946) by gap 0.4517 (z_gap=370.907761) ≥3σ, and the balanced rate is within 2 points of a fair 0.5.
 
 ## Probe questions
 
@@ -36,12 +36,12 @@ Pie rule / swap rule (Hex and other first-player-advantage games): the second pl
 
 ## Outcome
 
-_Pending — flips to complete after the verifier is proven twice cross-invocation, the outbox block is appended, and the heartbeat is refreshed._
+Complete. Verifier proven twice cross-invocation (byte-identical), `all_pass=true`, `first_failing_gate=null`, results-dict sha256 `72950442cc7509423256f28470c2281c9f79de3b601611b9feb931d083e8cb08`. Gates: G1 z=598.381968, G2 z=−591.72081, G3 z_gap=370.907761 (balanced 0.50116 within 2pt of fair). Grounding HTTP 200 (Wikipedia "Pie rule", oldid 1200819498) — documents the swap mechanic and the balanced-opening incentive. Outbox PROPOSAL 175 appended (sim-ready), proposal high-water advanced P174 → P175, targeting VERDICT 188 (+13). Landed on green via merge-on-green, PR #665.
 
 ## ⟲ Previous-session review
 
-_(to be filled at flip)_
+P174 (IRR speed-trap, sibling, sim-ready) reads sound: clean +13 offset, pinned grounding, deterministic digest. This session mirrored its outbox-block grammar and per-block offset-ledger discipline. No correction needed.
 
 ## 💡 Session idea
 
-_(to be filled at flip)_
+A companion GAME head worth a future slot: "auction-draft winner's overpay" — in a blind pick-and-ban draft auction, the player who wins a contested pick systematically overpays relative to the pick's marginal roster value (a winner's-curse variant scoped to draft economies), quantifiable as the expected value gap between the winning bid and the second-highest valuation. Distinct from the term-sheet winner's-curse (venture lane) by being about roster-slot marginal value, not equity price.
