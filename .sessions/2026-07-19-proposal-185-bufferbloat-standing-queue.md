@@ -1,6 +1,6 @@
 # PROPOSAL 185 — Bufferbloat's standing queue: on a saturated server a BIGGER buffer buys latency, not throughput (round-44 FLEET slot, P185 → V198, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD.** This card lands on the FIRST commit with `Status: in-progress`, holding the substrate-gate red while the verifier is authored and proven. The final commit flips it to `complete`, releasing merge-on-green. Gate-red before the flip is the born-red exception, not a defect.
@@ -42,7 +42,13 @@ Bufferbloat: oversized network buffers hold a persistent standing queue under sa
 **8.** Are the pre-registered gates here identical to the gates the verifier ships?
 
 ## Outcome
-_Pending born-red flip — filled at the finalize commit after the verifier is proven._
+Verifier `ideas/fleet/bufferbloat_standing_queue.py` passes all gates under SEED = 20260717; cross-invocation double run IDENTICAL.
+- Results-dict sha256: `d968600582b39bde30bbbead4b192a0d08c4d1bcb64c3b5c1a17f40924139142`
+- G1 latency-scales-with-buffer: ΔW mean = 49.954161, z = 508.99; W 21.09712 → 71.05128 as K 25 → 75 (ratio 3.37) → pass
+- G2 no-goodput-dividend: thr 0.999952 vs 0.999687, gap 0.000265 (both ≥ 0.98μ) → pass
+- G3 robust (ρ = 1.5): ΔW mean = 50.033018, z = 581.38, thr gap 0.000555 → pass
+- all_pass = true
+- PR #688; targets sim-lab VERDICT 198 (+13).
 
 ## ⟲ Previous-session review
 PROPOSAL 184 (de Moivre small-sample variance artifact, round-43 UNRELATED slot, sim-ready, targets V197, +13): a clean estimation-statistics head — ranking units by an observed rate surfaces the smallest-sample units at BOTH extremes because SD(rate) = √(p(1−p)/n) blows up as n shrinks. Grammar clean, gates pre-registered at ≥3σ with shifted-p and shifted-range robustness gates, +13 offset consistent, no blocker seen. This P185 opens round-44 with the FLEET slot (rotation FLEET → VENTURE → GAME → UNRELATED).
