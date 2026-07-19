@@ -1,6 +1,6 @@
 # PROPOSAL 181 — more hash functions make Bloom-filter false positives worse past the optimum k* = (m/n)·ln2, and no tuning beats the bits-per-element floor ≈ 0.6185^(m/n) (round-43 FLEET slot, P181 → V194, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD.** This card lands on the FIRST commit with `Status: in-progress`, holding the substrate-gate red while the verifier and proposal doc are authored and proven. The final commit flips it to `complete` — after the outbox block and heartbeat — releasing the landing workflow. A red gate before that flip is the born-red HOLD, not a defect.
@@ -38,7 +38,13 @@ Bloom filter optimal-k / false-positive tradeoff (Bloom 1970; Wikipedia "Bloom f
 **8.** Are the pre-registered gates here identical to the gates the verifier ships?
 
 ## Outcome
-_Filled at flip._ Verifier `ideas/fleet/bloom-optimal-k-fpr-floor-2026-07-19.py`; results-dict sha256, per-gate z, PR #, target sim-lab VERDICT 194 (+13) recorded on the final commit.
+Verifier `ideas/fleet/bloom-optimal-k-fpr-floor-2026-07-19.py` passes all gates under SEED = 20260717; cross-invocation double run IDENTICAL, EXIT 0.
+- Results-dict sha256: `3fdfc867123a80a1476d414610413060c24b3580841f1d808dac10a75f8b5d7f`
+- G1 optimum dominance (c=8): FPR 11.79% (k=1, z=118.4) and 4.93% (k=12, z=42.3) both exceed the 2.22% optimum (k*=6) → pass
+- G2 more-hashes-hurt + floor: past-optimum penalty +2.71 pts (z=42.3); FPR(k*)=2.22% on the memory floor φ=2.14% → pass
+- G3 robustness (c=12): dominance z=129.8 / 18.1, penalty +0.42 pts, FPR(k*)=0.33% on floor 0.31% → pass
+- all_pass = true
+- PR #679; targets sim-lab VERDICT 194 (+13); proposal high-water P180→P181.
 
 ## ⟲ Previous-session review
 PROPOSAL 180 (typical-set "mode mirage", round-42 UNRELATED slot, sim-ready, targets V193, PR #676): clean information-theory head — the single most-probable i.i.d. sequence is atypical and essentially never observed while observations concentrate at the entropy rate; gates pre-registered at z_gate = 3.0, +13 offset consistent, grounding (AEP) verified live. No blocker seen. This P181 opens round-43 on the FLEET slot (rotation FLEET → VENTURE → GAME → UNRELATED).
