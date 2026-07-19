@@ -1,6 +1,6 @@
 # PROPOSAL 178 — post-money SAFEs don't share dilution: stacking taxes founders convexly (round-42 VENTURE slot, P178 → V191, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands as the FIRST commit with `Status: in-progress` to hold the PR red on the substrate docs-gate. It flips to `complete` as the final commit of the slice, once the verifier, proposal doc, and outbox block are in place and `python3 bootstrap.py check --strict` is green.
@@ -36,7 +36,7 @@ G3 tests exactly this: more SAFEs and lower caps push x up; the tax stays positi
 A founder choosing between a pre-money and a post-money SAFE at the same cap and check should price the post-money "cleaner accounting" convenience against a convex dilution tax that compounds with each additional SAFE.
 
 ## Outcome
-Pending — born-red HOLD. Filled at flip with the actual gate z-scores, the results-dict sha256, and the PR / merge references.
+Verifier `ideas/venture-lab/post_money_safe_stacking.py` passes all three gates, byte-deterministic across two invocations at SEED=20260717: G1 mean tax 0.127846, z=631.6; G2 tercile ratio 6.338353 (z=824.3); G3 shifted mean 0.229045 > baseline 0.127846, z_positive=1074.0, z_increase=344.2; all_pass=true. Results-dict sha256 `78758a602a36ba32bc1fd97b77820c97e86abbe7828a160ddbdd22ae7e8b2549`. Proposal doc `ideas/venture-lab/post-money-safe-stacking-2026-07-19.md`; outbox PROPOSAL 178 block appended, proposal high-water P177 → P178; PR #672. Pairs with sim-lab VERDICT 191 (+13).
 
 ## ⟲ Previous-session review
 PROPOSAL 177 (round-42 FLEET slot, two-choices-marginal-probe) landed via PR #670, advancing proposal high-water P176 → P177. This slice continues round-42 into the VENTURE slot (P177 → P178), pairing with sim-lab VERDICT 191.
