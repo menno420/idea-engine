@@ -65,4 +65,4 @@ The result is a property of the standard broad-based weighted-average and full-r
 **7. What breaks the mechanism first?** Pay-to-play forfeiture (a non-following investor can lose anti-dilution entirely), narrow-vs-broad base, and stacked multi-round conversions all change magnitudes; the model is scoped to a single standard broad-based clause with no forfeiture, disclosed under Model basis.
 **8. What does the verdict session check?** Reproduce ideas/venture-lab/full_ratchet_convexity.py byte-for-byte under SEED=20260717, match the results-dict sha256 c6c1278f5acb6cc59992e7d4300e69edfc713bef0168cd9571e85c4677c18b59 EXACTLY, and confirm G1/G2/G3 z-margins with all_pass=true, first_failing_gate=null, exit 0.
 
-Recommendation: sim-ready
+**Recommendation: sim-ready**
