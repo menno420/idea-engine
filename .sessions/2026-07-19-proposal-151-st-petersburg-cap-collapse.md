@@ -1,6 +1,6 @@
 # PROPOSAL 151 — St. Petersburg cap-collapse: a doubling press-your-luck jackpot has INFINITE expected value, yet capping the payout at 2^M coins collapses its fair ticket price to exactly M/2 + 1
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card is the session's FIRST content commit (alongside the claim), born `in-progress` to hold the `substrate-gate` RED so the PR cannot merge before the deliberate `complete` flip. The flip (the deliberate LAST commit, after the verifier + idea doc + outbox P151 block + heartbeat) releases the merge-on-green backstop. A red gate AFTER this flip is a real defect, not the HOLD.
