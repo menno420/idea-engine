@@ -1,6 +1,6 @@
 # PROPOSAL 156 — the Allee viability cliff: below a critical density a "growing" population is deterministically doomed (P156 → V169, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -16,7 +16,7 @@ Author round-36's UNRELATED-slot PROPOSAL 156: a fresh, counterintuitive, quanti
 
 ## GROUNDING (verified at HEAD)
 - Offset + high-water lineage: `control/outbox.md` at HEAD (VERDICT mirror = current tail; proposal high-water pre-P156, +13 offset). Verify live before the outbox append.
-- External phenomenon (reachable): the strong Allee effect — a critical-density viability threshold below which per-capita growth is negative. https://en.wikipedia.org/wiki/Allee_effect@854835807f66e5b253350b8a3e79e9408b466b9e2e303b7188ce1ee49a321310 · fetched 2026-07-19T04:56:46Z — Allee (1931), *Animal Aggregations*; Courchamp, Berec & Gascoigne, *Allee Effects in Ecology and Conservation* (2008). The step-function extinction threshold is the field signature.
+- External phenomenon (reachable): the strong Allee effect — a critical-density viability threshold below which per-capita growth is negative. https://en.wikipedia.org/wiki/Allee_effect@854835807f66e5b253350b8a3e79e9408b466b9e · fetched 2026-07-19T04:56:46Z — Allee (1931), *Animal Aggregations*; Courchamp, Berec & Gascoigne, *Allee Effects in Ecology and Conservation* (2008). The step-function extinction threshold is the field signature.
 
 ## Probe questions
 **1.** Does the deterministic basin boundary sit at exactly the Allee threshold `A`, invariant across different `(r, K)`? — the noise-free map `x_{t+1} = x_t + r x_t (1 - x_t/K)(x_t/A - 1)` has an unstable fixed point at `A`; the verifier locates the basin boundary and measures its invariance across sampled `(r, K)` pairs.
@@ -25,7 +25,7 @@ Author round-36's UNRELATED-slot PROPOSAL 156: a fresh, counterintuitive, quanti
 **4.** Crossover, not the claim: a fleet/venture "critical-mass adoption" reading exists (a product/network below a critical adoption density decays deterministically). Is it disclosed as a crossover, not asserted as the ecological claim? — disclosed as a crossover analogy only; the verified claim is the population-ecology step function.
 
 ## Outcome
-pending — filled at flip commit (gate z-scores, results-dict sha256, verifier + doc paths, outbox append, PR number land on green).
+Verifier `ideas/fleet/allee_viability_cliff.py` + doc `ideas/fleet/allee-viability-cliff-2026-07-19.md` committed at `7ffc453`. Three z-gates PASS in order — G1 doomed-below z=+20.0 (p_below=1.0), G2 safe-above z=+20.0 (p_above=0.0), G3 robust-under-shifted-noise z=+6.29325 (p_below_hi=0.9125, p_above_hi=0.09, gap=0.8225); all_pass=true, first_failing_gate=null. Deterministic basin boundaries [30.0, 30.0, 30.0] all at A=30 (invariant across (r,K)). results-dict sha256 `bbc42b796c1dab6fae0b4be5da91e277a737cfdd5fd61246700fe826600b9471` reproduced byte-identical across an in-process + cross-invocation double-run. Outbox PROPOSAL 156 block appended (status: sim-ready, P156 → V169, +13). PR #619.
 
 ## ⟲ Previous-session review
 Round-36 prior slice (P154 growth-endurance dominance → V167) landed clean on three ≥3σ gates with the whole-dict digest and shifted-distribution robustness posture; that verifier discipline carries forward here into the unrelated slot P156 → V169 (+13).

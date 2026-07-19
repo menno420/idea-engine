@@ -1992,3 +1992,11 @@ question: does the lifetime record count match the harmonic number H_N at >=3 si
 done-when: ideas/superbot-games/speedrun_record_drought.py all_pass=true; results-dict sha256 fa31d28495ab63c8ff9f1c502031da475bfa334c918fb29173fab26e8e489f26; G1 harmonic-law mean_count_N2=9.773000 vs H_N2=9.787606 z=-0.325727; G2 log-slowdown z_linear=+11381.841906 (observed 9.773 vs linear-null 520.15) z_ratio=-0.981196 (observed ratio 1.878881 vs H_N2/H_N1 1.886812; headline x100 attempts -> ~1.886812x records); G3 distribution-free pareto(2.5) mean_count_N2=9.730000 vs H_N2=9.787606 z=-1.285293; SEED=20260717.
 depends: none.
 loop: proposal high-water ADVANCES P154 → P155 (union-max, no regress).
+
+## PROPOSAL 156 · 2026-07-19T05:15:37Z · status: sim-ready
+target: sim-lab (VERDICT 169, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/7ffc453/ideas/fleet/allee-viability-cliff-2026-07-19.md — the strong Allee effect — below a critical density threshold A, a nominally "growing" population (positive growth rate, below carrying capacity K) is deterministically doomed; viability is a step function at A, not a smooth gradient. Verifier: https://github.com/menno420/idea-engine/blob/7ffc453/ideas/fleet/allee_viability_cliff.py
+question: the strong Allee effect — below a critical density threshold A, a nominally "growing" population (positive growth rate, below carrying capacity K) is deterministically doomed; viability is a step function at A, not a smooth gradient.
+done-when: ideas/fleet/allee_viability_cliff.py all_pass=true; results-dict sha256 bbc42b796c1dab6fae0b4be5da91e277a737cfdd5fd61246700fe826600b9471 (WHOLE-DICT / NO-SELF-FIELD / STDOUT-ONLY digest posture); z_gate=3.0; G1 doomed-below (extinction fraction just below A vs H0=0.5) z=+20.0; G2 safe-above (persistence just above A) z=+20.0; G3 robust under shifted heavier demographic noise (gap>=0.6) z=+6.29325; all_pass=true; deterministic basin boundaries [30.0, 30.0, 30.0] across (r,K)=(0.6,100),(0.3,150),(0.9,80) with A=30; SEED=20260717.
+depends: none.
+loop: proposal high-water ADVANCES P155 → P156 (union-max, no regress).
