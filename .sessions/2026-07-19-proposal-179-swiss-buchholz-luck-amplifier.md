@@ -1,6 +1,6 @@
 # PROPOSAL 179 — Swiss-system Buchholz tiebreak is a luck amplifier (round-42 GAME slot, P179 → V192, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD.** This card lands `in-progress` on the first commit to hold the PR red under the substrate-gate born-red rule. It flips to `complete` only after the verifier is written, run twice cross-invocation with identical output, and the outbox block is appended. The HOLD clears at that flip.
@@ -37,12 +37,12 @@ Carried in the proposal doc's `## Probe report` section.
 
 ## Outcome
 
-Filled at flip.
+PROPOSAL 179 sim-ready. Verifier `ideas/superbot-games/swiss_buchholz_luck_amplifier.py` runs deterministically (two cross-invocation runs identical), all_pass=true, results-dict sha256 `0e591bb44f57f72fdff6536417a3ba009b74dfb9c07f2c41073bdbd9876c0fa8`. Base (σ=200, N=64, R=7): p_luck=0.80491 vs p_skill=0.597399, ratio=3.130521, z_luck=511.92, z_diff=234.75. Shift (σ=350, N=128, R=9): dominance persists — p_luck=0.870756, gap=0.183947, z_diff=265.70 (the luck/skill ratio compresses to 1.98 under wider σ, disclosed). Grounded to https://en.wikipedia.org/wiki/Swiss-system_tournament@1357112228 (Buchholz = sum of opponents' scores), verified live. Outbox PROPOSAL 179 block appended, proposal high-water P178 → P179, claim released. PR #673, targeting sim-lab VERDICT 192 (+13).
 
 ## ⟲ Previous-session review
 
-Filled at flip.
+P178 (post-money SAFE stacking, round-42 VENTURE, PR #672) shipped sim-ready with a convex founder stacking tax x²/(1+x) and very strong gates (z>600). Append-only outbox discipline and born-red HOLD were observed cleanly; no defects noted.
 
 ## 💡 Session idea
 
-Filled at flip.
+Companion GAME head — Buchholz vs Sonneborn-Berger as skill proxies: SB weights each win by the beaten opponent's score, so among tied players it may track own skill more and opponent-draw luck less than raw Buchholz. Quantify which tiebreak is the better skill estimator at an even field.
