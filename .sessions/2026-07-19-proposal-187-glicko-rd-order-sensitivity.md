@@ -1,9 +1,9 @@
 # PROPOSAL 187 — Glicko rating order-sensitivity: an identical 6W-6L record against an identical opponent field ends at a DIFFERENT Glicko rating depending only on the ORDER of the results, because RD shrinks after each game and weights early games more (round-44 GAME slot, P187 → V200, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 
-**Born-red HOLD — active.** This card lands on the FIRST commit with `Status: in-progress`, deliberately holding the substrate-gate red while the verifier is authored and proven. The flip to `complete` (LAST commit, after the heartbeat) releases the HOLD (merge-on-green); until then the gate-red is the born-red exception, not a defect.
+**Born-red HOLD — cleared.** This card landed on the FIRST commit with `Status: in-progress`, holding the substrate-gate red while the verifier was authored and proven. This flip to `complete` releases that HOLD (merge-on-green); the earlier gate-red was the born-red exception, not a defect.
 
 ## Objective
 Show, with a deterministic stdlib Monte-Carlo over the Glicko-1 rating system, that a player who posts the SAME multiset of game results (6 wins, 6 losses) against the SAME field of opponents ends at a materially DIFFERENT final rating depending only on the ORDER in which those games are processed (one game per rating period). The driver is the RD-weighted update: after each game the rating deviation RD shrinks, so the step size on the rating decays monotonically through the sequence — early (high-RD) games move the rating far more than late (low-RD) games. Processing all six wins first and then all six losses ("streak" order) therefore lands well BELOW processing them alternating W,L,W,L,... ("alternating" order), even though the record, the opponents, and the outcomes are identical. Order is not information, yet a sequential Glicko update prices it in.
@@ -42,7 +42,7 @@ The Glicko rating system (Mark E. Glickman) replaces a static Elo step with an R
 **8.** Are the pre-registered gates here identical to the gates the verifier ships?
 
 ## Outcome
-Measured — all three gates PASS; born-red HOLD active, cleared at the flip. Verifier `ideas/superbot-games/glicko_rd_order_sensitivity.py` + doc `ideas/superbot-games/glicko-rd-order-sensitivity-2026-07-19.md` authored and proven; outbox PROPOSAL 187 block targets sim-lab VERDICT 200 (P187 → V200, +13).
+Measured — all three gates PASS; born-red HOLD cleared at this flip. Verifier `ideas/superbot-games/glicko_rd_order_sensitivity.py` + doc `ideas/superbot-games/glicko-rd-order-sensitivity-2026-07-19.md` authored and proven; outbox PROPOSAL 187 block targets sim-lab VERDICT 200 (P187 → V200, +13).
 - Results-dict sha256: `d4f690a51493a8fc32dd0971548078b059277ba81b6e02c84364415f4d168ba6` (byte-identical across two cross-invocation runs)
 - G1 order-effect: base mean −60.205174 Glicko points, z = −118.692568 (|z| ≥ 3σ, PASS)
 - G2 sign+magnitude: base same-sign fraction 0.9996, |mean| 60.205174 (≥ 0.90 and ≥ 5.0, PASS)
