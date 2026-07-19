@@ -1,6 +1,6 @@
 # PROPOSAL 167 — MMR/Elo rating deflation: a competitive ladder's mean rating is not conserved — every game is a zero-sum transaction, so underrated newcomers who climb to their true skill and then retire carry those points OUT of the pool, deflating everyone's rating with no change in anyone's skill (round-39 GAME slot, P167 -> V180, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
