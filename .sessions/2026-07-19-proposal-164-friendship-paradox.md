@@ -1,6 +1,6 @@
 # PROPOSAL 164 — friendship paradox: your friends have more friends than you do, and the gap is exactly the degree variance-to-mean ratio (round-38 UNRELATED slot, P164 -> V177, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · proposal authoring
 
 Born-red HOLD: this card lands first with `Status: in-progress` to hold the PR red on the substrate gate; it flips to `complete` as the final commit, after the outbox block + heartbeat, releasing the landing workflow. A red gate before that flip is the HOLD, not a defect.
@@ -25,7 +25,7 @@ Author round-38's UNRELATED-slot PROPOSAL 164: a fresh, counterintuitive, quanti
 **4.** Crossover, not the claim: the same length-bias covers the generalized friendship paradox (co-authors more cited, "your followers have more followers"); disclosed as a crossover, not asserted as the verified claim?
 
 ## Outcome
-In progress — verifier authored and dry-run green (all three gates pass, results-dict sha256 0df9954e7378ae4c896e892c4614ff2967a117b646276fdde3f21ec874b0bd4f, byte-identical double-run); proposal doc, outbox block, and heartbeat pending; card flips complete LAST.
+Shipped. Verifier `ideas/fleet/friendship_paradox.py` passes three ordered gates: G1 (friend-minus-person degree gap > 0 across all 40 networks) z=+46.553724; G2 (size-biased Monte-Carlo friend-mean vs closed-form <k^2>/<k>) z=-0.867047, |z|<3 match; G3 (robustness under a heavier tail alpha=2.6) z=+11.565060, gap grows to 2.011742 > base 0.575478; all_pass=true, identity residual 0.0. Results-dict sha256 = `0df9954e7378ae4c896e892c4614ff2967a117b646276fdde3f21ec874b0bd4f`, byte-identical across two cross-invocation runs. Proposal doc `ideas/fleet/friendship-paradox-2026-07-19.md` landed (grounding: Wikipedia "Friendship paradox" rev 1358630351, verified HTTP 200). Outbox PROPOSAL 164 block appended (target VERDICT 177, +13); proposal high-water advanced P163 -> P164. Claim released; PR #638.
 
 ## ⟲ Previous-session review
 Round-38 GAME slot (P163 mana-screw deck-size -> V176, +13) landed clean on three >=3sigma gates with a whole-dict digest and a shifted-distribution robustness gate; that discipline — an exact same-mean/different-spread identity plus a distribution-shift robustness gate — carries forward here into the UNRELATED slot P164 (friendship-paradox gap = Var/mean, robustness under a heavier tail).
