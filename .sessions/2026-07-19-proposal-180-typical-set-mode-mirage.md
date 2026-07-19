@@ -1,6 +1,6 @@
 # PROPOSAL 180 — Typical-set "mode mirage": the most-probable sequence is the one you never see (round-42 UNRELATED slot, P180 → V193, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD.** This card lands on the FIRST commit with `Status: in-progress`, holding the substrate-gate red while the verifier is authored and proven. The final commit flips it to `complete`, releasing merge-on-green. Gate-red before the flip is the born-red exception, not a defect.
@@ -26,7 +26,7 @@ Base distribution: Bernoulli p = 0.7, n = 1000 symbols, M = 4000 sequences. Shif
 all_pass = G1 ∧ G2 ∧ G3.
 
 ## GROUNDING (verified at HEAD)
-Shannon's Asymptotic Equipartition Property / typical set: observed long i.i.d. sequences are typical (per-symbol probability ≈ 2^{−nH}) and the typical set excludes the single most-probable sequence. Reference filled at the flip commit with a live-verified URL@pin. Cover & Thomas, *Elements of Information Theory*, ch. 3 (AEP).
+Shannon's Asymptotic Equipartition Property / typical set: observed long i.i.d. sequences are typical (per-symbol probability ≈ 2^{−nH}) and the typical set excludes the single most-probable sequence. Verified live 2026-07-19T18:32:26Z (HTTP 200): https://en.wikipedia.org/wiki/Asymptotic_equipartition_property@78b633eddfc34ed73d8a1a7250cc1ceb38bc1d52 — the page states individual outcomes can have higher probability than any typical-set member while observations still come from the typical set. Cover & Thomas, *Elements of Information Theory*, ch. 3 (AEP).
 
 ## Probe questions
 **1.** Does the mean entropy-rate land within ε of H(p) for both p = 0.7 and p = 0.9, and does the in-band fraction clear 0.99?
@@ -39,7 +39,13 @@ Shannon's Asymptotic Equipartition Property / typical set: observed long i.i.d. 
 **8.** Are the pre-registered gates here identical to the gates the verifier ships?
 
 ## Outcome
-Filled at the flip commit: results-dict sha256, base z_sep, shift z_sep, in-band fractions, mode counts, all_pass=true, PR #, target VERDICT 193 (+13).
+Verifier `ideas/fleet/typical-set-mode-mirage-2026-07-19.py` passes all gates under SEED = 20260717; cross-invocation double run IDENTICAL.
+- Results-dict sha256: `1479479100edba6509b0275d31717a2f44b4504d6051023feffc5f13395b8c36`
+- G1 concentration: mean ĥ = 0.881064 vs H = 0.881291 bits, in-band 1.0 → pass
+- G2 mode mirage: base z_sep = 1308.85σ, mode_count = 0 → pass
+- G3 robustness (p = 0.9): shift z_sep = 671.93σ, in-band 0.999, mode_count = 0 → pass
+- all_pass = true
+- PR #676; targets sim-lab VERDICT 193 (+13).
 
 ## ⟲ Previous-session review
 PROPOSAL 179 (Swiss-system Buchholz tiebreak luck amplifier, round-42 GAME slot, sim-ready, targets V192, PR #673): a strong game-lane head — Buchholz "strength-of-schedule" tiebreak, meant to reward tougher pairings, instead amplifies luck because opponent strength is itself luck-correlated under Swiss pairing. Grammar clean, gates pre-registered, +13 offset consistent, no blocker seen. This UNRELATED-slot P180 continues the round-42 rotation (FLEET P177 → VENTURE P178 → GAME P179 → UNRELATED P180).
