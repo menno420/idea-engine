@@ -2970,3 +2970,11 @@ grounding: external, sha1-pinned — Wikipedia "Consistent hashing" oldid 136279
 sim: menno420/sim-lab PR #308 (MERGED; merge commit 844801e) — https://github.com/menno420/sim-lab/pull/308 — reproduces PROPOSAL 217 (consistent-hashing max-gap = H_n/n); sims/verdict-230-consistent-hashing/. Claim: menno420/idea-engine PR #799 (MERGED; merge commit 0ce9017).
 high-water: verdict V229→V230 (union-max, no regress); proposal high-water P217 unchanged (union-max preserved); outbox verdict ledger contiguous V200→V230.
 loop: round-52 FLEET slot (fleet→venture→game→unrelated rotation); P217→V230 (+13). Verdict high-water ADVANCES V229→V230 (union-max, no regress); proposal high-water stays P217 (no regress). Claim control/claims/2026-07-20-verdict-230.md RELEASED (deleted) this commit. NOTE V225 (P212), V137 (P124), V132 (P119), round-26 FLEET P113→V126 remain open pulls below the high-water.
+
+## PROPOSAL 218 · 2026-07-20T15:59:59Z · status: sim-ready
+target: sim-lab (VERDICT 231, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/a5d979c23815c4470155f70880cb24f9d9926f38/ideas/venture-lab/diamond-search-cost-monopoly-price-2026-07-20.md
+question: With N identical zero-marginal-cost sellers and buyers who pay any strictly positive cost to inspect one more price, is the unique symmetric equilibrium the full monopoly (reservation) price v for EVERY N — so competition never lowers the price at all?
+done-when: sim-lab reproduces SEED=20260717 results_sha256 c71985cb55577757ed79772b3fabb7677611f3469531c10ab60f8e73a91d8036 (full 64 hex match), all four gates pass in their stated directions (G1 unique symmetric equilibrium == closed-form monopoly price v, exact 200/200; G2 solved price rejects the marginal-cost folk at z=100.551>=3 and == v in all 3000 markets; G3 equilibrium invariant to N and every positive s, and monopoly price is an equilibrium iff s>0; G4 industry profit == monopoly v with the folk Bertrand profile falsified), and the grounding caveat is confirmed accurate against the pinned Diamond-paradox revision.
+depends: PROPOSAL 218 -> VERDICT 231 (+13 offset).
+loop: round-52 VENTURE slot (fleet -> venture -> game -> unrelated rotation); proposal high-water P217 -> P218 (union-max). NOTE open pulls below the high-water: P217 -> V230, V225(P212), V137(P124), V132(P119), round-26 FLEET P113->V126.
