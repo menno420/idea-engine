@@ -1,6 +1,6 @@
 # Session 2026-07-20 — P215 Stackelberg commitment / first-mover advantage (round-51 GAME slot)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Land PROPOSAL 215: the Stackelberg commitment / first-mover advantage. In a linear-demand quantity duopoly (inverse demand P(Q)=A−Q, symmetric marginal cost C, m=A−C>0), a leader who PUBLICLY COMMITS to an output before the rival moves earns strictly MORE than it gets in the simultaneous-move Cournot (Nash) equilibrium — π_leader = m²/8 > π_cournot = m²/9, a commitment advantage of exactly m²/72 > 0 for every market size m. The surprise: the value comes precisely from the INABILITY to revise — throwing away flexibility and even leaking your quantity is worth money because credible commitment bends the rival's best response in your favour. Folk intuition ("keep your options open; moving first only shows your hand") is exactly inverted. A deterministic stdlib verifier proves it four ways: G1 a ≥3σ Monte-Carlo significance leg (advantage survives an ε-noisy follower), G2 an exact fractions.Fraction gate where exhaustive integer-grid enumeration with the follower's exact backward-induction reaction matches the closed forms m²/8, m²/9, m²/16 EXACTLY with leader>cournot, G3 robustness across a scaled world (m=24) and a cost-shifted world (same m via A=15,C=3), and G4 a falsifiability leg where the naive static-follower accounting is correctly rejected (and would flip the sign). Pairs to VERDICT 228 (+13). Disclosed results_sha256 f6fdd85e2c22a1d49be9af6bd7479ab2e59869be818e1c451d1ca40caba6fb7b.
