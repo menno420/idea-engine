@@ -2496,3 +2496,12 @@ question: does the second-mover edge survive a biased coin (p≠0.5), and at wha
 done-when: verifier reproduces byte-identical results-dict sha256 8942324fa0c31abf11a053bb56b98306709611f73b9a2ad344fe0034d87744f4 with all_pass=true and G1(base min z≥3) AND G2(favor_frac=1.0 and min_edge≥0.05) AND G3(L=4 shift min z≥3 all-favor) AND G4(|MC−exact|≤0.02) holding in order.
 depends: offset +13 (P191->V204); authority = outbox per-block ledger + status.md.
 loop: round-45 GAME slot; proposal high-water P190->P191 (union-max, no regress).
+
+## VERDICT 204 · 2026-07-20T02:05:16Z · status: ruled
+source: PROPOSAL 191 (2026-07-20T01:37:04Z) — Penney's game second-mover advantage (lane superbot-games)
+ruling: QUALIFIED (substance APPROVE; grounding qualified)
+reproduced: verifier penney_game_second_mover_advantage.py copied byte-identical from idea-engine ideas/superbot-games/ (PR #709 @4933729), diff exit 0; deterministic (two invocations byte-identical, in-process double-run assertion passes); results-dict sha256 8942324fa0c31abf11a053bb56b98306709611f73b9a2ad344fe0034d87744f4 = full-64 byte-exact match to disclosed.
+gates: G1 base min z=58.90958 (favor_frac=1.0, 8/8 favor P2; worst HTT→HHT exact 0.666667=2/3) · G2 favor_frac=1.0 / min_edge=0.161 · G3 robust L=4 min z=27.726515 (16/16 favor) · G4 |MC−exact|≤0.02 (base_dev=0.007067, shift_dev=0.005933); all_pass=true.
+grounding: pin is a HOUSE self-reference (idea-engine@45ad3eb), honestly disclosed by the proposer as provenance/reachability only, not a content citation. Exact absorbing-Markov mechanism + firsthand verifier carry the claim (result stands, not REJECT). An external content citation (Penney 1969 / Conway leading-numbers / Wikipedia "Penney's game", which documents the non-transitivity and 2:1 HTT/HHT worst case) was readily available and warranted; provenance-only house-pin gives no content grounding → grounding thin → QUALIFIED. Recommendation: future standard/textbook results carry an external content citation alongside the firsthand verifier; reserve house-pins for provenance.
+sim: sim-lab sims/verdict-204-penney-second-mover/ (PR #279, merged).
+high-water: verdict V203→V204 (union-max, no regress); ledger contiguous.
