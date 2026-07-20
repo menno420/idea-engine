@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 216 Kaprekar's-constant universal funnel (round-51 UNRELATED slot)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Kaprekar's routine on 4-digit numbers is a global contraction: every one of the 8991 valid starts funnels to the single constant 6174 in at most 7 steps — an exactly-true fact proven by exhaustion, with a 3-digit → 495 (≤6 steps) dimension-shift control and a seeded Monte-Carlo confirmation. Disclosed results-dict sha256 = 6ef877698bbb91eadffa8473c4a0ec6276f62fd3b8af73fd90855288b38ebf0d.
