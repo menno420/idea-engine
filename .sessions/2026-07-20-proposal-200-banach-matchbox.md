@@ -1,6 +1,6 @@
 # PROPOSAL 200 — Banach's matchbox problem: residual matches in the other box (P200 → V213, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD.** This card is committed `in-progress` on commit 1 to hold the PR red (the intended born-red HOLD); the substrate-gate stays red until this line flips to `complete` on the final commit. The gate red is the HOLD, not a defect.
