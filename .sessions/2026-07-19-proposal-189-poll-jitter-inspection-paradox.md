@@ -1,6 +1,6 @@
 # PROPOSAL 189 — Ski-rental keep-warm: no fixed autoscaling policy is safe, but the break-even rule is 2-competitive in every idle regime (round-45 FLEET slot, P189 → V202, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 >
 > Born-red HOLD: this card lands born-red (`in-progress`) to hold the PR red on the first commit. It flips to `complete` as the last commit, after the verifier reproduces a byte-identical results-dict sha256 and all gates pass.
