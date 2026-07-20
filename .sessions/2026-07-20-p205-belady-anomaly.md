@@ -1,6 +1,6 @@
 # Session 2026-07-20 — P205 Bélády's anomaly (round-49 FLEET slot)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Land PROPOSAL 205: Bélády's anomaly. Give a FIFO page cache one MORE frame and it can fault MORE — on the textbook string [1,2,3,4,1,2,5,1,2,3,4,5] FIFO takes 9 faults at 3 frames but 10 at 4 (Δ=+1) — while LRU, a stack algorithm, provably never faults more when given more memory (Mattson et al. 1970 inclusion property). A deterministic stdlib verifier proves the exact canonical witness and LRU's monotone curve (G1), enumerates all 4⁸=65536 length-8 strings on 4 pages showing FIFO_anomalous=0 AND LRU_anomalous=0 — pinning the anomaly threshold above 4 distinct pages (G2), and shows the FIFO anomaly is a real ≥3σ signal against LRU's hard zero over uniform-random strings (G3 N=200000 z=6.000270; G4 shifted regime N=200000 rate 0.000545>0.0003, z=10.441729). Pairs to VERDICT 218 (+13).
