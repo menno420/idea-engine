@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 217 consistent-hashing max-gap (H_n/n imbalance) (round-52 FLEET slot)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Uniform random hashing is lopsided: n independent uniform points on a unit circle cut it into n arcs, and the EXPECTED largest arc equals H_n/n — a factor H_n ≈ ln n above the fair share 1/n. That imbalance is exactly why consistent hashing needs virtual replicas. The exact combinatorial core is the alternating identity Σ_{k=1}^n (-1)^(k+1) C(n,k)/k = H_n, proven firsthand by exact Fraction equality, exhaustive discrete-ring enumeration, and seeded Monte-Carlo. Disclosed results-dict sha256 = 41394b56e4ebec3d14eb340fbfbd896db530d794fcea2ca495212948f74184ac.
