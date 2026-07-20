@@ -1,8 +1,8 @@
 # Session 2026-07-20 — PROPOSAL 231 Shapley value of the airport cost-sharing game (game slot)
 
-> **Status:** in-progress
+> **Status:** `complete`
 >
-> Born-red HOLD: this card lands born-red (`in-progress`) on the FIRST commit to hold the idea-engine PR RED through substrate-gate until the slice is genuinely done — idea doc + firsthand verifier + outbox PROPOSAL 231 block + claim all in place and `python3 bootstrap.py check --strict` green. It flips to `complete` as the deliberate LAST commit, which re-runs the enabler and arms native squash auto-merge gated on substrate-gate.
+> Born-red HOLD released: this card landed born-red (`in-progress`) on the FIRST commit and flips to `complete` here as the deliberate LAST commit — the idea doc + firsthand verifier + outbox PROPOSAL 231 block + claim all landed and `python3 bootstrap.py check --strict` reduces to the by-design in-progress HOLD only (now cleared) plus pre-existing advisory warnings. The flip re-runs the enabler via `synchronize` and arms native squash auto-merge gated on substrate-gate.
 
 ## 💡 Session idea
 The Shapley VALUE of the airport cost-sharing (cooperative COST) game. An airport runway must be long enough for the most demanding plane; player i needs runway cost c_i, and a coalition S needs cost
