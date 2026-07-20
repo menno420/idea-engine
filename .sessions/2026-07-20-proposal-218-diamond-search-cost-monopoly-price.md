@@ -1,6 +1,6 @@
 # Session — PROPOSAL 218: Diamond paradox — positive search cost, monopoly price
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Round-52 VENTURE slot (P218 → VERDICT 231, +13 offset). Head: with N identical zero-marginal-cost sellers and buyers who pay any strictly positive cost s to inspect one more price, the unique symmetric price equilibrium is the full monopoly (reservation) price v — for EVERY N and every s > 0. Adding competitors does not lower the price at all; the Bertrand descent to marginal cost never begins. The competitive outcome lives only at exactly zero friction (s = 0), a discontinuity. Folk "more competitors ⇒ lower price" is exactly wrong here.
