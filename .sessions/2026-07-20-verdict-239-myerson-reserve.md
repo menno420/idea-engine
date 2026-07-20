@@ -1,6 +1,6 @@
 # VERDICT 239 — Myerson's optimal reserve for iid Uniform[0,1] bidders is r*=1/2 for every n (reproduce PROPOSAL 226)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 - **📊 Model:** Claude Opus · high · review/verify
 started: 2026-07-20T19:22:20Z
