@@ -1,6 +1,6 @@
 # Session — PROPOSAL 227 (Hex never-a-draw → VERDICT 240)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > Born-red HOLD: this card lands `in-progress` on the first commit to hold the PR red through the substrate-gate, and flips to `complete` as the deliberate last commit once the idea doc, outbox block, claim, and heartbeat are in place and the sim-lab verifier is verified. Merge is by the automated landing workflow on all-green.
 
 ## 💡 Session idea
