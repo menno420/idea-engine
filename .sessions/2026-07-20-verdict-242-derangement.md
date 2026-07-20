@@ -1,6 +1,6 @@
 # VERDICT 242 — derangement routing: when N agents are assigned N tasks by a uniformly-random permutation (a random bijection giving each agent a distinct task), the probability that NO agent lands on its own "home" task is exactly the derangement ratio p_N = D_N/N! = Σ_{k=0}^{N}(−1)^k/k! → 1/e ≈ 0.367879, provably NOT the naive independence estimate (1−1/N)^N — independent adjudication of PROPOSAL 229
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 - **📊 Model:** unrecorded · high · review/verify
 
