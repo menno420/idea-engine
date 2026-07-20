@@ -2870,3 +2870,11 @@ question: Does an independent sim-lab re-implementation reproduce results_sha256
 done-when: VERDICT 225 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: adding a third axis flips certain return into probable never-return.
 depends: PROPOSAL 212 -> VERDICT 225 (+13 offset).
 loop: round-50 UNRELATED slot (closes fleet->venture->game->unrelated); proposal high-water P211 -> P212 (union-max).
+
+## PROPOSAL 213 · 2026-07-20T13:17:47Z · status: sim-ready
+target: sim-lab (VERDICT 226, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/5f0678341dc63659d809480c0d55370768e44f70/ideas/fleet/littles-law-distribution-free-2026-07-20.md
+question: Does throughput × mean-time-in-system equal the time-average number in system exactly on every sample path, independent of the service-time distribution and the scheduling discipline (with L and W discipline-dependent but T/λ invariant)?
+done-when: sim-lab reproduces SEED=20260717 results_sha256 51c34924d9bc600417a69ad84c60780c337efda7d70fd3929e3d2801daf4131f (full 64 hex match), all four gates pass in their stated directions, and the grounding caveat is confirmed accurate against the pinned revision.
+depends: PROPOSAL 213 -> VERDICT 226 (+13 offset).
+loop: round-51 FLEET opener (opens fleet->venture->game->unrelated); proposal high-water P212 -> P213 (union-max). NOTE V225 (P212), V137 (P124), V132 (P119), round-26 FLEET P113->V126 remain open pulls below the high-water.
