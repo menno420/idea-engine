@@ -1,6 +1,6 @@
 # PROPOSAL 190 — Positive-EV ruin (ergodicity): a repeated multiplicative bet with strictly positive expected value drives the typical investor almost surely to ruin because the time-average growth rate is negative (round-45 VENTURE slot, P190 → V203, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 >
 > **Born-red HOLD (cleared).** This card landed born-red as `in-progress` on the FIRST commit to hold the PR/substrate gate red while the verifier, proposal doc, and outbox block were authored and proven. It flips to `complete` LAST — after the verifier reproduces a byte-identical results-dict sha256 with all gates green AND the outbox block is appended and the heartbeat written. The born-red HOLD is the sole legitimate red before that flip; every other gate red is a real defect.
