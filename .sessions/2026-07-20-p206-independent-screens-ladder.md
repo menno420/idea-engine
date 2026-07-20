@@ -1,6 +1,6 @@
 # Session 2026-07-20 — P206 independent-screens odds ladder (round-49 VENTURE slot)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Land PROPOSAL 206: independent positives MULTIPLY the odds. At a 1% base rate, TWO independent 95%-accurate diligence screens (AND rule — pass only if BOTH flag) produce a ~78%-good shortlist that even a 99%-accurate SINGLE screen cannot match, because for k conditionally-independent symmetric screens the posterior odds compose as prior_odds × (a/(1−a))^k, so the k-th screen you add need only be about (odds-against)^(1/k) accurate — the k-th-ROOT ladder. Pinned world p=1/100, a=95/100, k∈{1,2,3}: PPV_2=361/460≈0.7848 vs PPV_1=19/118≈0.161; single-screen majority needs a>99/100, k=2 clears near a≈0.91, k=3 near a≈0.83 (clearing accuracies 100/91/83 strictly decreasing). The whole gain is exactly as real as independence: it vanishes when the screens are redundant. A deterministic stdlib verifier proves G1 (direct==odds-form==exhaustive-enumeration exact), G2 (exact k-th-root ladder threshold + strictly-decreasing clearing accuracy), G3 (two-screen empirical PPV ≥3σ above ½, z_majority≈47.85, vs one-screen minority 0.161), G4 (correlation-nullification: PPV(ρ=1)=PPV_1 exactly + PPV strictly decreasing in ρ; odds-multiplication identity exact + k-needed monotone in p). Disclosed results_sha256 b04322fa5698021f2a78679abd43cdc3c3a878cbd4c5692a2376d222833e98c6. Pairs to VERDICT 219 (+13).
