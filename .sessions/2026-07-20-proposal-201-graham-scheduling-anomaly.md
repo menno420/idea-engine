@@ -1,6 +1,6 @@
 # PROPOSAL 201 — Graham's timing anomaly: give a greedy scheduler one more machine and the batch can finish later (P201 → V214, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD.** This card is committed `in-progress` on commit 1 to hold the PR red while the proposal is assembled; it flips to `complete` on the final commit after the doc, verifier, and outbox block are in. The born-red red is intended, not a defect.
