@@ -2,7 +2,7 @@
 
 > **Status:** `complete`
 
-- **📊 Model:** Opus 4.8 · high · verdict-adjudication
+- **📊 Model:** Opus 4.8 · high · review/verify
 
 ## Slice
 Independent adjudication of idea-engine PROPOSAL 232 — the probability that two integers drawn iid uniform on {1,…,N} are coprime is the exact Möbius-inversion density Q(N)=(1/N²)·Σμ(k)⌊N/k⌋² → 6/π² = 1/ζ(2), NOT the naive parity-only 3/4. Ruling → VERDICT 245 (+13 offset), appended to control/outbox.md; heartbeat + high-water in control/status.md.
