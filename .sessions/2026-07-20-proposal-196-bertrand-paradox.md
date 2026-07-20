@@ -1,6 +1,6 @@
 # PROPOSAL 196 — Bertrand's paradox: a "random chord" has no single probability — three equally natural definitions give exactly 1/3, 1/2, 1/4 (round-46 UNRELATED slot; P196 → V209, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 > heartbeat: 2026-07-20T04:06:01Z — born-red HOLD: this card is PROPOSAL 196's FIRST commit, born `in-progress` to hold the `substrate-gate` RED so the PR cannot merge before the deliberate `complete` flip. Flipping to `complete` (the LAST commit, after the doc + verifier + outbox block) releases the merge-on-green enabler. A red gate AFTER the flip is a real defect, not the HOLD.
 
