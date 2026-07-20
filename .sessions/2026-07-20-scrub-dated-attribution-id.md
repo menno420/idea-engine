@@ -1,6 +1,6 @@
 # Scrub dated build-ID from session-card attribution field — normalize to sanctioned neutral form
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: withheld per coordinator directive · effort standard · task-class compliance-remediation
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the edits land and the gate is green.
