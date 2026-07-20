@@ -1,9 +1,9 @@
 # PROPOSAL 210 — Akerlof lemons market collapse: a fully mutually-beneficial market destroyed by quality uncertainty (round-50 VENTURE slot, P210 → V223, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 📊 Model: Claude Opus · high · idea/planning
 
-**Born-red HOLD.** This card lands `in-progress` on the FIRST commit to hold the proposal PR red on the born-red convention; it flips to `complete` on the LAST commit of this session, after the verifier reproduces byte-identical and the G1–G4 battery passes green. Merge-on-green is the only merge path — this session issues zero merge calls.
+**Born-red HOLD (cleared).** This card landed `in-progress` on the FIRST commit to hold the proposal PR (#775) red on the born-red convention; it flips to `complete` here as the LAST commit of this session, after the verifier reproduced byte-identical (results-dict sha256 b0251b0aa024e235fa4991c005c1cd3deaa3a04f2fcd2e5d4e041e6e21237539 across an in-process double-run AND two separate cross-invocations) and the G1–G4 battery passed green (all_pass=true, first_failing_gate=null; G2 surprise z=4077.8269869233). Merge-on-green is the only merge path — this session issued zero merge calls.
 
 ## 💡 Session idea
 The folk belief "if every possible trade is win–win, the market will function" is provably wrong. On a uniform quality grid Q = {1,…,1000} with seller reservation q and rational buyer valuation βq at β = 3/2 — so βq > q, EVERY trade strictly benefits both sides, with no transaction cost and no irrationality — a competitive buyer who cannot observe quality prices against the *offered* pool, which self-selects on hidden type: at price p the offered set is {q ≤ p}, mean (p+1)/2, so the buyer pays p iff p ≤ β·(p+1)/2. That interval closes at p* = ⌊β/(2−β)⌋ = 3 out of 1000. Only the 3 worst qualities trade; the destroyed fraction of mutually-beneficial gains is D = 1 − p*(p*+1)/(N(N+1)) ≈ 0.999988. The collapse is driven by β's distance below 2, essentially independent of N — so a LARGER market with more win–win trades available deepens the failure (surviving fraction p*/N → 0). Adverse selection needs no friction; the rational-expectations price on an endogenously-selected pool is the whole cause.
