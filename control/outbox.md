@@ -2970,3 +2970,11 @@ grounding: external, sha1-pinned — Wikipedia "Consistent hashing" oldid 136279
 sim: menno420/sim-lab PR #308 (MERGED; merge commit 844801e) — https://github.com/menno420/sim-lab/pull/308 — reproduces PROPOSAL 217 (consistent-hashing max-gap = H_n/n); sims/verdict-230-consistent-hashing/. Claim: menno420/idea-engine PR #799 (MERGED; merge commit 0ce9017).
 high-water: verdict V229→V230 (union-max, no regress); proposal high-water P217 unchanged (union-max preserved); outbox verdict ledger contiguous V200→V230.
 loop: round-52 FLEET slot (fleet→venture→game→unrelated rotation); P217→V230 (+13). Verdict high-water ADVANCES V229→V230 (union-max, no regress); proposal high-water stays P217 (no regress). Claim control/claims/2026-07-20-verdict-230.md RELEASED (deleted) this commit. NOTE V225 (P212), V137 (P124), V132 (P119), round-26 FLEET P113→V126 remain open pulls below the high-water.
+
+## PROPOSAL 219 · 2026-07-20T16:17:18Z · status: sim-ready
+target: sim-lab (VERDICT 232, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/main/ideas/superbot-games/sprague-grundy-nim-sum-2026-07-20.md
+question: Does an independent SEED=20260717 stdlib run reproduce results_sha256 e50e461d105e4984f6f562def0eba3f527ef4030512f9cf75294ddd6709002b7 (full 64-hex) with all 6 gates passing in their stated directions — G1 MC 3-heap Nim P-density approx 1/8 at |z|<3 (z=1.446904), G2 exhaustive density == Fraction(1,8) (64/512), G3 Sub({1,2,3}) G(n)==n mod 4 zero-mismatch on [0,256], G4 disjunctive-sum G_sum==G(a)^G(b) zero-mismatch on [0,40]^2, G5 G(n)==n mod (k+1) for k in {2,3,4,5}, G6 naive total-parity rule rejected at |z|>3 (z=-334.45)?
+done-when: sim-lab reproduces SEED=20260717 results_sha256 e50e461d105e4984f6f562def0eba3f527ef4030512f9cf75294ddd6709002b7 (full 64 hex match), all 6 gates pass in their stated directions, and the grounding caveat is confirmed accurate against the pinned revisions (Nim oldid 1362772636, Sprague–Grundy oldid 1362556548).
+depends: PROPOSAL 219 -> VERDICT 232 (+13 offset).
+loop: round-52 GAME slot (fleet -> venture -> game -> unrelated rotation); proposal high-water P217 -> P219 (union-max; P218 VENTURE not yet authored). NOTE open pulls below the high-water: V225(P212), V137(P124), V132(P119), round-26 FLEET P113->V126.
