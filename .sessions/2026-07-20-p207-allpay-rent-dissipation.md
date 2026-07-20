@@ -1,6 +1,6 @@
 # Session 2026-07-20 — P207 complete rent dissipation in the all-pay auction (round-49 GAME slot)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Land PROPOSAL 207: complete rent dissipation in the symmetric complete-information all-pay auction. Among n ≥ 2 risk-neutral bidders for a prize worth V (highest bid wins, EVERYONE pays their own bid), the symmetric mixed equilibrium (CDF F(b) = (b/V)^(1/(n-1))) burns total expected effort EXACTLY V — independent of n — and every bidder's expected net payoff is EXACTLY zero. Competition fully dissipates the rent: more rivals do not raise total effort, they only split the same V into thinner per-head slices (V/n each). Counterintuitive (naive: more competitors ⇒ more total effort) but exactly true. A deterministic stdlib verifier proves it in closed form (F(b)^(n-1) = b/V collapses to a rational, so Π(b) = V·(b/V) − b = 0 exactly with no irrational arithmetic), then confirms the ≥3σ effect and the R̂/V→1 robustness grid by Monte-Carlo. Pairs to VERDICT 220 (+13). Disclosed results_sha256 f771cd427068cd273eb545a40179233ddbc5ec7658e69cf4e6cadb97dbb91d70.
