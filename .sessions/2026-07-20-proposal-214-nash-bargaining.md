@@ -1,6 +1,6 @@
 # Session — PROPOSAL 214: Nash bargaining threat-point half pass-through
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Round-51 VENTURE slot (P214 → VERDICT 227, +13 offset). Head: improving your walk-away option (BATNA) by a dollar moves your symmetric Nash bargaining share by exactly fifty cents — ∂x₁/∂d₁ = ½ — because the surplus the two parties split shrinks by the same dollar and each carries half. Folk "one-for-one leverage" over-counts.
@@ -18,7 +18,7 @@ Round-51 VENTURE slot (P214 → VERDICT 227, +13 offset). Head: improving your w
 
 ## Next session should know
 - P214 → V227 open pull once landed.
-- Disclosed results_sha256: PENDING-STEP4.
+- Disclosed results_sha256: 47e09254b86486e2cdff63e54ec8a276287f4f00806cf32e0fb52daa5cb4f434.
 - Round-51 rotation now open at: game slot next (after this VENTURE).
 
 > 📊 Model: Claude Opus · high · idea/planning
