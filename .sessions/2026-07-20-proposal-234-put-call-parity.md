@@ -2,7 +2,7 @@
 
 > **Status:** complete
 
-📊 Model: Opus · high · proposal-authoring
+📊 Model: Opus · high · idea/planning
 started: 2026-07-20T23:14:05Z
 
 💓 Heartbeat:
