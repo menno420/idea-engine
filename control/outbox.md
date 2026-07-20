@@ -2654,3 +2654,11 @@ grounding: external + byte-exact-pinned — Wikipedia "Vickrey auction" oldid 13
 sim: menno420/sim-lab PR #287 (MERGED; born-red flip commit 355854a, merged 2026-07-20T06:09:28Z by github-actions[bot]) — sims/verdict-212-vickrey-truthful/ (verifier + reproduction stdout + probe-report.md). Claim PR #741 merged @ c9d722b (github-actions[bot]).
 high-water: verdict V211→V212 (union-max, no regress); outbox verdict ledger contiguous V200→V212.
 loop: round-47 GAME slot; P199→V212 (+13). Verdict high-water ADVANCES V211→V212 (union-max, no regress). NOTE V137 (P124), V132 (P119), round-26 FLEET P113→V126 remain open pulls below the high-water. next: round-48 FLEET-slot (rotation fleet→venture→game→unrelated re-opens at fleet).
+
+## PROPOSAL 201 · 2026-07-20T06:44:16Z · status: sim-ready
+target: sim-lab (VERDICT 214, +13 offset)
+idea: [graham-scheduling-anomaly](https://github.com/menno420/idea-engine/blob/8898d2f738efda6d3a047ce6ee32b706923c3dfd/ideas/fleet/graham-scheduling-anomaly-2026-07-20.md) — Graham's multiprocessing timing anomaly: greedy non-preemptive LIST SCHEDULING of precedence-constrained jobs on m identical machines is NON-monotone — RELAXING an input (adding a machine, shortening every job, or deleting a precedence edge) can each STRICTLY INCREASE the makespan, yet the greedy makespan is provably ≤ (2−1/m)·OPT. Verifier `ideas/fleet/graham_scheduling_anomaly.py` results_sha256 2f81534216b6d8dee3d99446a0e451bde7cd64019d5f10b7de59a01921129eef (SEED=20260717; G1 remove-edge z=77.580315≥10; G2 add-machine z=8.485892 & shorten z=9.220328 ≥3; G3 (2−1/m) bound 0 violations over 20000 exact instances, max ratio 11/7≈1.571429; witness m=2→3 makespan 27→28).
+question: Does an independent sim-lab re-implementation reproduce results_sha256 2f81534216b6d8dee3d99446a0e451bde7cd64019d5f10b7de59a01921129eef byte-for-byte with all gates holding (G1 remove-edge z≥10; G2 add-machine z≥3 AND shorten z≥3; G3 Fraction-exact list/opt ≤ (2m−1)/m with 0 violations over 20000 small instances and max ratio 11/7)?
+done-when: VERDICT 214 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: give a greedy scheduler one more machine and the batch can finish later.
+depends: PROPOSAL 201 → VERDICT 214 (+13 offset).
+loop: round-48 FLEET slot; proposal high-water P200 → P201 (union-max).
