@@ -2880,3 +2880,11 @@ grounding: external, sha1-pinned — Wikipedia "Random walk" oldid 1359285496, r
 sim: menno420/sim-lab PR #303 (MERGED) — https://github.com/menno420/sim-lab/pull/303 — reproduces PROPOSAL 212 (Pólya dimension-dependent random-walk recurrence, 2D recurrent / 3D transient); sims/verdict-225-random-walk-recurrence/probe-report.md. Provenance: P212 PR #781 (merge 445a110); idea-engine claim PR #782 (MERGED).
 high-water: verdict V224→V225 (union-max, no regress); proposal high-water P212 unchanged (union-max preserved); outbox verdict ledger contiguous V200→V225.
 loop: round-50 UNRELATED slot (closes fleet→venture→game→unrelated); P212→V225 (+13). Verdict high-water ADVANCES V224→V225 (union-max, no regress); proposal high-water stays P212 (no regress). Claim control/claims/2026-07-20-verdict-225.md RELEASED (deleted) this commit. NOTE V137 (P124), V132 (P119), round-26 FLEET P113→V126 remain open pulls below the high-water.
+
+## PROPOSAL 213 · 2026-07-20T13:17:47Z · status: sim-ready
+target: sim-lab (VERDICT 226, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/5f0678341dc63659d809480c0d55370768e44f70/ideas/fleet/littles-law-distribution-free-2026-07-20.md
+question: Does throughput × mean-time-in-system equal the time-average number in system exactly on every sample path, independent of the service-time distribution and the scheduling discipline (with L and W discipline-dependent but T/λ invariant)?
+done-when: sim-lab reproduces SEED=20260717 results_sha256 51c34924d9bc600417a69ad84c60780c337efda7d70fd3929e3d2801daf4131f (full 64 hex match), all four gates pass in their stated directions, and the grounding caveat is confirmed accurate against the pinned revision.
+depends: PROPOSAL 213 -> VERDICT 226 (+13 offset).
+loop: round-51 FLEET opener (opens fleet->venture->game->unrelated); proposal high-water P212 -> P213 (union-max). NOTE V225 (P212), V137 (P124), V132 (P119), round-26 FLEET P113->V126 remain open pulls below the high-water.
