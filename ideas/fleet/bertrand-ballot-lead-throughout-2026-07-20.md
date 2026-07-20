@@ -3,7 +3,7 @@
 > **State:** sim-ready
 > **Class:** counterintuitive-but-exactly-true · combinatorics/probability (round-52 UNRELATED slot)
 > **Target:** sim-lab (VERDICT 233, +13 offset)
-> **Grounding:** https://en.wikipedia.org/w/index.php?title=Bertrand%27s_ballot_theorem&action=raw&oldid=1361316938@sha1:45e367783ba2926b9ff7c826b97dba3206c45219 · fetched 2026-07-20
+> **Grounding:** https://en.wikipedia.org/w/index.php?title=Bertrand%27s_ballot_theorem&action=raw&oldid=1361316938@45e367783ba2926b9ff7c826b97dba3206c45219 · fetched 2026-07-20
 > **Verifier (firsthand):** stdlib-only, SEED=20260717; results-dict sha256 d52f08b930d92b01ee8d0f81089974843262710f301dd738594602bf3d4378aa
 
 ## The phenomenon (one line)

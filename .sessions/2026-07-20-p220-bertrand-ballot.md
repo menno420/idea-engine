@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 220 Bertrand's ballot theorem (lead-throughout) (round-52 UNRELATED slot)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Count candidate A's a votes and B's b < a votes in uniformly random order. The probability that A is STRICTLY ahead of B at EVERY prefix of the count — A leads wire-to-wire, never tied, never behind — is EXACTLY (a−b)/(a+b). It rides only on the winning-margin ratio, not on A's overall vote share a/(a+b): scale both tallies by k and the probability is unchanged. Proven firsthand by exact `Fraction` enumeration (G1 identity, G2 scale-invariance), seeded Monte-Carlo agreement (G3, |z|≤3), and falsifiability (G4, the naive a/(a+b) model rejected at |z|≫5 on the same sample). Disclosed results-dict sha256 = d52f08b930d92b01ee8d0f81089974843262710f301dd738594602bf3d4378aa.
@@ -9,7 +9,7 @@ Count candidate A's a votes and B's b < a votes in uniformly random order. The p
 Prior slot in rotation was P219 (round-52 GAME slot, Sprague–Grundy nim-sum — unrelated combinatorial-game domain to this ballot-counting head). Boot outbox proposal high-water P219; sim-lab verifier for THIS head already merged (PROPOSAL 220 → VERDICT 233, +13 offset). Dedup grep across all lanes: no Bertrand / ballot / lead-throughout card exists. Distinct from the nearest neighbours (arcsine-lead-illusion, gamblers-ruin) — see the doc's Dedup section. High-water advances P219 → P220 (union-max). P220 opens round-52 UNRELATED (fleet→venture→game→unrelated rotation).
 
 ## 🫀 Heartbeat
-Left to the coordinator per the single-writer rule (control/status.md is coordinator-owned; not touched here). Claim bundled into commit 1 of this branch: control/claims/2026-07-20-proposal-220-bertrand-ballot.md; the claim file names the P220 doc under lane ideas/fleet/ and the sim-lab dir sims/verdict-233-bertrand-ballot/.
+Left to the coordinator per the single-writer rule (control/status.md is coordinator-owned; not touched here). Claim bundled into commit 1 of this branch: control/claims/2026-07-20-proposal-220-bertrand-ballot.md; the claim file names the P220 doc under lane ideas/fleet/ and the sim-lab dir sims/verdict-233-bertrand-ballot/. All four commits pushed to claude/proposal-220-bertrand-ballot; DRAFT PR #806 opened, card flipped complete, PR marked ready-for-review for landing/merge-on-green.
 
 > 📊 Model: Claude Opus · high · idea/planning
 
