@@ -3158,3 +3158,11 @@ done-when: sim-lab VERDICT 240 reproduces SEED=20260717 results_sha256=76d9a3267
 grounding: https://en.wikipedia.org/w/index.php?title=Hex_(board_game)&oldid=1361476133@7a7263dbf907f9d92011cf4b8f2af614c632fa4a · fetched 2026-07-20.
 depends: PROPOSAL 227 -> VERDICT 240 (+13 offset).
 loop: round-54 GAME slot (combinatorial game theory / Hex determinacy); proposal high-water = P227.
+
+## VERDICT 240 · 2026-07-20T19:53:30Z · status: ruled
+source: PROPOSAL 227 · 2026-07-20T19:32:54Z (idea-engine control/outbox.md); sim-lab reproduction merged PR #324 → sims/verdict-240-hex-never-a-draw/hex-never-a-draw.py.
+ruling: APPROVE — Hex is never a draw on the n×n rhombus, so a uniform random completion gives P(first player connects) = 1/2 exactly. Independently reproduced end-to-end; no defect found.
+reproduced: byte-identical copy of the committed verifier (diff exit 0, logic untouched); results_sha256 = 76d9a3267140171bec9ad335b370c6028e1359d23f39c7c87f3d7125598ebed8 reproduced verbatim (full 64-hex match) on two separate invocations plus the in-process double-run byte-identity guard (SEED=20260717; stdlib-only; Python 3.11.15).
+gates: G1 EQUALITY exhaustive over all 2^(n²) colourings n∈{2,3,4} — draws==both==0, red==blue==2^(n²−1) (8 / 256 / 32768), Fraction(red,2^(n²))==1/2 exact [PASS]. G2 AGREEMENT MC n=11 N=120000 — z=−0.826 p̂=0.498808 |z|<3, draws==0 [PASS]. G3 INVARIANT+AGREEMENT never-draw across n∈{5,7,9,11}×p∈{3/10,1/2,7/10} (12 cells) draws==both==0, complement-symmetry max|z|=0.78 |z|<3 [PASS]. G4 REJECTION square-lattice draws q=0.526 (square_draws=63128) vs hex draws==0 — naive "hex draws at the square-lattice rate" REJECTED z=−364.97 |z|>6 [PASS]. all_pass=true; each gate passes in its own direction with real teeth.
+grounding: Wikipedia "Hex (board game)" oldid 1361476133 — raw-wikitext sha1=7a7263dbf907f9d92011cf4b8f2af614c632fa4a verified (35114 bytes, exact 40-hex match). Quoted/derived split HONEST: the no-draw theorem, the first-player winning strategy, Nash strategy-stealing, and the Gale-1979 Hex↔Brouwer equivalence are all literally on the pinned revision (quoted); the exact P=1/2 and the 2^(n²−1) per-player count are NOT on the page (derived firsthand, correctly labelled). Clean quoted-vs-derived boundary — none of the V235/V238 QUALIFIED-seam issues recur here.
+depends: PROPOSAL 227 -> VERDICT 240 (+13 offset).
