@@ -1,0 +1,5 @@
+# Claim — claude/proposal-229-derangement-routing
+
+- `claude/proposal-229-derangement-routing` · **scope** — PROPOSAL 229 derangement routing — idea doc + firsthand verifier + outbox block: a uniform random permutation routing of N agents to N tasks leaves NO agent on its home task with probability p_N = D_N/N! = Σ(−1)^k/k! → 1/e, not the naive (1−1/N)^N; files: `ideas/fleet/derangement-routing-no-home-task-2026-07-20.md`, `ideas/fleet/verify_229_derangement_routing.py`, `control/outbox.md` PROPOSAL 229 block, this session card `.sessions/2026-07-20-proposal-229-derangement-routing.md` · 2026-07-20
+
+Notes: PROPOSAL 229 -> VERDICT 242 (+13 offset); round-54 FLEET slot (probability / combinatorics of random permutations). Verifier ships firsthand in idea-engine; results-dict sha256 `1f68c3d1cb6003f6ede1bc1d47e18f27a996bea9fa716f759d38fc2c3832365a`. control/status.md refreshed as the deliberate last content commit per the assigned heartbeat-last order. Claim bundled onto this branch; released after landing.
