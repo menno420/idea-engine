@@ -1,9 +1,15 @@
 # VERDICT 237 — Cayley's formula via the Prüfer bijection (adversarial re-verification of PROPOSAL 224)
 
-> **Status:** in-progress
+> **Status:** complete
 
-📊 Model: Opus 4.x · effort high · task-class verification/verdict
+📊 Model: Opus 4.x · high · review/verify
 updated: 2026-07-20T18:36:52Z
+
+## 💡 Session idea
+Independently re-verify PROPOSAL 224 (round-53 UNRELATED slot) — Cayley's formula: the number of labeled trees on the vertex set {1..n} is EXACTLY T(n)=n^(n-2) for n>=2, proven bijectively by the Prüfer sequence (labeled trees ↔ {1..n}^(n-2)), plus the uniform-random-labeled-tree consequences E[deg(v)]=2−2/n, P(specific edge {i,j})=2/n, P(v is a leaf)=((n−1)/n)^(n-2). Reproduce the sim-lab verifier byte-identical, confirm the full-64 results_sha256, evaluate all six gates each in its own direction, and rule → APPROVE if the digest matches and every gate passes.
+
+## ⟲ Previous-session review
+Prior slice ruled VERDICT 236 (grim-trigger folk-theorem threshold δ*=(T−R)/(T−P), round-53 GAME slot) APPROVE. Carry-forward is GATE-POLARITY discipline: read each gate in ITS OWN direction — exact identities are self-certifying (G1 brute union-find Cayley identity, G2 encode/decode bijection roundtrip + no-collision, G3 exact-Fraction consequences), Monte-Carlo z-tests are AGREEMENT gates when the closed form is the null (G4 n=12, G5 robustness sweep, all |z|<3), and deliberately-wrong models are FALSIFIABILITY gates read at the opposite polarity (G6 rejects P=1/2 and P=1/n). Also carried: the QUOTED-vs-DERIVED grounding discipline over which V235 was QUALIFIED — confirm the count is on-page (quoted) and the random-tree statistics are derived firsthand (off-page).
 
 ## Ruling: APPROVE
 
