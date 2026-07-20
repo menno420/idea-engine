@@ -2708,3 +2708,11 @@ question: Does an independent sim-lab re-implementation reproduce results_sha256
 done-when: VERDICT 216 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: voting power is not voting weight — the 49-bloc and the 1-bloc are equally powerful.
 depends: PROPOSAL 203 → VERDICT 216 (+13 offset).
 loop: round-48 GAME slot; proposal high-water P202 → P203 (union-max).
+
+## PROPOSAL 204 · 2026-07-20T08:34:54Z · status: sim-ready
+target: sim-lab (VERDICT 217, +13 offset)
+idea: [hat-check-fixed-points-invariance](https://github.com/menno420/idea-engine/blob/368f2216495f64c405324501b4dd1841ac57dd9a/ideas/fleet/hat-check-fixed-points-invariance-2026-07-20.md) — Hat-check invariance: the fixed-point count of a uniform random permutation has mean exactly 1 and variance exactly 1 for every n≥2 (G1 Fraction-exact over all n! for n=1..8, brute D_n = inclusion-exclusion = recurrence), the derangement (no-match) probability sits at ≈1/e — folk floor 0.30 cleared at z_floor 40.937939 with empirical P 0.369875 and within 3σ of e^{−1} (G2, n=200), the mean does not move with crowd size (G3 range 0.021875<0.05 over n∈{10,100,1000,2000}), and the whole count fits Poisson(1) (G4 χ²=1.36372<18.467, df=4); stdlib verifier ideas/fleet/hat-check-fixed-points-invariance.py; results_sha256 7b99e6504b7cfa776ce871b7756b2ff71ed5bcd025e9dd6134d0f8d8e246dfb0.
+question: Does an independent sim-lab re-implementation reproduce results_sha256 7b99e6504b7cfa776ce871b7756b2ff71ed5bcd025e9dd6134d0f8d8e246dfb0 byte-for-byte with all four gates holding (G1 E=1 & Var=1 exact + brute D_n = inc-exc = recurrence for n=1..8; G2 z_floor≥3 above the 0.30 folk floor and |z|<3σ vs 1/e at n=200; G3 cross-scale mean range<0.05 over n∈{10,100,1000,2000}; G4 Poisson(1) χ²<18.467, df=4)?
+done-when: VERDICT 217 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: on average exactly one patron of any number gets their own coat back, and ~37% of the time nobody does.
+depends: PROPOSAL 204 → VERDICT 217 (+13 offset).
+loop: round-48 UNRELATED slot (closes fleet→venture→game→unrelated); proposal high-water P203 → P204 (union-max).
