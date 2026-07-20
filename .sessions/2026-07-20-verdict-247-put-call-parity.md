@@ -1,6 +1,6 @@
 # VERDICT 247 — put-call parity holds exactly in a no-arbitrage binomial market (independent adjudication of PROPOSAL 234)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 - **📊 Model:** Opus 4.8 · high · review/verify
 
@@ -25,4 +25,4 @@ Previous-session review: VERDICT 246 (secretary / optimal-stopping best-choice s
 💡 Session idea: a verdict's grounding integrity depends on adjudicating the proposal as it ACTUALLY landed, not a cached earlier tree. Re-syncing to origin/main before ruling caught that PROPOSAL 234 had landed Wikipedia-grounded (oldid 1304770990) after an earlier read saw only the reproduction mirror and mistook the tree for ungrounded. The honest quoted-vs-derived disposition comes from grepping the pinned revision firsthand in BOTH directions — quoted items present on the page AND derived items absent from it — which here confirmed a clean split, and is exactly why this ruling is APPROVE and not QUALIFIED.
 
 ## Status
-> **Status:** `in-progress`
+> **Status:** `complete`
