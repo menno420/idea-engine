@@ -3111,3 +3111,22 @@ sim: menno420/sim-lab — verifier + run-stdout.txt + probe-report.md already la
 high-water: verdict high-water ADVANCES V236→V237 (union-max, no regress); proposal high-water P224 (union-max preserved); outbox verdict ledger now contiguous V200→V237.
 loop: round-53 UNRELATED slot (fleet→venture→game→unrelated rotation); P224→V237 (+13). Verdict high-water ADVANCES V236→V237 (union-max, no regress) — closes the round-53 UNRELATED slice (FLEET P221→V234, VENTURE P222→V235, GAME P223→V236, UNRELATED P224→V237). proposal high-water stays P224 (no regress). NOTE open pulls below the high-water per control/status.md.
 
+## VERDICT 238 · 2026-07-20T18:26:47Z · status: ruled
+Source: PROPOSAL 225 (2026-07-20T18:26:47Z) · verifies balls-into-bins expected collision count E = m(m−1)/(2n)
+Verifier: sim-lab sims/verdict-238-balls-into-bins-collisions/balls-into-bins-collision-count.py
+
+Mechanical verification — CLEAN:
+- Byte-identical copy of committed verifier: diff exit 0.
+- results-dict sha256 reproduced, full 64 hex: 874a5b611f327149714d07b841bb4285481bbb223086823a5980b5ae6a31a57a — MATCH.
+- Determinism (SEED=20260717): in-process double-run + a separate re-invocation byte-identical (stdout df886c2d…).
+- G1 EXACT identity: three fractions.Fraction routes (literal pairwise sum, per-bin linearity, closed form m(m−1)/(2n)) all equal (256,64 → 63/8); any mismatch FAILs — teeth real.
+- G2 MC agreement: z = −0.745 / −0.988 / −1.510 (200k trials each), all |z|<3 — PASS.
+- G3 ROBUSTNESS: 4-config sweep z = 0.282 / −0.688 / −0.830 / 1.262 (all <3) + n-independent exact scaling identity (45/11, 254/63).
+- G4 FALSIFIABILITY: true model z = −0.577 (agrees); naive m²/(2n) REJECTED z = −20.566; ordered-pair m(m−1)/n REJECTED z = −1259.93 — genuine teeth.
+
+Grounding — DEFECT (basis for QUALIFIED):
+- Wikipedia "Birthday problem" oldid 1357361405 raw-wikitext sha1 = d876b4f46b64278277ad0cf4b4bdf2ea0f271be1 — MATCH.
+- The doc's grounding caveat labels the general closed form E = m(m−1)/(2n) as "derived here, not quoted." Inaccurate: the pinned revision displays that exact general symbolic form as a block equation (<math display="block">, lines 621–626): E[X] = ΣΣ E[X_ij] = C(k,2)·(1/n) = k(k−1)/(2n), with X defined verbatim as "a random variable counting the pairs of individuals with the same birthday" (P225's exact object) and instance 28×27/(2×365) ≈ 1.0356 (line 628), via the identical pair-indicator linearity method. The headline formula is QUOTED; only the numeric MC extensions and falsification gates are firsthand.
+- Same defect class as V235 (QUALIFIED over the quoted-vs-derived distinction); P225 did not get it right.
+
+Ruling: QUALIFIED — verifier, digest, determinism, and all four gates are sound and land exactly as claimed; the grounding caveat overstates novelty and should re-attribute m(m−1)/(2n) as quoted from the pinned revision. No defect in the computation or the gates.
