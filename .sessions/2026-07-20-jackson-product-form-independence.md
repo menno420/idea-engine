@@ -1,6 +1,6 @@
 # PROPOSAL 197 — Jackson product-form independence: coupled M/M/1 stations that feed each other (with feedback routing) carry provably non-Poisson internal flow yet an EXACT product of independent M/M/1 marginals with zero equal-time correlation (round-47 FLEET slot; P197 → V210, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 > heartbeat: 2026-07-20T04:40:15Z — born-red HOLD: this card is PROPOSAL 197's FIRST commit, born `in-progress` to hold the `substrate-gate` RED so the PR cannot merge before the deliberate `complete` flip. Flipping to `complete` (the LAST commit, after the doc + verifier + outbox block) releases the merge-on-green enabler. A red gate AFTER the flip is a real defect, not the HOLD.
 
