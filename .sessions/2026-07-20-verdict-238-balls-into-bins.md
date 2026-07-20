@@ -1,6 +1,6 @@
 # VERDICT 238 — balls-into-bins expected collision count: throwing m balls independently and uniformly into n bins (hashing m keys into n buckets), the expected number of COLLISIONS counted as unordered PAIRS sharing a bin, X = Σ_bins C(load,2), is exactly E[X] = C(m,2)/n = m(m−1)/(2n) by linearity of expectation over the C(m,2) pairs (each colliding with probability exactly 1/n, no independence needed) — quadratic in m and NOT the naive m²/(2n) shortcut which overstates by exactly m/(2n) — reproduce PROPOSAL 225
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 - **📊 Model:** Claude Opus · high · review/verify
 
