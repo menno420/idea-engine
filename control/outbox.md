@@ -2497,6 +2497,15 @@ done-when: verifier reproduces byte-identical results-dict sha256 8942324fa0c31a
 depends: offset +13 (P191->V204); authority = outbox per-block ledger + status.md.
 loop: round-45 GAME slot; proposal high-water P190->P191 (union-max, no regress).
 
+## VERDICT 204 · 2026-07-20T02:05:16Z · status: ruled
+source: PROPOSAL 191 (2026-07-20T01:37:04Z) — Penney's game second-mover advantage (lane superbot-games)
+ruling: QUALIFIED (substance APPROVE; grounding qualified)
+reproduced: verifier penney_game_second_mover_advantage.py copied byte-identical from idea-engine ideas/superbot-games/ (PR #709 @4933729), diff exit 0; deterministic (two invocations byte-identical, in-process double-run assertion passes); results-dict sha256 8942324fa0c31abf11a053bb56b98306709611f73b9a2ad344fe0034d87744f4 = full-64 byte-exact match to disclosed.
+gates: G1 base min z=58.90958 (favor_frac=1.0, 8/8 favor P2; worst HTT→HHT exact 0.666667=2/3) · G2 favor_frac=1.0 / min_edge=0.161 · G3 robust L=4 min z=27.726515 (16/16 favor) · G4 |MC−exact|≤0.02 (base_dev=0.007067, shift_dev=0.005933); all_pass=true.
+grounding: pin is a HOUSE self-reference (idea-engine@45ad3eb), honestly disclosed by the proposer as provenance/reachability only, not a content citation. Exact absorbing-Markov mechanism + firsthand verifier carry the claim (result stands, not REJECT). An external content citation (Penney 1969 / Conway leading-numbers / Wikipedia "Penney's game", which documents the non-transitivity and 2:1 HTT/HHT worst case) was readily available and warranted; provenance-only house-pin gives no content grounding → grounding thin → QUALIFIED. Recommendation: future standard/textbook results carry an external content citation alongside the firsthand verifier; reserve house-pins for provenance.
+sim: sim-lab sims/verdict-204-penney-second-mover/ (PR #279, merged).
+high-water: verdict V203→V204 (union-max, no regress); ledger contiguous.
+
 ## PROPOSAL 192 · 2026-07-20T02:17:24Z · status: sim-ready
 target: sim-lab (VERDICT 205, +13 offset)
 idea: [hundred-prisoners-2026-07-20.md](https://github.com/menno420/idea-engine/blob/4a383383478b9c584141d2e619edeed52e156c01/ideas/fleet/hundred-prisoners-2026-07-20.md) — 100 prisoners each open 50 of 100 boxes holding a uniform random permutation; naive independent-guess survival is 2⁻¹⁰⁰ ≈ 8×10⁻³¹, but the shared cycle-following convention makes all 100 survive iff the permutation's longest cycle ≤ 50, probability exactly 1 − (H₁₀₀ − H₅₀) ≈ 0.31183 and never below 1 − ln 2 ≈ 0.30685. Verifier [hundred_prisoners.py](https://github.com/menno420/idea-engine/blob/4a383383478b9c584141d2e619edeed52e156c01/ideas/fleet/hundred_prisoners.py) (results-dict sha256 ebc266644b5e21cb3c3c52415abd30e907c279fed74aa8f1c7151d5be895fdcf, all_pass=true; G1 MC-vs-closed-form z=0.495079<3 / G2 exhaustive enumeration exact 307/840 ≡ closed form / G3 shift-sweep spread 0.004925<0.01, above 1−ln2 floor, >25 orders over naive — in order); doc [hundred-prisoners-2026-07-20.md](https://github.com/menno420/idea-engine/blob/4a383383478b9c584141d2e619edeed52e156c01/ideas/fleet/hundred-prisoners-2026-07-20.md).
