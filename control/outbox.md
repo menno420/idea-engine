@@ -2924,3 +2924,11 @@ question: In a linear-demand quantity duopoly (P(Q)=A-Q, symmetric marginal cost
 done-when: sim-lab reproduces SEED=20260717 results_sha256 f6fdd85e2c22a1d49be9af6bd7479ab2e59869be818e1c451d1ca40caba6fb7b (full 64 hex match), all four gates pass in their stated directions (G1 significance mean>0 and z_vs_0>=3sigma; G2 exact leader/cournot/follower==144/8,144/9,144/16 via fractions.Fraction with leader>cournot strictly; G3 robustness exact on scaled m=24 and cost-shifted m=12 worlds plus scaled-world MC z>=3sigma; G4 static-follower accounting 12 != true 18 rejected with 12<16<18), and the grounding caveat is confirmed accurate against the pinned revision.
 depends: PROPOSAL 215 -> VERDICT 228 (+13 offset).
 loop: round-51 GAME slot (fleet -> venture -> game -> unrelated rotation); proposal high-water P214 -> P215 (union-max). NOTE open pulls below the high-water: V225(P212), V137(P124), V132(P119), round-26 FLEET P113 -> V126.
+
+## PROPOSAL 216 · 2026-07-20T14:44:47Z · status: sim-ready
+target: sim-lab (VERDICT 229, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/0559aae22486fa460a0d71c4f5da161e0eef39b5/ideas/fleet/kaprekar-constant-universal-funnel-2026-07-20.md
+question: Does every 4-digit number with at least two distinct digits funnel to the single constant 6174 under Kaprekar's routine within at most 7 iterations — exactly, by exhaustion over all 8991 valid inputs?
+done-when: sim-lab reproduces SEED=20260717 results_sha256 6ef877698bbb91eadffa8473c4a0ec6276f62fd3b8af73fd90855288b38ebf0d (full 64 hex match), all four gates pass in their stated directions (G1 exhaustive all-converge and max_steps==7; G2 unique fixed point [6174]; G3 seeded Monte-Carlo z>=3 rejecting the not-all-converge null; G4 3-digit shift to [495] with max_steps==6), and the grounding caveat is confirmed accurate against the pinned revision.
+depends: PROPOSAL 216 -> VERDICT 229 (+13 offset).
+loop: round-51 UNRELATED slot (fleet -> venture -> game -> unrelated rotation); proposal high-water P215 -> P216 (union-max). NOTE open pulls below the high-water: V225(P212), V137(P124), V132(P119), round-26 FLEET P113->V126.
