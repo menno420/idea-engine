@@ -1,7 +1,8 @@
 # Session — PROPOSAL 233 (secretary optimal-stopping → VERDICT 246)
 
-> **Status:** in-progress
+> **Status:** complete
 > Born-red HOLD: this card lands `in-progress` on the first commit to hold the PR red through the substrate-gate, and flips to `complete` as the deliberate last commit once the idea doc, verifier, outbox block, and claim are in place and the paired sim-lab reproduction is verified green. Merge is by native squash auto-merge on all-green.
+> **Final heartbeat:** COMPLETE — all four gates PASS (results_sha256 048261949a65653b7ad49d90c4968780cc5af2cb77705c9292d409743da68cac, byte-identical double-run + separate re-invocation); idea doc, verifier, outbox PROPOSAL 233 block, and claim landed; paired sim-lab reproduction mirror carries the byte-identical verifier and reproduces the identical digest; `bootstrap.py check --strict` clean apart from the designed born-red hold now released; no control/status.md edit, no VERDICT block, no verdict high-water advance.
 
 ## 💡 Session idea
 Cross-cutting FLEET slot (optimal stopping / selection mechanism over a candidate fleet). PROPOSAL 233: for n candidates of distinct qualities arriving in uniformly random order, observed ONLY by relative rank, the threshold rule "reject the first r−1, then take the first candidate better than every one seen so far" selects the overall best with probability EXACTLY P(r,n)=((r−1)/n)·Σ_{i=r}^{n} 1/(i−1) (P(1,n)=1/n); the optimal cutoff r*(n) is the smallest r≥1 with Σ_{k=r}^{n−1} 1/k ≤ 1, and P(r*(n),n)→1/e≈0.36787944117144233 as n→∞ — provably beating the naive take-first rule (win prob exactly 1/n). Paired reproduction mirror in sim-lab under sims/verdict-246-secretary-optimal-stopping/ (offset +13); the canonical independent ruling is a separate coordinator-driven VERDICT 246 slice.
