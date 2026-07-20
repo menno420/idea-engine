@@ -1,6 +1,6 @@
 # PROPOSAL 192 — 100 prisoners: the cycle-following strategy saves all 100 ~31% of the time, exactly 1 − (H₁₀₀ − H₅₀), not 2⁻¹⁰⁰ (round-45 UNRELATED slot, P192 → V205, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD (cleared).** This card landed `in-progress` on the first commit to hold the PR red on the born-red convention; it flips to `complete` here as the last commit, after the verifier reproduced byte-identical (results-dict sha256 ebc266644b5e21cb3c3c52415abd30e907c279fed74aa8f1c7151d5be895fdcf) and the G1/G2/G3 battery passed green.
