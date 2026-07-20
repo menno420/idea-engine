@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 225 balls-into-bins expected collision count E = m(m-1)/(2n) (round-54 FLEET slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 >
 > Born-red HOLD: this card lands born-red (`in-progress`) on the FIRST commit to hold the PR red until the slice is genuinely done. It flips to `complete` as the deliberate LAST commit — after the idea doc + outbox block land, `python3 bootstrap.py check --strict` goes green in both repos, and the sim-lab verifier reproduces the byte-identical results-dict sha256 with all four gates passing. LEFT RED this session: the coordinator drives the flip + landing after CI.
 
