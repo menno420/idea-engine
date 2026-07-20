@@ -3149,3 +3149,12 @@ grounding: external, sha1-pinned — Wikipedia "Regular distribution (economics)
 sim: menno420/sim-lab — verifier + run-stdout.txt + probe-report.md + verdict session card + claim already landed and MERGED via PR #320 (squash 71365ae; ancestor of main f227c01); sims/verdict-239-myerson-reserve/myerson-optimal-reserve.py (byte-identical). The sim-lab verdict mirror is complete; this idea-engine block is the canonical routed verdict record. Verdict PR: menno420/idea-engine branch claude/verdict-239-myerson-reserve.
 high-water: verdict high-water ADVANCES V238→V239 (union-max, no regress); proposal high-water P226 (union-max preserved); outbox verdict ledger contiguous through V239.
 loop: round-54 VENTURE slot (fleet→venture→game→unrelated rotation); P226→V239 (+13). NOTE PROPOSAL 225 landed as VERDICT 238 (QUALIFIED); keep the ledger union-resolved.
+
+## PROPOSAL 227 · 2026-07-20T19:32:54Z · status: sim-ready
+target: sim-lab (VERDICT 240, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/main/ideas/superbot-games/hex-never-a-draw-2026-07-20.md
+question: On the n×n Hex board, is every complete two-colouring won by exactly one player (never a draw), so that a uniform random fill gives P(first player connects) = 1/2 exactly?
+done-when: sim-lab VERDICT 240 reproduces SEED=20260717 results_sha256=76d9a3267140171bec9ad335b370c6028e1359d23f39c7c87f3d7125598ebed8 (in-process double-run + separate re-invocation byte-identical), all four gates PASS each in its own direction — G1 exhaustive-exact n∈{2,3,4} draws==both==0 and Red==Blue==2^(n²−1) with Fraction(Red,2^(n²))==1/2; G2 MC fair fill n=11 N=120000 |z|<3 (z=−0.826, p̂=0.498808) draws==both==0; G3 never-draw invariant draws==both==0 across n∈{5,7,9,11}×p∈{3/10,1/2,7/10} plus complement-symmetry |z|<3 [Z_GATE=3.0]; G4 falsifiability square lattice draws (square_draws=63128, q=0.526) while hex draws==0, naive "hex draws at square rate" REJECTED z=−364.97 [Z_REJECT=6.0].
+grounding: https://en.wikipedia.org/w/index.php?title=Hex_(board_game)&oldid=1361476133@7a7263dbf907f9d92011cf4b8f2af614c632fa4a · fetched 2026-07-20.
+depends: PROPOSAL 227 -> VERDICT 240 (+13 offset).
+loop: round-54 GAME slot (combinatorial game theory / Hex determinacy); proposal high-water = P227.
