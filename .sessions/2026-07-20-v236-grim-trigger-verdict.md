@@ -1,6 +1,6 @@
 # VERDICT 236 — grim-trigger folk-theorem threshold: in an infinitely-repeated symmetric Prisoner's Dilemma with stage payoffs T>R>P>S, the grim-trigger strategy (cooperate until any defection, then defect forever) sustains mutual cooperation as a SUBGAME-PERFECT equilibrium iff the discount factor δ ≥ δ* with the EXACT closed-form threshold δ*=(T−R)/(T−P) — divided by temptation-minus-PUNISHMENT, NOT temptation-minus-sucker (T−S) — the punishment credible because (D,D) is itself a stage Nash equilibrium (S<P), so cooperation is NOT sustained for all δ>0 but only above that patience floor (canonical PD (5,3,1,0) → δ*=1/2) — reproduce PROPOSAL 223
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 - **📊 Model:** Claude Opus · high · verdict-reproduction
 
