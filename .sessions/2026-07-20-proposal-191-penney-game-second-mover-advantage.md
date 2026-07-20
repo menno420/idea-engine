@@ -1,6 +1,6 @@
 # PROPOSAL 191 — Penney's game second-mover advantage: in a fair-coin sequence duel, committing FIRST to a length-3 H/T pattern is a losing move — for every one of the 8 patterns player 1 can pick, player 2 has a reply that wins strictly more than half the time (worst case HTT, still 2:1 to HHT), so the "appears-first" relation is NON-TRANSITIVE and there is no best sequence (round-45 GAME slot, P191 → V204, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD — intended.** This card lands on the FIRST commit with `Status: in-progress`, holding the substrate-gate red while the verifier + doc are authored and proven. The flip to `complete` (last commit, after the outbox ledger) releases that HOLD (merge-on-green); the earlier gate-red is the born-red exception, not a defect.
