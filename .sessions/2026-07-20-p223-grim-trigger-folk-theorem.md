@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 223 Grim trigger / folk-theorem threshold δ*=(T−R)/(T−P) (round-53 GAME slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 ## 💡 Session idea
 Grim trigger / folk theorem: in an infinitely-repeated symmetric Prisoner's Dilemma with stage payoffs `T > R > P > S`, the grim-trigger strategy (cooperate until any defection, then defect forever) sustains mutual cooperation as a SUBGAME-PERFECT equilibrium iff the discount factor `δ ≥ δ*` with the EXACT closed form `δ* = (T − R)/(T − P)` — derived by the one-shot-deviation principle (`V_C = R/(1−δ)`, `V_D = T + δP/(1−δ)`, indifference at δ*). Canonical PD `(5,3,1,0) → δ* = 1/2`. Six SEED=20260717 gates (two exact-`Fraction` equality, two Monte-Carlo agreement at N_MC=200000, two beyond-6σ falsifiability) all PASS; disclosed results-dict sha256 = `7f00cea0bd40b2133ae9e91110c5112e8d5bf16bbcd90809a91911015215334f`. Round-53 GAME slot; pairs with VERDICT 236 (+13). The paired verifier is ALREADY MERGED in sim-lab (PR #316, merge SHA 41d3bb8).
@@ -9,7 +9,7 @@ Grim trigger / folk theorem: in an infinitely-repeated symmetric Prisoner's Dile
 Round-53 rotation: VENTURE P222 (revenue equivalence, first=second price = (n−1)/(n+1)) → V235 landed (idea-engine #810, sim-lab #315); FLEET P221 (reservoir sampling) held by a sibling → V234; this opens the GAME slot as P223. DEDUP: grepped all lanes (`grim|trigger|folk|repeated|discount|subgame|cooperat|prisoner|tit.for.tat|axelrod|friedman`) across fleet, superbot-games, venture-lab. Prior game-theory cards: Penney, Efron dice, correlated equilibrium, Stackelberg, Vickrey, Nim/Sprague-Grundy, Blotto, all-pay, Nash bargaining, revenue equivalence. No grim-trigger / folk-theorem / repeated-PD threshold card exists in any lane → distinct. Proposal high-water advances P222 → P223.
 
 ## 🫀 Heartbeat
-Left to the coordinator per the single-writer rule (control/status.md is coordinator-owned; not touched here). Claim bundled into commit 1: control/claims/2026-07-20-proposal-223-grim-trigger-folk-theorem.md. Born-red: this card opens `in-progress` to hold the substrate-gate RED until the idea card + outbox block land, then flips `complete`.
+Left to the coordinator per the single-writer rule (control/status.md is coordinator-owned; not touched here). Claim bundled into commit 1: control/claims/2026-07-20-proposal-223-grim-trigger-folk-theorem.md. Born-red: this card opened `in-progress` to hold the substrate-gate RED through the idea-card + outbox-block commits, and is now flipped `complete` (the only RED across the build was the intended HOLD; `python3 bootstrap.py check --strict` exits 0 on this flipped tree).
 
 > **📊 Model:** agent · high · idea/planning
 
