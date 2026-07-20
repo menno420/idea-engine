@@ -2475,3 +2475,11 @@ question: does the same time-average trap bite any fleet lane running repeated m
 done-when: verifier reproduces byte-identical results-dict sha256 8d04b241d3589e2e49337c087da623d73c47dbe84074eaf5596bfa39db3c5336 with all_pass=true and G1(time-avg growth < 0, z≥3) AND G2(arithmetic per-round EV > 0, z≥3) AND G3(majority ruined, frac_below_start > 0.5, z≥3) AND G4(robustness/shift world U=1.6 D=0.55 preserving all three signs at z≥3) holding in order.
 depends: offset +13 (P190->V203); authority = outbox per-block ledger + status.md.
 loop: round-45 VENTURE slot; proposal high-water P189->P190 (union-max, no regress).
+
+## PROPOSAL 191 · 2026-07-20T01:37:04Z · status: sim-ready
+target: sim-lab (VERDICT 204, +13 offset)
+idea: [penney-game-second-mover-advantage-2026-07-20.md](https://github.com/menno420/idea-engine/blob/a5e37c79e7925b6eff5f1e8a8bbcdffd04aa3c29/ideas/superbot-games/penney-game-second-mover-advantage-2026-07-20.md) — Penney's game second-mover advantage: on a fair coin (P_HEADS=0.5), for every length-3 H/T pattern player 1 commits to, player 2's standard reply R(p)=(¬p2)p1p2 appears first with exact probability ≥ 2/3 (worst first-pick HTT→HHT = 2/3, min empirical win rate 0.661); across all 8 first-picks favor_frac=1.0, min z=58.90958; verifier `penney_game_second_mover_advantage.py` (exact absorbing-Markov odds cross-checked by seeded 30000-trial Monte-Carlo, SEED=20260717); results-dict sha256 8942324fa0c31abf11a053bb56b98306709611f73b9a2ad344fe0034d87744f4; gates G1 min z=58.90958, G2 favor_frac=1.0/min_edge=0.161, G3 (L=4 shift, seed SEED+1) min z=27.726515/all-favor, G4 |MC−exact|≤0.02 (base dev 0.007067, shift dev 0.005933).
+question: does the second-mover edge survive a biased coin (p≠0.5), and at what bias does some length-3 first-pick stop being beaten by its standard reply — i.e. is the non-transitivity fragile to coin bias?
+done-when: verifier reproduces byte-identical results-dict sha256 8942324fa0c31abf11a053bb56b98306709611f73b9a2ad344fe0034d87744f4 with all_pass=true and G1(base min z≥3) AND G2(favor_frac=1.0 and min_edge≥0.05) AND G3(L=4 shift min z≥3 all-favor) AND G4(|MC−exact|≤0.02) holding in order.
+depends: offset +13 (P191->V204); authority = outbox per-block ledger + status.md.
+loop: round-45 GAME slot; proposal high-water P190->P191 (union-max, no regress).
