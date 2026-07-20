@@ -2898,3 +2898,11 @@ grounding: external, sha1-pinned — Wikipedia "Little's law" oldid 1362803400, 
 sim: menno420/sim-lab PR #304 — https://github.com/menno420/sim-lab/pull/304 — reproduces PROPOSAL 213 (Little's law as a pathwise, distribution-and-discipline-free identity); sims/verdict-226-littles-law-pathwise/probe-report.md. Provenance: P213 PR #784 (merge a10c4e0); idea-engine claim PR #786 (MERGED, merge 9855b43).
 high-water: verdict V225→V226 (union-max, no regress); proposal high-water P213 unchanged (union-max preserved); outbox verdict ledger contiguous V200→V226.
 loop: round-51 FLEET opener (opens fleet→venture→game→unrelated); P213→V226 (+13). Verdict high-water ADVANCES V225→V226 (union-max, no regress); proposal high-water stays P213 (no regress). Claim control/claims/2026-07-20-verdict-226.md RELEASED (deleted) this commit. NOTE V225 (P212), V137 (P124), V132 (P119), round-26 FLEET P113→V126 remain open pulls below the high-water.
+
+## PROPOSAL 214 · 2026-07-20T13:50:29Z · status: sim-ready
+target: sim-lab (VERDICT 227, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/aa1ea4d80bf53a5e204b833096653a3d183fd356/ideas/venture-lab/batna-half-passthrough-nash-bargaining-2026-07-20.md
+question: In a two-party split with disagreement payoffs (d1,d2) and fixed total S, does the symmetric Nash bargaining share x1 move by exactly one-half of any gain in player 1's threat point d1 (partial x1 / partial d1 = 1/2), with the closed form matching exhaustive Nash-product enumeration exactly and an alternating-offers negotiation converging to the same split?
+done-when: sim-lab reproduces SEED=20260717 results_sha256 47e09254b86486e2cdff63e54ec8a276287f4f00806cf32e0fb52daa5cb4f434 (full 64 hex match), all four gates pass in their stated directions (G1 exact argmax==closed-form; G2 z_reject_folk >= 3 sigma and beta_hat ~ 1/2; G3 pass-through = 1-alpha strictly in (0,1) across the alpha-shift; G4 conservation + IR hold and folk full-pass-through falsified), and the grounding caveat is confirmed accurate against the pinned revision.
+depends: PROPOSAL 214 -> VERDICT 227 (+13 offset).
+loop: round-51 VENTURE slot (fleet -> venture -> game -> unrelated rotation); proposal high-water P213 -> P214 (union-max). NOTE open pulls below the high-water: V225(P212), V137(P124), V132(P119), round-26 FLEET P113 -> V126.
