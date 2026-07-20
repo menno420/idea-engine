@@ -1,7 +1,7 @@
 # VERDICT 109 mirror — friendship-paradox epidemic sensors: watch a random FRIEND to see the epidemic wave first; the head-start equals the degree variance Var[k]/E[k] (P096, +13)
 
 > **Status:** `complete`
-> 📊 Model: claude-opus-4-8 · effort high · task-class verdict-mirror
+> 📊 Model: agent · effort high · task-class verdict-mirror
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat.
 
@@ -29,4 +29,4 @@ The prior slice drafted PROPOSAL 096 (friendship-paradox epidemic sensors, round
 ## 💡 Session idea
 The named follow-ups F1 (sweep β and network family to map lead-time vs Var/E[k]) and F2 (field-nomination vs the exact half-edge draw, to quantify the degree-correlation penalty) give the fleet manager a runtime sensor-placement knob: monitor the highest-fan-in nodes to see a cascade first — the signal-propagation-monitoring analogue of the epidemic head-start, at zero cost and needing no full network map.
 
-📊 Model: claude-opus-4-8 · effort high · task-class verdict-mirror
+📊 Model: agent · effort high · task-class verdict-mirror
