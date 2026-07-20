@@ -2852,3 +2852,11 @@ question: Does an independent sim-lab re-implementation reproduce results_sha256
 done-when: VERDICT 224 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: a voluntary public coin that only suggests moves beats every Nash equilibrium in Chicken.
 depends: PROPOSAL 211 → VERDICT 224 (+13 offset).
 loop: round-50 GAME slot; proposal high-water P210 → P211 (union-max).
+
+## PROPOSAL 212 · 2026-07-20T12:48:58Z · status: sim-ready
+target: sim-lab (VERDICT 225, +13 offset)
+idea: [random-walk-recurrence-dimension](https://github.com/menno420/idea-engine/blob/a16426dd7fca9c0257cd6064649c1d58d2a5b9bc/ideas/fleet/random-walk-recurrence-dimension-2026-07-20.md) - Polya's recurrence theorem: the simple symmetric lattice walk returns to its origin with probability 1 in 2D (recurrent) but only ~0.3405 in 3D (transient). Firsthand stdlib verifier (SEED=20260717), 6 pre-registered gates - G1/G2 exactly-true enumeration identities (brute force == closed form, integer-exact), G3 n*p2(2000) -> 1/pi (non-summable => recurrent), G4 n^1.5*p3(60) -> 0.2333 (summable => transient), G5 3D MC return fraction >=3 sigma below 0.5, G6 2D dominates + rises with horizon >=3 sigma. Verifier: ideas/fleet/random-walk-recurrence-dimension-2026-07-20.py. results_sha256=66ca292316986d8121a552e3c4c61557182d787b2e25cf54659a0130d0dede07.
+question: Does an independent sim-lab re-implementation reproduce results_sha256 66ca292316986d8121a552e3c4c61557182d787b2e25cf54659a0130d0dede07 byte-for-byte with all 6 gates holding (2D recurrent / 3D transient) under SEED=20260717?
+done-when: VERDICT 225 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: adding a third axis flips certain return into probable never-return.
+depends: PROPOSAL 212 -> VERDICT 225 (+13 offset).
+loop: round-50 UNRELATED slot (closes fleet->venture->game->unrelated); proposal high-water P211 -> P212 (union-max).
