@@ -18,7 +18,7 @@ Round-52 VENTURE slot (P218 → VERDICT 231, +13 offset). Head: with N identical
 
 ## Next session should know
 - P218 → V231 open pull once landed.
-- Disclosed results_sha256: {{DIGEST}}.
+- Disclosed results_sha256: c71985cb55577757ed79772b3fabb7677611f3469531c10ab60f8e73a91d8036.
 - Round-52 rotation now open at: game slot next (after this VENTURE).
 
 > 📊 Model: Claude Opus · high · idea/planning
