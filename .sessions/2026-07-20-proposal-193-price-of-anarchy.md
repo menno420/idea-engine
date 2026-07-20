@@ -1,9 +1,9 @@
 # PROPOSAL 193 — price of anarchy: selfish two-pool routing costs at most 4/3 of the optimum, exactly 4/3 in the tight Pigou case (round-46 FLEET opener, P193 → V206, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 
-**Born-red HOLD.** This card lands `in-progress` on the first commit to hold the PR red on the born-red convention; it flips to `complete` in the last commit once the verifier has reproduced byte-identical and the G1–G4 battery is green.
+**Born-red HOLD (cleared).** This card landed `in-progress` on the first commit to hold the PR red on the born-red convention; it flips to `complete` here as the last commit, after the verifier reproduced byte-identical (results-dict sha256 9fc650416ae0907bddc988addf0ae4cf76d336a062a9bdaa5aef95eea6d5dcda across an in-process double-run and separate cross-invocations) and the G1/G2/G3/G4 battery passed green (all_pass=true).
 
 ## 💡 Session idea
 Selfish routing across load-dependent server pools is not a rounding error away from optimal — it is off by a bounded, exact constant, and that constant (4/3 for affine latencies, the price of anarchy) is a *lever*, not a curse: it vanishes when the alternative pool is expensive enough (PoA = 1) and maxes at 4/3 when pools are closely matched, so the same closed form tells a fleet exactly when a coordinator or congestion toll pays for itself and when greedy dispatch is already optimal. The dedup twist that produced this head: the assigned Braess head and its designated fallback (power-of-two-choices) were BOTH already shipped, so the genuinely un-built neighbour in the same selfish-routing family — the tight 4/3 efficiency ratio and its Pigou witness, which the Braess docs themselves flagged as a follow-up — became the proposal.
