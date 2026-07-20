@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 226 Myerson optimal reserve r*=1/2 for iid Uniform[0,1] (round-54 VENTURE slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 >
 > Born-red HOLD: this card lands born-red (`in-progress`) on the FIRST commit to hold the PR red until the slice is genuinely done. It flips to `complete` as the deliberate LAST commit — after the idea doc + outbox block land and `python3 bootstrap.py check --strict` plus the outbox check go green. The sim-lab verifier is ALREADY landed (VERDICT 239, PR #320, squash 71365ae). LEFT RED until the flip; the landing workflow auto-merges once green + card flipped.
 
