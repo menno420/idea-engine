@@ -72,6 +72,6 @@ No existing file under ideas/ addresses the friendship paradox, size-biased samp
 ## Consequence / follow-ups
 If APPROVED: a cheap, map-free early-warning sensor — nominate friends, watch them — with a quantified head-start (Var/E[k]), usable wherever a diffusion runs on a heavy-tailed contact graph (maps onto the fleet's own signal propagation: sample high-fan-in nodes to see a cascade first). Follow-ups: (F1) sweep β and network family (configuration-model power-law, small-world) to map lead-time vs Var/E[k]; (F2) test the field nomination method against the exact half-edge draw to quantify the degree-correlation penalty; (F3) SIR variant with recovery to check robustness under waning.
 
-📊 Model: claude-opus-4-8 · effort high · task-class proposal-draft
+📊 Model: agent · effort high · task-class proposal-draft
 
 Recommendation: sim-ready

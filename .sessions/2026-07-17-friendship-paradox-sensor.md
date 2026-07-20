@@ -1,7 +1,7 @@
 # PROPOSAL 096 — friendship-paradox epidemic sensors: watch a random FRIEND, not a random person, and you see the wave first — the head-start equals the degree variance Var[k]/E[k] (round-21 UNRELATED-domain closer, P096 → V109, +13)
 
 > **Status:** `complete`
-> 📊 Model: claude-opus-4-8 · effort high · task-class proposal-draft
+> 📊 Model: agent · effort high · task-class proposal-draft
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the heartbeat, releasing the landing workflow.
 
@@ -25,4 +25,4 @@ Previous-session review: the prior slice closed the round-21 GAME loop P095 → 
 ## 💡 Session idea
 Next baton after V109: the three named follow-ups this head opens — (F1) sweep β and network family (configuration-model power-law, small-world) to map lead-time vs Var[k]/E[k]; (F2) test the field nomination method (random neighbour of a random node) against the exact half-edge draw to quantify the degree-correlation penalty; (F3) an SIR variant with recovery to check robustness under waning. All three reuse the same pinned-world diffusion kernel and are the named follow-ups in the P096 outbox block. Round 22 restarts the rotation at the fleet opener.
 
-📊 Model: claude-opus-4-8 · effort high · task-class proposal-draft
+📊 Model: agent · effort high · task-class proposal-draft
