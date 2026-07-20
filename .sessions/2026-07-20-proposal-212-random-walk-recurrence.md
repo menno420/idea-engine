@@ -1,6 +1,6 @@
 # Session - PROPOSAL 212: dimension-dependent random-walk recurrence (Polya's theorem)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Authored PROPOSAL 212 (round-50 UNRELATED slot, closing fleet->venture->game->unrelated): Polya's recurrence theorem - the simple symmetric lattice walk returns to its origin with probability 1 in 2D (recurrent) but only ~0.3405 in 3D (transient). Firsthand stdlib verifier (SEED=20260717) with six pre-registered gates: two exactly-true enumeration identities (2D/3D closed form vs brute force, integer-exact), two asymptotic decay-law gates (n*p2 -> 1/pi non-summable; n^1.5*p3 -> 0.2333 summable), and two >=3 sigma Monte-Carlo gates (3D transient; 2D dominates + rises with horizon). Disclosed results-dict sha256 = 66ca292316986d8121a552e3c4c61557182d787b2e25cf54659a0130d0dede07. Pairs to VERDICT 225 (+13).
