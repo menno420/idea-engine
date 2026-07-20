@@ -1,6 +1,6 @@
 # Session — PROPOSAL 232 (coprime density = 6/π² → VERDICT 245)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > Born-red HOLD: this card lands `in-progress` on the first commit to hold the PR red through the substrate-gate, and flips to `complete` as the deliberate last commit once the idea doc, verifier, outbox block, and claim are in place and the paired sim-lab reproduction is verified green. Merge is by native squash auto-merge on all-green.
 
 ## 💡 Session idea
