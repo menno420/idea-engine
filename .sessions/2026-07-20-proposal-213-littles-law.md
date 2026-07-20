@@ -1,6 +1,6 @@
 # Session — PROPOSAL 213: Little's law as a pathwise, distribution-free identity
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Round-51 FLEET opener. Head: throughput × mean-latency counts the queue exactly, on every sample path, independent of service distribution and scheduling discipline — while L and W individually depend on the discipline (T, hence λ, does not). Pairs VERDICT 226 (+13 offset).
