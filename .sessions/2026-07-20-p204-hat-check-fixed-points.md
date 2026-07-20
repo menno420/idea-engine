@@ -1,6 +1,6 @@
 # Session 2026-07-20 — P204 hat-check fixed-points invariance (round-48 UNRELATED slot)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Land PROPOSAL 204: the hat-check invariance. When n patrons each grab a coat at random, the number who get their own coat back has mean EXACTLY 1 and variance EXACTLY 1 for every n≥2 — crowd size cancels — and the chance nobody does converges to 1/e ≈ 36.8%, with the whole fixed-point count going Poisson(1). A deterministic stdlib verifier proves E=1 & Var=1 exactly by exhaustive Fraction enumeration (n=1..8) with brute derangements = inclusion-exclusion = recurrence (G1), clears the folk "essentially never" derangement floor 0.30 at z_floor 40.9 while sitting within 3σ of 1/e (G2, n=200), shows the mean does not move with crowd size (G3 range 0.021875 over n∈{10,100,1000,2000}), and fits Poisson(1) (G4 χ²=1.36<18.467). Pairs to VERDICT 217 (+13).
