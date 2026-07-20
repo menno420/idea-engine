@@ -3111,6 +3111,15 @@ sim: menno420/sim-lab — verifier + run-stdout.txt + probe-report.md already la
 high-water: verdict high-water ADVANCES V236→V237 (union-max, no regress); proposal high-water P224 (union-max preserved); outbox verdict ledger now contiguous V200→V237.
 loop: round-53 UNRELATED slot (fleet→venture→game→unrelated rotation); P224→V237 (+13). Verdict high-water ADVANCES V236→V237 (union-max, no regress) — closes the round-53 UNRELATED slice (FLEET P221→V234, VENTURE P222→V235, GAME P223→V236, UNRELATED P224→V237). proposal high-water stays P224 (no regress). NOTE open pulls below the high-water per control/status.md.
 
+## PROPOSAL 226 · 2026-07-20T18:52:37Z · status: sim-ready
+target: sim-lab (VERDICT 239, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/6c7b12443747ce901ce31c81db5f114c1398a274/ideas/venture-lab/myerson-optimal-reserve-2026-07-20.md
+question: For n bidders with values iid Uniform[0,1], is the Myerson revenue-optimal single-item auction a second-price auction with reserve r*=1/2 for every n, earning R*(n)=2n/(n+1)-1+(1/2)^n/(n+1) — 5/12 at n=2 versus a no-reserve 1/3?
+done-when: sim-lab reproduces SEED=20260717 [Z_GATE=3.0] results_sha256 b125afaf186e8d2430783b89af1a877193a65752db77884458485ced7ec918f0 with all 7 gates passing in their stated directions — G1 psi(1/2)=0 exact, G2 three exact routes agree (n=1..5), G3 R*(2)=5/12 and gain 1/12, G4 MC n=2 |z|<3, G5 MC n=3 |z|<3, G6 grid-optimal at 1/2, G7 no-reserve rejected at z>>3 — and the grounding caveat is confirmed accurate against the pinned revision. Verifier already landed in sim-lab: sims/verdict-239-myerson-reserve/myerson-optimal-reserve.py, PR #320.
+grounding: https://en.wikipedia.org/w/index.php?title=Regular_distribution_(economics)&oldid=1304906615@45d380f12e80c8a69f221ff09bd3eb34b44cfe05 · fetched 2026-07-20.
+depends: PROPOSAL 226 -> VERDICT 239 (+13 offset).
+loop: round-54 VENTURE slot (economics / mechanism design); proposal high-water P224 -> P226 (union-max). NOTE PROPOSAL 225 in flight by a sibling — keep the ledger union-resolved.
+
 ## VERDICT 238 · 2026-07-20T18:26:47Z · status: ruled
 Source: PROPOSAL 225 (2026-07-20T18:26:47Z) · verifies balls-into-bins expected collision count E = m(m−1)/(2n)
 Verifier: sim-lab sims/verdict-238-balls-into-bins-collisions/balls-into-bins-collision-count.py
