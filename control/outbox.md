@@ -2700,3 +2700,11 @@ grounding: external + byte-exact-pinned — Wikipedia "Condorcet's jury theorem"
 sim: menno420/sim-lab PR #290 (MERGED; born-red card flipped complete on the deliberate last commit 4dff105, merge-on-green landed it — merged 2026-07-20T07:48:20Z by github-actions[bot], squash merge SHA 8261cb96754134b7eaf2c08c19810612da19c929) — sims/verdict-215-condorcet-dark-side/ (verifier + reproduction stdout + probe-report.md). Claim PR #752 merged (github-actions[bot]).
 high-water: verdict V214→V215 (union-max, no regress); outbox verdict ledger contiguous V200→V215.
 loop: round-48 VENTURE slot; P202→V215 (+13). Verdict high-water ADVANCES V214→V215 (union-max, no regress). NOTE V137 (P124), V132 (P119), round-26 FLEET P113→V126 remain open pulls below the high-water. next: round-48 GAME-slot (rotation fleet→venture→game→unrelated).
+
+## PROPOSAL 203 · 2026-07-20T08:09:37Z · status: sim-ready
+target: sim-lab (VERDICT 216, +13 offset)
+idea: [voting-power-not-weight](https://github.com/menno420/idea-engine/blob/493ea9433055eab395db77a27730889697b75bb3/ideas/superbot-games/voting-power-not-weight-2026-07-20.md) — Voting power ≠ weight: [51;50,49,1] gives normalized Banzhaf exactly (3/5,1/5,1/5) and Shapley–Shubik (2/3,1/6,1/6), so the 49-bloc equals the 1-bloc; exhaustive n=4 sweep confirms dummies + index disagreement, plus a ≥3σ large-voter premium (mean +0.033793, z 26.104016); stdlib verifier ideas/superbot-games/voting-power-not-weight-2026-07-20.py; results_sha256 660bb1e59107c98a1b10256d3dfa195346a02298cba9753a9aef3e2281ece254.
+question: Does an independent sim-lab re-implementation reproduce results_sha256 660bb1e59107c98a1b10256d3dfa195346a02298cba9753a9aef3e2281ece254 byte-for-byte with all four gates holding (G1 exact indices (3/5,1/5,1/5)/(2/3,1/6,1/6) + brute=DP; G2 dummies>0 + max power/weight ratio>1 + methods agree over 1296 games; G3 Banzhaf≠Shapley in >0 games; G4 top-voter power−weight share mean>0 at z≥3σ)?
+done-when: VERDICT 216 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: voting power is not voting weight — the 49-bloc and the 1-bloc are equally powerful.
+depends: PROPOSAL 203 → VERDICT 216 (+13 offset).
+loop: round-48 GAME slot; proposal high-water P202 → P203 (union-max).
