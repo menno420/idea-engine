@@ -12,7 +12,7 @@ P228 (UNRELATED, random-walk no-return → VERDICT 241) landed. Rotation advance
 ## 🫀 Heartbeat
 Verifier ideas/venture-lab/bilateral-double-auction.py verified green before flip: exit 0, all four gates PASS, results_sha256 5052053d3a6cb6fb1419afe0846f4f339d3537057d6ee5fbeb8a86e9b9ea42c3 byte-identical across in-process double-run + separate re-invocation (SEED=20260717, stdlib-only, Python 3.11.15). G1 EXACT Fraction integration delta=1/4 realized=9/64 first_best=1/6 efficiency=27/32 deadweight=5/192 trade_prob=9/32. G2 MC N=200000 z_gains=−0.123561 (p̂=0.140558) z_trade=−0.258615 (p̂=0.28099), both |z|<3. G3 buyer+seller grid best-response argmax == closed form at all four probes AND a second exact route (difference density f_D(d)=1−d) reproduces 9/64. G4 efficient rule agrees with 1/6 (z=−0.308089) while equilibrium gains reject the naive-efficient 1/6 at z=−47.919492 (>6). Grounding pins Wikipedia "Double auction" oldid 1346190881 sha1 ffbd1f23d644439cf57dfe7be48fc39990d9b68a. A byte-identical copy is carried in the paired sim-lab reproduction PR (branch claude/verdict-243-bilateral-double-auction); the canonical independent ruling is a separate coordinator-driven VERDICT 243 slice.
 
-> **📊 Model:** Claude Opus · high · proposal-authoring / VENTURE slot
+> **📊 Model:** Claude Opus · high · idea/planning
 
 ## Decisions made
 - Chose the Chatterjee–Samuelson linear double-auction equilibrium — bilateral two-sided trade, distinct from P226 (Myerson optimal reserve, one-sided) and P222 (revenue equivalence).
