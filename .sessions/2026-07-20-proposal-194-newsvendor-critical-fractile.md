@@ -1,9 +1,9 @@
 # PROPOSAL 194 — newsvendor critical fractile: stock the high-margin product ABOVE its expected demand (round-46 VENTURE slot, P194 → V207, +13)
 
-> **Status:** in-progress
+> **Status:** complete
 > 📊 Model: Claude Opus · high · idea/planning
 
-**Born-red HOLD.** This card lands `in-progress` on the FIRST commit to hold the proposal PR red on the born-red convention; it flips to `complete` as the LAST commit, after the verifier reproduces byte-identical (results-dict sha256, in-process double-run + separate cross-invocation) and the G1/G2/G3/G4 battery passes green (all_pass=true). Merge-on-green is the only merge path — this session issues zero merge calls.
+**Born-red HOLD (cleared).** This card landed `in-progress` on the FIRST commit to hold the proposal PR red on the born-red convention; it flips to `complete` here as the LAST commit, after the verifier reproduced byte-identical (results-dict sha256 62acbcf62c3b94d9e6765a5681fef0ca8ba1b13c554bd6f882b653920f131b3e across an in-process double-run and separate cross-invocations) and the G1/G2/G3/G4 battery passed green (all_pass=true, first_failing_gate=null; G2 z_meandiff=133.9969425219, z_means=50.4772410337). Merge-on-green is the only merge path — this session issued zero merge calls.
 
 ## 💡 Session idea
 The folk rule "order what you expect to sell — set the order quantity to mean demand" is provably wrong for a high-margin product: the profit-maximizing order quantity is the critical-fractile QUANTILE of demand, Q\* = smallest Q with CDF(Q) ≥ (p−c)/(p−s), and for a high-margin good the critical ratio exceeds 1/2, so the optimal stock sits STRICTLY ABOVE the mean. The counterintuitive direction is a lever, not a curiosity: the same closed form says a low-margin good should be stocked BELOW the mean, and only at the exact balance point (critical ratio = 1/2) does the mean/median coincide with the optimum. The mechanism is marginal analysis — the marginal expected value of the (Q+1)-th unit is (p−s)·(critical ratio − CDF(Q)), positive until the CDF crosses the critical ratio — which makes the quantile the exact, provable argmax of expected profit, not an approximation.
