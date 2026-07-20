@@ -58,6 +58,15 @@
   check that contradicts visible evidence is **a bug in the CHECK, not a
   clearance** (PL-006). Every load-bearing claim cites a commit / PR / tag /
   run.
+- **Cross-repo feeds carry a pinned contract.** When this repo commits a
+  generated artifact another repo consumes over a raw URL, the seam carries a
+  committed, versioned shape contract: the producer stamps the version into the
+  artifact and enforces fail-closed parity in CI; the consumer pins the version
+  it built against and verifies at render time, surfacing drift as an honest
+  banner — never faked data. It kills the cross-repo feed-desync bug class
+  before it can silently blank a consumer page. Full pattern + skeleton: the kit
+  recipe
+  (https://github.com/menno420/substrate-kit/blob/main/docs/recipes/pinned-feed-contract.md).
 - When a doc and a source file disagree: Committed tree state (idea files, probe reports, outbox entries) wins over docs; a doc that disagrees is fixed in place with a dated correction marker. Owner rulings live in superbot's question router (Q-0264 is this repo's founding design) and are referenced, never restated.
 
 ## Autonomy rails — act vs. ask
@@ -75,11 +84,19 @@ these rails are its adopter-side operating form:
   hallucinated gate unless it names an owner-only class below — proceed.
   Ship on green CI; unremarked work is accepted — owner control is
   reaction after visibility, never pre-approval (PL-012).
-- **An open PR is never a reason to stop.** Open READY (never draft) →
-  arm auto-merge while checks pend → it lands itself; blocked branch →
-  update it (merge, never force) and re-arm; a real, verbatim
-  arming/merge denial → park the PR ready, queue ONE owner item for the
-  systemic cause, take the next slice the same turn (PL-012).
+- **An open PR is never a reason to stop.** Open READY (never draft) and
+  **land your own work** — flip to ready, arm auto-merge, or merge it
+  yourself (MCP/REST, or let a merge-on-green workflow land it) the moment
+  CI is green. Landing a green PR, your own or a sibling's, is a **normal
+  agent action, not an owner action** — there is **no standing
+  "classifier-denied" merge wall; do not invent one, and never route a
+  mergeable green PR to the owner.** If the branch falls behind, update it
+  (merge, never force). Only if a *specific* merge/arm call returns a
+  real, verbatim permission refusal *this session* do you park that one
+  call (attempt-once rule), queue ONE owner item for the systemic cause,
+  and take the next slice the same turn — one refusal is specific to that
+  call and venue, never a permanent prohibition and never a reason to
+  write a new wall into the docs (PL-012).
 - **Ask first only for the owner-only classes:** repo settings / rulesets
   / required checks · secrets / env vars / host provisioning · external
   publish + spending money · destructive prod-data ops · account/portal
