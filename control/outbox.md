@@ -3024,3 +3024,12 @@ done-when: sim-lab reproduces SEED=20260717 results_sha256 721cabd10d50672c6ddae
 grounding: https://en.wikipedia.org/w/index.php?oldid=1365118921@daf21f648c352d230e4640de6a7574aaf9ac83fc · fetched 2026-07-20.
 depends: PROPOSAL 221 -> VERDICT 234 (+13 offset).
 loop: round-53 FLEET slot (fleet -> venture -> game -> unrelated rotation); proposal high-water P220 -> P221 (union-max). NOTE open pulls below the high-water: P220 -> V233, P219 -> V232, P218 -> V231, P217 -> V230, V225(P212), V137(P124), V132(P119), round-26 FLEET P113->V126.
+
+## PROPOSAL 222 · 2026-07-20T17:18:37Z · status: sim-ready
+target: sim-lab (VERDICT 235, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/main/ideas/venture-lab/revenue-equivalence-first-second-price-2026-07-20.md
+question: For n bidders with i.i.d. Uniform(0,1) private values, do a sealed-bid first-price auction (symmetric BNE bid b(v)=(n-1)/n*v) and a sealed-bid second-price/Vickrey auction yield the SAME expected seller revenue, exactly (n-1)/(n+1) — NOT the winner's value n/(n+1) — with the winner keeping an information rent 1/(n+1) that vanishes as n grows?
+done-when: sim-lab reproduces SEED=20260717 results_sha256 b22b9f2767755feb2334594f2671060c61818e192ee3c24b99f9705e3f9951d2 (full 64 hex match) with all four gates passing in their stated directions — G1 EXACT identity fpa_revenue==spa_revenue==(n-1)/(n+1) as identical rationals via exact integral-of-x^j=1/(j+1) integration; G2 Monte-Carlo agreement of both mechanism means and their paired difference vs (n-1)/(n+1) at |z|<3; G3 robustness — strictly-increasing n-sweep all agreeing plus exact and empirical scale invariance under U(0,k); G4 falsifiability rejecting the naive "revenue = winner's value = n/(n+1)" model at |z|>5 (measured z=-612.81) — and the grounding caveat is confirmed accurate against the pinned revision (Wikipedia "Revenue equivalence" oldid 1332022174, raw-wikitext sha1 555839d12a9b03dd50bad5bb284c1f6c50259000: it states the theorem and first/second-price equivalence under symmetric IID values and a two-player uniform example, but NOT the general (n-1)/(n+1) closed form).
+grounding: https://en.wikipedia.org/w/index.php?title=Revenue_equivalence&action=raw&oldid=1332022174@555839d12a9b03dd50bad5bb284c1f6c50259000 · fetched 2026-07-20.
+depends: PROPOSAL 222 -> VERDICT 235 (+13 offset).
+loop: round-53 VENTURE slot. proposal high-water P220 -> P222 (union-max; P221 held by a sibling session). open pulls below the high-water per control/status.md.
