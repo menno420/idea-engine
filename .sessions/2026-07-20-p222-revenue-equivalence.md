@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 222 · Revenue Equivalence (n-1)/(n+1)
 
-> **Status:** in-progress
+> **Status:** complete
 
 ## 💡 Session idea
 Revenue Equivalence Theorem as an exactly-provable venture result: a first-price and a second-price auction hand the seller identical expected revenue, exactly (n-1)/(n+1) for n symmetric Uniform(0,1) bidders — pay-your-bid is exactly cancelled by equilibrium bid shading, and the winner keeps information rent 1/(n+1). Round-53 VENTURE slot; pairs with VERDICT 235 (+13).
