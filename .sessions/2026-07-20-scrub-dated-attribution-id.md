@@ -1,7 +1,7 @@
 # Scrub dated build-ID from session-card attribution field — normalize to sanctioned neutral form
 
 > **Status:** `complete`
-> 📊 Model: withheld per coordinator directive · effort standard · task-class compliance-remediation
+> 📊 Model: withheld per coordinator directive · low · docs-only
 
 Born in-progress as this session's first commit (born-red HOLD); flips to complete as the deliberate last step after the edits land and the gate is green.
 
@@ -27,4 +27,4 @@ The prior slices authored the friendship-paradox-sensor entries and the VERDICT 
 ## 💡 Session idea
 The attribution field wants a family-level or neutral value by rule; a lightweight pre-push guard that flags a dated build-ID pattern in the `📊 Model:` line would catch this class of drift at authoring time rather than in a later remediation pass — a cheap grep-shaped check anchored on the attribution line.
 
-📊 Model: withheld per coordinator directive · effort standard · task-class compliance-remediation
+📊 Model: withheld per coordinator directive · low · docs-only
