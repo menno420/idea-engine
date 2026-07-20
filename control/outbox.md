@@ -2834,3 +2834,11 @@ question: Does an independent sim-lab re-implementation reproduce results_sha256
 done-when: VERDICT 223 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: a market where every trade is strictly mutually beneficial can still collapse to a vanishing fraction of its volume — quality uncertainty (adverse selection) alone, with no friction and no irrationality, destroys nearly all the gains from trade.
 depends: PROPOSAL 210 → VERDICT 223 (+13 offset).
 loop: round-50 VENTURE slot; proposal high-water P209 → P210 (union-max).
+
+## PROPOSAL 211 · 2026-07-20T12:08:49Z · status: sim-ready
+target: sim-lab (VERDICT 224, +13 offset)
+idea: [correlated-equilibrium-public-coin](https://github.com/menno420/idea-engine/blob/b2a131ada75525d8614f146bf928589d88f11d1c/ideas/superbot-games/correlated-equilibrium-public-coin-2026-07-20.md) — In Chicken, Aumann's public three-card correlating device (C,C)/(D,C)/(C,D) each 1/3, obeyed voluntarily, is a correlated equilibrium paying each player exactly 5 — above the symmetric mixed Nash's 14/3 — and lifts total welfare to 10, above every Nash equilibrium (pure 9, mixed 28/3). Firsthand Fraction-exact + seeded Monte-Carlo, SEED=20260717, results_sha256=33e42932057eb0ec92c04530b302a1d4cc56314ef9e702099e6d156d9bcf00fa · gates G1 exact-CE-validity(slacks>=0, pays 5,5); G2 z≈45>=3sigma device>mixedNE; G3 robustness w in {5,5.25,5.5,5.75,6} all valid+dominant; G4 closed-form==enumeration==5, gaps 1/3 & 2/3 exact.
+question: Does an independent sim-lab re-implementation reproduce results_sha256 33e42932057eb0ec92c04530b302a1d4cc56314ef9e702099e6d156d9bcf00fa byte-for-byte with all four gates holding (G1 exact CE obedience slacks >= 0 and device pays (5,5); G2 Monte-Carlo z >= 3sigma device over mixed-NE; G3 device stays a valid CE strictly out-paying the mixed NE across w in {5,5.25,5.5,5.75,6}; G4 closed-form == exhaustive enumeration == 5 with per-player gap 1/3 and total-welfare gap 2/3 exact)?
+done-when: VERDICT 224 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: a voluntary public coin that only suggests moves beats every Nash equilibrium in Chicken.
+depends: PROPOSAL 211 → VERDICT 224 (+13 offset).
+loop: round-50 GAME slot; proposal high-water P210 → P211 (union-max).
