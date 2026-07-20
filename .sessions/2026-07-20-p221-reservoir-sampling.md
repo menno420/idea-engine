@@ -1,8 +1,8 @@
 # Session 2026-07-20 — PROPOSAL 221 reservoir sampling Algorithm R uniform k/n inclusion law (round-53 FLEET slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 >
-> Born-red HOLD: this card lands born-red (`in-progress`) to hold the PR red on the first commit. It flips to `complete` as the last commit, after the verifier reproduces a byte-identical results-dict sha256 and all gates pass.
+> Born-red HOLD: this card landed born-red (`in-progress`) to hold the PR red on the first commit. Flipped to `complete` as the last commit, after the doc + outbox landed and `python3 bootstrap.py check --strict` went green (the sim-lab verifier reproduces the byte-identical results-dict sha256 and all four gates pass).
 
 ## 💡 Session idea
 Reservoir sampling (Algorithm R, Waterman/Knuth/Vitter): a single streaming pass over n distinct items into a reservoir of size k — fill the first k, then for each arrival i>k pick j uniform in [1,i] and if j<=k replace slot j — leaves EVERY item in the reservoir with probability exactly k/n, independent of stream order. The inclusion probability, computed as a literal `fractions.Fraction` product looped over the stream (never hardcoded to the telescoped k/n), equals `Fraction(k,n)` for every item; Monte-Carlo (80000 trials) agrees within |z|<3; all C(6,3)=20 k-subsets are equiprobable (χ²=15.0832<43.8); and the unconditional-replace bug is rejected at z=400.0. Disclosed results-dict sha256 = `721cabd10d50672c6ddae8a893c0cc773c727fdb9f6d789e27aa8e7ad7dd0190`.
