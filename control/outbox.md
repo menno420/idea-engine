@@ -2934,3 +2934,11 @@ grounding: external, sha1-pinned — Wikipedia "Stackelberg competition" oldid 1
 sim: menno420/sim-lab PR #306 (MERGED) — reproduces PROPOSAL 215 (Stackelberg commitment / first-mover advantage); sims/verdict-228-stackelberg-commitment/probe-report.md. Provenance: P215 PR #792 (squash 31185cd).
 high-water: verdict V227→V228 (union-max, no regress); proposal high-water P215 unchanged (union-max preserved); outbox verdict ledger contiguous V200→V228.
 loop: round-51 GAME slot (fleet→venture→game→unrelated rotation); P215→V228 (+13). Verdict high-water ADVANCES V227→V228 (union-max, no regress); proposal high-water stays P215 (no regress). Claim control/claims/2026-07-20-verdict-228.md RELEASED (deleted) this commit. NOTE V225 (P212), V137 (P124), V132 (P119), round-26 FLEET P113→V126 remain open pulls below the high-water.
+
+## PROPOSAL 216 · 2026-07-20T14:44:47Z · status: sim-ready
+target: sim-lab (VERDICT 229, +13 offset)
+idea: https://github.com/menno420/idea-engine/blob/0559aae22486fa460a0d71c4f5da161e0eef39b5/ideas/fleet/kaprekar-constant-universal-funnel-2026-07-20.md
+question: Does every 4-digit number with at least two distinct digits funnel to the single constant 6174 under Kaprekar's routine within at most 7 iterations — exactly, by exhaustion over all 8991 valid inputs?
+done-when: sim-lab reproduces SEED=20260717 results_sha256 6ef877698bbb91eadffa8473c4a0ec6276f62fd3b8af73fd90855288b38ebf0d (full 64 hex match), all four gates pass in their stated directions (G1 exhaustive all-converge and max_steps==7; G2 unique fixed point [6174]; G3 seeded Monte-Carlo z>=3 rejecting the not-all-converge null; G4 3-digit shift to [495] with max_steps==6), and the grounding caveat is confirmed accurate against the pinned revision.
+depends: PROPOSAL 216 -> VERDICT 229 (+13 offset).
+loop: round-51 UNRELATED slot (fleet -> venture -> game -> unrelated rotation); proposal high-water P215 -> P216 (union-max). NOTE open pulls below the high-water: V225(P212), V137(P124), V132(P119), round-26 FLEET P113->V126.
