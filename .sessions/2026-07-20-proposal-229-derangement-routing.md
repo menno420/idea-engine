@@ -1,8 +1,8 @@
 # Session 2026-07-20 — PROPOSAL 229 Derangement routing: P(no agent to its home task) = D_N/N! → 1/e (round-54 FLEET slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 >
-> Born-red HOLD: this card lands born-red (`in-progress`) on the FIRST commit to hold the PR red until the slice is genuinely done. It flips to `complete` as the deliberate LAST commit — after the idea doc + verifier + outbox block land and `python3 bootstrap.py check --strict` plus the outbox check go green. LEFT RED until the flip; the landing workflow arms native squash auto-merge once green + card flipped.
+> Born-red HOLD released: this card landed born-red (`in-progress`) on the FIRST commit and flips to `complete` here as the deliberate LAST commit — the idea doc + firsthand verifier + outbox PROPOSAL 229 block + claim landed and `python3 bootstrap.py check --strict` plus the preflight/outbox checks are green. The flip re-runs the enabler via `synchronize` and arms native squash auto-merge gated on substrate-gate.
 
 ## 💡 Session idea
 Derangement-routing invariant, framed for the fleet. Route N agents to N tasks by a uniformly-random permutation (a random bijection: each agent gets a distinct task). The probability that NO agent lands on its own "home" task is exactly the derangement ratio
