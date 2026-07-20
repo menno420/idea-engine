@@ -260,3 +260,10 @@ do:
   Operationally: (1) the old/archived project's stale triggers may be deleted; keep this seat's own failsafe routines armed (per docs/ROUTINES.md — record before delete). (2) Run the proposal→verdict loop continuously overnight — draft ideas, commit stdlib verifiers, fan to sim-lab, land each slice on green, one change per small PR — creating and finalizing/simulating as many ideas as fit before the owner's morning review.
 why: owner's live overnight directive — the fresh seat is to run the generate→verify loop autonomously through the night and have review-ready work landed by morning; captured verbatim (not a classifier-declined summary like ORDER 016) so a fresh seat resumes the mandate from the repo alone.
 done-when: the overnight loop runs continuously (proposal→verdict slices landing on green) until the owner's morning review; by morning the seat has landed a batch of finalized/simulated ideas for owner review.
+
+## ORDER 019 · 2026-07-20T13:22:04Z · status: new
+priority: P1
+do: Your substrate-kit v1.20.1 upgrade PR #740 is red on its substrate-gate: the new gate flags pre-existing false-wall findings in this repo's docs (see the PR body's finding list). Fix on the PR branch with plain additive commits: rephrase each flagged standing-limitation line as a dated past-tense fact or add a dated supersession note (never delete history; owner-verbatim lines go in the checker's allowlist if supported). Reference implementation: fleet-manager PR #390 (commit d0e16e2). Gate green means the armed auto-merge lands the upgrade.
+why: the v1.20.1 kit-upgrade wave left this repo's upgrade PR red on pre-existing repo-local doc findings the new gate flags; fleet-manager fixed the same pattern (PR #390, merged 2026-07-20T12:08Z) and its gate went green.
+done-when: PR #740's substrate-gate is green and the armed auto-merge has landed the v1.20.1 upgrade on main.
+provenance: fleet-manager ORDER routing (kit-wave sweep 2026-07-20); owner nothing-stuck directive 2026-07-19.
