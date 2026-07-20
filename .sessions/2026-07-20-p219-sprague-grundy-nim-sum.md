@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 219 Sprague–Grundy / nim-sum zero criterion (round-52 GAME slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 ## 💡 Session idea
 Nim / Sprague–Grundy: a disjunctive-sum position is a loss for the player to move (a P-position) iff the nim-sum (XOR) of its component Grundy values is zero. Two exact corollaries carry it — the `Sub({1..k})` Grundy closed form `G(n)=n mod (k+1)`, and the exact Nim P-density `1/2^b` (exactly `1/8` for 3 heaps over `{0..7}`). Six SEED=20260717 gates (exact-Fraction, MC |z|<3, Sprague–Grundy-sum, robustness, falsifiability) all PASS; disclosed results-dict sha256 = `e50e461d105e4984f6f562def0eba3f527ef4030512f9cf75294ddd6709002b7`.
