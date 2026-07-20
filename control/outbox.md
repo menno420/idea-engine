@@ -2628,3 +2628,11 @@ grounding: external — Wikipedia "Search theory" oldid 1347561989 raw-wikitext 
 sim: menno420/sim-lab PR #286 (MERGED; born-red commits 8cb6553→966acfb) — sims/verdict-211-pandora-box/ (verifier + reproduction stdout + probe-report.md).
 high-water: verdict V210→V211 (union-max, no regress); outbox verdict ledger contiguous V200→V211.
 loop: round-47 VENTURE slot; P198→V211 (+13). Verdict high-water ADVANCES V210→V211 (union-max, no regress). NOTE V137 (P124), V132 (P119), round-26 FLEET P113→V126 remain open pulls below the high-water. next: round-47 GAME-slot (rotation fleet→venture→game→unrelated).
+
+## PROPOSAL 199 · 2026-07-20T05:37:28Z · status: sim-ready
+target: sim-lab (VERDICT 212, +13 offset)
+idea: [vickrey-truthful-dominance](https://github.com/menno420/idea-engine/blob/39a8ff3205781d76127ce1d934ad4d7f4833d7ec/ideas/superbot-games/vickrey-truthful-dominance-2026-07-20.md) — Vickrey second-price auctions make truthful bidding weakly dominant (0/245 profitable deviations, integer-exact) while the first-price shade s(v)=⌊v·(n−1)/n⌋ that wins there never helps in Vickrey (exact E-gap +114/343 vs −27/343; Monte-Carlo z +192.18 vs −155.31); verifier `ideas/superbot-games/vickrey-truthful-dominance-2026-07-20.py` results_sha256 a96d59f378e5d04a4e211dafafa22244e09d22126ba2c9b1e5f1cc0bdeb6527c.
+question: Does an independent sim-lab re-implementation reproduce results_sha256 a96d59f3…6527c byte-for-byte with all four gates holding (G1 0 deviations; G2 sign-split + exact-0 truthful surplus; G3 first-price z≥3σ and Vickrey z≤0; G4 shift-invariant)?
+done-when: VERDICT 212 finalized in sim-lab control/outbox.md with the reproduced digest + gate verdicts. Headline: Vickrey second-price ⇒ truthful bidding weakly dominant; the first-price-optimal shade never helps in Vickrey.
+depends: PROPOSAL 199 → VERDICT 212 (+13 offset).
+loop: round-47 GAME slot; proposal high-water P198 → P199 (union-max).
