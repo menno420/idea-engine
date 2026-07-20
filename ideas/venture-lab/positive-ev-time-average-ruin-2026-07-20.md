@@ -71,4 +71,8 @@ Shifted world (U=1.6, D=0.55) — **G4**:
 
 **6. Is determinism real and is the digest the whole dict?** SEED=20260717 is pinned with a fresh `random.Random(SEED)` at the top of every full run; compute() is called twice in-process and asserted canonical-identical before hashing; the compact-canonical (sort_keys, no-whitespace) results dict's own sha256 (8d04b241…c5336) is the digest, contains no self-field, and reproduced byte-identically across two separate invocations and the in-process double-run (all three confirmed this session).
 
+**7. Which lane should build it, or is this a validated null with no build?** venture-lab owns it — the doc plus the stdlib verifier ARE the deliverable, and the outbox already fans the result to sim-lab (VERDICT 203, +13). No product code is routed; the shippable artifact is the reproducible finding itself, so this is a validated positive result, not a null.
+
+**8. What is the smallest shippable slice?** It already shipped in this PR: a single-file stdlib verifier (`positive-ev-time-average-ruin.py`) whose canonical results-dict sha256 (8d04b241…c5336) reproduces byte-identically across invocations, plus this doc. sim-lab can re-run the one file to confirm; no further build is needed to state the head.
+
 **Recommendation: sim-ready**
