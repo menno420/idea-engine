@@ -1,6 +1,6 @@
 # Session 2026-07-20 — PROPOSAL 224 Cayley's formula via the Prüfer bijection: labeled trees on n vertices = n^(n-2) (round-53 UNRELATED slot)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 ## 💡 Session idea
 Cayley's formula: the number of labeled trees on the vertex set `{1..n}` is EXACTLY `n^(n-2)` for `n>=2`, proven bijectively by the Prüfer sequence — a bijection between labeled trees and strings `{1..n}^(n-2)`, so `|trees| = |{1..n}^(n-2)| = n^(n-2)`. Consequences for a uniformly random labeled tree fall straight out of the Prüfer encoding: `E[deg(v)] = 2 − 2/n`, `P(specific edge {i,j}) = 2/n`, `P(v is a leaf) = ((n−1)/n)^(n-2)`. Six SEED=20260717 gates (exact union-find identity, exact bijection roundtrip, exact `Fraction` probabilities, Monte-Carlo agreement `|z|<3`, robustness, and falsifiability rejecting naive alternatives) all PASS; disclosed results-dict sha256 = `7e8dbff568cf62ab3e15ebdc1d9a7e893f024d10f4bd39b1630cbc444317ad1b`. Round-53 UNRELATED slot; pairs with VERDICT 237 (+13). The paired verifier is ALREADY MERGED in sim-lab (PR #318).
