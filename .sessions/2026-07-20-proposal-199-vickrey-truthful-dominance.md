@@ -1,6 +1,6 @@
 # PROPOSAL 199 — Vickrey second-price auction: truthful bidding is weakly dominant (P199 → V212, +13)
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 > 📊 Model: Claude Opus · high · idea/planning
 
 **Born-red HOLD.** This card is committed `in-progress` on commit 1 to hold the PR red (the intended born-red HOLD); the substrate-gate stays red until this line flips to `complete` on the final commit. The gate red is the HOLD, not a defect.
