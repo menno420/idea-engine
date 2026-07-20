@@ -1,5 +1,6 @@
 # Nim / Sprague–Grundy: the nim-sum zero criterion and the Sub({1..k}) Grundy closed form
 
+> **State:** sim-ready
 > **Status:** `sim-ready` — PROPOSAL 219 (round-52 GAME slot) → VERDICT 232 (+13 offset)
 >
 > Verifier: `ideas/superbot-games/sprague-grundy-nim-sum-2026-07-20.py` (byte-identical copy in sim-lab `sims/verdict-232-sprague-grundy-nim-sum/sprague_grundy_nim_sum.py`).
@@ -56,3 +57,28 @@ python3 ideas/superbot-games/sprague-grundy-nim-sum-2026-07-20.py
 ```
 
 Exit 0 iff all gates pass; prints the results dict and `results_sha256:`.
+
+## Probe report (v0, self-adversarial)
+
+**1. Is the nim-sum-zero P-position criterion genuine, not a coincidence of small heaps?** Yes. G2 enumerates all 512 triples over `{0,…,7}³` and finds exactly 64 (`Fraction(1,8)`) with nim-sum zero, matching the group-uniformity argument; G4 confirms the disjunctive-sum rule `G_sum == G(a)⊕G(b)` over all 1681 pairs in `[0,40]²` with 0 mismatches — so the XOR-to-zero criterion is the exact invariant, not a fit to small cases.
+
+**2. Does the result depend on the specific base `b=3` and heap count `d=3`?** No. G5 re-runs the Grundy closed form `G(n)=n mod (k+1)` for `k∈{2,3,4,5}` with 0 mismatches, and the P-density `1/2^b` follows from nim-sum uniformity on the group for any binary range; the `1/8` figure is just the `b=3` instance, not a tuned constant.
+
+**3. Is the Monte-Carlo gate meaningful or trivially satisfied?** Meaningful. G1 draws 200000 random 3-heap positions and measures `phat=0.12607` against the exact `0.125`, `z=1.446904` (`<3`) — an independent stochastic estimate that would diverge if the density were anything but `1/8`; it is not a restatement of the exhaustive count but a separate sampling check that agrees inside 3σ.
+
+**4. Does the grounding source document the specific head?** Partially, and honestly scoped. The Nim article (oldid 1362772636) states the nim-sum-nonzero winning criterion verbatim; the Sprague–Grundy theorem article (oldid 1362556548) gives the disjunctive-sum XOR rule, P-position-iff-Grundy-zero, and the mex definition. For both revisions the `action=raw` wikitext bytes hash to exactly the MediaWiki-reported rev sha1.
+
+**5. What does the verifier prove that the pages do not?** The closed-form subtraction-game identity `G(n)=n mod (k+1)` as an equation, the exact disjunctive-sum reproduction over `[0,40]²`, and the results-dict digest. The Nim page gives only the outcome condition `n ≡ 0 (mod k+1)` (win/loss), not a Grundy-value formula; the Sprague–Grundy page does not treat bounded subtraction games — so these are the verifier's OWN firsthand computations, scoped as such in the caveat.
+
+**6. Is the falsifiability leg a real test?** Yes. G6 constructs a concrete WRONG model — "loss iff the total token count `(a+b+c)` is even," which predicts density `1/2` — and rejects it at `z=−334.45` (`|z|≫3`) against the observed `0.12607`, so the intuitive parity heuristic is decisively killed. A verdict that reproduced only the wrong model would (correctly) reject the head.
+
+**7. Is `all_pass` gameable by a single degenerate parameter?** No. The six gates test distinct directions (a within-3σ MC agreement; an exact rational `==` plus an exact count; two zero-mismatch exact-Grundy identities; a robustness sweep over four `k`; and a `>3σ` directional rejection). No single degenerate setting satisfies all six; a verdict session reproduces the exact 64-hex digest to confirm every constant.
+
+**8. How will a verdict session know it reproduced the head?** It re-runs the stdlib verifier under `SEED=20260717` and confirms `all_pass=true`, `first_failing_gate=null`, and results-dict sha256 `e50e461d105e4984f6f562def0eba3f527ef4030512f9cf75294ddd6709002b7` byte-for-byte (in-process double-run and a separate-process run are byte-identical); any gate fail or digest mismatch is a REJECT.
+
+## One-line design fix
+
+When independent impartial sub-games compose, decide the balance by the XOR (nim-sum) of their component Grundy values — the mover loses iff that nim-sum is zero — never by the parity or the sum of the raw token counts.
+
+**Recommendation: sim-ready**
+
