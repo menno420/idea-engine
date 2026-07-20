@@ -1,6 +1,6 @@
 # PROPOSAL 235 — the value of a 2×2 zero-sum game (von Neumann minimax): for a no-saddle payoff matrix M=[[a,b],[c,d]] the value is the exact rational v = (a·d − b·c)/(a + d − b − c), refuting the "value == pure security level" rule
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-20T23:48:03Z
@@ -18,7 +18,7 @@ started: 2026-07-20T23:48:03Z
 - G4 falsifiability — naive "value == pure-strategy security level (maximin)=−1" rejected at z_naive=462.564053, |z|≥6.0 · pass
 - all_pass: true · first_failing_gate: null · decision: sim-ready
 
-⏳ Flip note (born-red): this card commits FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it flips to complete as the deliberate LAST commit, only after the idea doc, verifier, the full-64 digest match, and all four gates land, and after the owner review checkpoint. The flip clears the born-red HOLD and releases native squash auto-merge.
+✅ Flip note (born-red → complete): this card committed FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it now flips to complete as the deliberate LAST commit, after the idea doc, verifier, the full-64 digest match, and all four gates landed, and after the owner review checkpoint (fm ORDER 048). The flip clears the born-red HOLD and releases native squash auto-merge.
 
 ## What this proposal does
 Adds a fleet PROPOSAL establishing the value of a 2×2 zero-sum game as an exact, machine-checked closed-form identity — von Neumann's minimax value v = (a·d − b·c)/(a + d − b − c) for a no-saddle row-maximiser matrix — and ships a stdlib-only firsthand verifier. Fills a confirmed gap: the foundational 2×2 zero-sum minimax value is untaken across both repos (the nearest neighbours are a 3×3 skew-symmetric value-0 pick-rate head and Penney's nontransitive minimax edge, both categorically distinct).
