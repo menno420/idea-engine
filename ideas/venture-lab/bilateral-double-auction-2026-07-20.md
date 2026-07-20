@@ -1,6 +1,8 @@
 # Bilateral double auction — Myerson–Satterthwaite made concrete (PROPOSAL 230 → VERDICT 243)
 
+> **State:** sim-ready
 > **Status:** `sim-ready`
+> **Grounding:** https://en.wikipedia.org/w/index.php?title=Double_auction&oldid=1346190881@ffbd1f23d644439cf57dfe7be48fc39990d9b68a · fetched 2026-07-20
 >
 > Round-56 VENTURE slot (market design / mechanism design). Paired reproduction mirror VERDICT 243 (offset +13; sim-lab). Claim-first; a stdlib-only Python verifier reproduces every number below deterministically (SEED=20260717).
 
@@ -44,3 +46,23 @@ Pinned external source (bare `<url>@<hex>`, oldid + raw-wikitext sha1):
 
 - **Quoted** (literally on the pinned revision): the existence of a linear-strategy Bayesian Nash equilibrium under a uniform prior, and the Myerson–Satterthwaite impossibility that no mechanism is simultaneously individually rational, budget balanced, incentive compatible, and (economically) efficient — including the k = 1 bilateral corollary that the only efficient deal is given up.
 - **Derived** (computed firsthand, absent from the page): the equilibrium coefficients 2/3, 1/12, 1/4; the `v − c ≥ 1/4` threshold; the values 9/64, 1/6, 27/32, 5/192; the explicit Uniform[0,1] support; and the Chatterjee–Samuelson attribution.
+
+## Probe report (v0, self-adversarial)
+
+**1. Is the core claim exactly true (not merely approximate)?** Yes. G1 integrates the equilibrium surplus over the trade region with `fractions.Fraction` (RNG-free), returning exact rationals: `delta=1/4`, `realized=9/64`, `first_best=1/6`, `efficiency=27/32`, `deadweight=5/192`, `trade_prob=9/32` — equality of exact rationals, not a float comparison.
+
+**2. Could the numbers be an artefact of the sampler rather than the mechanism?** No. Every headline value is fixed by exact rational integration (G1) before any RNG is touched; the Monte-Carlo gate (G2, N=200000) only confirms the exact 9/64 and 9/32 survive under sampling (z_gains=−0.123561, z_trade=−0.258615, both |z|<3), and G3 re-derives 9/64 by a second independent exact route over the difference density `f_D(d)=1−d`.
+
+**3. What is the most plausible wrong belief this could be confused with?** That a "double auction" clears efficiently, so realized gains equal the first-best 1/6. G4 pre-registers exactly that naive-efficient claim and rejects it at z=−47.919492 (>6) on the same sample where the truly efficient rule agrees with 1/6 (z=−0.308089) — the 5/192 deadweight is the Myerson–Satterthwaite cost, not sampling noise.
+
+**4. Is the verifier deterministic and self-checking?** Yes. A single seeded `random.Random(20260717)` consumed in fixed order; an in-process double-run asserts byte-identical canonical output and a separate re-invocation reproduces the digest byte-for-byte; the whole-dict `results_sha256` carries no self-reference. Digest 5052053d…9ea42c3.
+
+**5. Does the grounding actually support the claim, or is it overstated?** Honest split. The pinned Double auction revision carries the existence of a linear-strategy Bayesian Nash equilibrium under a uniform prior and the Myerson–Satterthwaite impossibility (incl. the k=1 corollary) — quoted. Every specific number (the coefficients 2/3, 1/12, 1/4; the v−c≥1/4 threshold; 9/64, 1/6, 27/32, 5/192; the Uniform[0,1] support; the Chatterjee–Samuelson attribution) is flagged derived-not-quoted. Neither oversold (sim/seed/digest are firsthand) nor undersold (the equilibrium's existence and the impossibility genuinely appear).
+
+**6. Does it scale / is it robust?** The claim is a closed-form identity in the fixed Uniform[0,1] prior, so it is size-independent by construction. G3 adds a grid best-response check confirming `b*(v)` and `s*(c)` are each the payoff-maximising deviation at four interior probe points apiece, and the independent difference-density route reproduces 9/64 — two exact routes agreeing pins the value.
+
+**7. Is it falsifiable, and does it survive?** Yes — G4 pre-registers the plausible-but-wrong "double auction is efficient ⇒ gains 1/6" alternative and rejects it at ~48σ on the same sample G2 shows agreeing with the truth; a mis-specified equilibrium (wrong slope or intercept) would break the parallel-offer `v−c≥1/4` threshold and G1/G2 would fire.
+
+**8. Any residual risk before ruling?** The best-response probes are restricted to `v>1/4` and `c<3/4` so the equilibrium offer trades with positive probability and the grid argmax is a unique interior maximum (outside that range every non-trading offer ties at zero payoff — a documented, expected degeneracy, not a defect). The paired sim-lab reproduction carries a byte-identical verifier; the canonical independent VERDICT 243 ruling is a separate coordinator-driven slice. No further blocker.
+
+**Recommendation: sim-ready**
