@@ -1,6 +1,6 @@
 # PROPOSAL 234 — put-call parity holds exactly in a no-arbitrage binomial market: C − P = S₀ − K·R⁻ⁿ, independent of the volatility structure, refuting the undiscounted-strike rule
 
-> **Status:** in-progress
+> **Status:** complete
 
 📊 Model: Opus · high · proposal-authoring
 started: 2026-07-20T23:14:05Z
