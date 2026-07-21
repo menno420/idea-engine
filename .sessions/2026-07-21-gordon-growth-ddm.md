@@ -1,6 +1,6 @@
 # PROPOSAL 246 — Gordon growth / dividend-discount model: the present value of a growing perpetuity with first cashflow D1 at t=1, constant growth g and discount rate r (r>g>−1) is EXACTLY PV = D1/(r−g), the closed sum of the geometric series Σ_{t≥1} D1(1+g)^{t−1}/(1+r)^t — while the naive level-perpetuity D1/r (ignoring growth) is provably wrong for g≠0 (at D1=1, r=1/10, g=4/100 the truth is 50/3≈16.667, not 10)
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T06:54:53Z
@@ -18,7 +18,7 @@ started: 2026-07-21T06:54:53Z
 - G4 falsifiability — SAME headline MC sample: naive level-perpetuity D1/r=10 (ignores growth) REJECTED at z_naive=75.4046816262 (≫3, Z_REJECT=3.0) while the same sample agrees with exact 50/3 at |z|=0.04 · pass
 - all_pass: true · first_failing_gate: null · decision: PASS
 
-✅ Flip note (born-red → complete): this card committed FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it flips to complete as the deliberate LAST commit, after the idea doc, the verifier, the outbox PROPOSAL 246 block, the claim, the full-64 digest match, and all four gates landed. The flip clears the born-red HOLD and releases native squash auto-merge onto green.
+✅ Flip note (born-red → complete): this card committed FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it now flips to complete as the deliberate LAST commit, after the idea doc, the verifier, the outbox PROPOSAL 246 block, the claim, the full-64 digest re-confirmed (results_sha256=3cb527ff7b7873d2bacb56dcb4eea6f490ef7817b67766f45696ab6d706230e4, file sha256=afdd5047a87a048bf86f8a4b1c13e0307da2826c914e616bedfe3b7e8b89da9f), and all four gates landed. This flip clears the born-red HOLD → substrate-gate green → native squash auto-merge (armed on PR #866) lands the slice onto green. No VERDICT block appended, no verdict high-water advanced, control/status.md untouched.
 
 ## What this proposal does
 Adds a fleet PROPOSAL establishing the exact closed form for the present value of a growing perpetuity — the constant-growth dividend-discount model, a.k.a. the Gordon growth model (Gordon & Shapiro 1956; Williams 1938). A stream pays D1 at t=1 and grows at constant rate g per period thereafter, discounted at rate r with r>g>−1; its present value is exactly PV = D1/(r−g), the closed sum of the infinite geometric series Σ_{t≥1} D1(1+g)^{t−1}/(1+r)^t. Ships a stdlib-only firsthand verifier that proves the exact identity three ways in fractions.Fraction (finite partial sum + exact tail, the fixed-point recurrence PV·(r−g)=D1, and the closed form), confirms it against a stochastic-dividend DDM Monte-Carlo with mean-1 shocks, shows invariance to the noise structure and exact invariance to a common shift of r and g (value depends only on the spread r−g), and falsifies the naive level-perpetuity P=D1/r (which ignores growth). Fills a confirmed gap: gordon-growth / dividend-discount is grep-0 across both repos and orthogonal to the named prior venture heads — Markowitz GMV (P242), Kelly (P100), put-call parity (P234), newsvendor critical-fractile, St. Petersburg cap-collapse, Cournot/Stackelberg, Vickrey/revenue-equivalence.
