@@ -1,6 +1,6 @@
 # PROPOSAL 257 — Valiant two-phase (random-intermediate) oblivious routing on the hypercube Q_n — the EXACT phase-1 backbone. Routing each packet first to a UNIFORMLY RANDOM intermediate node d, then on to its destination by left-to-right bit-fixing, the phase-1 route length `L = H(s, d)` (Hamming distance source→intermediate) is EXACTLY `Binomial(n, 1/2)`: `p_k = C(n,k)/2^n`, so `E[L] = n/2`, `Var[L] = n/4`, INDEPENDENT of the source `s` (this source-invariance is exactly why the random intermediate defeats adversarial permutations). The PGF is `G(x) = E[x^L] = ((1+x)/2)^n` exactly, and the average congestion over the `N·n` directed edges of `Q_n` is `(N·(n/2))/(N·n) = 1/2` exactly. The whole rational backbone (PGF identity, both moments via the pmf AND via `G'(1)`/`G''(1)`, pmf normalization/symmetry, congestion `1/2`) is verified with 0 mismatches in `fractions.Fraction` (checked=75). A Monte-Carlo estimate of the phase-1 route length agrees with `E[L]=6.0` at `z=−0.749864`; source-permutation invariance under the bit-reversal adversary holds at `adv_z=0.79122`; `n`-invariance across `n∈{8,10,12,14}` holds (all `|z|<3`); and the naive "route length = n = 12 / congestion = 1" foil is REJECTED on the same sample at `z_foil=−2190.134211`.
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 
