@@ -1,6 +1,6 @@
 # PROPOSAL 245 — open-addressing unsuccessful search under uniform hashing: with m slots and n occupied (load factor α=n/m) the EXPECTED number of probes is EXACTLY (m+1)/(m−n+1), proved via the hockey-stick identity from the exact sum-of-products Σ_{i=0}^{n} C(n,i)/C(m,i), converging monotonically up to the classic 1/(1−α) — refuting the naive belief that 1/(1−α) holds exactly at finite (m,n) (at m=100,n=70 the truth is 101/31≈3.258, not 10/3≈3.333)
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T06:17:50Z
