@@ -1,6 +1,6 @@
 # PROPOSAL 247 — In Green Hackenbush every rooted forest's Sprague–Grundy value is given exactly by the colon principle, so a bamboo forest of stalk-lengths (a₁,…,aₖ) has value a₁⊕…⊕aₖ and is a first-player win iff that nim-sum is nonzero — Green Hackenbush is Nim (anchor: (3,5,7) has value 3⊕5⊕7 = 1, a first-player win; the branching Y-tree {0-1,1-2,1-3} also has value 1).
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T07:51:40Z
