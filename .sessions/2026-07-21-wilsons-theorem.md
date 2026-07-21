@@ -1,6 +1,6 @@
 # PROPOSAL 260 — Wilson's theorem: (n−1)! ≡ −1 (mod n) ⟺ n prime
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T15:49:08Z
