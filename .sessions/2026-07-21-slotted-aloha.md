@@ -1,6 +1,6 @@
 # PROPOSAL 237 — slotted-ALOHA finite-n throughput ceiling: a fleet of n agents contending for one shared slotted resource tops out at S_max(n) = (1 − 1/n)^(n−1) = (n−1)^(n−1)/n^(n−1), maximised at p* = 1/n, decreasing monotonically to 1/e ≈ 0.367879 — refuting the naive "one expected transmission per slot implies throughput 1"
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T00:55:32Z
