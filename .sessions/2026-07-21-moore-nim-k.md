@@ -1,6 +1,6 @@
 # PROPOSAL 259 — Moore's Nim (Nim_k): P-positions ⇔ every binary column-sum ≡ 0 (mod k+1)
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T14:53:38Z
@@ -19,7 +19,7 @@ started: 2026-07-21T14:53:38Z
 - G4 falsifiability (reject at |z|>3) — ordinary-Nim (mod 2) foil applied to k=2 misclassifies at ê=0.345800 vs the true oracle, z_foil=51.409363; the true theorem predicate makes theorem_errors=0 on the same N=5000 sample · pass
 - all_pass: true · first_failing_gate: null · decision: PASS
 
-<!-- gate results above are recorded from the local verifier run; this FIRST commit deliberately holds Status: in-progress so the PR stays RED behind the substrate-gate born-red HOLD until the deliberate final flip. -->
+✅ Flip note (born-red → complete): this card committed FIRST with Status: in-progress to hold the PR red behind the substrate-gate born-red HOLD; it flips to complete as the deliberate LAST commit, after the idea doc (ideas/superbot-games/moore-nim-k-2026-07-21.md), the verifier (ideas/superbot-games/verify_259_moore_nim_k.py), the ## PROPOSAL 259 outbox block, the Nim oldid 1362772636 grounding pin, the full-64 digest da147d54d970d71754baa2994189c9e5f73cfbbf1ad36c7b2366f9ddf870402d, and all four gates landed. The flip clears the born-red HOLD and releases native squash auto-merge.
 
 ## What this proposal does
 Adds a superbot-games PROPOSAL establishing the exact P-position closed form for **Moore's Nim (Nim_k)** under normal play. A position is a multiset of heap sizes (a_1,…,a_m); a move selects between **1 and k** heaps inclusive and removes a **positive** number of tokens from **each** selected heap. Moore's theorem: writing every heap in binary and letting c_j be the column-sum of bit j across all heaps, the position is a **P-position IFF c_j ≡ 0 (mod k+1) for every j**. For k=1 the modulus is 2, so the criterion becomes "every binary column-sum is even" — the nim-sum (XOR) is 0 — exactly ordinary Nim (Bouton). Ships a stdlib-only firsthand verifier that proves the theorem against an INDEPENDENT memoized outcome oracle (P/N recursion that does not assume the theorem) through four gates.
