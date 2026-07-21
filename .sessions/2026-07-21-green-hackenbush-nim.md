@@ -1,0 +1,33 @@
+# PROPOSAL 247 — In Green Hackenbush every rooted forest's Sprague–Grundy value is given exactly by the colon principle, so a bamboo forest of stalk-lengths (a₁,…,aₖ) has value a₁⊕…⊕aₖ and is a first-player win iff that nim-sum is nonzero — Green Hackenbush is Nim (anchor: (3,5,7) has value 3⊕5⊕7 = 1, a first-player win; the branching Y-tree {0-1,1-2,1-3} also has value 1).
+
+> **Status:** complete
+
+> **📊 Model:** Claude Opus · high · idea/planning
+started: 2026-07-21T07:51:40Z
+
+💓 Heartbeat:
+- round/slot: superbot-games · combinatorial game / Sprague–Grundy — Green Hackenbush = Nim via the colon principle (ground-truth mex-DP vs closed form)
+- lane: P247 → V260 (+13 offset)
+- branch: claude/proposal-247-green-hackenbush-nim
+- verifier: ideas/superbot-games/verify_247_green_hackenbush_nim.py (stdlib only: json, hashlib, math, random, fractions, itertools)
+- SEED: 20260717 · results_sha256: f1967eac6a0158fb4b1546facd309355577f251033067167296f6b921903c0b9
+- determinism: in-process double-run IDENTICAL · --selfcheck byte-identical · separate re-invocation byte-identical
+- G1 EXACT identity (integer/XOR arithmetic) — colon_value == grundy over an exhaustive enumeration of all rooted trees ≤7 edges plus a random battery of larger trees/forests; 800 positions checked, 0 mismatches, max 34 edges · pass
+- G2 MC agreement (|z|<3) — bamboo model (k=3 stalks, each length uniform in {1..8}, 512 forests): exact P-position density p0 = 21/256 = 42/512 ≈ 0.08203 (all 512 solved with the game engine); N=200000 i.i.d. samples classified by the game engine give p̂=0.08248 (16496 hits), z=0.731, |z|<3 · pass
+- G3 invariance/robustness (two sub-checks) — (a) relabel/child-order invariance over 200 random trees, both engines unchanged, 0 discrepancies; (b) optimal-play robustness — an optimal player (move to a value-0 successor) never loses across 360 games vs a random opponent, 0 losses · pass
+- G4 falsifiability (reject plausible naive foils) — on the same model the sample's true P-density is rejected against Foil A "sum-parity" (P iff a₁+a₂+a₃ even, q=1/2) at z=−373.4 and Foil B "sum-mod-3" (P iff sum ≡ 0 mod 3, q=85/256) at z=−237.0, while agreeing with the correct XOR rule at z=0.731 · pass
+- all_pass: true · first_failing_gate: null · decision: PASS
+
+✅ Flip note (born-red → complete): this card committed FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it now flips to complete as the deliberate LAST commit, after the idea doc, the verifier, the outbox PROPOSAL 247 block, the claim, and the full-64 digest re-confirmed (results_sha256=f1967eac6a0158fb4b1546facd309355577f251033067167296f6b921903c0b9, file sha256=da7f11191025addd748d29a49d22eb9173bd05ab8775bf8458a62e65b31b639b) all landed. This flip clears the born-red HOLD → substrate-gate green → native squash auto-merge (armed on the PR) lands the slice onto green. No VERDICT block appended, no verdict high-water advanced, control/status.md untouched.
+
+## What this proposal does
+Adds a superbot-games PROPOSAL establishing that Green Hackenbush is Nim: in the impartial (all-edges-green) game every rooted forest's Sprague–Grundy value is given EXACTLY by the colon principle, so a bamboo forest of stalk-lengths (a₁,…,aₖ) has value a₁⊕…⊕aₖ and is a first-player win iff that nim-sum is nonzero. Ships a stdlib-only firsthand verifier that proves the claim by pitting an independent ground-truth mex-DP game engine (which knows nothing of the closed form) against the colon-principle closed form, through four gates each in its own direction — an exact identity sweep, a Monte-Carlo P-density agreement, an invariance/robustness leg, and a falsifiability leg that rejects plausible naive foils — all wrapped in a reproducible SEED=20260717 digest. Fills a confirmed gap: green-hackenbush / colon-principle is grep-0 across both repos and orthogonal to the named prior game heads — Sprague–Grundy nim-sum (P219), Fibonacci nim / Zeckendorf (P243), Wythoff (P239), Banzhaf voting power (P203).
+
+## Method
+Ground-truth engine first, closed form second, then the two are forced to agree. (1) The game engine grundy(edges) computes the Sprague–Grundy value by memoized mex-DP over frozenset positions: each move removes one edge, after which ground_component prunes every edge no longer connected to the ground (disconnected edges fall), and the value of a position is the mex of the values of its successors under normal play — the engine assumes no theorem, it plays the game. (2) The closed form colon_value evaluates the colon-principle recursion sub(v,parent)=XOR over children c of (1+sub(c,v)), with the whole forest's value taken as the XOR over the ground's neighbours r of (1+sub(r,0)). (3) SEED=20260717 (hardcoded), all floats rounded to 10 decimals before hashing, digest = sha256 of the canonical-JSON results dict; determinism verified three ways — in-process double-run via --selfcheck, separate re-invocation, both byte-identical. G1 checks colon_value==grundy exhaustively over rooted trees ≤7 edges plus a random battery; G2 confirms the exact P-density on the bamboo model against N=200000 i.i.d. samples; G3 adds relabel invariance plus optimal-play robustness; G4 rejects the sum-parity and sum-mod-3 foils on the same sample.
+
+## ⟲ Previous-session review
+PROPOSAL 246 (Gordon growth / dividend-discount present value of a growing perpetuity = D1/(r−g), → V259) landed clean with the born-red + four-gate + full-64-digest choreography; this slice reuses that contract exactly and extends the shipped set into superbot-games — a combinatorial-game head distinct from the fleet venture / valuation atom it followed. P247 is distinct: green-hackenbush / colon-principle is grep-0 across both repos and orthogonal to the named prior game heads — Sprague–Grundy nim-sum (P219, the abstract disjunctive-sum theorem), Fibonacci nim / Zeckendorf (P243, a take-away game), Wythoff (P239, a two-pile pursuit game), Banzhaf voting power (P203, a power index): those are abstract-sum / take-away / pursuit / power objects; this is the concrete colon-principle reduction of Green Hackenbush to Nim.
+
+## 💡 Session idea
+Next untaken adjacent game atoms surfaced in dedup (all grep-checked today, grep-0): (a) Selfridge–Conway envy-free cake-cutting — the exact discrete three-person envy-free division protocol; (b) Bulgarian solitaire — the triangular-number fixed point of the card-pile map; (c) Kayles / Dawson octal games — Grundy-value periodicity of octal take-away games; (d) misère-Nim last-player rule — the last-player-loses variant and its distinct P-position characterization. All orthogonal to the named prior game heads.
