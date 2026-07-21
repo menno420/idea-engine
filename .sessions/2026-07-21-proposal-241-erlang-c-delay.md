@@ -1,6 +1,6 @@
 # PROPOSAL 241 — Erlang-C delay probability: for an M/M/c pool of c parallel agents (Poisson arrivals λ, exp service μ, offered load a=λ/μ<c, utilization ρ=a/c) the probability an arriving task must WAIT (finds all c agents busy) is exactly the Erlang-C formula C(c,a) — C(2,1)=1/3, C(10,6)=1458/14393 — refuting both the "delay = utilization ρ=1/2" foil and the "delay = Erlang-B blocking = 1/5" foil
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T05:10:00Z
@@ -18,7 +18,7 @@ started: 2026-07-21T05:10:00Z
 - G4 falsifiability — SAME (c=2,a=1) MC sample: naive "delay=ρ=1/2" REJECTED at z_naive_rho=−149.2933145858 (|z|≥6, Z_REJECT=6.0); naive "Erlang-C=Erlang-B" — exactly 1/3≠1/5=B(2,1) (exact_distinct=True) and z_naive_b=148.7935533928 REJECTED · pass
 - all_pass: true · first_failing_gate: null · decision: PASS
 
-✅ Flip note (born-red → complete): this card commits FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it flips to complete as the deliberate LAST commit, after the idea doc, the verifier, the outbox PROPOSAL 241 block, the full-64 digest match, and all four gates landed. The flip clears the born-red HOLD and releases native squash auto-merge.
+✅ Flip note (born-red → complete): this card commits FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it flips to complete as the deliberate LAST commit, after the idea doc, the verifier, the outbox PROPOSAL 241 block, the full-64 digest match, and all four gates landed. The flip clears the born-red HOLD and releases native squash auto-merge. FLIPPED: idea doc + verifier (results_sha256=4d382264df161dcd033abc0592afc58a84173b58aaf061449d6c7d72d832dc39, all four gates PASS) + outbox PROPOSAL 241 block landed in commit 1; this commit flips Status in-progress → complete to release merge-on-green.
 
 ## What this proposal does
 Adds a fleet PROPOSAL establishing the exact delay probability for a pool of c parallel agents modelled as an M/M/c queue. With Poisson arrivals at rate λ, exponential service at rate μ per agent, offered load a=λ/μ Erlangs (a<c for stability) and utilization ρ=a/c, the probability that an arriving task must WAIT — it finds all c agents busy — is exactly the Erlang-C formula C(c,a)=[a^c/c!·c/(c−a)] / [Σ_{k=0}^{c−1}a^k/k! + a^c/c!·c/(c−a)]: C(2,1)=1/3, C(10,6)=1458/14393. Ships a stdlib-only firsthand verifier that computes C three exact ways (direct sum, Erlang-B bridge, birth-death stationary), runs a correct discrete-event M/M/c simulator to confirm it by PASTA, checks time-scale invariance, and falsifies the "delay=utilization ρ=1/2" and "delay=Erlang-B blocking=1/5" naive beliefs. Fills a confirmed gap: the M/M/c DELAY probability is grep-0 across both repos and is distinct from the shipped Erlang-B M/M/c/c LOSS head (verdict-154) and the asymptotic √-safety-staffing law (P169/verdict-182).
