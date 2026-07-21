@@ -17,6 +17,8 @@ Everything below this section is a dated EAP-era snapshot: read it as
 history, verify against `control/status.md` and merged work before
 building on it.
 
+**Project closeout:** the definitive final record is [docs/PROJECT-CLOSEOUT.md](PROJECT-CLOSEOUT.md).
+
 ## Stability baseline
 
 The generate→verify loop is green end to end: substrate-kit v1.10.0, `python3
