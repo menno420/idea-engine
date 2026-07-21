@@ -1,6 +1,6 @@
 # PROPOSAL 239 — Wythoff's game cold positions are exactly the golden-ratio Beatty pairs: the P-positions (Sprague-Grundy value 0) are P_n=(⌊nφ⌋,⌊nφ²⌋) with the exact identity b_n=a_n+n and φ=(1+√5)/2, the two sequences partition Z+ (Beatty, since 1/φ+1/φ²=1) so the lower density is 1/φ≈0.618 — refuting both the "(k,2k)" losing-position guess and the "even 50/50 split" density belief
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T01:57:49Z
