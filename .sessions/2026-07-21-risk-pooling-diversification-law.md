@@ -1,6 +1,6 @@
 # PROPOSAL 238 — insurance risk-pooling / diversification variance law: a mutual pool of n members each carrying an INDEPENDENT Bernoulli(p) unit loss has pooled per-member cost L̄=S/n (S~Binomial(n,p)) obeying E[L̄]=p (fair premium, scale-free in n) and Var[L̄]=p(1−p)/n — at p=1/10 a single member's cost sd 0.3 falls to exactly 0.03 across n=100 (√n=10× cut, mean unchanged) — refuting the naive comonotonic belief Var[L̄]=p(1−p) for all n (the ρ=1 no-diversification limit)
 
-> **Status:** in-progress
+> **Status:** complete
 
 📊 Model: Claude Opus · high · idea/planning
 started: 2026-07-21T01:40:00Z
