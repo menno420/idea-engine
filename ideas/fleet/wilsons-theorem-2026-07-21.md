@@ -8,6 +8,7 @@
 **Proposal:** 260 → Verdict 273 (+13 offset) — named by the `## PROPOSAL 260` block in `control/outbox.md`
 **Verifier:** [`verify_260_wilsons_theorem.py`](verify_260_wilsons_theorem.py) · stdlib only (argparse, hashlib, json, math, random, fractions, sys) · SEED=20260721
 **Digest:** `results_sha256 = 938969bc60f733cea8c9e79e5a29a7b062e661de10619aa8bcdf61719e9ba474`
+> **Grounding:** https://en.wikipedia.org/w/index.php?title=Wilson%27s_theorem&oldid=1334572197@17332369b47f5af882ef6082b75e47661cd6fc89 · fetched 2026-07-21
 
 ## What this proposal does
 Adds a fleet PROPOSAL establishing **Wilson's theorem** as a self-contained, exactly-verifiable pure-math closed form — the "unrelated / pure-math" slot, orthogonal to every fleet, venture, and game head:
@@ -35,3 +36,23 @@ PROPOSAL 259 (Moore's Nim / Nim_k, → V272) landed the born-red + four-gate + f
 
 ## 💡 Session idea
 Adjacent untaken number-theory atoms surfaced in dedup: (a) the composite-modulus companion as a standalone head (`(n−1)! ≡ 0 (mod n)` for all composite n>4); (b) Wolstenholme's theorem (`binom(2p,p) ≡ 2 (mod p³)` for p>3); (c) Lucas' theorem for binomials mod p. All grep-checked today.
+
+## Probe report (v0, self-adversarial)
+
+**1. What is this really?** The exact number-theoretic biconditional known as Wilson's theorem: for every integer n ≥ 2, `(n−1)! ≡ −1 (mod n)` IF AND ONLY IF n is prime — equivalently the residue `(n−1)! mod n` is `n−1` on the primes and `0` on every composite `n > 4` (sole exception `n = 4`, `3! = 6 ≡ 2 (mod 4)`). It is proved firsthand by forcing two independent oracles to agree — an exact iterated-modular factorial-residue and a trial-division primality test that knows nothing of factorials — not by asserting the theorem: the predicate matches trial-division primality on every n in [2,1500] (G1, mismatches=0) with a full-bignum-factorial cross-check on [2,400].
+
+**2. Is it non-trivial / not a duplicate?** Yes. `wilson` / `(n-1)!` / `factorial-primality` is grep-0 across both repos. It is an exact primality ⇔ factorial-residue biconditional, orthogonal to every shipped math head — Stirling (P256), Gaussian integral √π (P252), Cantor set (P248), open-addressing hashing (P245), Buffon (P244), coprime density 6/π² (P232) — and to every shipped probabilistic head (coupon-collector, birthday, Bertrand ballot, Catalan, Benford). It is a number-theory result, not a probability/limit/combinatorial-count object.
+
+**3. How could the oracle be wrong, and what guards it?** A bug in the iterated modular reduction could produce a wrong residue that happens to agree with a wrong primality call. Guarded by (i) the **exhaustive** G1 sweep over [2,1500] where the two computations are genuinely independent (modular factorial arithmetic vs trial division), 0 mismatches; (ii) the full-bignum cross-check `math.factorial(n−1) % n` over [2,400], 0 mismatches, which pins the iterated residue to the exact factorial; (iii) the G3 composite-side invariance (every composite n>4 ⇒ residue 0, n=4 the sole exception, 0 violations); and (iv) the G4 falsifiability leg where the sign-flip foil "≡ +1" is rejected at z_foil=-193.948379 while the true predicate matches — a shared bug would have to corrupt all of these identically. Carmichael anchors 561 and 1105 (which fool Fermat) are classified composite correctly.
+
+**4. Is the digest deterministic?** Yes. `build_results()` is a pure function of SEED and fixed params; the sampling gate reseeds a fresh `random.Random(SEED)`; every float is a fixed 6-dp format string, every count an int, every fraction a "num/den" string; no wall-clock / PID / unordered iteration enters the payload. In-process double-run, `--selfcheck`, and a separate fresh re-invocation are byte-identical. `results_sha256 = 938969bc60f733cea8c9e79e5a29a7b062e661de10619aa8bcdf61719e9ba474`.
+
+**5. What does the foil rule out?** G4 pre-registers the most plausible wrong rule — the sign-flipped "`(n−1)! ≡ +1 (mod n)` ⟺ prime" — and rejects it at `z_foil = -193.948379` (foil density 0.000675 vs the true prime density 239/1499) while the true `≡ −1` predicate matches at z=-1.624284 on the same population. This isolates the sign of the residue (−1, i.e. n−1) as load-bearing: `+1` holds for almost no prime.
+
+**6. What are the limits?** The exhaustive G1 sweep is capped at N=1500 (iterated mod) with the exact-bignum cross-check capped at 400 (factorials grow fast); the exact identity carries the claim, and G2 confirms the prime density on the same population via N=200000 iid draws. The closed form is exact and scales freely beyond the swept horizon — the caps bound only the firsthand cross-check, not the theorem.
+
+**7. Who consumes it?** sim-lab, as the paired **VERDICT 273** (+13 offset) reproduction — a separate coordinator-driven slice that re-runs the byte-identical verifier and checks the digest and the four gates.
+
+**8. How will we know it worked?** Byte-identical digest reproduction: sim-lab VERDICT 273 re-runs `SEED=20260721` and obtains `results_sha256 = 938969bc60f733cea8c9e79e5a29a7b062e661de10619aa8bcdf61719e9ba474` (in-process double-run + `--selfcheck` + separate re-invocation byte-identical), with all four gates PASS each in its own direction and `all_gates_pass = true`, `first_failing_gate = null`, `decision = PASS`.
+
+**Recommendation: sim-ready**
