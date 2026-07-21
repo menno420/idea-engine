@@ -1,6 +1,6 @@
 # PROPOSAL 244 — Buffon's needle: a needle of length ℓ ≤ line-spacing d dropped uniformly at random on a plane ruled with parallel lines spaced d apart crosses a line with probability EXACTLY P = 2ℓ/(πd) — refuting the naive "no angle factor" P = ℓ/d and the subtler "E[sinθ]=½" guesses
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T05:49:13Z
