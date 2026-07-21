@@ -1,6 +1,6 @@
 # PROPOSAL 261 — Morris approximate counting: unbiased estimator E[2^C−1]=n, Var=n(n−1)/2
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T16:21:19Z
