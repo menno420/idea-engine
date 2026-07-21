@@ -1,6 +1,6 @@
 # VERDICT 251 — independent risk-pooling / diversification variance law: for a mutual pool of n members each carrying an INDEPENDENT Bernoulli(p) unit loss, the pooled per-member cost L̄=S/n (S~Binomial(n,p)) obeys the exact insurance law E[L̄]=p (fair premium, scale-free in n) and Var[L̄]=p(1−p)/n — so at p=1/10, n=100 the single-member cost sd 0.3 falls to exactly 0.03 (a √n=10× cut, pooled Var=9/10000) with the mean premium unchanged, while the naive comonotonic ρ=1 belief Var[L̄]=p(1−p)=9/100 (no diversification) is falsified — reproduce PROPOSAL 238
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · review/verify
 
