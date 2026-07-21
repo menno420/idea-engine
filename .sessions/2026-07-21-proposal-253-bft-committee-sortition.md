@@ -1,6 +1,6 @@
 # PROPOSAL 253 — Committee-sortition safety in a Byzantine fleet: a fleet of N=64 agents with B=21 Byzantine sits EXACTLY at the classical BFT safety bound N=3B+1 (f=21), yet a size-K=16 committee drawn by uniform sortition WITHOUT replacement is UNSAFE (≥ T=floor(K/3)+1=6 Byzantine members, breaking a K-node quorum that tolerates floor((K−1)/3)=5) with EXACT hypergeometric probability P = Σ_{i=T}^{K} C(B,i)·C(N−B,K−i)/C(N,K) = 296431911/685926212 ≈ 0.432163 — a globally-safe fleet produces unsafe sub-committees ~43% of the time because sortition concentrates Byzantine nodes (expected Byzantine per committee K·B/N = 5.25, just below the threshold 6).
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 
