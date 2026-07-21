@@ -1,6 +1,6 @@
 # VERDICT 250 — slotted-ALOHA finite-n throughput ceiling: for n agents contending for one shared slotted resource, each transmitting per slot with probability p (a slot succeeds iff EXACTLY one agent transmits), the single-slot success throughput S(n,p)=n·p·(1−p)^(n−1) is maximised exactly at p*=1/n, giving the exact rational ceiling S_max(n)=(1−1/n)^(n−1)=(n−1)^(n−1)/n^(n−1) — 1/2, 4/9, 27/64 at n=2,3,4 — strictly decreasing in n and converging FROM ABOVE to 1/e≈0.367879 (about 36.8%), while the naive "offered load = throughput = 1" is provably wrong — reproduce PROPOSAL 237
 
-> **Status:** `in-progress`
+> **Status:** `complete`
 
 > **📊 Model:** Claude Opus · high · review/verify
 
