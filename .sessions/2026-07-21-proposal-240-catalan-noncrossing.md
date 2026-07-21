@@ -1,6 +1,6 @@
 # PROPOSAL 240 — Catalan numbers count non-crossing handshakes: a uniformly random perfect matching of 2n circle points is non-crossing with probability exactly C_n/(2n−1)!! where C_n=binom(2n,n)/(n+1) and (2n−1)!! is the number of perfect matchings — n=2→2/3, n=3→1/3, n=4→2/15 — refuting both the "half are planar" P=1/2 belief and the "count=2^(n−1)" guess
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T02:32:00Z
