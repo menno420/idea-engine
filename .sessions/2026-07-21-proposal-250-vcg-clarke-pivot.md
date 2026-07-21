@@ -1,6 +1,6 @@
 # PROPOSAL 250 — Vickrey–Clarke–Groves (Clarke-pivot) mechanism, multi-unit single-demand: k identical units to n unit-demand bidders (v₁≥…≥vₙ), efficient allocation = the k highest-value bidders, each winner's Clarke-pivot payment = its externality W₋ᵢ(without i) − W₋ᵢ(with i) = the SAME uniform price = the (k+1)-th highest valuation (highest LOSING bid), so truthful reporting is a dominant strategy and expected revenue = k·E[V₍ₖ₊₁₎:ₙ] — on n=5,k=2,v=(10,8,6,4,2) winners {10,8}, uniform price 6, revenue 12, pivots 14−8=6 and 16−10=6; the naive "uniform price = lowest WINNING bid (k-th highest)" foil is rejected at |z|≈378.9
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 
