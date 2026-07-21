@@ -1,6 +1,6 @@
 # PROPOSAL 256 — Stirling's approximation `lim n!/(√(2πn)(n/e)^n) = 1`: a self-contained pure-math closed form (the "unrelated / pure-math" slot). The limit is trivially 1, so the EXACT teeth come from the correction series: writing `r_n = n!/(√(2πn)(n/e)^n)`, the log-ratio `ln(r_n) = Σ_{k≥1} c_k/n^{2k−1}` has exact rational coefficients `c_k = B_{2k}/(2k(2k−1))` (Bernoulli) and the ratio expands as `r_n ~ Σ a_k/n^k` with exact `a_k = 1, 1/12, 1/288, −139/51840, …`. The whole rational backbone (Bernoulli recurrence → c_k → a_k, exp-of-series and its inverse log-of-series agreeing) is verified with 0 mismatches in `fractions.Fraction`. A Monte-Carlo estimate of `n!` via the Gamma integral agrees with the closed form at |z|=1.30; Robbins' EXACT rational bracket `1/(12n+1) < ln(r_n) < 1/(12n)` holds with 0 violations across n=1..64 in 60-digit `Decimal`; and the naive `√(πn)`-prefactor foil (factor-2-under-root, predicting ratio 1/√2) is REJECTED on the same sample at |z_foil|=598.9.
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 
