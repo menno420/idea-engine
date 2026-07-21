@@ -1,8 +1,8 @@
 # Session — PROPOSAL 258: Prophet inequality — single-threshold 1/2 guarantee
 
-> **Status:** in-progress
+> **Status:** complete
 
-📊 Model: Claude Opus family · high effort · idea-proposal authoring.
+> **📊 Model:** Claude Opus family · high · idea/planning
 
 ## 💡 Session idea — the claim exactly
 
@@ -33,3 +33,7 @@ and the constant 1/2 is OPTIMAL — the tight family X_1=1 (sure), X_2=M w.p. 1/
 - P258 → V271 open pull once landed.
 - Disclosed results_sha256: 1c235e4991e2775e0c5813966f6cec313c296580c83a27195b287d9e4e3068fb; verifier file sha256: e3a0f0a271920b0ac91c062a26469515c2f2edefac5dbdebfbf1ca37bbecf1c9.
 - Fleet rotation continues; proposal high-water P258, verdict high-water V270 (union-max, no regress).
+
+## ✅ Completion note
+
+Landed sim-ready on branch `claude/proposal-258-prophet-inequality-threshold`, PR **#890**. Verifier file sha256 `e3a0f0a271920b0ac91c062a26469515c2f2edefac5dbdebfbf1ca37bbecf1c9`; results_sha256 `1c235e4991e2775e0c5813966f6cec313c296580c83a27195b287d9e4e3068fb` (deterministic three ways — in-process double-run, `--selfcheck`, separate re-invocation, all byte-identical). Four gates PASS: G1 EXACT (guarantee on 6 instances, take-first necessity 1/10), G2 MC AGREEMENT (z=−1.903527, N=200000), G3 INVARIANCE (exact 4/5 under λ∈{2,3,100,1/7}), G4 FALSIFIABILITY (gambler-matches-prophet rejected at z_foil=−160.266876, tight family monotone toward 1/2). Card flipped in-progress → complete on the closing commit; gate now fully green. This slice authors NO verdict — verdict high-water stays at V270. Paired sim-lab reproduction mirror is `sims/verdict-271-prophet-inequality-threshold/`.
