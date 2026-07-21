@@ -1,6 +1,6 @@
 # PROPOSAL 255 — Mock Turtles is an impartial coin-turning game (normal play, last to move wins) where a move turns over 1, 2, or 3 coins with the rightmost turned coin going Heads→Tails; the Sprague–Grundy value of a single heads-up coin at position n is the Mock-Turtle number g(n) = the unique ODIOUS member of {2n, 2n+1} (g(n)=2n if popcount(n) is odd, else 2n+1 — the odious numbers 1,2,4,7,8,11,13,14,16,… of OEIS A000069), and by the coin-turning decomposition the value of any position with heads at set S is the nim-sum ⊕ₙ∈S g(n), so the first player wins iff that nim-sum is nonzero (anchors g(0)=1, g(1)=2, g(2)=4, g(3)=7, g(4)=8, g(5)=11, g(6)=13, g(7)=14, g(8)=16).
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T12:45:19Z
