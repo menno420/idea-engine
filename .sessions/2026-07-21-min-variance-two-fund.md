@@ -1,6 +1,6 @@
 # PROPOSAL 242 — Markowitz global minimum-variance portfolio & two-fund separation: for n assets with SPD covariance Σ the least-variance fully-invested portfolio is w*=Σ⁻¹𝟙/(𝟙ᵀΣ⁻¹𝟙) with variance 1/(𝟙ᵀΣ⁻¹𝟙) — Σ=[[4,1/2],[1/2,1]] gives w*=(1/8,7/8), σ*²=15/16 — beating naive equal-weight (3/2) and the best single asset (1), with efficient weights affine in target return
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T06:10:00Z
@@ -18,7 +18,7 @@ started: 2026-07-21T06:10:00Z
 - G4 falsifiability — SAME MC sample: naive "equal weights optimal" (variance 3/2) REJECTED at z_eq=191.0595200324; naive "hold single lowest-variance asset" (variance 1) REJECTED at z_a2=21.4684726468; both |z|≥6 [Z_REJECT=6.0]; exactly 3/2≠15/16 and 1≠15/16 · pass
 - all_pass: true · first_failing_gate: null · decision: PASS
 
-✅ Flip note (born-red → complete): this card commits FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it flips to complete as the deliberate LAST commit, after the idea doc, the verifier, the outbox PROPOSAL 242 block, the full-64 digest match, and all four gates landed. The flip clears the born-red HOLD and releases native squash auto-merge.
+✅ Flip note (born-red → complete): this card committed FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it flips to complete as the deliberate LAST commit, after the idea doc, the verifier, the outbox PROPOSAL 242 block, the full-64 digest match, and all four gates landed. The flip clears the born-red HOLD and releases native squash auto-merge. FLIPPED: idea doc + verifier (results_sha256=3c1ec97050d0ca481e084976055ce3ea0e435c86b794e909507757e3eedf3f9c, all four gates PASS) + outbox PROPOSAL 242 block landed in commit 1 (PR #858); the paired sim-lab reproduction mirror opened READY (PR #340); this commit flips Status in-progress → complete to release merge-on-green.
 
 ## What this proposal does
 Adds a venture-lab PROPOSAL establishing the Markowitz global minimum-variance (GMV) portfolio and two-fund separation. For n risky assets with SPD covariance Σ, the fully-invested (𝟙ᵀw=1) portfolio of least return variance is w*=Σ⁻¹𝟙/(𝟙ᵀΣ⁻¹𝟙) with variance σ*²=1/(𝟙ᵀΣ⁻¹𝟙); equivalently every asset's marginal variance contribution is equalised, (Σw*)_i=σ*² for all i. For Σ=[[4,1/2],[1/2,1]] (variances 4 and 1, cov 1/2, corr 1/4): w*=(1/8,7/8), σ*²=15/16 — strictly below the best single asset (variance 1) and far below naive equal-weight (variance 3/2). Ships a stdlib-only firsthand verifier that computes (w*,σ*²) two exact ways (two-asset closed form + general Fraction matrix solve), confirms the FOC-equalisation across a 2/3/4-asset SPD panel, runs an iid Monte-Carlo agreement gate, checks scale-equivariance and two-fund separation exactly, and falsifies the "equal weights optimal" and "hold the single lowest-variance asset" naive beliefs. Fills a confirmed gap: the Markowitz GMV / two-fund separation head is grep-0 across both repos (distinct from the risk-pooling diversification-law head P238/V251 and the IRR heads).
