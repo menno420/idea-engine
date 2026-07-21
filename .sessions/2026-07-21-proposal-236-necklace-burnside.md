@@ -1,6 +1,6 @@
 # PROPOSAL 236 — counting necklaces of n beads in k colours under rotation (cyclic group C_n): the exact orbit count is N_k(n) = (1/n)·Σ_{d|n} φ(d)·k^(n/d), refuting the naive "divide by the group order" rule N = k^n/n
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T00:17:50Z
@@ -18,7 +18,7 @@ started: 2026-07-21T00:17:50Z
 - G4 falsifiability — naive "N == k^n/n = 121.5" (divide by group order, ignores non-free orbits) rejected at z_reject=109.003526, |z|≥6.0 · pass
 - all_pass: true · first_failing_gate: null · decision: PASS
 
-⏳ Flip note (born-red): this card commits FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it flips to complete as the deliberate LAST commit, only after the idea doc, verifier, the full-64 digest match, and all four gates land. The flip clears the born-red HOLD and releases native squash auto-merge.
+✅ Flip note (born-red → complete): this card committed FIRST with Status: in-progress to hold the PR red behind the substrate-gate; it now flips to complete as the deliberate LAST commit, after the idea doc, verifier, the outbox PROPOSAL 236 block, the full-64 digest match, and all four gates landed. The flip clears the born-red HOLD and releases native squash auto-merge.
 
 ## What this proposal does
 Adds a fleet PROPOSAL establishing the number of distinct necklaces of n beads in k colours (rotations equivalent, the cyclic group C_n acting on bead positions) as an exact, machine-checked closed-form identity — Burnside's lemma specialised to C_n, N_k(n) = (1/n)·Σ_{d|n} φ(d)·k^(n/d) — and ships a stdlib-only firsthand verifier. Fills a confirmed gap: necklace / Burnside / Pólya cyclic-group orbit counting is untaken across both repos (grep count 0 for necklace / Burnside; the only "polya" hits are the distinct Pólya-URN reinforcement head P208 and Pólya's random-walk recurrence theorem — neither is the enumeration/orbit-count result).
