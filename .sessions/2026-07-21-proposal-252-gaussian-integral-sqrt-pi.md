@@ -1,6 +1,6 @@
 # PROPOSAL 252 — The Gaussian integral ∫_{−∞}^{∞} e^{−x²} dx = √π: a self-contained pure-math closed form (the "unrelated / pure-math" slot). The irrational √π is verified through the DIMENSIONLESS even-moment ratios R_m = M_{2m}/M_0 = (2m−1)!!/2^m = (2m)!/(4^m·m!), which are exactly rational (√π cancels): the integration-by-parts recurrence M_{2m} = ((2m−1)/2)·M_{2m−2} and the closed form agree with 0 mismatches over m=0..12 in exact fractions.Fraction. A uniform-importance Monte-Carlo estimate of ∫_{−6}^{6} e^{−x²} dx agrees with √π·erf(6) at |z|=0.70; the dimensionless ratio is exactly scale-invariant (65 Fraction checks, 0 mismatches) and the full integral obeys √a·∫e^{−ax²}dx = √π across 6 (a,μ) configs (max |z|=1.54); the naive foil confusing it with the standard-normal normalizer ∫e^{−x²/2}dx = √(2π) ≈ 2.5066 is REJECTED on the same sample at |z_foil|=133.8.
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 
