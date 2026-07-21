@@ -1,0 +1,5 @@
+# claim — VERDICT 264 · Bulgarian solitaire triangular-staircase fixed point / exact k²−k convergence bound
+
+- `claude/verdict-264-bulgarian-solitaire` · **scope** — VERDICT 264 adjudication of PROPOSAL 251 (Bulgarian solitaire on integer partitions of n: on a triangular total n=T_k=k(k+1)/2 EVERY partition converges to the unique staircase fixed point δ_k=(k,…,1) in a MAX of EXACTLY k²−k steps; non-triangular n never settles) → append `## VERDICT 264` block to control/outbox.md + bump control/status.md high-water to P251/V264; files: control/outbox.md, control/status.md, control/claims/2026-07-21-verdict-264-bulgarian-solitaire.md · 2026-07-21
+
+Notes: control-plane-only diff (control fast lane, no session card); ruling APPROVE; verifier ideas/fleet/verify_251_bulgarian_solitaire.py (file sha256 a317b1f8a61826cb96cf62c6beffb2c0e8c1762b16840c1c87d9d2bb35fdf326), results_sha256=f9fdd4c7a787d5b559248f8897ca00d82fa3e556535f67fd552a6854e0b19537 reproduced byte-for-byte; built ON TOP of the sim-lab reproduction mirror sims/verdict-264-bulgarian-solitaire/, no competing sim-lab PR. Lands via native merge-on-green.
