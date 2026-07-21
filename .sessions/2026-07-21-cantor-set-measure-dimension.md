@@ -1,6 +1,6 @@
 # PROPOSAL 248 — middle-thirds Cantor set: an uncountable set with Lebesgue measure EXACTLY 0 (λ(Cₙ)=(2/3)ⁿ→0) and Hausdorff = box-counting dimension EXACTLY log 2 / log 3 = ln2/ln3 ≈ 0.6309297535714574, refuting the naive "only one middle third removed ⇒ ~2/3 survives" (measure 2/3) and the naive "an uncountable subset of the line has dimension 1" (or a measure-zero dust dimension 0)
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T09:00:00Z
