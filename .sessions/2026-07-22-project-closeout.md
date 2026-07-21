@@ -1,8 +1,8 @@
 # Project closeout — write the permanent final record: docs/PROJECT-CLOSEOUT.md, link it from the docs index, and true up control/status.md at the close of the run
 
-> **Status:** in-progress
+> **Status:** complete
 
-> **📊 Model:** Claude Opus 4 family · high · docs/closeout
+> **📊 Model:** Claude Opus 4 family · high · docs-only
 started: 2026-07-22T00:00:00Z
 
 💓 Heartbeat:
@@ -43,3 +43,11 @@ A single definitive closeout record, written for two cold readers — the owner 
 any future session opening the repository fresh — collapses the scattered
 heartbeat/ledger state into one linked, verifiable page and states exactly where
 the work resumes if it is ever revived.
+
+## ✅ Flip note (born-red → complete)
+This card committed FIRST with Status: in-progress to hold the PR red behind the
+substrate-gate; it flips to complete as the deliberate LAST commit, after
+`docs/PROJECT-CLOSEOUT.md`, the docs-index link in `docs/current-state.md`, and
+the `control/status.md` true-up all landed and `python3 bootstrap.py check
+--strict` reported the born-red hold as the sole remaining red. The flip clears
+the hold and releases native squash auto-merge on green.
