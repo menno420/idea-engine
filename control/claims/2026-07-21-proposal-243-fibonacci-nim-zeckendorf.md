@@ -1,0 +1,5 @@
+# claim — PROPOSAL 243 · Fibonacci nim (Whinihan) P-positions = Fibonacci numbers + Zeckendorf strategy
+
+- `claude/fibonacci-nim-zeckendorf` · **scope** — author superbot-games PROPOSAL 243 (Fibonacci nim: the player to move loses iff n is a Fibonacci number, optimal move = smallest Zeckendorf summand) → append `## PROPOSAL 243` block to control/outbox.md; files: ideas/superbot-games/fibonacci-nim-zeckendorf-2026-07-21.md, ideas/superbot-games/verify_243_fibonacci_nim.py, control/outbox.md, .sessions/2026-07-21-fibonacci-nim-zeckendorf.md, control/claims/2026-07-21-proposal-243-fibonacci-nim-zeckendorf.md · 2026-07-21
+
+Notes: born-red card (Status: in-progress) holds the PR red behind the substrate-gate until the deliberate flip; SEED=20260717, results_sha256=344cdaa21a550c745184aaab00951db1063f522d3fe25544738299fdf8ee7dce (in-process double-run + separate re-invocation byte-identical); all four gates PASS each in its own direction; grounding pinned to Wikipedia "Fibonacci nim" oldid 1341159330 and "Zeckendorf's theorem" oldid 1344127047. P243 → V256 (+13 offset). Does not touch control/status.md.
