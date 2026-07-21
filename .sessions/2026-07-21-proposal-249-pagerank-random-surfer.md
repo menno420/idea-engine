@@ -1,6 +1,6 @@
 # PROPOSAL 249 — PageRank / random-surfer stationary distribution on a FIXED 4-node directed graph (0→{1,2}, 1→{2,3}, 2→{0}, 3→{} dangling), damping d=1/2, uniform teleport 1/N: the row-stochastic Google matrix has the EXACT rational left-eigenvector π=(52/179, 40/179, 50/179, 37/179) (πG=π, Σπ=1) — refuting the naive belief that the stationary attention share is proportional to raw in-degree (in-degree share (1/5,1/5,2/5,1/5) is rejected on the same random-surfer sample at max|z|=646.5)
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T09:15:03Z
