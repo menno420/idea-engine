@@ -1,6 +1,6 @@
 # PROPOSAL 243 — Fibonacci nim (Whinihan's game): the player to move loses iff n is a Fibonacci number (1,2,3,5,8,13,21,…), and the optimal winning move is to remove the smallest Fibonacci summand of n's Zeckendorf representation — refuting the naive "multiples of 3" and "powers of two" losing-set guesses
 
-> **Status:** in-progress
+> **Status:** complete
 
 > **📊 Model:** Claude Opus · high · idea/planning
 started: 2026-07-21T05:04:43Z
