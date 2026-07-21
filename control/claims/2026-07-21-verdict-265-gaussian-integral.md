@@ -1,0 +1,5 @@
+# claim — VERDICT 265 · Gaussian (Euler–Poisson) integral ∫e^{−x²}dx=√π / exact rational even-moment ratio
+
+- `claude/verdict-265-gaussian-integral` · **scope** — VERDICT 265 adjudication of PROPOSAL 252 (the Gaussian / Euler–Poisson integral ∫_{−∞}^{∞} e^{−x²} dx = √π exactly, with even moments M_{2m}=√π·(2m−1)!!/2^m giving the DIMENSIONLESS ratio R_m=(2m−1)!!/2^m=(2m)!/(4^m·m!) that is EXACTLY RATIONAL and scale-invariant, and the full integral obeying √a·∫e^{−a(x−μ)²}dx=√π) → append `## VERDICT 265` block to control/outbox.md + bump control/status.md high-water to P252/V265; files: control/outbox.md, control/status.md, control/claims/2026-07-21-verdict-265-gaussian-integral.md · 2026-07-21
+
+Notes: control-plane-only diff (control fast lane, no session card); ruling APPROVE; verifier ideas/fleet/verify_252_gaussian_integral_sqrt_pi.py (file sha256 1f348d8524b2a4f6f662c880455662c0fe1daa00226a0fc24e76464f51dd5115), results_sha256=f8d553495590f7e0dc52d702e6b3dbb813464b4b48e8bc3a159f140b1e88c0d8 reproduced byte-for-byte three ways; built ON TOP of the sim-lab reproduction mirror #350 (merge 78af9c8), no competing sim-lab PR. Lands via native merge-on-green.
