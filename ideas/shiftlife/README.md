@@ -4,7 +4,7 @@
 > README.md § Sections).
 
 Ideas FOR this lane: files per the idea grammar, harvested lane-born ideas
-indexed by link below. Claim this section (`claims/`) before working it.
+indexed by link below. Claim this section (`control/claims/`) before working it.
 
 > Section created 2026-08-13 (substrate-kit v1.21.0 upgrade PR): the roster
 > `check_sections.py` reads has listed `shiftlife` as an active lane since its
