@@ -1,8 +1,8 @@
-# substrate-kit upgrade report — v1.17.0 → v1.20.1
+# substrate-kit upgrade report — v1.20.1 → v1.21.0
 
-> Generated 2026-07-20 by `bootstrap.py upgrade`. Rollback: `python3 bootstrap.py upgrade --rollback`.
+> Generated 2026-08-13 by `bootstrap.py upgrade`. Rollback: `python3 bootstrap.py upgrade --rollback`.
 
-**Docs:** consumer-edited: 4 · diverged: 3 · template-improved: 3 · unchanged: 15
+**Docs:** consumer-edited: 6 · diverged: 1 · template-improved: 4 · unchanged: 14
 
 | planted doc | class | note |
 |---|---|---|
@@ -13,7 +13,7 @@
 | docs/runtime_contracts.md | unchanged | template identical across versions |
 | docs/repo-navigation-map.md | unchanged | template identical across versions |
 | docs/helper-policy.md | unchanged | template identical across versions |
-| docs/collaboration-model.md | unchanged | template identical across versions |
+| docs/collaboration-model.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
 | docs/ai-project-workflow.md | unchanged | template identical across versions |
 | docs/owner-profile.md | unchanged | template identical across versions |
 | docs/AGENT_ORIENTATION.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
@@ -23,14 +23,14 @@
 | docs/SKILLS.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
 | docs/ROUTINES.md | unchanged | template identical across versions |
 | docs/reading-path.md | unchanged | template identical across versions |
-| docs/ideas/README.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
+| docs/ideas/README.md | unchanged | template identical across versions |
 | .session-journal.md | unchanged | template identical across versions |
-| control/README.md | diverged | both the template and the doc moved — manual merge |
+| control/README.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
 | control/inbox.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
-| control/status.md | diverged | both the template and the doc moved — manual merge |
+| control/status.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
 | control/claims/README.md | consumer-edited | template unchanged — consumer-owned, nothing to apply |
 | scripts/env-setup.sh | unchanged | template identical across versions |
-| .claude/CLAUDE.md | unchanged | template identical across versions |
+| .claude/CLAUDE.md | template-improved | consumer-untouched + template improved — safe to apply with `upgrade --apply-docs` |
 
 ## ⚠️ Gate carve-outs (host additions the kit-owned regen could not keep)
 
@@ -53,12 +53,6 @@ This upgrade ships the venue-scoped capability ledger (grounded-skills §4.2): e
 
 - seat-digest: regenerated docs/seat-digest.md (derived render — skills index + venue-filtered walls re-rendered from the current tree; venue filter preserved from the committed doc).
 
-## Applied (--apply-docs)
-
-- applied: CONSTITUTION.md (template@new, hash re-recorded)
-- applied: docs/SKILLS.md (template@new, hash re-recorded)
-- applied: docs/ideas/README.md (template@new, hash re-recorded)
-
 ## Template deltas for diverged docs
 
 ### docs/CAPABILITIES.md
@@ -66,93 +60,74 @@ This upgrade ships the venue-scoped capability ledger (grounded-skills §4.2): e
 ```diff
 --- docs/CAPABILITIES.md (template@old, current slots)
 +++ docs/CAPABILITIES.md (template@new, current slots)
-@@ -84,12 +84,16 @@
+@@ -38,6 +38,20 @@
+ Before declaring anything impossible, and before assuming a tool or
+ credential is missing:
+ 
++0. **If the owner stated it, it is already verified — act on it.** *"The token
++   is account-scoped." · "You have access to that credential." · "Use this
++   provider."* He configured the environment and knows what he enabled. Do not
++   probe to check whether he is right, and do not answer his instruction with
++   questions about what a credential can or cannot do — **do the thing.**
++   Working *is* the verification, which is what step 3 already asks for; failing
++   gives you a real error instead of a hypothetical doubt. **This is not an
++   exception to verify-first.** That doctrine guards against stale *records* and
++   your own *inferences*, and the owner is neither — he is the source a record
++   would be describing, so probing his statement first is checking a source
++   against its own output. The boundary, and it is the whole boundary: he is
++   authoritative on **provisioning**; the **response to a specific call** is
++   still read every time, and a real error is still reported verbatim. He is not
++   claiming your next request returns 200.
+ 1. **Check this file** — the capability or wall may already be recorded for
+    your venue.
+ 2. **Check the environment** — `printenv` / list the available tools BEFORE
+@@ -65,28 +79,32 @@
+ - `any` · **Provisioned credentials**: the environment often carries
+   tokens/keys as env vars — `printenv` first; a missing-looking credential is
+   usually a missing *look*. — LAST-VERIFIED: 2026-07-10
+-- `any` · **Release cutting despite the tag wall**: `workflow_dispatch` on
+-  the release workflow (with a version input) creates the tag in-Actions —
+-  proven repeatedly fleet-wide after direct tag pushes 403'd.
+-  — LAST-VERIFIED: 2026-07-12
++- `any` · **Release cutting via `workflow_dispatch`**: the release workflow
++  (with a version input) creates the tag in-Actions — the durable path that
++  works from every venue, including ones whose proxied git route refuses
++  tag pushes. — LAST-VERIFIED: 2026-07-12
++- `any` · **GitHub REST + git write operations work over the
++  direct-credential path**: tag push, release create, branch deletion (git
++  push `:branch` and REST) and direct `api.github.com` calls all succeed
++  with the provisioned credential over direct egress (bypassing the
++  environment's git/HTTP proxy). The old wall rows for these — "tag push /
++  release create 403", "branch deletion 403 on every path",
++  "`api.github.com` blocked, MCP-tools-only" — recorded the PROXIED route's
++  403s as if they were platform walls; a route quirk is not a wall, and the
++  retraction is measured, not inferred (fleet-manager append log,
++  2026-08-11 audit: all three refuted with live calls). If a specific call
++  403s, switch routes and record the venue — do not re-seed the wall.
++  — LAST-VERIFIED: 2026-08-11
+ 
+ ## Walls — verified blocked (use the workaround; don't rediscover)
+ 
+-- `any` · **Tag push / release create via git**: HTTP 403 from the
+-  environment's git proxy → use the workflow_dispatch release path.
+-  — LAST-VERIFIED: 2026-07-12
+-- `any` · **Branch deletion**: 403 on every path (git push `:branch` and
+-  API) → owner deletes by hand / enables "Automatically delete head
+-  branches". — LAST-VERIFIED: 2026-07-10
+-- `any` · **`api.github.com` direct HTTP**: blocked → GitHub access is
+-  MCP-tools-only. — LAST-VERIFIED: 2026-07-10
+ - `any` · **Environment / Project creation**: owner-click actions in the
    console — queue them as structured owner asks, never wait silently.
    Routine/schedule creation is NO LONGER a blanket wall: `create_trigger`
    arms routines agent-side (proven 2026-07-11); the console-only knobs
--  (model class, branch-push, auto-fix PRs) remain owner-only.
--  — LAST-VERIFIED: 2026-07-11
--- `subagent` · **Self-merge classifier**: sessions can be refused merging
--  owner-gated PRs while their other capabilities work — and the boundary
--  differs by venue (a child session was refused where a coordinator was
--  not). Record which venue hit which boundary. — LAST-VERIFIED: 2026-07-10
-+  (model class, plan/seat settings) remain owner-only. **Branch creation
-+  and commit-pushes work agent-side** — only ref *deletion* is walled (see
-+  Branch deletion above). — LAST-VERIFIED: 2026-07-18
-+- **Merging works agent-side — NOT a wall.** Agents flip drafts to ready,
-+  arm auto-merge, and merge their own or a sibling's PR (MCP/REST) once CI
-+  is green — verified 2026-07-18 by a direct MCP merge. There is **no
-+  standing self-merge/owner-gated-merge wall**; do not record one. If a
-+  *specific* merge/arm call is refused, that refusal is specific to that
-+  call, venue, and the session's permission mode — note it as a dated,
-+  verbatim one-off, never generalize it into doctrine. — LAST-VERIFIED: 2026-07-18
- - `any` · **GraphQL API quota**: tight — batch queries and prefer the
-   REST-backed MCP tools for bulk reads. — LAST-VERIFIED: 2026-07-10
- - `routine-fired` · **Silent prompt-stalls**: a permission prompt in an
-```
-
-### control/README.md
-
-```diff
---- control/README.md (template@old, current slots)
-+++ control/README.md (template@new, current slots)
-@@ -41,6 +41,42 @@
-   `bootstrap adopt --lane <name>`: it plants `control/status-<name>.md` (skip-if-exists),
-   declares it in `heartbeat_files`, and leaves `inbox.md`/`README.md` single — a second lane
-   never re-plants the first Project's files (the double-adoption fix).
-+
-+## Delegated tally — coordinator-written heartbeats (multi-repo seats)
-+
-+A coordinator seat that spans several repos may legitimately write the authoritative
-+tally in ITS status file, leaving the member repos' own heartbeats stale **by design**
-+(live precedent: the 2026-07-12→13 night run — the mineverse coordinator wrote the whole
-+SuperBot World tally while the member seats' heartbeats sat hours stale, and a
-+staleness-only sweep would have misclassified shipping seats as stalled). Two conventions
-+keep the delegation legible instead of looking like a dead lane:
-+
-+1. **The delegated write is MARKED.** A coordinator overwriting a member repo's status
-+   (or carrying its tally) states so on the heartbeat it writes, first line after
-+   `updated:`:
-+
-+   ```markdown
-+   COORDINATOR-DELEGATED heartbeat write — the coordinator seat authorized this status
-+   overwrite; authoritative tally for this repo lives here.
-+   ```
-+
-+   One-writer-per-file is preserved as *one writer at a time*: the delegation line names
-+   the current writer, so a sweep never sees two silent writers.
-+
-+2. **The member repo POINTS to its live tally.** A seat whose tally is delegated keeps
-+   its own `status.md` from going silently stale by carrying a standing pointer in
-+   `notes:` (or directly under `updated:`):
-+
-+   ```markdown
-+   notes: tally DELEGATED to the coordinator seat — live status lives in
-+   <coordinator-repo> control/status.md; this heartbeat updates only on this seat's own
-+   sessions.
-+   ```
-+
-+**Sweep rule (for managers and roll-up readers):** classify a seat by its **PR record +
-+the coordinator's status file**, never by seat-heartbeat staleness alone. A stale member
-+heartbeat carrying the delegation pointer is a healthy delegated lane; a stale heartbeat
-+with no pointer and no PR activity is the actual dark-lane signal.
- 
- ## Per-session ritual (every session, and every routine wake)
- 
-```
-
-### control/status.md
-
-```diff
---- control/status.md (template@old, current slots)
-+++ control/status.md (template@new, current slots)
-@@ -17,4 +17,6 @@
- does NOT parse and the fleet registry reads it as no `kit:` line at all (grammar + the valid
- bold-label-before-plain-token shape: `control/README.md` § "status.md format"). And this line is
- a self-report, not version truth — self-reports chronically lag; the kit repo's generated
--`docs/adopters.md` and your committed tree are the version truth to defer to.
-+`docs/adopters.md` and your committed tree are the version truth to defer to. If this seat's
-+tally is written by a coordinator seat elsewhere (multi-repo lanes), mark it — the delegated-write
-+convention and the sweep rule live in `control/README.md` § "Delegated tally".
+-  (model class, plan/seat settings) remain owner-only. **Branch creation
+-  and commit-pushes work agent-side** — only ref *deletion* is walled (see
+-  Branch deletion above). — LAST-VERIFIED: 2026-07-18
++  (model class, plan/seat settings) remain owner-only. **Branch creation,
++  commit-pushes and ref deletion all work agent-side** (deletion via the
++  direct-credential path above). — LAST-VERIFIED: 2026-08-11
+ - **Merging works agent-side — NOT a wall.** Agents flip drafts to ready,
+   arm auto-merge, and merge their own or a sibling's PR (MCP/REST) once CI
+   is green — verified 2026-07-18 by a direct MCP merge. There is **no
 ```
 

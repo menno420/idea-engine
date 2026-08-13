@@ -1,0 +1,17 @@
+# idea-engine — false-wall allowlist (kit seam: engine.checks.allowlist)
+#
+# Schema: {path, kind, reason REQUIRED, triaged, by, verdict}. Matching is EXACT
+# on path + kind; a reason-less entry suppresses nothing and is itself reported
+# (fail-closed). Verdicts: false_positive | accepted_risk.
+# Format note: the parser accepts a FLAT list of FLAT mappings only — one line
+# per key, no folded or block scalars.
+#
+# Written 2026-08-13 during the substrate-kit v1.21.0 upgrade. Both findings are
+# NEW under the v1.21.0 matchers (the banked v1.20.1 dist fires 0 on this tree)
+# and both flag ANTI-wall text.
+- path: CONSTITUTION.md
+  kind: false-wall:classifier-denies-merge
+  reason: Line 92's flagged phrase sits inside the estate's own ANTI-wall instruction — "there is no standing \"classifier-denied\" merge wall; do not invent one, and never route a mergeable green PR to the owner" — the sentence exists to forbid exactly the wall the checker read into it. Rewording would delete the instruction that prevents the wall.
+  verdict: false_positive
+  triaged: 2026-08-13
+  by: substrate-kit v1.21.0 upgrade (phase-3 wave)
