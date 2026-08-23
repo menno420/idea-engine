@@ -6,10 +6,52 @@
 > work always win over this file. Read it second (right after the working
 > agreement) and keep it current as the project moves.
 
-## SEAT DORMANT (owner order 2026-07-14)
+## ⚠️ READ THIS FIRST — this repository is NOT dead
 
-The Ideas Lab seat was shut down for good by owner order on 2026-07-14 —
-EAP FINAL SHUTDOWN, landed as ORDER 014 in `control/inbox.md` via PR #424.
+**A standing asset, on-demand, with planned work.** If you booted here and the
+next section told you this repo was shut down, that section is **superseded** and
+you should keep going.
+
+Two owner directives, both dated **2026-07-26**, supersede the 2026-07-14
+shutdown order below — twelve days later, and the estate's precedence rule is
+that the owner's most recent instruction beats any dated shutdown note:
+
+- **OD-4** — *"`idea-engine` + `sim-lab` remain active — standing assets for
+  future projects (566 idea files; the 4-gate verification method)."*
+- **OD-10** — *"Ideas Lab is ON-DEMAND. No standing loop. If work runs dry, use
+  `idea-engine` to source the next feature."*
+
+Both are recorded in the hub's directive table:
+[`fleet-manager` → `docs/planning/2026-07-26-consolidation-program.md`](https://github.com/menno420/fleet-manager/blob/main/docs/planning/2026-07-26-consolidation-program.md).
+
+**There is planned work here — program step R6:** *"Ideas-Lab truth pass
+(active, no fold): make the two-era reality legible from the front door
+(fleet-ideation corpus vs the math-verification loop); surface the 566-file idea
+corpus so the owner can actually browse it."* Done when the owner can find and
+read the corpus without archaeology. **This banner is a first slice of exactly
+that** — the front door said the opposite of the truth.
+
+**What "on-demand" means in practice:** nothing runs on a loop here and no
+session should invent a standing cadence. The repo is worked when a task needs
+an idea sourced from the corpus, or when R6 is picked up.
+
+**Why this was wrong for a month, recorded so it is not re-derived:** the
+shutdown order retired the *autonomous seat*, which was real and is unchanged.
+OD-4 then kept the *repository* as an asset. Nothing wrote the second half onto
+the front page, so a cold session met "shut down for good" and stopped. Found by
+a fleet-wide intent audit on 2026-08-23, which probed this file for `standing
+asset`, `on-demand`, `R6` and `resume` and got **zero hits for all four**.
+
+---
+
+## ~~SEAT DORMANT (owner order 2026-07-14)~~ — HISTORICAL, superseded 2026-07-26
+
+> **Era banner:** accurate for the *autonomous seat*, which is genuinely
+> retired. **Not** accurate about the repository, per OD-4/OD-10 above. Kept
+> verbatim because the handoff below it is still the real revival record.
+
+~~The Ideas Lab seat was shut down for good by owner order on 2026-07-14 —~~
+~~EAP FINAL SHUTDOWN, landed as ORDER 014 in `control/inbox.md` via PR #424.~~
 The final heartbeat is `control/status.md` (SEAT DORMANT stamp; routine
 facts single-homed there). The revival record — routine record, revival
 path, parked list, duplication ledger — is [docs/HANDOFF.md](HANDOFF.md).
